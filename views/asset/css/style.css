@@ -1,0 +1,4133 @@
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}html{box-sizing:border-box}*,::after,::before{box-sizing:inherit}img,video{width:100%;vertical-align:middle;}
+
+
+
+/* ----------------------- FONT - VARIABLE ----------------------- */
+
+/* TITRE */
+@font-face {
+    font-family: 'AmericanaRegular';
+    src: url('../font/Americana/americana_font_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+:root{
+
+    /* Couleur vert (principale) */
+    --vertFonce: #172A23;
+    --vertFonceMoin: #243b32;
+    --vertMoyen: #3A5D4D;
+    --vertScroll: #1e5a3f;
+    --vertClair: #EBF2ED;
+    
+    /* Couleur vert (secondaire) */
+    --vertFonceTransparent: #65736D;
+    --vertNavTrait:#D4DFD7;
+    --vertHover: #56846E;
+    --vertScroll2: #576D5D;
+    --vertNavMenu: #9CA7A2;
+}
+
+
+
+
+/* -------------------------- Scroll -------------------------- */ 
+html {
+    scroll-behavior: smooth;
+}
+
+
+                    /* Scrollbar -voir ligne 1619*/ 
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--vertClair); /* color of the tracking area */
+  }
+    
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: var(--vertScroll2); 
+    box-shadow: 0 -100vh 0 100vh var(--vertScroll2);
+}
+    
+    /* Handle on hover */
+    /* ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+    } */
+
+
+/* AJAX */
+.hidden {
+    display: none;
+}
+
+  
+    
+/* -------------- NAVIGATION (event.php) -------------- */
+.nav_home_page,
+.navbar {
+    /* padding: 30px 70px; */
+    border-bottom: solid 1px var(--vertNavTrait);
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 150px 0 80px;
+    transition: all 0.25s ease-in-out;
+    height: 80px;
+}
+
+
+.navigation{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    color: var(--vertMoyen);
+    
+}
+
+.navigation div{
+    margin-left: 30px;
+}
+
+#recherche{
+    width: 286px;
+    height: 30px;
+    border: solid 1px var(--vertFonce);
+    background-color: transparent;
+}
+
+#recherche::placeholder{
+    text-align: end;
+    color: var(--vertFonce);
+    opacity: 0.5;
+    padding-right: 8px;
+}
+
+.trait1{
+    width: 45px;
+    height: 3px;
+    background-color: var(--vertFonceMoin);
+    margin-bottom: 8px;
+}
+
+.trait2{
+    width: 45px;
+    height: 3px;
+    background-color: var(--vertFonceMoin);
+    margin-top: 8px;
+}
+
+
+
+
+/* NAV - Animation scroll - DEBUT*/
+
+.nav_home_page.scroll{
+    background-color: var(--vertFonce);
+    height: 75px;
+}
+
+
+.navbar.scroll{
+    background-color: #fff;
+    height: 75px;
+}
+
+/* NAV - Animation scroll - FIN */
+    
+
+
+
+
+
+/* Personnalisation */
+
+.nav_ss_menu{
+    display: flex;
+}
+
+
+.trigger{
+    display: none;
+}
+
+
+.burger > div {
+width: 45px;
+height: 3px;
+background: var(--vertFonce);
+margin-bottom: 0px;
+transition: all 0.5s ease-in;
+}
+
+
+.burger > div:nth-child(3) {
+margin-bottom: 0;
+}
+
+.burger,
+.trigger {
+cursor: pointer;
+position: fixed;
+top: 33px;
+right: 70px;
+display: block;
+margin: 0;
+z-index: 11;
+}
+
+/* Le trigger est un input qu'on a placé devant le burger qui sera cliqué quand l'user clique sur le burger: il a la meme taille */
+.trigger {
+z-index: 12;
+width: 45px;
+height: 26px;
+opacity: 0;
+}
+/* Animation du burger */
+
+.trigger:checked + .burger > div:nth-child(1) {
+/* background-color: aqua; */
+/* déplacer au milieu et tourner pour se mettre en diagonale: */
+transform: translateY(6px) rotate(-45deg);
+background-color: #fff;
+}
+
+.trigger:checked + .burger > div:nth-child(2) {
+/* background-color: #46C; */
+/* monter et pivoter */
+transform: translateY(-6px) rotate(+45deg);
+background-color: #fff;
+}
+.trigger:checked ~ .menu_nav{
+    transform: translate(0);
+}
+/* NAVIGATION */
+.menu_nav {
+position: fixed;
+top: 0;
+right: 0;
+left: 0;
+bottom: 0;
+display: flex;
+flex-direction: column;
+justify-content: center;
+transform: translate(-100%);
+transition: all 0.8s ease-in-out;
+background-color: rgba(255, 255, 255, 0.5);
+/* display: none;  */
+/* n'affecte plus la nav */
+}
+
+    
+    
+        
+/*///////////////////////////////// PERSONALISATION - MENU */
+
+.grid_menu{
+    display: flex;
+    margin: auto;
+    width: 100%;
+    /* Espace navigation à gauche */
+    flex-direction: row;
+}
+
+.menu_vert{
+    background-color: var(--vertFonce);
+    padding-top: 262px;
+    width: 100%;
+    position: relative;
+}
+.menu_fond{
+    background-color: #172a2385;
+    width: 100%;
+}
+
+
+/* CONTENU MENU */
+
+.nav2_container{
+    /* width: 55%; */
+    width: 63%;
+    margin: auto;
+    
+}
+
+/* LOGO - MENU DE NAVIGATION */
+
+.logo_menu {
+    width: 100px;
+    position: absolute;
+    top: 36px;
+    left: 80px;
+}
+    
+/* --- PROFIL CONNEXION  - (prénom & image profil rond) --- */
+
+.profil_nav {
+    display: flex;
+    position: absolute;
+    top: 179px;
+    align-items: center;
+}
+
+.img_profil {
+    border: 2px solid var(--vertNavMenu);
+    border-radius: 50%;
+    width: 62px;
+    height: 62px;
+}
+
+.profil_nav p{
+    text-decoration: none;
+    font-family: 'Karla', sans-serif; 
+    color: var(--vertNavMenu);
+    font-size: 18px;
+    font-weight: 200;
+    padding-left: 24px;
+} 
+    
+/* --- ESPACE NAVIGATION  - MENU (admin & client) --- */
+
+.nav2_menu{
+    margin-top: 54px;
+}
+
+.nav2_menu ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav2_menu ul a{
+    text-decoration: none;
+    font-family: 'Karla', sans-serif; 
+    color: var(--vertHover);
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in-out;
+}
+
+.nav2_menu ul a:hover{
+    color: blue;
+}
+    
+    
+/* --- ESPACE NAVIGATION  - LIENS --- */
+
+.list_sous_menu{
+    margin-top: 50px;
+}
+
+.list_sous_menu ul li a{
+    font-family: 'AmericanaRegular';
+    color: #ebf2ed7a;
+    text-decoration: none;
+    font-size: 38px;
+    /* font-size: 43px; */
+    transition: all 0.25s ease-in-out;
+    text-transform: uppercase;
+}
+
+.list_sous_menu ul li a.linkActive{
+    color: var(--vertClair);
+    letter-spacing: 1px;
+}
+
+.list_sous_menu ul li{
+    padding-top: 47px;
+    letter-spacing: 2px;
+}
+
+.list_sous_menu ul li a:hover{
+    color: var(--vertHover);
+}
+    
+
+/* --- DECONNEXION - LIENS --- */
+
+.deconnexion {
+    text-align: end;
+    /* margin-top: 234px; */
+    position: absolute;
+    bottom: 85px;
+    right: 165px;
+}
+.deconnexion a{
+    text-decoration: none;
+    font-family: 'Karla', sans-serif; 
+    color: var(--vertNavMenu);
+    font-size: 18px;
+    font-weight: 200;
+}
+
+
+/* LIENS ACTIF - class active */
+
+.nav2_menu ul li a.active {
+    color: blue;
+    position: relative;
+}
+
+.nav2_menu ul li a.active::before {
+    content: "";
+    position: absolute;
+    background: blue;
+    width: 4px;
+    height: 4px;
+    bottom: -10px;
+    transform-origin: 100% 0;
+    transform: scaleX(1);
+    border-radius: 50%;
+}
+
+/* ANIMATION LIENS */
+.slide-line{
+    position: relative;
+}
+
+.slide-line::before{
+    content: "";
+    position: absolute;
+    background: blue;
+    width: 100%;
+    height: 2px;
+    bottom: -10px;
+    /* point d'ancrage */
+    transform-origin: 100% 0;
+    transform: scaleX(0);
+    transition: transform 0.4s;
+}
+
+.slide-line:hover::before{
+    transform-origin: 0 0;
+    transform: scaleX(1);
+}
+
+/* LIENS ACTIF - class activeLink */
+
+/* .nav2_menu ul li .activeMenuLink{
+    color: red;
+} */
+
+.nav2_menu ul li a.activeMenuLink {
+    color: white;
+    position: relative;
+}
+
+.nav2_menu ul li a.activeMenuLink::before {
+    content: "";
+    position: absolute;
+    background: white;
+    width: 100%;
+    height: 2px;
+    bottom: -10px;
+    transform-origin: 100% 0;
+    transform: scaleX(1);
+}
+ 
+
+
+
+
+/* -------------- NAVIGATION (event.php) - ANCIENNE VERSION-------------- */
+/* nav{
+    border-bottom: solid 1px var(--vertNavTrait);
+    background: white;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 70px;
+
+}
+
+.navigation{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    color: var(--vertMoyen);
+    
+}
+
+.navigation div{
+    margin-left: 30px;
+}
+
+#recherche{
+    width: 400px;
+    height: 26px;
+    border: solid 1px var(--vertFonce);
+}
+
+.navigation #recherche::placeholder{
+    text-align: end;
+    color: var(--vertFonce);
+    opacity: 0.5;
+    padding-right: 8px;
+}
+
+.trait1{
+    width: 45px;
+    height: 3px;
+    background-color: var(--vertFonceMoin);
+    margin-bottom: 8px;
+}
+
+.trait2{
+    width: 45px;
+    height: 3px;
+    background-color: var(--vertFonceMoin);
+    margin-top: 8px;
+} */
+
+
+
+
+/* ------- MODAL MESSAGE (info_user.php, home.php, event.php) - DEBUT ------- */
+
+
+/* --- MODAL CONTAINER --- */
+
+#modalInfoPerso,
+#modalInscription,
+#modalEvent {
+    position:fixed;
+    z-index:12;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: rgba(255, 255, 255, 0.5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+#modalInfoPerso:not(:target),
+#modalInscription:not(:target),
+#modalEvent:not(:target) {
+    opacity:0;
+    visibility:hidden;
+    transition:0.5s;
+}
+
+#modalInfoPerso:target,
+#modalInscription:target,
+#modalEvent:target {
+    opacity:1;
+    visibility:visible;
+    transition:0.5s;
+}
+
+
+
+/* --- MODAL - CODE COMMUN --- */
+
+.modal_content {
+    position: relative;
+    width: 600px;
+    background: var(--vertFonceMoin);
+    padding: 50px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* CROIX pour fermer le Popup */
+.modal_close {
+    display:block;
+    position:absolute;
+    top:20px;
+    right:20px;
+    font-size:20px;
+}
+
+.img_croix_popup{
+    width: 18px;
+    height: 18px;
+}
+
+/* Div Groupe texte (Titre, trait, texte courant) Popup */
+/* Li */
+.modalTexte a{
+    color: var(--vertHover);
+}
+
+/* TITRE Popup */
+.modalTitre {
+    color: var(--vertClair);
+    font-size: 21px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+}
+
+/* SEPARATION Titre/Texte Popup */
+.modalTrait{
+    margin: 15px 0;
+}
+
+
+/* TEXT COURANT Popup */
+.modal_content p {
+    color: var(--vertClair);
+    margin: 0;
+    font-size: 18px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    line-height: 24px;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* BOUTON Popup - paramètre général */
+.modal_btn {
+    text-decoration: none;
+    width: 400px;
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+}
+
+.btn_modal_1_trait {
+    background-color: var(--vertFonceMoin);
+    border: solid 1px var(--vertClair);
+    color: var(--vertClair);
+}
+
+.btn_modal_2_fond {
+    background-color: var(--vertClair);
+    border: solid 1px var(--vertClair);
+    color: var(--vertFonceMoin);
+}
+
+/* -------- MODAL MESSAGE (info_user.php, home.php, event.php)- FIN -------- */
+
+
+
+/* -------------- MODAL BILLET (list_book.php) - DEBUT -------------- */
+
+/* -- MODAL BILLET - structure générale (list_book.php) -- */
+
+#modalBillet,
+#modalPanier{
+    position:fixed;
+    z-index:10;
+    left:0;
+    right:0;
+    bottom:0;
+    display:flex;
+    justify-content:end;
+    align-items:center;
+}
+
+#modalBillet{
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#modalPanier{
+    top:60px;
+    background: transparent;
+}
+
+#modalBillet{
+    top:0;
+}
+
+.modalContentBillet {
+    position:relative;
+    width:615px;
+    /* width:500px; */
+    background:var(--vertFonce);
+    /* padding:50px; */
+    height: 100%;
+}
+
+.modalBilletBg{
+    /* background-image: url(./img/coco2.JPG); */
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    width: 46%;
+    height: 100%;
+    opacity: 0.2;
+}
+
+
+.modalTitreBillet {
+    color:var(--vertClair);
+}
+
+.modalContentBillet p {
+    color:var(--vertClair);
+    margin:0;
+}
+
+/* CROIX */
+.modalCloseBillet {
+    display:block;
+    position:absolute;
+    top:20px;
+    right:20px;
+    font-size:20px;
+}
+
+.img_croix_popup2 {
+    width: 20px;
+    height: 20px;
+}
+
+#modalBillet:not(:target) {
+    opacity:0;
+    visibility:hidden;
+    transition:0.5s;
+}
+
+#modalBillet:target {
+    opacity:1;
+    visibility:visible;
+    transition:0.5s;
+}
+
+/* BOUTON */
+.btn_billet_panier{
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    position: fixed;
+    bottom: 30px;
+    right: 5%;
+    width: 300px;
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#lb_btnBillet {
+    background-color: var(--vertMoyen);
+    color: var(--vertClair);
+    /* margin-bottom: 30px; */
+}
+
+/* -------------- MODAL BILLET - modélisation (list_book.php) -------------- */
+
+
+.billet{
+    width: 256px;
+    position: fixed;
+    right: 176px;
+}
+
+/* -- MODAL BILLET (partie haute)-- */
+
+
+.billet_partie_haute{
+    width: 100%;
+    height: 565px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-bottom: 2px dashed var(--vertNavTrait);
+    border-radius: 11px;
+}
+
+
+/* IMAGE BILLET */
+.imgEventBillet {
+    width: 96%;
+    height: 318px;
+    margin: auto;
+    margin-top: 4px;
+}
+
+/* DATE */
+.divDate {
+    background-color: var(--vertFonceMoin);
+    width: 30px;
+    height: 101px;
+    position: absolute;
+    top: 33px;
+    left: -1px;
+    border-radius: 0 4px 4px 0;
+    /* position: relative; */
+}
+
+.dateBillet {
+    color: var(--vertClair);
+    font-family: 'AmericanaRegular';
+    font-size: 15px;
+    transform: rotate(-90deg);
+    top: 42px;
+    right: -27px;
+    position: absolute;
+    letter-spacing: 3px;
+}
+
+/* TITRE & SOUS-TITRE */
+.titreBillet{
+    text-align: center;
+    color: var(--vertMoyen);
+    font-family: 'AmericanaRegular';
+    font-size: 34px;
+}
+
+.categorieBillet {
+    margin-top: 6px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--vertFonce);
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* PLACE RESERVEES */
+/* .placeBillet{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+} */
+
+.placeBillet{
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-template-areas: 
+    "txtPlaceBillet nbPlaceBillet";
+    text-align: center;
+    border: 1px solid var(--vertFonceTransparent);
+    width: 86%;
+    margin: 20px auto;
+    padding: 10px 0;
+}
+
+
+.txtPlaceBillet{
+    grid-area: txtPlaceBillet;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--vertFonce);
+}
+
+.nbPlaceBillet{
+    grid-area: nbPlaceBillet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'AmericanaRegular';
+    font-size: 24px;
+    color: var(--vertMoyen);
+    border-left: 1px solid var(--vertFonceTransparent);
+}
+
+
+.bgEventBillet{
+    /* background-image: url(./img/coco2.JPG); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    /* border: 1px solid #fff; */
+    border-radius: 7px;
+}
+
+.txtBillet {
+    color: var(--vertFonce);
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    width: 86%;
+    margin: auto;
+    line-height: 15px;
+}
+
+/* -- MODAL BILLET (partie basse)-- */
+
+.billet_partie_basse{
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 11px;
+    padding-bottom: 86px;
+}
+
+.imgCodeBarre{
+    padding: 12px;
+}
+
+
+/* -------------- MODAL BILLET (list_book.php) - FIN -------------- */
+
+
+/* -------------- MODAL PANIER(panier.php) - DEBUT -------------- */
+
+
+/* CONTENU */
+
+.modalContentPanier {
+    position:relative;
+    width:580px;
+    /* width:500px; */
+    background:var(--vertClair);
+    height: 100%;
+    border-left: 1px solid var(--vertFonce);
+    padding-top: 112px;
+    margin-top: 30px;
+}
+
+.modalPanierContainer{
+    width:500px;
+    margin: auto;
+}
+
+.modalPanierAjout{
+    text-transform: uppercase;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    font-style: italic;
+}
+
+.modalPanierContainerItems{
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--vertFonce);
+}
+
+.modalPaniertxt{
+    text-align: center;
+    padding-top: 28px;
+}
+
+/* TEXTE */
+.modalPaniertitre{
+    font-size: 38px;
+    color: var(--vertMoyen);
+    font-family: 'AmericanaRegular';
+    line-height: 41px;
+}
+
+.modalPanierCategorie{
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.modalPanierQuantite{
+    margin-top: 36px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--vertMoyen);
+}
+
+
+/* -- IMAGE EN BACKGROUND (panier.php) -- */
+.modalPanierimg{
+    /* background-image: url(./img/coco2.JPG); */
+    background-repeat: no-repeat;
+    width: 168px;
+    height: 214px;
+    /* height: 232px; */
+    background-position: center;
+    position: relative;
+    background-size: cover;
+    
+}
+
+
+/* CROIX */
+.modalClosePanier {
+    display:block;
+    position:absolute;
+    top:20px;
+    right:20px;
+    font-size:20px;
+}
+
+.img_croix_popup2 {
+    width: 20px;
+    height: 20px;
+}
+
+
+#modalPanier:not(:target) {
+    opacity:0;
+    visibility:hidden;
+    transition:0.5s;
+}
+
+#modalPanier:target {
+    opacity:1;
+    visibility:visible;
+    transition:0.5s;
+}
+
+
+/* BOUTON */
+
+.btn_billet_panier{
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    position: fixed;
+    bottom: 30px;
+    right: 5%;
+    width: 375px;
+    /* width: 300px; */
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#lb_btnPanier {
+    background-color: var(--vertMoyen);
+    color: var(--vertClair);
+    
+    /* margin-bottom: 30px; */
+}
+
+#lb_btnBillet{
+    right: 117px;
+    /* right: 57px; */
+}
+
+/* -------------- MODAL PANIER(panier.php) - FIN -------------- */
+
+
+/* CORRECTION */
+
+/* .lb_container {
+    max-width: 1030px;
+} */
+
+/* .lb_imageEvent {
+    width: 182px;
+    height: 143px;
+} */
+
+
+/* -------------- PAGE EVENT (event.php) -------------- */
+/* --- GENERAL --- */
+.site{
+    display: grid;
+    /* grid-template-columns: repeat(1fr 2fr); */
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-columns: 40% auto;
+    grid-template-areas: 
+    "gauche droite";
+    padding-top: 0px;
+    /* padding-top: 60px; */
+    padding-bottom: 50px;
+}
+
+.siteEvent{
+    grid-template-columns: 45% auto;
+}
+
+
+
+/* --- GAUCHE --- */
+.gauche{
+    grid-area: gauche;
+    background-color: var(--vertFonce);
+    position: fixed;
+    width: 40%;
+    height: 100%;
+}
+
+.gaucheEvent{
+    width: 45%; 
+}
+
+.gaucheImg{
+    grid-area: gauche;
+    /* background-image: url(./img/event_bocal.jpg); */
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    width: 40%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.gaucheImgEvent{
+    width: 45%;
+}
+
+
+/* --- DROITE --- */
+.droite {
+    grid-area: droite;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.containerDroit{
+    width: 730px;
+    margin-top: 75px;
+}
+
+/* Encadré - Etat de l'event */
+.bgEtat{
+    background-color: var(--vertClair);
+    height: 75px;
+    width: 592px;
+    display: flex;
+    margin: auto;
+}
+
+.borderEtat{
+    text-align: center;
+    border: solid 2px var(--vertFonceTransparent);
+    height: 59px;
+    width: 685px;
+    margin: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Texte - Etat de l'event */
+
+.etat{
+    font-size: 14px;
+    color: var(--vertFonceTransparent);
+    font-family: 'AmericanaRegular';
+}
+
+.msgEtat{
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.etatContacter{
+    font-size: 14px;
+    color: var(--vertFonceTransparent);
+    text-decoration: underline;
+    font-family: 'AmericanaRegular';
+}
+
+/* Texte - Etat de l'event - complet */
+#bgEtat_complet{
+    background-color: var(--vertFonce);
+}
+
+/* Texte - Etat de l'event - complet */
+#bgEtat_annule{
+    background-color: var(--vertMoyen);
+}
+
+/* Texte - Etat de l'event - complet */
+#bgEtat_termine{
+    background-color: var(--vertHover);
+}
+
+
+
+/* image produit */
+.imgEvent{
+    background-color: var(--vertFonce);
+    margin: auto;
+    margin-bottom: 60px;
+    width: 376px;
+    height: auto;
+    overflow: hidden;
+    /* width: 470px;
+    height: 700px; */
+}
+
+.imgEvent a img{
+    opacity: 1;
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+    /* icone agrandir */
+    content: "f065";
+}
+
+.imgEvent a img::after{
+    content: "f065";
+    
+}
+
+.imgEvent a img:hover{
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+
+
+/* Fiche produit */
+.droite h1 {
+    font-family: 'AmericanaRegular';
+    color: var(--vertMoyen);
+    font-size: 65px;
+    /* font-size: 72px; */
+    text-align: center;
+    margin-top: 60px;
+    padding: 0 13px;
+}
+
+.droite h2{
+    text-transform: uppercase;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    color: var(--vertFonce);
+    font-size: 21px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+
+.droite h3{
+    font-family: 'AmericanaRegular';
+    color: var(--vertMoyen);
+    font-size: 30px;
+    margin-top: 125px;
+    margin-bottom: 45px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.droite h4{
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-family: 'AmericanaRegular';
+    color: var(--vertFonceMoin);
+}
+
+.droite h4+p{
+    margin-bottom: 55px;
+}
+
+
+/* --- Fiche event - Texte --- */
+.droite p{
+    font-size: 18px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    line-height: 23px;
+    /* font-style: italic; */
+    color: var(--vertFonce);
+}
+
+/* .containerDroit .statePlace{
+    font-weight: 300;
+
+} */
+
+.containerDroit .dateEvent{
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.statePlace span{
+    font-weight: 300;
+}
+
+.place_prix{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    align-items: center;
+}
+
+/* --- Page event - Prix et nbr de place --- */
+
+.prix p,
+.place p{
+    font-family: 'AmericanaRegular';
+    font-size: 19px;
+    color: var(--vertFonceMoin);
+}
+
+.place p{
+    padding-left: 21px;
+}
+
+.prix p span{
+    font-size: 18px;
+}
+
+
+/* --- Page event - encadré place disponible --- */
+.placeDisponible{
+    display: inline;
+    background-color: var(--vertFonce);
+    color: var(--vertClair);
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+}
+
+.placeDisponible span{
+    font-weight: 400;
+    padding-left: 10px;
+}
+
+/* --- Page event - bouton SELECT --- */
+
+.ui-dropdown select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: solid 1px #172A23;
+    outline: none;
+    padding: 5px 20px 5px 12px;
+    position: relative;
+    width: 115%;
+
+    font-size: 18px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+  }
+  .ui-dropdown {
+    /* margin-top: 100px; */
+    position: relative;
+    width: 60px;
+  /*   height: 55px */
+  }
+
+  .ui-dropdown:after {
+    background-color: #172A23;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: solid 1px #172A23;
+    color: #fff;
+    content: url(../img/fleche.svg);
+    /* content: '▼'; */
+    display: block;
+    font-size: 10px;
+    width: 33px;
+    padding: 7px 0px;
+    padding-top: 11px;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    right: 0;
+    margin-right: -8px;
+}
+
+/* --- Page event - SELECT texte --- */
+.placeSelect{
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* BOUTON DE VALIDATION RESERVATION - ancien code */
+
+/* Bouton */
+/* .reserve{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    width: 305px;
+    height: 40px;
+    color: var(--vertClair);
+    background-color: var(--vertFonce);
+    border: none;
+    margin-bottom: 10px;
+} */
+
+
+/* BOUTON DE VALIDATION RESERVATION */
+.btn_flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnEvent {
+    border: none;
+    font-size: 18px;
+    font-family: 'Karla', sans-serif;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 12px 42px;
+    display: inline-block;
+    /* margin: 15px 30px; */
+    margin: auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 1px solid var(--vertFonce);
+    color: var(--vertFonce);
+    /* background: var(--vertFonce); */
+}
+
+
+.btnEvent:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+/* Button 3 */
+.btnEvent-3:after {
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: var(--vertFonce);
+}
+  
+.btnEvent-3:hover,
+.btnEvent-3:active {
+    color: var(--vertClair);
+}
+
+.btnEvent-3:hover:after,
+.btnEvent-3:active:after {
+    width: 100%;
+}
+
+/* Zone catégorie */
+
+.trioCategory {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.trioCategory article {
+    display: grid;
+    grid-template-rows: auto 63px 25px;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.trioCategory article:hover div{
+    /* color: #bed856; */
+    color: #79914b;
+}
+
+/* .imgCategory{
+    width: 200px;
+    height: 300px;
+    background-color: var(--vertFonce);
+} */
+
+.imgCategory {
+    width: auto;
+    height: 310px;
+    background-color: var(--vertFonce);
+    overflow: hidden;
+}
+
+.imgCategory img{
+    opacity: 0.5;
+    transition: 0.3s ease-in-out;
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+}
+
+.imgCategory:hover img{
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.titreCategory {
+    font-family: 'AmericanaRegular';
+    font-size: 23px;
+    color: var(--vertMoyen);
+    /* margin-top: 10px; */
+    line-height: 30px;
+}
+
+.sousTitreCategory{
+    font-size: 14px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    /* font-style: italic; */
+    color: var(--vertFonce);
+    /* margin-top: 12px; */
+}
+
+/* ------------ PAGE LIST BOOK - DEBUT ------------ */
+
+
+/* -- CONTAINER (list_book.php) -- */
+
+.lb_container{
+    max-width: 1095px;
+    margin: auto;
+    padding-top: 136px;
+    padding-bottom: 50px;
+}
+
+/* -- BOUTON PROCHAINEMENT & HISTORIQUE (list_book.php) -- */
+
+.navigation_prochainement_historique{
+    display: flex;
+    justify-content: center;
+    font-family: 'AmericanaRegular';
+    font-size: 40px;
+    color: var(--vertMoyen);
+    margin-top: 10px;
+    line-height: 26px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.prochainement,
+.historique{
+    padding: 20px;
+}
+
+
+/* -- BOUTON FILTRE (list_book.php) -- */
+.filtreCategory {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.lb_selectFiltre{
+    font-size: 18px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    color: var(--vertMoyen);
+}
+
+.lb_filtre{
+    border: none;
+    background-color: var(--vertFonce);
+    color: var(--vertClair);
+    padding: 5px 35px;
+}
+
+#lb_categoryFiltre{
+    width: 198px;
+    height: 30px;
+    border: solid 1px #172A23;
+    text-align: center;
+    color: var(--vertMoyen);
+}
+
+/* -- LISTE DES RESERVATIONS (list_book.php) -- */
+.lb_event{
+    border-top: solid 1px var(--vertFonce);
+    /* border-bottom: solid 1px var(--vertFonce);  */
+    padding: 8px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* -- IMAGE(list_book.php) -- */
+.lb_imageEvent{
+    width: 208px;
+    background-color: var(--vertFonce);
+    overflow: hidden;
+}
+
+.lb_imageEvent img {
+    opacity: 0.8;
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+}
+
+.lb_imageEvent img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#lb_imageEvent_1{
+    background-image: url(./img/event_salon_automobile.jpg);
+}
+
+#lb_imageEvent_2{
+    background-image: url(./img/calamar.JPG);
+}
+
+
+/* -- TEXTE - titre, catégorie,numéro, date (list_book.php) -- */
+
+.lb_eventContainer{
+    display: flex;
+    margin-top: 22px;
+    width: 315px;
+    /* width: 303px; */
+}
+
+.lb_numeroEvent{
+    font-family: 'AmericanaRegular';
+    font-size: 21px;
+    color: var(--vertMoyen);
+    padding: 5px;
+}
+
+.lb_text{
+    width: 470px;
+}
+
+.lb_titre{
+    font-family: 'AmericanaRegular';
+    font-size: 40px;
+    color: var(--vertMoyen);
+    margin-bottom: 10px;
+}
+
+.lb_categoryDate{
+    display: flex;
+    justify-content: space-between;
+}
+
+.lb_category,
+.lb_date{
+    font-size: 18px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    color: var(--vertMoyen);
+    margin-bottom: 5px;
+}
+
+.lb_category{
+    margin-bottom: 10px;
+}
+
+
+/* PAGE list event */
+/* .lb_titre {
+    font-size: 30px;
+} */
+
+/* .lb_imageEvent {
+    height: 132px;
+} */
+
+/* .lb_container {
+    max-width: 912px;
+} */
+
+/* .lb_numeroEvent {
+    font-size: 16px;
+} */
+
+/* .lb_numeroEvent {
+    padding-right: 10px;
+} */
+
+/* -- IMAGE EN BACKGROUND (list_event.php) -- */
+.le_imageEvent{
+    background-image: url(./img/coco2.JPG);
+    background-repeat: no-repeat;
+    width: 208px;
+    height: 132px;
+    background-position: center;
+    position: relative;
+    background-size: cover;
+    
+}
+
+.le_titre{
+    font-family: 'AmericanaRegular';
+    font-size: 34px;
+    color: var(--vertMoyen);
+    margin-bottom: 10px;
+}
+
+.le_tarif_etat{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.le_tarif{
+    font-family: 'AmericanaRegular';
+    font-size: 14px;
+    color: var(--vertFonce);
+    text-align: end;
+}
+
+.le_etat {
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    color: var(--vertClair);
+    background-color: var(--vertMoyen);
+    text-align: center;
+    padding: 5px 20px;
+}
+
+/* BOUTON CONSULTER ET TELECHARGEMENT BILLET (list_book.php) */
+.lb_reservation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lb_reservation a{
+    text-decoration: none;
+
+}
+
+.lb_billet,
+.lb_consulter{
+    display: block;
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    border: solid 1px var(--vertFonce);
+    width: 265px;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    
+}
+
+.lb_billet{
+    color: var(--vertFonce);
+}
+
+
+.lb_consulter{
+    color: var(--vertClair);
+    background-color: var(--vertFonce);
+}
+
+/* ------------ PAGE LIST BOOK - FIN ------------ */
+
+
+/* ------------ PAGE BOOK - HISTORIQUE (book.php) - DEBUT ------------ */
+
+.droiteHistorique{
+    margin-top: 0px;
+}
+
+#b_containerDroit{
+    max-width: 790px;
+    margin-top: 75px;
+}
+
+.container_historique h1{
+    margin-top: 145px;
+    font-size: 70px;
+}
+
+.containerDroit h2{
+    margin-bottom: 35px;
+    margin-top: 20px;
+}
+
+.b_historique {
+    font-family: 'AmericanaRegular';
+    font-size: 26px;
+    color: var(--vertNavTrait);
+    margin-bottom: 32px;
+}
+
+.b_tableau{
+    width: 100%;
+}
+
+.b_tableau tr td{
+    height: 35px;
+    padding-top: 16px;
+}
+
+.b_tableau th{
+    text-align: start;
+    font-size: 14px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    color: var(--vertMoyen);
+    padding-bottom: 10px;
+}
+
+/* .b_tableau tr{
+    text-align: start;
+    font-size: 14px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    color: var(--vertMoyen);
+} */
+
+.b_tableau_titre{
+    border-bottom: 1px solid var(--vertFonce);
+    padding-bottom: 10px;
+    text-align: start;
+    font-size: 14px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    color: var(--vertMoyen);
+}
+
+.b_tableau_contenu{
+    margin-top: 20px;  
+}
+
+.b_tableau_contenu td{
+    font-family: 'AmericanaRegular';
+    font-size: 16px;
+    color: var(--vertFonce);
+    /* margin-bottom: 20px; */   
+}
+
+.b_tableau_contenu td a{
+    
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    background-color: var(--vertFonce);
+    color: var(--vertClair);
+    padding: 4px 20px;
+}
+
+.b_annuler{
+    text-align: end;
+}
+
+/* MENU ACCORDEON */
+
+.contenuEvent{
+    margin-top: 84px;
+}
+
+#ouvrir,
+#fermer{
+    color: var(--vertFonce);
+    font-size: 14px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    padding-right: 10px;
+}
+
+#b_resume{
+    margin-top: 10px;
+}
+
+#accordeon {
+    margin:0px; 
+    padding:0px;
+    font-size: 14px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+}
+	
+#accordeon dt{
+    font-size:14px; 
+    background-color:var(--vertFonce);
+    color: var(--vertClair);
+    padding:10px 15px; 
+    margin-bottom:2px; 
+    cursor:url('img/fleche_bas_blc_2.svg'), pointer;
+    text-transform: uppercase;
+}
+
+	
+#accordeon dt:nth-child(1)::after{
+    content: url('img/fleche.svg');
+    padding-left: 585px;
+}
+
+#accordeon dt:nth-child(3)::after{
+    content: url('img/fleche.svg');
+    padding-left: 575px;
+}
+
+#b_tarif::after{
+content: url('img/fleche.svg');
+padding-left: 624px;
+}
+
+#accordeon dt:hover, 
+.current {
+    background-color:var(--vertClair); 
+    color: var(--vertFonce); 
+    font-size:14px; 
+    
+}
+
+.current {
+    cursor:url('img/test.svg'), 
+    pointer!important;
+}
+
+#accordeon dd {
+    padding:10px 20px; 
+    border-left:5px solid var(--vertFonce); 
+    margin:10px 0 10px 0;
+}
+
+#accordeon dd p {
+    font-size: 16px!important;
+}
+
+/* FACTURE */
+.b_facture{
+    display: flex;
+    justify-content: end;
+    margin-top: 45px;
+    
+}
+
+.b_btn_facture{
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    background-color: var(--vertClair);
+    color: var(--vertFonce);
+    padding: 10px 50px; 
+}
+
+.containerDroit .b_defaut{
+    color: white;
+}
+
+/* ------------ PAGE BOOK - HISTORIQUE (book.php) - FIN ------------ */
+
+
+
+/* ------------ HOME PAGE - (home_page.php) - DEBUT ------------ */
+
+
+
+.hp_bg{
+    background-color: #172a23;
+    width: 100%;
+    height: 100vh;
+    /* position: relative; */
+}
+
+.hp_bg_img{
+    /* background-image: url(./img/header2.JPG); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -43px;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.2;
+}
+
+.logo_header{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    transform: translate(50%,50%);
+    /* transform: translate(54%,40%); */
+}
+
+/* NAV HEADER - (home-page.php)*/
+
+.nav_logo{
+    width: 80px;
+}
+
+.hp_navigation #recherche {
+    border: solid 1px var(--vertClair);
+    background-color: transparent;
+}
+
+.hp_navigation #recherche::placeholder{
+    color: var(--vertClair);
+    opacity: 0.5;
+    padding-right: 8px;
+}
+
+.hp_navigation {
+    color: var(--vertClair);
+}
+
+#hp_trait1,
+#hp_trait2 {
+    background-color: var(--vertClair);
+}
+
+
+/* IMAGES HEADER */
+.hp_header_img1{
+    width: 236px;
+    height: 355px;
+    position: absolute;
+    bottom: 26px;
+    right: 243px;
+}
+.hp_header_img1 img,
+.hp_header_img2 img{
+    width: 218px;
+}
+
+.hp_header_img2{
+    width: 257px;
+    position: absolute;
+    bottom: -83px;
+    right: 93px;
+}
+
+.hp_header_img3 {
+    width: 218px;
+    position: absolute;
+    bottom: -154px;
+    left: 278px;
+}
+
+/* SECTION "retrouvez tous nos événements" */
+/* TITRE */
+
+.hp_titre{
+    width: 727px;
+    margin: auto;
+    font-family: 'AmericanaRegular';
+    margin-top: 195px;
+    margin-bottom: 100px;
+
+}
+
+.hp_titre1 {
+    font-size: 35px;
+    text-align: center;
+    padding-left: 123px;
+}
+
+.hp_titre2{
+    font-size: 83px;
+    /* font-size: 96px; */
+    text-align: center;
+}
+
+#hp_container{
+    max-width: 930px;
+    padding-top: 0px; 
+}
+
+/* ------------ HOME PAGE - (home_page.php) - FIN ------------ */
+
+/* ------------ HOME PAGE ADMIN - (home_page_admin.php) - DEBUT ------------ */
+.hpa_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.hpa_sect_categorie{
+    background-image: url(./img/voiture_fond_vert.jpg);
+}
+
+.hpa_sect_event{
+    background-image: url(./img/bocal_fond_vert.jpg);
+}
+
+.hpa_sect_user{
+    background-image: url(./img/poisson_fond_vert.jpg);
+}
+
+.hpa_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100vh;
+    cursor: pointer;
+}
+
+
+
+.hpa_section h1{
+    font-family: 'AmericanaRegular';
+    font-size: 48px;
+    line-height: 72px;
+    color: var(--vertClair);
+}
+
+.hpa_section h1 span{
+    text-transform: uppercase;
+    font-size: 55px;
+}
+
+.hpa_section p a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: var(--vertClair);
+    font-family: 'Karla', sans-serif;
+}
+
+.hpa_section p a::before{
+    content: url(./img/plus.svg);
+    padding-right: 20px;
+}
+
+
+/* ------------ HOME PAGE ADMIN - (home_page_admin.php) - FIN ------------ */
+
+
+/* ------------ HOME PAGE ADMIN 2 - DEBUT ------------ */
+
+
+.hpa_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: fixed;
+}
+
+/* .effet-1 img {
+    width: 100%;
+    opacity: 0.8;
+} */
+
+.hpa_article{
+    height: 100vh; 
+}
+
+.hpa_article figure {
+    margin: 0;
+    /* background-color: #000; */
+    font-size: 0;
+    /* font-size : fait disparaitre la fausse marge (la bordure en bas de l'image) */
+    position: relative;
+    overflow: hidden;
+}
+
+.hpa_figcaption {
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 0;
+    /* il prendra la taille de son parent */
+    width: 100%;
+    /* height: 100%; */
+    padding: 10%;
+    /* box-sizing: border-box; */
+    transform: translateY(25%);
+}
+
+.hpa_article figure a {
+    /* pour rendre toute la balise figure cliquable */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+/* TEXTE */
+
+.hpa_figcaption p{
+    text-transform: uppercase;
+    font-size: 18px;
+    color: var(--vertClair);
+    font-family: 'Karla', sans-serif;
+    padding-top: 40px;
+}
+
+.hpa_figcaption{
+    text-align: center;
+}
+
+.hpa_figcaption h3{
+    font-family: 'AmericanaRegular';
+    font-size: 48px;
+    line-height: 72px;
+    color: var(--vertClair);
+}
+
+.hpa_figcaption h3 span{
+    text-transform: uppercase;
+    font-size: 55px;
+}
+
+.hpa_figcaption h4 a{
+    text-transform: uppercase;
+    font-size: 18px;
+    color: var(--vertClair);
+    font-family: 'Karla', sans-serif;
+    padding-top: 75%;
+    /* padding-top: 40px; */
+    text-decoration: none;
+}
+
+/* .hpa_figcaption h4 a::before{
+    content: url(./img/plus.svg);
+    padding-right: 20px;
+} */
+
+
+/* EFFET-1 */
+
+.effet-1 {
+    background-color: #172A23;
+    height: 100%;
+}
+
+.effet-1 h3 {
+    position: relative;
+}
+
+.effet-1 h3:before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background-color: #fff;
+    bottom: -10px;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.effet-1:hover h3{
+    color: white;
+}
+
+.effet-1:hover h3:before {
+    -webkit-transform: translateX(0);
+    transform: scale(1, 1);
+    opacity: 1;
+}
+
+/* Animation du texte */
+.effet-1 p {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.effet-1:hover p {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Animation de l'img */
+.effet-1 img {
+    /* pour agrandir l'image de 20px pour combler l'écart puisque l'img à été décaler de 20px juste en-dessous */
+    width: calc(100% + 20px);
+    height: 100%;
+}
+
+.effet-1:hover img {
+    opacity: 0.5;
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+}
+
+.effet-1 img,
+.effet-1 p,
+.effet-1 h3:before {
+    -webkit-transition: opacity 0.35s ease-in-out;
+    -webkit-transition: opacity 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
+}
+
+
+/* EFFET-1 */
+
+/* ------------ HOME PAGE ADMIN 2 - FIN ------------ */
+
+
+
+/* ------------ PAGE GABARIT (pour toutes les listes) - DEBUT ------------ */
+
+.siteList{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "haut"
+        "bas";
+}
+
+/* --- PARTIE HAUTE --- */
+.ImgHaute{
+    grid-area: haut;
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.haut{
+    grid-area: haut;
+    background-color: var(--vertFonce);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- PARTIE BASSE --- */
+
+.bas{
+    grid-area: bas;
+    margin-top: 100vh;
+    z-index: 0;
+    height: 100%;
+    background-color: white;
+}
+
+/* ------------ PAGE GABARIT (pour toutes les listes) - FIN ------------ */
+
+
+
+
+/* ------------ LISTE EVENT (test_list.html/list_event.php)- DEBUT ------------ */
+
+/* --- PARTIE HAUTE --- */
+/* Header de liste event */
+
+.titreListEvent {
+    color: var(--vertClair);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.titreListEvent h1{
+    font-family: 'AmericanaRegular';
+    font-size: 125px;
+    line-height: 155px;
+}
+
+.titreListEvent h2 {
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    font-size: 38px;
+    margin-top: 20px;
+}
+
+.titreListEvent p {
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    font-size: 17px;
+    margin-top: 80px;
+    line-height: 22px;
+    padding: 0 20px;
+}
+
+/* --- PARTIE BASSE --- */
+
+/* Zone filtre */
+.container_btnFiltre_listEvent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.btnProchainHistorique a{
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Karla', sans-serif;
+    color: var(--vertMoyen);
+    text-transform: uppercase;
+}
+
+.historique_listEvent{
+    padding-left: 25px;
+}
+
+.historique_listEvent{
+    padding-left: 25px;
+    font-weight: 200;
+}
+
+.prochainement_listEvent{
+    font-weight: 500;
+}
+
+/* Affichage de la liste des events */
+
+/* CONTAINER LIST EVENT */
+/* .container_listEvent{
+    max-width: 1201px;
+    margin: auto;
+    padding: 0 20px;
+    margin-top: 80px;
+} */
+
+.container_list{
+    max-width: 1201px;
+    margin: auto;
+    padding: 0 20px;
+    margin-top: 80px;
+}
+
+.overflow_listEvent {
+    min-height: 760px;
+    overflow: hidden;
+    position: relative;
+    /* overflow-y: scroll; */
+    background-color: #fff;
+}
+
+/* MODULE pour la boucle */
+.module_listEvent{
+    width: 100%;
+    border-top: solid 1px var(--vertFonce);
+    padding: 8px 0px;
+    display: grid;
+    grid-template-columns: 205px auto 100px;
+    gap: 50px;
+}
+
+/* MODULE - partie gauche - image */
+
+.img_listEvent{
+    background-color: var(--vertFonce);
+    overflow: hidden;
+}
+
+.img_listEvent img{
+    opacity: 0.8;
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+}
+
+.img_listEvent img:hover{
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* .img_listEvent{
+    background-image: url(./img/coco2.JPG);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 132px;
+    background-position: center;
+    position: relative;
+    background-size: cover; 
+} */
+
+
+/* MODULE - CONTAINER REVERSE (partie centrale & droite) */
+.petit_ecran_listEvent{
+    display: none;
+}
+
+/* MODULE - partie centrale - texte */
+.center_txt_listEvent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.txt_container_listEvent{
+    display: flex;
+}
+
+/* numéro */
+.num_listEvent{
+    font-family: 'AmericanaRegular';
+    font-size: 21px;
+    color: var(--vertMoyen);
+    padding: 5px;
+    padding-right: 10px;
+}
+
+/* titre */
+.titre_listEvent{
+    font-family: 'AmericanaRegular';
+    /* font-size: 34px; */
+    font-size: 40px;
+    color: var(--vertMoyen);
+    margin-bottom: 20px;
+}
+
+
+/* date / category */
+.ss_titre_listEvent{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    color: var(--vertMoyen);
+    margin-bottom: 5px;
+}
+
+.category{
+    text-transform: uppercase;
+}
+
+/* MODULE - partie droite - tarif & état */
+.tarif_etat_listEvent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.etat_listEvent{
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--vertClair);
+    background-color: var(--vertMoyen);
+    width: 100%;
+    padding: 5px 0;
+}
+
+.tarif_listEvent{
+    font-family: 'AmericanaRegular';
+    font-size: 17px;
+    color: var(--vertMoyen);
+    text-align: end;
+    letter-spacing: 1px;
+}
+
+/* DEGRADE BLANC */
+/* .degrade_listEvent {
+    background-image: linear-gradient(transparent, white);
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+} */
+
+/* ------------ LISTE EVENT - FIN ------------ */
+
+
+
+/* ------------ ADMIN LISTE EVENT (admin_list_event.php/)- DEBUT ------------ */
+
+/* --- PARTIE HAUTE --- */
+/* BTN - AJOUTER UN EVENEMENT */
+
+.btn_ajouter{
+    text-decoration: none;
+    z-index: 10;
+    background-color: var(--vertFonce);
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    border-radius: 5px;
+}
+
+.btn_ajouter p{
+    font-family: 'Karla', sans-serif;
+    font-size: 18px;
+    color: var(--vertClair);
+    text-transform: uppercase;
+}
+
+.fa-plus{
+    color: var(--vertClair);
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+/* --- PARTIE BASSE --- */
+
+/* btn -  */
+.btn_adminListEvent{
+    font-size: 21px;
+}
+
+/* TABLEAU - LISTE DES EVENTS */
+.tableau_adminListEvent{
+    margin-top: 95px;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Karla', sans-serif;
+    color: var(--vertMoyen);
+}
+
+.thead_adminListEvent tr th,
+.tbody_adminList tr td{
+    text-align: left;
+}
+
+/* thead */
+.thead_adminListEvent{
+    border-bottom: 2px solid var(--vertFonce);
+}
+
+.thead_adminListEvent tr th{
+    font-size: 18px;
+    font-weight: 300;
+    padding-bottom: 15px;
+}
+
+/* tbody */
+
+/* .tbody_adminList{
+    width: 100%;
+} */
+
+.tbody_adminList tr td{
+    font-size: 18px;
+    padding: 10px 0 20px;
+}
+
+.tbody_adminList tr td a{
+    text-decoration: none;
+    color: var(--vertMoyen);
+}
+
+.tbody_adminList tr td a:hover{
+    color: var(--vertNavMenu);
+}
+
+.table_titre{
+    font-family: 'AmericanaRegular';
+    font-size: 21px;
+    text-transform: capitalize;
+}
+
+.table_category{
+    text-transform: uppercase;
+}
+
+.table_img{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.table_img img{
+    width: 60px;
+    height: auto;
+}
+
+.table_module{
+    border-bottom: 1px solid var(--vertNavMenu);
+}
+
+.table_btn{
+    background-color: var(--vertFonce);
+    text-align: center;
+    padding: 8px 0;
+}
+
+#table_btnTxt{
+    color: var(--vertClair);
+}
+
+/* ------------ ADMIN LISTE EVENT (admin_list_event.php/)- FIN ------------ */
+
+
+
+/* ------------ ADMIN LISTE USER (test_list_user.php/)- DEBUT ------------ */
+
+/* --- PARTIE HAUTE --- */
+/* --- PARTIE BASSE --- */
+/* TABLEAU - LISTE DES USERS */
+.table_nom{
+    font-family: 'AmericanaRegular';
+    font-size: 21px;
+    text-transform: uppercase;
+}
+
+.table_penom{
+    font-family: 'AmericanaRegular';
+    text-transform: capitalize;
+}
+
+.table_email{
+    text-transform: lowercase;
+}
+
+.tbody_adminList .table_action a{
+    color: var(--vertNavMenu);
+    text-decoration : underline;
+}
+
+/* .table_action::before{
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 1;
+} */
+
+/* ------------ ADMIN LISTE USER (test_list_user.php/)- FIN ------------ */
+
+
+/* ------------ ADMIN PROFIL USER (profil_user.php/)- DEBUT ------------ */
+
+/* .siteProfil{
+    display: grid;
+    grid-template-columns: auto 45%;
+    grid-template-areas: 
+    "gaucheProfil droitProfil";
+    padding-top: 0px;
+    padding-bottom: 50px;
+} */
+
+.siteProfil{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* --- GAUCHE --- */
+.gaucheProfil {
+    grid-area: gaucheProfil;
+}
+
+.gaucheProfil .containerGauche{
+    background-color: var(--vertFonce);
+}
+
+/* --- DROITE --- */
+.droitProfil{
+    grid-area: droitProfil;
+    background-color: var(--vertFonce);
+    position: fixed;
+    width: 45%;
+    height: 100%;
+}
+
+.droitImg{
+    grid-area: droitProfil;
+    background-image: url(./img/event_miami.jpg);
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    width: 45%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+
+/* ------------ ADMIN PROFIL USER (profil_user.php/)- FIN ------------ */
+
+
+/* ------------ ADMIN LISTE CAREGORY (admin_list_category.php/) - DEBUT ------------ */
+#container_adminCategory{
+    margin-top: 0px;
+}
+/* ------------ ADMIN LISTE CAREGORY (admin_list_category.php/) - FIN ------------ */
+
+
+
+/* --------- ADMIN GABARIT FORMULAIRE (category, event, user) - DEBUT --------- */
+
+.containerGabaritForm {
+    margin-top: 140px;
+    /* margin-top: 195px; */
+}
+
+.containerGabaritForm h1{
+    line-height: 80px;
+}
+
+.gabarit_form{
+    margin-top: 75px;
+}
+
+.gabarit_form{
+    text-transform: uppercase;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    color: var(--vertFonce);
+    font-size: 21px;
+    /* text-align: center; */
+    margin-bottom: 30px;
+}
+
+.gabarit_form label {
+    margin-bottom: 35px;
+    display: inline-block;
+}
+
+.gabarit_form input{
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid var(--vertFonce);
+    margin-bottom: 28px;
+}
+
+.gabarit_form input::placeholder{
+    text-transform: uppercase;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    color: var(--vertFonce);
+    font-size: 21px;
+}
+
+.containerGabaritForm h1{
+    margin-bottom: 112px;
+    /* margin-bottom: 75px; */
+}
+
+.gabarit_form input[type="file"]{
+    border: none;
+}
+
+.gabarit_form label{
+    margin-right: 30px;
+}
+
+input[type=file]::file-selector-button {
+    font-family: 'Karla', sans-serif;
+    margin-right: 8px;
+    border: none;
+    background: var(--vertFonce);
+    padding: 8px 12px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* --------- ADMIN GABARIT FORMULAIRE (category, event, user) - FIN --------- */
+
+
+/* ------------ ADMIN AJOUTER CATEGORY (category.php/) - DEBUT ------------ */
+
+/* #containerCategory {
+    margin-top: 275px;
+} */
+
+#containerCategory h1{
+    margin-bottom: 110px;
+}
+
+/* .categorie_form{
+    margin-bottom: 85px;
+} */
+
+#containerCategory h3 {
+    font-family: 'AmericanaRegular';
+    color: var(--vertMoyen);
+    font-size: 22px;
+    margin-top: 182px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ------------ ADMIN AJOUTER CATEGORY (category.php/) - FIN ------------ */
+
+
+
+/* ------------ ADMIN AJOUTER EVENT (evenement.php/) - DEBUT ------------ */
+
+/* #containerEventForm {
+    width: 730px;
+    margin-top: 125px;
+} */
+
+#eventForm div,
+#userForm div{
+    margin-top: 0px;
+}
+
+.event_file{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.event_file label {
+    margin-bottom: 0px;
+}
+
+/* ------------ ADMIN AJOUTER EVENT (evenement.php/) - FIN ------------ */
+
+
+
+/* ------------ INSCRIPTION (info_user.php/) - DEBUT ------------ */
+
+.filAriane{
+    margin-bottom: 50px;
+    font-family: 'Karla', sans-serif;
+}
+
+.filAriane a{
+    text-decoration: none;
+}
+
+.profil_container{
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.profilRole{
+    text-transform: uppercase;
+    font-family: 'Karla', sans-serif;
+    color: var(--vertMoyen);
+    display: none;
+}
+
+.profil_container hr{
+    margin-bottom: 30px;
+    display: none;
+}
+
+.profilUser{
+    display: grid;
+    grid-template-columns: 422px auto;
+    gap: 100px;
+    margin-bottom: 100px;
+}
+
+.imgProfil{
+    border-radius: 35px;
+}
+
+.profilForm h1,
+.profilHistorique h2{
+    font-family: 'AmericanaRegular';
+    color: var(--vertMoyen);
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.profilForm h1{
+    margin-top: 20px;
+}
+
+.profilForm p,
+.profilHistorique p{
+    font-family: 'Karla', sans-serif;
+    color: var(--vertMoyen);
+    font-size: 20px;
+    margin-bottom: 112px;
+    text-transform: uppercase;
+}
+
+.profilHistorique .ss_titre_historique {
+    margin-bottom: 64px;
+}
+.user_form{
+    /* text-transform: uppercase; */
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    color: var(--vertFonce);
+    font-size: 17px;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.user_form input{
+    width: 100%;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid var(--vertNavTrait);
+    /* margin-bottom: 28px; */
+}
+
+.user_form label {
+    width: 76px;
+}
+
+.btn_profil {
+    display: block;
+    text-align: end;
+    margin-top: 78px;
+}
+
+/* tableau réservation user */
+.table_profil{
+    width: 100%;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    color: var(--vertFonce);
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.table_profil thead{
+    border-bottom: 1px solid var(--vertFonce);
+    text-align: left;
+    background-color: #E5E8E7;
+}
+
+.table_profil thead th{
+    padding: 20px;
+    
+}
+
+.table_profil tbody{
+    color: var(--vertMoyen);
+    background-color: #F6F7F6;
+}
+
+.table_profil tbody tr td{
+    padding: 20px;
+    border-bottom: 1px solid var(--vertNavMenu);
+}
+
+
+/* ------------ INSCRIPTION (info_user.php/) - FIN ------------ */
+
+
+
+/* ------- LISTE BOOK (test_list_reservation.php/list_book.php)- DEBUT ------- */
+
+/* --- PARTIE HAUTE --- */
+/* Header de liste event */
+
+
+
+
+
+
+
+
+
+/* ------------ PAGE INFO PERSO - FIN ------------ */
+
+
+/* ------------ PAGE EVENT - DEBUT ------------ */
+
+
+/* ------------ PAGE INFO PERSO - FIN ------------ */
+
+
+/* ----------------------- MEDIA QUERY - DEBUT ----------------------- */
+
+@media screen and (max-width:1400px) {
+
+    /* ---------- NAV - (max-width:1400px) - DEBUT ---------- */
+
+    /* -- BARRE DE NAVIGATION - début-- */
+    .nav_home_page {
+        padding: 0 150px 0 70px;
+    }
+
+    #recherche {
+        width: 268px;
+    }
+
+    /* -- ESPACE DE NAVIGATION - début-- */
+    .menu_fond {
+        display: none;
+    }
+
+    .nav2_menu {
+        padding: 0 0px;
+        margin-bottom: 16px;
+    }
+
+    .list_sous_menu ul li a {
+        font-size: 37px;
+    }
+
+    .deconnexion {
+        right: 238px;
+    }
+    /* ---------- NAV - (max-width:1400px) - FIN ---------- */
+
+
+
+    /* MODAL */
+
+    /* ---------- MODAL BILLET - (max-width:1400px) - DEBUT ---------- */
+
+    /* -- MODAL BILLET - structure générale -- */
+    
+    .modalContentBillet {
+        width:500px;
+    }
+    
+    .billet{
+        right: 6%;
+    }
+
+    /* -- MODAL BILLET - Bouton -- */
+
+    
+    /* #lb_btnBillet{
+        right: 57px;
+    } */
+
+    
+    .modalBilletBg {
+        width: 65%;
+    }
+    
+    .billet {
+        right: 118px;
+    }
+    
+    #lb_btnBillet {
+        right: 60px;
+    }
+    /* ---------- MODAL BILLET - (max-width:1400px) - FIN ---------- */
+
+    /* ------------ MODAL PANIER (max-width:1400px) - DEBUT ------------ */
+
+    .modalPanierContainer {
+        width: 435px;
+        margin: auto;
+    }
+
+    .modalPanierimg {
+        width: 142px;
+        height: 200px;
+    }
+
+    .modalPaniertitre {
+        font-size: 34px;
+        line-height: 35px;
+    }
+
+    .btn_billet_panier{
+        right: 92px;
+    }
+
+    .modalPanierQuantite {
+        margin-top: 46px;
+    }
+    /* ------------ MODAL PANIER (max-width:1400px) - FIN ------------ */
+
+
+    
+    
+
+    /* --- PAGE EVENT - evenement.html (max-width: 1400px) --- */
+
+    /* - PAGE EVENT - section droite (1400px) - */
+    .containerDroit {
+        max-width: 620px;
+        padding: 0 30px;
+    }
+    
+
+    /* - PAGE EVENT - état réservation (1400px) - */
+    .bgEtat {
+        width: 460px;
+    }
+
+    /* - PAGE EVENT - section catégorie (1400px) - */
+    .titreCategory {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .trioCategory {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 11px;
+    }
+
+    .trioCategory article {
+        grid-template-rows: auto 44px 25px;
+    }
+
+    .categoryTrois{
+        display: none;
+    }
+
+    .imgCategory {
+        height: auto;
+    }
+
+
+    /* ------------ PAGE LIST BOOK (max-width:1400px) - DEBUT ------------ */
+
+    /* -- CONTAINER (list_book.php) -- */
+    .lb_container {
+        max-width: 95%;
+    }
+
+    /* ------------ PAGE BOOK (max-width:1400px) - DEBUT ------------ */
+
+    /* -- MENU ACCORDEON (book.php) -- */
+    #accordeon dt {
+        font-size: 14px;
+        padding-top: 14px;
+    }
+
+    #accordeon dt:nth-child(1)::after {
+        padding-left: 298px;
+    }
+
+    #accordeon dt:nth-child(3)::after {
+        padding-left: 287px;
+    }
+
+    
+    #b_tarif::after{
+        content: url('img/fleche.svg');
+        padding-left: 335px;
+
+    }
+    /* --- PAGE BOOK (max-width:1400px)--- */
+
+    /* --- HOME PAGE - (max-width:1400px) --- */
+    
+    .logo_header {
+        position: absolute;
+        width: 721px;
+        top: 50px;
+        left: 50px;
+        transform: translate(40%,40%);
+    }
+
+    .hp_bg {
+        height: 95vh;
+    }
+
+    .hp_header_img1 {
+        bottom: 58px;
+        right: 72px;
+    }
+
+    .hp_header_img2 {
+        bottom: 0px;
+        right: 227px;
+    }
+
+    .hp_header_img3 {
+        width: 188px;
+        bottom: 95px;
+        left: 211px;
+    }
+
+    /* --- HISTORIQUE - (max-width:1400px)--- */
+    
+    #b_containerDroit {
+        width: 550px;
+    }
+
+    /* --- LISTE EVENT - (max-width:1400px)--- */
+    /* partie haute */
+    .titreListEvent h1 {
+        font-size: 114px;
+    }
+
+    /* partie basse */
+    .module_listEvent {
+        gap: 20px;
+    }
+
+
+}
+
+
+/* ---------------------- (max-width: 1200px) - DEBUT ---------------------- */
+@media screen and (max-width:1200px) {
+
+    /* --- PAGE EVENT - evenement.html (max-width: 1200px) --- */
+
+    /* - PAGE EVENT - Navbar (1200px) - */
+    .navbar #recherche{
+        border: solid 1px var(--vertClair);
+    }
+    
+    .navbar .panier{
+        color: var(--vertClair);
+    }
+
+    .navbar #recherche::placeholder{
+        color: var(--vertClair);
+        opacity: 0.5;
+    }
+
+    #e_trait1,
+    #e_trait2{
+        background-color: var(--vertClair);
+    }
+
+    /* - PAGE EVENT - scroll (1200px) - */
+
+    .navbar.scroll #recherche{
+        border: solid 1px var(--vertFonce);
+    }
+
+    .navbar.scroll #e_trait1,
+    .navbar.scroll #e_trait2{
+        background-color: var(--vertFonce);
+    }
+    
+    .navbar.scroll .panier{
+        color: var(--vertFonce);
+    }
+
+    .navbar.scroll #recherche::placeholder{
+        color: var(--vertFonce);
+        opacity: 0.5;
+    }
+
+     /* - PAGE EVENT - main (1200px) - */
+    .site{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "gauche"
+        "droite";
+    }
+
+    /* - PAGE EVENT - section gauche (1200px) - */
+    .gauche{
+        width: 100%;
+        height: 100%;
+    }
+
+    .gaucheImg {
+        width: 100%;
+    }
+
+    /* - PAGE EVENT - section droite (1200px) - */
+    .droite{
+        position: absolute;
+        top: 78%;
+        background-color: white;
+        width: 100%;
+    }
+
+    .containerDroit {
+        width: 100%;
+        padding: 45px 30px;
+        max-width: 871px;
+        margin: auto;
+    }
+
+    /* - PAGE EVENT - section catégorie (1200px) - */
+    .trioCategory {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+    }
+
+    .trioCategory article {
+        grid-template-rows: auto 63px 25px;
+    }
+
+
+    /* --- LISTE EVENT - (max-width:1200px)--- */
+    /* partie haute */
+    .titreListEvent h1 {
+        font-size: 83px;
+        line-height: 106px;
+    }
+
+    /* ------------ ADMIN LISTE EVENT - (max-width:1200px)------------ */
+
+    /* --- PARTIE HAUTE --- */
+    
+    /* --- PARTIE BASSE --- */
+    .tbody_adminList tr td{
+        font-size: 18px;
+        padding: 10px 5px 20px;
+    }
+
+    .table_btn {
+        padding: 8px 5px;
+    }
+
+    .table_date {
+        display: none;
+    }
+
+    /* ------------ ADMIN LISTE USER - (max-width:1200px)------------ */
+
+    /* --- PARTIE HAUTE --- */
+    
+    /* --- PARTIE BASSE --- */
+
+    .table_pseudo {
+        display: none;
+    }
+    
+
+}
+
+/* ---------------------- (max-width: 1200px) - FIN ---------------------- */
+
+
+/* ---------------------- (max-width: 900px) - DEBUT ---------------------- */
+
+@media screen and (max-width:900px) {
+
+    /* --- PAGE EVENT - evenement.html (max-width: 900px) --- */
+
+    /* - PAGE EVENT - section catégorie (900px) - */
+    .imgCategory {
+        height: auto;
+    }
+
+    .titreCategory {
+        font-size: 21px;
+    }
+
+    .trioCategory article {
+        gap: 8px;
+    }
+
+    /* ---------- NAV - (max-width:900px) - DEBUT ---------- */
+    
+    /* -- BARRE DE NAVIGATION - début-- */
+
+    
+
+    /* .navbar.scroll{
+        background-color: #fff;
+        height: 75px;
+    } */
+/* 
+    .navbar.scroll #recherche{
+        border: solid 1px var(--vertFonce);
+    } */
+
+
+
+    /* -- ESPACE DE NAVIGATION - début-- */
+    
+    .deconnexion {
+        right: 166px;
+    }
+    
+    /* ---------- NAV - (max-width:900px) - DEBUT ---------- */
+
+
+    /* MODAL */
+
+    .modalBilletBg {
+        width: 75%;
+    }
+
+    /* NAV */
+    #recherche {
+        width: 230px;
+    }
+
+   
+    /* ------------ PAGE LIST BOOK (max-width:900px) - DEBUT ------------ */
+
+    .lb_event{
+        border-top: solid 1px var(--vertFonce);
+        /* border-bottom: solid 1px var(--vertFonce);  */
+        width: 100%;
+        margin: auto;
+        padding: 20px 30px;
+        display: block;
+    }
+
+    /* -- FILTRE CATEGORIE (list_book.php) -- */
+    .filtreCategory {
+        margin-left: 30px;
+        /* margin-bottom: 20px; */
+    }
+
+    /* -- IMAGE EN BACKGROUND (list_book.php) -- */
+    .lb_imageEvent{
+        
+        width: 100%;
+        
+    }
+    
+
+    /* -- TEXTE - titre, catégorie,numéro, date (list_book.php) -- */
+
+    .lb_eventContainer{
+        display: flex;
+        margin-top: 30px;
+    }
+
+    .lb_numeroEvent{
+        font-family: 'AmericanaRegular';
+        font-size: 21px;
+        color: var(--vertMoyen);
+        padding: 5px;
+    }
+    
+    .lb_titre{
+        font-family: 'AmericanaRegular';
+        font-size: 45px;
+        color: var(--vertMoyen);
+        margin-bottom: 10px;
+    }
+
+    
+    .lb_categoryDate{
+        display: block;
+    }
+    
+    .lb_category,
+    .lb_date{
+        font-size: 21px;
+        font-family: 'Karla', sans-serif;
+        font-weight: 300;
+        color: var(--vertMoyen);
+        margin-bottom: 5px;
+    }
+
+    .lb_category{
+        margin-bottom: 10px;
+    }
+    
+
+    /* BOUTON CONSULTER ET TELECHARGEMENT BILLET (list_book.php) */
+    .lb_reservation{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+    
+    .lb_reservation a{
+        text-decoration: none;
+
+    }
+
+    .lb_billet,
+    .lb_consulter{
+        display: block;
+        font-size: 21px;
+        font-family: 'Karla', sans-serif;
+        font-weight: 300;
+        text-align: center;
+        border: solid 1px var(--vertFonce);
+        width: 100%;
+        padding: 10px 0;
+        margin-bottom: 10px;
+    }
+
+    .lb_billet{
+        color: var(--vertFonce);
+    }
+
+    .lb_consulter{
+        color: var(--vertClair);
+        background-color: var(--vertFonce);
+    }
+
+    /* ------------ PAGE LIST BOOK (max-width:900px) - FIN ------------ */
+
+
+    /* ------------ PAGE BOOK (max-width:900px) - DEBUT ------------ */
+
+    /* -- MENU ACCORDEON (book.php) -- */
+
+    #b_containerDroit {
+        width: 100%;
+        padding: 45px 83px;
+    }
+
+    #accordeon dt {
+        font-size: 14px;
+        padding-top: 14px;
+    }
+
+    #accordeon dt:nth-child(1)::after {
+        padding-left: 411px;
+    }
+
+    #accordeon dt:nth-child(3)::after {
+        padding-left: 398px;
+    }
+
+    
+    #b_tarif::after{
+        content: url('img/fleche.svg');
+        padding-left: 446px;
+
+    }
+   
+    /* ------------ PAGE BOOK (max-width:900px) - FIN ------------ */
+
+    /* --- EVENT - (max-width:900px)--- */
+    .droite {
+        width: 100%;
+    }
+
+
+    /* --- HISTORIQUE - (max-width:900px)--- */
+    
+    .container_historique h1 {
+        margin-top: 0px;
+        font-size: 55px;
+    }
+    
+    #b_containerDroit {
+        max-width: 900px;
+    }
+
+    /* --- LISTE EVENT - (max-width:900px)--- */
+    /* partie haute */
+    .titreListEvent h1 {
+        font-size: 52px;
+        line-height: 75px;
+    }
+    
+    .titreListEvent h2 {
+        font-size: 25px;
+    }
+
+    /* partie basse */
+
+    /* filtre */
+    .filtreCategory {
+        margin-left: 0px;
+    }
+
+    .btnProchainHistorique {
+        margin-bottom: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* liste */
+    .module_listEvent{
+        width: 100%;
+        border-top: solid 1px var(--vertFonce);
+        padding: 8px 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .tarif_etat_listEvent {
+        flex-direction: row-reverse;
+    }
+
+    .etat_listEvent {
+        width: 100px;
+    }
+
+    .tarif_listEvent {
+        width: 1;
+    }
+
+    .grand_ecran_listEvent{
+        display: none;
+    }
+
+    .petit_ecran_listEvent{
+        display: block;
+    }
+
+    .center_txt_listEvent {
+        margin: 50px 0 60px;
+    }
+
+    /* ------------ ADMIN LISTE EVENT - (max-width:900px)------------ */
+
+    /* --- PARTIE HAUTE --- */
+    
+    /* --- PARTIE BASSE --- */
+
+    .table_date,
+    .table_category_none {
+        display: none;
+    }
+
+    .tbody_adminList tr td{
+        font-size: 16px;
+    }
+    
+    
+}
+
+/* ---------------------- (max-width: 900px) - FIN ---------------------- */
+
+
+/* ---------------------- (max-width: 700px) - DEBUT ---------------------- */
+
+@media screen and (max-width:700px) {
+
+     /* ---------- NAV - (max-width:700px) - DEBUT ---------- */
+     
+     /* -- BARRE DE NAVIGATION - début-- */
+     
+     /* -- ESPACE DE NAVIGATION - début-- */
+    .list_sous_menu ul li a {
+         font-size: 28px;
+    }
+
+    .nav2_container {
+        width: 73%;
+    }
+
+    .deconnexion {
+        right: 107px;
+    }
+        
+    /* ---------- NAV - (max-width:700px) - DEBUT ---------- */
+
+
+    /* MODAL */
+    .modalBilletBg {
+        width: 100%;
+    }
+
+    #lb_btnBillet {
+        right: 135px;
+    }
+
+    
+    /* ------------ MODAL PANIER (max-width:700px) - DEBUT ------------ */
+
+    .modalPanierContainer {
+        width: 320px;
+    }
+
+    .modalContentPanier {
+        width: 350px;
+        padding-top: 92px;
+    }
+
+    .btn_billet_panier {
+        right: 56px;
+        width: 225px;
+    }
+
+    .modalPanierAjout {
+        font-size: 19px;
+    }
+
+    .modalPanierContainerItems {
+        margin-top: 36px;
+        border-bottom: 1px solid var(--vertFonceTransparent);
+    }
+
+    .modalPanierimg {
+        width: 117px;
+        height: 150px;
+    }
+
+    .modalPaniertxt {
+        padding-top: 12px;
+    }
+
+    .modalPaniertitre {
+        font-size: 26px;
+        line-height: 26px;
+    }
+
+    .modalPanierCategorie {
+        font-size: 14px;
+    }
+
+    .modalPanierQuantite {
+        margin-top: 34px;
+        font-size: 16px;
+    }
+    /* ------------ MODAL PANIER (max-width:700px) - FIN ------------ */
+
+    /* --- PAGE EVENT - evenement.html (max-width: 700px) --- */
+    /* - PAGE EVENT - navbar (700px) - */
+    #recherche {
+        display: none;
+    }
+
+    nav {
+        padding: 0 25px;
+    }
+
+    /* - PAGE EVENT - Section droite (700px) - */
+    .droite h1 {
+        font-size: 40px;
+    }
+
+    /* .droite h3{
+        display: none;
+    } */
+
+    .droite{
+        top: 70%;
+    }
+
+    .containerDroit {
+        width: 100%;
+        padding: 45px 30px;
+    }
+
+    .bgEtat {
+        width: 335px;
+    }
+
+    .droite p {
+        font-size: 19px;
+        line-height: 25px;
+    }
+
+    /* - PAGE EVENT - prix (700px) - */
+    .place_prix {
+        display: block;
+    }
+
+    .prix{
+        margin-top: 18px;
+    }
+
+    
+    /* - PAGE EVENT - section catégorie (700px) - */
+    .trioCategory {
+        grid-template-columns: 1fr;
+        gap: 58px;
+    }
+
+    .trioCategory article {
+        grid-template-rows: auto 43px 25px;
+    }
+
+
+
+
+    /* --- PAGE LIST BOOK (max-width:700px) - DEBUT --- */
+
+
+    /* -- FILTRE CATEGORIE (list_book.php) -- */
+    
+
+    /* -- IMAGE EN BACKGROUND (list_book.php) -- */
+   
+    /* ------------ PAGE LIST BOOK (max-width:700px) - FIN ------------ */
+
+
+    /* ------------ PAGE BOOK (max-width:700px) - DEBUT ------------ */
+    #b_containerDroit {
+        padding: 45px 0px;
+    }
+
+    .b_historique,
+    .b_tableau,
+    .b_facture{
+        max-width: 450px;
+        margin: auto;
+    }
+
+    .b_historique{
+        margin-bottom: 34px;
+    }
+
+    .contenuEvent {
+        max-width: 450px;
+        margin: auto;
+        margin-top: 84px;
+    }
+
+    #accordeon dt:nth-child(1)::after {
+        padding-left: 325px;
+    }
+
+    #accordeon dt:nth-child(3)::after {
+        padding-left: 313px;
+    }
+
+    #b_tarif::after {
+        padding-left: 360px;
+    }
+
+    .b_facture{
+        margin-top: 50px;
+    }
+
+    /* ------------ PAGE BOOK (max-width:700px) - FIN ------------ */
+
+    /* --- LISTE EVENT - (max-width:700px)--- */
+    /* partie haute */
+
+    /* partie basse */
+
+    
+
+    .titre_listEvent {
+        font-size: 35px;
+    }
+    
+    .num_listEvent {
+        font-size: 16px;
+    }
+
+    .container_btnFiltre_listEvent {
+        display: block;
+    }
+
+    .btnProchainHistorique {
+        margin-bottom: 35px;
+    }
+
+    /* ------------ ADMIN LISTE EVENT - (max-width:700px)------------ */
+
+    /* --- PARTIE HAUTE --- */
+    
+    /* --- PARTIE BASSE --- */
+
+    .tableau_adminListEvent {
+        margin-top: 0;
+    }
+
+    .thead_adminListEvent tr th{
+        display: none;
+    }
+
+    .tbody_adminList tr td {
+        display: flex;
+    }
+
+    .tbody_adminList tr td {
+        font-size: 18px;
+    }
+
+    .tbody_adminList tr .table_titre{
+        font-size: 30px;
+    }
+
+    .table_category,
+    .table_date{
+        display: block;
+        font-size: 20px;
+    }
+
+    .table_btn {
+        padding: 9px 16px;
+    }
+
+}
+
+
+/* ---------------------- (max-width: 700px) - FIN ---------------------- */
+
+@media screen and (max-width:500px){
+
+    /* ---------- NAV - (max-width:500px) - DEBUT ---------- */
+    
+    /* -- BARRE DE NAVIGATION - début-- */
+    .nav_home_page,
+    .navbar {
+        padding: 0 116px 0 22px;
+    }
+
+    .burger, .trigger {
+        right: 24px;
+    }
+    
+    /* -- ESPACE DE NAVIGATION - début-- */
+
+    .logo_menu {
+        top: 19px;
+        left: 45px;
+    }
+    .deconnexion {
+        right: 75px;
+    }
+
+    .nav2_menu ul a {
+        font-size: 16px;
+    }
+
+    .nav2_container {
+        width: 80%;
+    }
+
+    /* ---------- NAV - (max-width:500px) - FIN ---------- */
+
+
+    /* ------------ PAGE BOOK (max-width:500px) - DEBUT ------------ */
+
+    .b_historique,
+    .b_tableau,
+    .b_facture{
+        max-width: 350px;
+        margin: auto;
+    }
+
+    .b_historique{
+        margin-bottom: 34px;
+    }
+
+    .contenuEvent {
+        max-width: 350px;
+    }
+
+    #accordeon dt:nth-child(1)::after {
+        padding-left: 230px;
+    }
+
+    #accordeon dt:nth-child(3)::after {
+        padding-left: 219px;
+    }
+
+    #b_tarif::after {
+        padding-left: 265px;
+    }
+    
+    .b_facture{
+        margin-top: 50px;
+    }
+
+    /* ------------ PAGE BOOK (max-width:500px) - FIN ------------ */
+
+}
+
+@media screen and (max-width:415px){
+
+    /* MODAL */
+    .modalBilletBg {
+        width: 100%;
+    }
+    
+    /* ------------ MODAL (max-width:415px) - DEBUT ------------ */
+    .ModalBtnGroup{
+        margin-top: 30px;
+    }
+    
+    .modal_btn {
+        text-decoration: none;
+        width: 100%;
+        font-size: 16px;
+        font-family: 'Karla', sans-serif;
+        font-weight: 300;
+        text-align: center;
+        padding: 10px 20px;
+        margin-bottom: 14px;
+        display: block;
+    }
+
+    /* ------------ MODAL (max-width:415px) - FIN ------------ */
+
+    /* ------------ MODAL PANIER(max-width:415px) - DEBUT ------------ */
+    #modalPanier {
+        top: 50px;
+    }
+    /* ------------ MODAL PANIER(max-width:415px) - FIN ------------ */
+
+
+    /* ------------ PAGE EVENT (max-width:415px) - DEBUT ------------ */
+    /* NAV */
+    nav {
+        height: 50px;
+    }
+
+    .navigation div {
+        margin-left: 15px;
+    }
+
+    .site {
+        padding-top: 50px;
+    }
+
+    .bgEtat {
+        width: 300px;
+    }
+
+    /* DROIT */
+    .containerDroit {
+        width: 100%;
+        padding: 45px 25px;
+    }
+
+    /* BOUTON DE RESERVATION */
+    /* .reserve {
+        width: 265px;
+    } */
+    /* ------------ PAGE EVENT (max-width:415px) - FIN ------------ */
+
+
+    
+    /* ------------ PAGE LIST BOOK (max-width:415px) - DEBUT ------------ */
+
+
+    /* -- CONTAINER (list_book.php) -- */
+    .lb_container {
+        max-width: 100%;
+    }
+
+    #container_listBook {
+        padding: 0 ;
+    }
+
+    /* -- FILTRE CATEGORIE (list_book.php) -- */
+    .filtreCategory{
+        margin-bottom: 12px;
+    }
+
+    /* -- IMAGE EN BACKGROUND (list_book.php) -- */
+
+    /* .lb_bgImageEvent{
+        background-color: var(--vertFonce);
+        width: 100%;
+        height: 278px;
+        position: absolute;
+        top: 0;
+        opacity: 0.5;
+        
+    } */
+
+    /* -- IMAGE EN DUR (list_book.php) -- */
+    /* .lb_imageEvent{
+        background-color: var(--vertFonce);
+        width: 100%;
+        height: 278px;
+        overflow: hidden;
+        
+    }
+    .lb_imageEvent img{
+        background-color: var(--vertFonce);
+        max-width: 100%;
+        height: auto;
+        opacity: 0.5;
+        
+    } */
+
+
+    /* ------------ PAGE LIST BOOK (max-width:415px) - FIN ------------ */
+
+
+    /* --- LISTE EVENT - (max-width:415px)--- */
+    /* partie haute */
+
+    /* partie basse */
+    .titre_listEvent {
+        font-size: 26px;
+    }
+
+    .ss_titre_listEvent {
+        font-size: 14px;
+    }
+
+    .center_txt_listEvent {
+        margin: 40px 0 40px;
+    }
+
+    .num_listEvent {
+        font-size: 12px;
+    }
+}
