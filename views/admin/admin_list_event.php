@@ -2,9 +2,15 @@
 include_once "../inc/header.php";
 include_once "../inc/navigation.php";
 require_once "../../models/eventModel.php";
+
 $listEvent = Event::findAllEvent();
 $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD HH:MM:SS)
 ?>
+
+
+
+
+<!-- ------------------------ PAGE LISTE EVENT ------------------------ -->
 
 <main id="siteListEvent" class="siteList">
     
@@ -112,7 +118,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                         </tr>
     
                         <!-- MODULE BOUCLE -->
-                        <tr>
+                        <tr class="table_module">
                             <td class="table_img_none">
                                 <div class="table_img">
                                     <img src="../asset/img/event_tennis.jpg" alt="">
@@ -136,25 +142,56 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                         foreach($listEvent as $event){ 
                             // Comparer la date de l'événement avec la date actuelle
                             if ($event['date_event'] >= $currentDate) { ?>
-                                <tr>
-                                    <td><?= $event['id_evenement']; ?></td>
-                                    <td><?= $event['titre']; ?></td>
-                                    <td><?= $event['categorie_name']; ?></td>
+                                <tr class="table_module">
+                                    <!-- Image -->
+                                    <td class="table_img_none">
+                                        <div class="table_img">
+                                            <img src="../asset/img/<?=$event['image']; ?>" alt="">
+                                        </div>
+                                    </td>
+
+                                    <!-- Nom -->
+                                    <td class="table_titre"><?= $event['titre']; ?></td>
+
+                                    <!-- Catégorie -->
+                                    <td class="table_category table_category_none"><?= $event['categorie_name']; ?></td>
+
+                                    <!-- Date -->
+                                    <td class="table_date"><?= $event['date_event']; ?></td>
+                                    
+                                    <!-- Action -->
                                     <?php if ($event['events_actif'] == 1){ ?>
-                                        <td><a class="lien" href="./event.php?event=<?= $event['id_evenement']; ?>">Visualiser</a></td>
-                                        <td><a href="./add_event.php?id_event_update=<?= $event['id_evenement']; ?>">Modifier</a></td>
-                                        <td><a href="traitement/action.php?id_event_desactive=<?= $event['id_evenement']; ?>">Annuler</a></td>
+
+                                        <!-- Visualiser / Consulter -->
+                                        <td class="table_action"><a href="./event.php?event=<?= $event['id_evenement']; ?>">Consulter</a></td>
+
+                                        <!-- Annuler -->
+                                        <td class="table_action"><a href="traitement/action.php?id_event_desactive=<?= $event['id_evenement']; ?>">Annuler</a></td>
+                                        
+                                        <!-- Supprimer -->
                                         <td><a href="traitement/action.php?id_event_delete=<?= $event['id_evenement']; ?>">Supprimer</a></td>
+
+                                        <!-- bouton - Modifier -->
+                                        <td>
+                                            <p class="table_btn">
+                                            <a href="./add_event.php?id_event_update=<?= $event['id_evenement']; ?>" id="table_btnTxt">Modifier</a>
+                                            </p>
+                                        </td>
+
                                         <td></td>
+
+                                    <!-- Message - Evénement annulé -->
                                     <?php }elseif($event['events_actif'] == 0){ ?>
+
+                                        <!-- bouton - Activer l'événement -->
                                         <td colspan="4"><a href="traitement/action.php?id_event_active=<?= $event['id_evenement']; ?>">Activer l'évènement</a></td>
+
+                                        <!-- message état -->
                                         <td>annulation</td>
                                     <?php } ?>
                                 </tr>
                             <?php }
-                        }
-                        
-                        
+                        }   
                     ?>
                     </tbody>
                 </table>
@@ -165,7 +202,11 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
         <!-- --------- BTN - AJOUTER UN EVENEMENT ---------- -->
         <div class="container_btnAjouter">
             
+            <!-- btn - ajouter -->
             <a href="./admin_add_evenement.php" class="btn_ajouter"><p><i class="fa-light fa-plus"></i>Ajouter un événement</p></a>
+
+            <!-- btn - visualiser -->
+            <!-- <a href="./admin_add_evenement.php" class="btn_ajouter"><p>Visualiser la liste des évènements</p></a> -->
         </div>
 
     </section>

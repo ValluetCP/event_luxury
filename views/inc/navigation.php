@@ -77,13 +77,13 @@
                             <li><a href="" class="admin_accueil_link sous_menu_admin linkActive">Accueil</a></li>
 
                             <!-- ADMIN - Liste des catégories -->
-                            <li><a href="http://localhost/event_luxury/views/list_categorie" class="admin_categorie_link sous_menu_admin">Catégories</a></li>
+                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_categorie" class="admin_categorie_link sous_menu_admin">Catégories</a></li>
 
                             <!-- ADMIN - La liste des évènements  -->
-                            <li><a href="http://localhost/event_luxury/views/admin_list_event" class="admin_event_link sous_menu_admin">événements</a></li>
+                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_event.php" class="admin_event_link sous_menu_admin">événements</a></li>
 
                             <!-- ADMIN - Liste des utilisateurs -->
-                            <li><a href="http://localhost/event_luxury/views/list_user" class="admin_user_link sous_menu_admin">utilisateurs</a></li>
+                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_user" class="admin_user_link sous_menu_admin">utilisateurs</a></li>
                         </ul>
                     </div>
 
@@ -98,7 +98,7 @@
                             <li><a href="http://localhost/event_luxury/views/list_event" class="client_event_link sous_menu_client">Nos événements</a></li>
 
                             <!-- CLIENT - La liste des réservations -->
-                            <li><a href="http://localhost/event/views/list_book" class="client_book_link sous_menu_client">Vos réservations</a></li>
+                            <li><a href="http://localhost/event_luxury/views/list_book" class="client_book_link sous_menu_client">Vos réservations</a></li>
                         </ul>
                     </div>
     
