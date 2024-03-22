@@ -1,8 +1,13 @@
 <?php
-include_once "../inc/header_admin.php";
-include_once "../inc/nav_admin.php";
+include_once "../inc/header.php";
+include_once "../inc/navigation.php";
+require_once "../../models/userModel.php";
+$userList = User::findAllUser();
 ?>
 
+
+
+<!-- ------------------------ PAGE LISTE USER ------------------------ -->
 
 <main id="siteListUser" class="siteList">
 
@@ -95,70 +100,44 @@ include_once "../inc/nav_admin.php";
                             </td>
                         </tr>
     
-                        <!-- MODULE 2 -->
-                        <tr class="table_module">
-                            <td>
-                                <div class="table_img">
-                                    <img src="../asset/img/user_ben.jpg" alt="">
-                                </div>
-                            </td>
-                            <td class="table_titre table_nom">afleck</td>
-                            <td class="table_category table_penom">ben</td>
-                            <td class="table_email">ben@mail.com</td>
-                            <td class="table_pseudo">ben1</td>
-                            <td class="table_action"><a href="">modifier</a></td>
-                            <td class="table_action"><a href="">supprimer</a></td>
-                            <!-- bouton -->
-                            <td>
-                                <p class="table_btn">
-                                    <a href="" id="table_btnTxt">Consulter</a>
-                                </p>
-                            </td>
-                        </tr>
-    
-                        <!-- MODULE 3 -->
-                        <tr class="table_module">
-                            <td>
-                                <div class="table_img">
-                                    <img src="../asset/img/user_klara.jpg" alt="">
-                                </div>
-                            </td>
-                            <td class="table_titre table_nom">martins</td>
-                            <td class="table_category table_penom">klara</td>
-                            <td class="table_email">klara@mail.com</td>
-                            <td class="table_pseudo">klara1</td>
-                            <td class="table_action"><a href="">modifier</a></td>
-                            <td class="table_action"><a href="">supprimer</a></td>
-                            <!-- bouton -->
-                            <td>
-                                <p class="table_btn">
-                                    <a href="../info_user.php" id="table_btnTxt">Consulter</a>
-                                </p>
-                            </td>
-                        </tr>
-    
-                        <!-- MODULE 4 -->
-                        <tr class="table_module">
-                            <td>
-                                <div class="table_img">
-                                    <img src="../asset/img/user_emma.jpg" alt="">
-                                </div>
-                            </td>
-                            <td class="table_titre table_nom">lopez</td>
-                            <td class="table_category table_penom">emma</td>
-                            <td class="table_email">emma@mail.com</td>
-                            <td class="table_pseudo">emma1</td>
-                            <td class="table_action"><a href="">modifier</a></td>
-                            <td class="table_action"><a href="">supprimer</a></td>
-                            <!-- bouton -->
-                            <td>
-                                <p class="table_btn">
-                                    <a href="" id="table_btnTxt">Consulter</a>
-                                </p>
-                            </td>
-                        </tr>
-    
-        
+                        <!-- MODULE BOUCLE -->
+                        <?php foreach($userList as $user){ ?>
+                            <tr class="table_module">
+
+                                <!-- image -->
+                                <td>
+                                    <div class="table_img">
+                                        <img src="../asset/img_event/<?=$user['image']; ?>" alt="">
+                                    </div>
+                                </td>
+
+                                <!-- nom -->
+                                <td class="table_titre table_nom"><?= $user['nom']; ?></td>
+
+                                <!-- prénom -->
+                                <td class="table_category table_penom"><?= $user['prenom']; ?></td>
+
+                                <!-- email -->
+                                <td class="table_email"><?= $user['email']; ?></td>
+
+                                <!-- pseudo -->
+                                <td class="table_pseudo"><?= $user['pseudo']; ?></td>
+
+                                <!-- modifier -->
+                                <td class="table_action"><a href="./add_user.php?id_user_update=<?= $user['id_utilisateur']; ?>">modifier</a></td>
+
+                                <!-- supprimer -->
+                                <td class="table_action"><a href="traitement/action.php?id_user_delete=<?= $user['id_utilisateur']; ?>">supprimer</a></td>
+
+                                <!-- bouton -->
+                                <td>
+                                    <p class="table_btn">
+                                        <a href="./user.php?book=<?= $user['id_utilisateur']; ?>" id="table_btnTxt">Consulter</a>
+                                    </p>
+                                </td>
+
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
