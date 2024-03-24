@@ -95,7 +95,7 @@
                             <li><a href="http://localhost/event_luxury/views/home" class="client_accueil_link sous_menu_client">Accueil</a></li>
 
                             <!-- CLIENT - La liste des évènements -->
-                            <li><a href="http://localhost/event_luxury/views/list_event" class="client_event_link sous_menu_client">Nos événements</a></li>
+                            <li><a href="http://localhost/event_luxury/views/event_list" class="client_event_link sous_menu_client">Nos événements</a></li>
 
                             <!-- CLIENT - La liste des réservations -->
                             <li><a href="http://localhost/event_luxury/views/list_book" class="client_book_link sous_menu_client">Vos réservations</a></li>

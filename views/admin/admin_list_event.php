@@ -97,7 +97,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                         </tr>
     
                         <!-- MODULE 2 -->
-                        <tr>
+                        <tr class="table_module">
                             <td class="table_img_none">
                                 <div class="table_img">
                                     <img src="../asset/img/event_tennis.jpg" alt="">

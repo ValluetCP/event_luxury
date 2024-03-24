@@ -6,6 +6,22 @@ require_once "../models/eventModel.php";
 require_once "../models/bookModel.php";
 require_once "../models/userModel.php";
 require_once "../models/categorieModel.php";
+
+$listEvent = Event::findAllEvent();
+$userReservation = User::userReservation($_SESSION['id_user']);
+
+// $userReservationIds = array_column($reservations, 'event_id');
+$userReservationIds = Book::userReservationIds($_SESSION['id_user']); // Utilisez la nouvelle méthode
+
+$currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD HH:MM:SS)
+
+foreach ($listEvent as $event) {
+    // Récupération des valeurs de categorie_id et categorie_name
+    $categories[$event["categorie_id"]] = $event["categorie_name"];
+}
+
+// Utilisation de array_unique pour obtenir les valeurs uniques
+// $categoriesUniques = array_unique($categories);
 ?>
 
 
@@ -32,7 +48,7 @@ require_once "../models/categorieModel.php";
             <div class="divDate">
                 <div class="dateBillet">24.01.24</div>
             </div>
-            <h2 class="titreBillet">Salon de l'automobile</h2>
+            <h2 class="titreBillet">The french miami</h2>
             <p class="categorieBillet">divertissement</p>
             <div class="placeBillet">
                 <div class="txtPlaceBillet"><p>Nombre de <br> places réservées</p></div>
@@ -89,21 +105,51 @@ require_once "../models/categorieModel.php";
                     <a href="" id="prochain_event" class="historique_listEvent">Historique</a>
                 </div>
                 
-                <!-- FILTRE -->
-                <div class="filtreCategory">
+                <!-- <div class="filtreCategory">
                     <button type="submit" class="lb_filtre">Filtrer</button>
                     <div class="lb_selectFiltre">
-                      <select name="lb_categoryFiltre" id="lb_categoryFiltre">
-                        <option value="1">Toutes les catégories</option>
-                        <option value="2">Divertissement</option>
-                        <option value="3">Atelier</option>
-                      </select>
+                        <select name="lb_categoryFiltre" id="lb_categoryFiltre">
+                            <option value="1">Toutes les catégories</option>
+                            <option value="2">Divertissement</option>
+                            <option value="3">Atelier</option>
+                        </select>
                     </div>
-                </div>
+                </div> -->
+                
+                <!-- FILTRE -->
+                <!-- Ajoutez le formulaire de filtre ici -->
+                <form method="get" action="" class="filtreCategory">
+                    <button type="submit" class="lb_filtre">Filtrer</button>
+                    <div class="lb_selectFiltre">
+                        <select name="categorie" id="categorie">
+                            <option value="">Toutes les catégories</option>
+                            <?php foreach($categories as $key => $categorie){ ?>
+                                <option value="<?= $key; ?>"><?= $categorie ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </form>
             </div>
 
+
+            <!-- CODE : FILTRER PAR CATEGORIE -->
+            <?php
+                // Ajoutez ce bloc pour filtrer par catégorie
+                $categorieFilter = isset($_GET['categorie']) ? $_GET['categorie'] : null;
+                if ($categorieFilter) {
+                    // $listEvent = Event::findEventsByCategory($categorieFilter);
+                    $evenementsByCategory = array_filter($listEvent, function ($evenement) use ($categorieFilter) {
+                        return $evenement['categorie_id'] === (int)$categorieFilter;
+                    });
+                } else{
+                    $evenementsByCategory = $listEvent;
+                }
+            ?>
+
+
             <!-- Div vide pour afficher le contenu -->
-            <div id="resultat" class="overflow_listEvent">   
+            <div id="resultat" class="overflow_listEvent">
+                
                 <!-- MODULE 1 -->
                 <!-- MODULE pour la boucle -->
                 <div class="lb_event">
@@ -117,11 +163,11 @@ require_once "../models/categorieModel.php";
                     <div class="lb_eventContainer">
                         <div class="lb_numeroEvent">01</div>
                         <div class="lb_text">
-                        <div class="lb_titre">Coconut milk</div>
-                        <div class="lb_categoryDate">
-                            <div class="lb_category">Atelier</div>
-                            <div class="lb_date">29-05-2024</div>
-                        </div>
+                        <div class="lb_titre">The french miami</div>
+                            <div class="lb_categoryDate">
+                                <div class="lb_category">Atelier</div>
+                                <div class="lb_date">29-05-2024</div>
+                            </div>
                         </div>
                     </div>
                     <div class="lb_reservation">
@@ -130,8 +176,7 @@ require_once "../models/categorieModel.php";
                     </div>
                 </div>
 
-                <!-- MODULE 2 -->
-                <!-- MODULE pour la boucle -->
+                <!-- MODULE BOUCLE -->
                 <div class="lb_event">
 
                     <!-- image en backgound -->
@@ -141,7 +186,7 @@ require_once "../models/categorieModel.php";
 
                     <!-- texte -->
                     <div class="lb_eventContainer">
-                        <div class="lb_numeroEvent">02</div>
+                        <div class="lb_numeroEvent">03</div>
                         <div class="lb_text">
                         <div class="lb_titre">Pink Flamingo</div>
                         <div class="lb_categoryDate">
@@ -155,6 +200,49 @@ require_once "../models/categorieModel.php";
                         <a href="" class="lb_consulter">Consulter</a>
                     </div>
                 </div>
+
+
+                <?php foreach($evenementsByCategory as $event){
+                // Comparer la date de l'événement avec la date actuelle, si la date est déjà passé ne l'afficher ici
+
+                    if ($event['date_event'] >= $currentDate) { 
+                    // Obtenir le nombre total de places réservées pour cet évènement
+                    $totalPlacesReservees = Book::calculReservation($event['id_evenement']); ?>
+                
+                        <?php if(!empty($_SESSION['id_user'])){
+
+                            if(in_array($event['id_evenement'], $userReservationIds) && $event['events_actif'] == 1){ ?>
+
+                                <div class="lb_event">
+
+                                    <!-- image en backgound -->
+                                    <div class="lb_imageEvent">
+                                        <img src="./asset/img/<?= $event['image'];?>" alt="">
+                                    </div>
+
+                                    <!-- texte -->
+                                    <div class="lb_eventContainer">
+                                        <div class="lb_numeroEvent"><?= $event['id_evenement']; ?></div>
+                                        <div class="lb_text">
+                                            <div class="lb_titre"><?= $event['titre'];?></div>
+                                            <div class="lb_categoryDate">
+                                                <div class="lb_category"><?= $event['categorie_name'];?></div>
+                                                <div class="lb_date"><?= $event['date_event'];?></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="lb_reservation">
+                                        <a href="#modalInfoPerso" class="lb_billet">Télécharger le billet</a>
+                                        <a href="./book.php?event=<?= $event['id_evenement']; ?>" class="lb_consulter">Consulter</a>
+                                    </div>
+                                </div>
+
+                            <?php } ?>
+
+                        <?php } ?>
+                
+                    <?php }
+                } ?>
     
             </div>
 

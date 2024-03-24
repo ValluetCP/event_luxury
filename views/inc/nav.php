@@ -26,7 +26,7 @@
             <a href="http://localhost/event_luxury/views/admin_list_event">Liste des évènements</a>
 
             <!-- USER : La liste des évènements (test) -->
-            <a href="http://localhost/event_luxury/views/list_event">Test_évènements</a>
+            <a href="http://localhost/event_luxury/views/list_event">Client liste des évènements</a>
 
             <!-- Ajouter un évènement sur la plateforme -->
             <!-- <a href="http://localhost/event_luxury/views/add_event.php">Ajouter un évènement</a> -->
@@ -35,16 +35,16 @@
             <!-- <a href="http://localhost/event_luxury/views/modif_event.php">Modifier un évènement</a> -->
             
            <!-- Liste des catégories -->
-           <a href="http://localhost/event_luxury/views/list_categorie">Liste de catégories</a>
+           <a href="http://localhost/event_luxury/views/admin/admin_list_categorie.php">Liste de catégories</a>
             
             <!-- Ajouter une catégorie -->
-            <a href="http://localhost/event_luxury/views/add_categorie">Ajouter une categorie</a>
+            <a href="http://localhost/event_luxury/views/admin/admin_add_categorie.php">Ajouter une categorie</a>
              
             <!-- Modifier une catégorie -->
             <!-- <a href="http://localhost/event_luxury/views/modif_categorie.php">Modifier une catégorie</a> -->
 
            <!-- Liste des utilisateurs -->
-           <a href="http://localhost/event_luxury/views/list_user">Liste des utilisateurs</a>
+           <a href="http://localhost/event_luxury/views/admin/admin_list_user.php">Liste des utilisateurs</a>
 
            <!-- Se déconnecter  -->
            <a href="http://localhost/event_luxury/views/logout">Déconnexion</a>

@@ -18,7 +18,8 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
 foreach ($listEvent as $event) {
     // Récupération des valeurs de categorie_id et categorie_name
     $categories[$event["categorie_id"]] = $event["categorie_name"];
-} ?>
+} 
+?>
 
 <div class="container">
 <h1 class="m-5">Liste des évènements</h1>
