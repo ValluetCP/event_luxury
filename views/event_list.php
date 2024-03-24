@@ -202,7 +202,7 @@ foreach ($listEvent as $event) {
                             <!-- numéro -->
                             <div class="num_listEvent">03</div>
                             <div class="txt_listEvent">
-                                <div class="titre_listEvent"><?= $event['titre']; ?></div>
+                                <div class="titre_listEvent"><a href="./evenement.php?event=<?= $event['id_evenement']; ?>"><?= $event['titre']; ?></a></div>
                                 <!-- date / category -->
                                 <div class="ss_titre_listEvent">
                                     <div class="category"><?= $event['categorie_name']; ?></div>

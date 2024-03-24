@@ -2,7 +2,7 @@
 // Page - Affiche un évènement (côté CLIENT)
 // session_start();
 include_once "./inc/header.php";
-include_once "./inc/nav.php";
+include_once "./inc/navigation.php";
 include_once "./inc/functions.php";
 require_once "../models/eventModel.php";
 require_once "../models/bookModel.php";

@@ -224,7 +224,7 @@ foreach ($listEvent as $event) {
                                     <div class="lb_eventContainer">
                                         <div class="lb_numeroEvent"><?= $event['id_evenement']; ?></div>
                                         <div class="lb_text">
-                                            <div class="lb_titre"><?= $event['titre'];?></div>
+                                            <div class="lb_titre"><a href=""><?= $event['titre'];?></a></div>
                                             <div class="lb_categoryDate">
                                                 <div class="lb_category"><?= $event['categorie_name'];?></div>
                                                 <div class="lb_date"><?= $event['date_event'];?></div>
