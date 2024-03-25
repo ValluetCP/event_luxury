@@ -217,6 +217,57 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
                     </div>
                 </div>
 
+
+
+
+
+
+
+
+
+                <?php if(isset($_SESSION['user_role'])){
+            
+             if ($placesDisponibles !== 0) { ?>
+                    <form id="form_event">
+                        <input type="hidden" name="id_event" value="<?= $ficheEvent['id_evenement']; ?>">
+
+                        <?php if ($ficheEvent['date_event'] >= $currentDate) { ?>
+                            <?php if ($ficheEvent['events_actif'] == 1) { ?>
+                                <!-- Vérifier si l'événement n'est pas annulé -->
+
+                                <label for="">Choisir le nombre de place :</label>
+                                <select name="place_reserve" id="">
+                                    <?php
+                                    $maxPlaces = min($placesDisponibles, 4);
+                                    for ($i = 1; $i <= $maxPlaces; $i++) { ?>
+                                        <option value="<?= $i; ?>"><?= $i; ?></option>
+                                    <?php } ?>
+                                </select><br><br>
+
+                                <?php if(!empty($_SESSION['id_user']) && $ficheEvent['date_event'] >= $currentDate){ ?>
+                                    <!-- <button type="submit" class="btn btn-outline-secondary" name="add_book" >Réserver</button> -->
+                                    <?php if(in_array($ficheEvent['id_evenement'], $userReservationIds) && $ficheEvent['events_actif'] == 1){ ?>
+                                        <button type="button" class="btn btn-outline-warning mt-3 mb-5" data-bs-toggle="modal" data-bs-target="#exampleModalAddReservation">
+                                            Ajouter une autre réservation
+                                        </button>
+                                    
+                                    <?php } else { ?>
+                                        <button type="submit" name="add_panier" class="btnEvent btnEvent-3">Réserver</button>
+                                    <?php } ?>
+                                <?php } ?> 
+                            <?php } ?>
+                        <?php } ?>
+                    </form>
+                
+               <!-- }elseif($totalPlacesReservees == null){ -->
+            <?php }
+            }  
+         ?> 
+
+
+
+
+
                 <!-- BOUTON DE VALIDATION RESERVATION -->
                 <div class="btn_flex">
                     <!-- <button type="button" class="reserve  btnEvent btnEvent-3">Réserver</button> -->
