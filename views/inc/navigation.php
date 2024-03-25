@@ -13,12 +13,17 @@
         <div class="nav_logo">
             <a href=""><img id="scrollLogoClair" class="logo logo_vert_clair" src="../asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
         </div>
-        <!-- <div class="navigation">
-            <div class="recherche">
+
+        <div class="navigation">
+            <!-- <div class="recherche">
                 <input id="recherche" type="text" placeholder="RECHERCHER">
+            </div> -->
+
+
+            <div class="panier">
+                <a href="http://localhost/event_luxury/views/panier_0">PANIER (<?= $_SESSION["nombre"] ?? ''; ?>)</a>
             </div>
-            <div class="panier">PANIER (0)</div>
-        </div> -->
+        </div>
 
         <!-- Burger - animation -->
         <input type="checkbox" class="trigger" />

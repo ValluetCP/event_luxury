@@ -1,6 +1,6 @@
 <?php
-include_once "../inc/header_admin.php";
-include_once "../inc/nav_admin_bicolor.php";
+include_once "../inc/header.php";
+include_once "../inc/navigation.php";
 ?>
 
     
@@ -19,7 +19,7 @@ include_once "../inc/nav_admin_bicolor.php";
                 <h1>Ajouter<br>un utilisateur</h1>
 
                 <!-- FORMULAIRE - AJOUTER UN USER -->
-                <form id="userForm" class="gabaritForm" action="" method="post">
+                <form id="userForm" class="gabaritForm" action="../traitement/action.php" method="post" enctype="multipart/form-data">
                     
                     <div class="gabarit_form">
                         <input type="text"  placeholder="nom" name="nom" >

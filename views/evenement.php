@@ -195,84 +195,74 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
                     Place disponible : <span><?= $placesDisponibles; ?></span><br>
                 </div>
 
-                <!-- CHOIX - NBR DE PLACE -->
-                <div class="place_prix">
-                    <!-- bouton SELECT -->
-                    <div class="placeSelect">
-                        <div class='ui-dropdown'>
-                            <select>
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                            </select>
-                        </div>
-                        <div class="place">
-                            <p>Nombre de place</p>
-                        </div>  
-                    </div>
-                    <!-- PRIX -->
-                    <div class="prix">
-                        <p>Prix : <?= $ficheEvent['prix']; ?>€ / <span>unité</span></p>
-                    </div>
-                </div>
-
-
-
-
-
-
-
 
 
                 <?php if(isset($_SESSION['user_role'])){
             
-             if ($placesDisponibles !== 0) { ?>
-                    <form id="form_event">
-                        <input type="hidden" name="id_event" value="<?= $ficheEvent['id_evenement']; ?>">
+                    if ($placesDisponibles !== 0) { ?>
 
-                        <?php if ($ficheEvent['date_event'] >= $currentDate) { ?>
-                            <?php if ($ficheEvent['events_actif'] == 1) { ?>
-                                <!-- Vérifier si l'événement n'est pas annulé -->
+                        <!-- FORMULAIRE RESERVATION -->
+                        <form id="form_event">
+                            <input type="hidden" name="id_event" value="<?= $ficheEvent['id_evenement']; ?>">
 
-                                <label for="">Choisir le nombre de place :</label>
-                                <select name="place_reserve" id="">
-                                    <?php
-                                    $maxPlaces = min($placesDisponibles, 4);
-                                    for ($i = 1; $i <= $maxPlaces; $i++) { ?>
-                                        <option value="<?= $i; ?>"><?= $i; ?></option>
-                                    <?php } ?>
-                                </select><br><br>
+                            <!-- Si l'event n'est pas passé -->
+                            <?php if ($ficheEvent['date_event'] >= $currentDate) { ?>
 
-                                <?php if(!empty($_SESSION['id_user']) && $ficheEvent['date_event'] >= $currentDate){ ?>
-                                    <!-- <button type="submit" class="btn btn-outline-secondary" name="add_book" >Réserver</button> -->
-                                    <?php if(in_array($ficheEvent['id_evenement'], $userReservationIds) && $ficheEvent['events_actif'] == 1){ ?>
-                                        <button type="button" class="btn btn-outline-warning mt-3 mb-5" data-bs-toggle="modal" data-bs-target="#exampleModalAddReservation">
-                                            Ajouter une autre réservation
-                                        </button>
-                                    
-                                    <?php } else { ?>
-                                        <button type="submit" name="add_panier" class="btnEvent btnEvent-3">Réserver</button>
-                                    <?php } ?>
-                                <?php } ?> 
+
+                                <!-- et n'est pas annulé -->
+                                <?php if ($ficheEvent['events_actif'] == 1) { ?>
+
+                                    <!-- CHOIX - NBR DE PLACE -->
+                                    <div class="place_prix">
+                                        <!-- bouton SELECT -->
+                                        <div class="placeSelect">
+                                            <div class='ui-dropdown'>
+                                                <select name="place_reserve">
+                                                    <?php $maxPlaces = min($placesDisponibles, 4);
+                                                    for ($i = 1; $i <= $maxPlaces; $i++) { ?>
+                                                        <option value="<?= $i; ?>"><?= $i; ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="place">
+                                                <p>Nombre de place</p>
+                                            </div>  
+                                        </div>
+                                        <!-- PRIX -->
+                                        <div class="prix">
+                                            <p>Prix : <?= $ficheEvent['prix']; ?>€ / <span>unité</span></p>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- BOUTON -->
+                                    <?php if(!empty($_SESSION['id_user']) && $ficheEvent['date_event'] >= $currentDate){ ?>
+
+                                        <?php if(in_array($ficheEvent['id_evenement'], $userReservationIds) && $ficheEvent['events_actif'] == 1){ ?>
+                                            <!-- BOUTON DE VALIDATION RESERVATION -->
+                                            <div class="btn_flex">
+                                                <button onclick="window.location.href='#modalEvent'" type="submit" class="btnEvent btnEvent-3">Ajouter une réservation</button>
+                                            </div>
+                                        
+                                        <?php } else { ?>
+
+                                            <!-- BOUTON DE VALIDATION RESERVATION -->
+                                            <div class="btn_flex">
+                                                <button onclick="window.location.href='#modalPanier'" type="submit" name="add_panier" class="btnEvent btnEvent-3" value="reserver">Réserver</button>
+                                            </div>
+                                        <?php } ?>
+
+                                    <?php } ?> 
+                                <?php } ?>
                             <?php } ?>
-                        <?php } ?>
-                    </form>
-                
-               <!-- }elseif($totalPlacesReservees == null){ -->
-            <?php }
-            }  
-         ?> 
+                        </form>
+                        
+                    <!-- }elseif($totalPlacesReservees == null){ -->
+                    <?php }
+                } ?> 
 
 
 
-
-
-                <!-- BOUTON DE VALIDATION RESERVATION -->
-                <div class="btn_flex">
-                    <!-- <button type="button" class="reserve  btnEvent btnEvent-3">Réserver</button> -->
-                    <button onclick="window.location.href='#modalEvent'" type="button" class="btnEvent btnEvent-3">Ajouter une réservation</button>
-                </div>
                 <h3>Vous pourriez aimer . . .</h3>
                 <div class="trioCategory">
                     <article class="categoryUn">
@@ -323,6 +313,7 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
     <footer></footer>
     <script src="./asset/js/nav_scroll2.js"></script>
     <script>
+        
         function showList(listClassName){
             var allLists = document.querySelectorAll('.nav2_container div:not(.nav2_menu,.deconnexion,.profil_nav,.img_profil_nav)');
             allLists.forEach(function(list) {
@@ -333,6 +324,34 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
             var selectedList = document.querySelector('.' + listClassName);
             selectedList.classList.remove('hidden');
         }
+
+
+        $(document).ready(function() {
+
+
+            $("#add_reservation").on("click", (evtSubmit) => {
+                evtSubmit.preventDefault();
+                var submitVal = $(this).attr("");
+                var url_action = "./traitement/action.php";
+                var event_fields = $("#form_event").serialize()+ "&add_panier=reserver";
+                
+                $.ajax({
+                url: url_action,
+                data: event_fields,
+                type:'post',
+                dataType: "json",
+                success: (data) => {
+                    $("#nombre").html(data);
+                    console.log("nb produits dans mon deuxième cart = " + data);
+                },
+                error: (jqXHR, status, error) => {
+                    console.log("ERREUR AJAX", status, error);
+                },
+                });
+            });
+
+        });
+
     </script>
 </body>
 </html>

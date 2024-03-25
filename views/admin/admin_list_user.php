@@ -36,7 +36,7 @@ $userList = User::findAllUser();
     <!-- ------------------------------- BAS -------------------------------- -->
     <!-- SECTION DU BAS - LISTE DES EVENTS -->
     <section class="bas">
-        
+
         <!-- CONTAINER GLOBAL - liste des events -->
         <div id="container_listUser" class="container_list">
 
@@ -48,22 +48,22 @@ $userList = User::findAllUser();
                     <a href="" id="reinitialiser_resultat" class="prochainement_listEvent">clients</a>
                     <a href="" id="prochain_event" class="historique_listEvent">admins</a>
                 </div>
-                
+
                 <!-- FILTRE -->
                 <div class="filtreCategory">
                     <button type="submit" class="lb_filtre">Filtrer</button>
                     <div class="lb_selectFiltre">
-                      <select name="lb_categoryFiltre" id="lb_categoryFiltre">
-                        <option value="1">Toutes les catégories</option>
-                        <option value="2">Divertissement</option>
-                        <option value="3">Atelier</option>
-                      </select>
+                        <select name="lb_categoryFiltre" id="lb_categoryFiltre">
+                            <option value="1">Toutes les catégories</option>
+                            <option value="2">Divertissement</option>
+                            <option value="3">Atelier</option>
+                        </select>
                     </div>
                 </div>
             </div>
 
             <!-- Div vide pour afficher le contenu -->
-            <div id="resultat" class="overflow_listEvent"> 
+            <div id="resultat" class="overflow_listEvent">
 
                 <!-- TABLEAU - LISTE DES EVENTS -->
                 <table class="tableau_adminListEvent">
@@ -78,7 +78,7 @@ $userList = User::findAllUser();
                         </tr>
                     </thead>
                     <tbody id="tbody_adminListUser" class="tbody_adminList">
-    
+
                         <!-- MODULE 1 -->
                         <tr class="table_module">
                             <td>
@@ -99,15 +99,15 @@ $userList = User::findAllUser();
                                 </p>
                             </td>
                         </tr>
-    
+
                         <!-- MODULE BOUCLE -->
-                        <?php foreach($userList as $user){ ?>
+                        <?php foreach ($userList as $user) { ?>
                             <tr class="table_module">
 
                                 <!-- image -->
                                 <td>
                                     <div class="table_img">
-                                        <img src="../asset/img_event/<?=$user['image']; ?>" alt="">
+                                        <img src="http://localhost/event_luxury/views/asset/img/<?= $user['image']; ?>" alt="">
                                     </div>
                                 </td>
 
@@ -146,8 +146,10 @@ $userList = User::findAllUser();
 
         <!-- --------- BTN - AJOUTER UN EVENEMENT ---------- -->
         <div class="container_btnAjouter">
-            
-            <a href="./admin_add_user.php" class="btn_ajouter"><p><i class="fa-light fa-plus"></i>Ajouter un utilisateur</p></a>
+
+            <a href="./admin_add_user.php" class="btn_ajouter">
+                <p><i class="fa-light fa-plus"></i>Ajouter un utilisateur</p>
+            </a>
         </div>
 
 
@@ -157,66 +159,66 @@ $userList = User::findAllUser();
 
 <footer></footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    <script src="../asset/js/nav_scroll2.js"></script>
+<script src="../asset/js/nav_scroll2.js"></script>
 
-    <script>
-
-        // CODE JS : SCROLLBAR
-        function showList(listClassName){
-            var allLists = document.querySelectorAll('.nav2_container div:not(.nav2_menu,.deconnexion,.profil_nav,.img_profil_nav)');
-            allLists.forEach(function(list) {
-                list.classList.add('hidden');
-            });
-    
-            // Afficher la liste correspondante
-            var selectedList = document.querySelector('.' + listClassName);
-            selectedList.classList.remove('hidden');
-        }
-
-
-
-        // CODE JS : BTN AJAX (PROCHAINEMENT & HISTORIQUE)
-
-        // Stocker le contenu initial de la div resultat
-        var contenuInitial = $('#resultat').html();
-
-        // Dès que la page sera complètement chargée, que le DOM (Document Objet Modèle) sera entièrement généré
-        $(document).ready(function() {
-
-            // a) utiliser la fonction on('change') de jquery afin de sélectionner un nom dans la liste déroulante : $('#personne').on('change', function()
-            $('#prochain_event').on('click', function(event) {
-                event.preventDefault()
-
-                // c) Sérialiser le contenu des champs du formulaire (dans cet exemple il y a un seul champ), à l'aide de la fonction serialize() de jQuery
-
-                // d) utiliser la méthode ajax de jquery pour l'affichage de la réponse
-                $.ajax({
-                    url: "../traitement/traitement_ajax4.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
-                    type: "POST", // la méthode utilisée (projet : ne rien mettre, par défaut on sera sur la method GET)
-                    // les paramètres à fournir ex : ...id=4&nom=anonyme...(projet : on ne met rien) 
-                    dataType: 'json', // le format des données attendues en tableau JSON pour être interprété et éxécuté par AJAX (projet : 'json') 
-                    success: function(response) {
-                        // la fonction qui doit s'exécuter lors de la réussite de la communication ajax 
-                        console.log(response);
-                        $('#resultat').html(response.contenu);
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                        console.log(xhr.status);
-                        console.log(thrownError);
-                    }
-                });
-            });
-
-            // Réinitialiser la div resultat à son contenu initial
-            $('#reinitialiser_resultat').on('click', function(event) {
-                event.preventDefault();
-                $('#resultat').html(contenuInitial);
-            });
-
-
+<script>
+    // CODE JS : SCROLLBAR
+    function showList(listClassName) {
+        var allLists = document.querySelectorAll('.nav2_container div:not(.nav2_menu,.deconnexion,.profil_nav,.img_profil_nav)');
+        allLists.forEach(function(list) {
+            list.classList.add('hidden');
         });
-    </script>
+
+        // Afficher la liste correspondante
+        var selectedList = document.querySelector('.' + listClassName);
+        selectedList.classList.remove('hidden');
+    }
+
+
+
+    // CODE JS : BTN AJAX (PROCHAINEMENT & HISTORIQUE)
+
+    // Stocker le contenu initial de la div resultat
+    var contenuInitial = $('#resultat').html();
+
+    // Dès que la page sera complètement chargée, que le DOM (Document Objet Modèle) sera entièrement généré
+    $(document).ready(function() {
+
+        // a) utiliser la fonction on('change') de jquery afin de sélectionner un nom dans la liste déroulante : $('#personne').on('change', function()
+        $('#prochain_event').on('click', function(event) {
+            event.preventDefault()
+
+            // c) Sérialiser le contenu des champs du formulaire (dans cet exemple il y a un seul champ), à l'aide de la fonction serialize() de jQuery
+
+            // d) utiliser la méthode ajax de jquery pour l'affichage de la réponse
+            $.ajax({
+                url: "../traitement/traitement_ajax4.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
+                type: "POST", // la méthode utilisée (projet : ne rien mettre, par défaut on sera sur la method GET)
+                // les paramètres à fournir ex : ...id=4&nom=anonyme...(projet : on ne met rien) 
+                dataType: 'json', // le format des données attendues en tableau JSON pour être interprété et éxécuté par AJAX (projet : 'json') 
+                success: function(response) {
+                    // la fonction qui doit s'exécuter lors de la réussite de la communication ajax 
+                    console.log(response);
+                    $('#resultat').html(response.contenu);
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                }
+            });
+        });
+
+        // Réinitialiser la div resultat à son contenu initial
+        $('#reinitialiser_resultat').on('click', function(event) {
+            event.preventDefault();
+            $('#resultat').html(contenuInitial);
+        });
+
+
+    });
+</script>
 </body>
+
 </html>

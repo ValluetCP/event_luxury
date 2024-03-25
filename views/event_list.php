@@ -206,7 +206,7 @@ foreach ($listEvent as $event) {
                                 <!-- date / category -->
                                 <div class="ss_titre_listEvent">
                                     <div class="category"><?= $event['categorie_name']; ?></div>
-                                    <div class="date"><?= $event['date_event']; ?></div>
+                                    <div class="date"><?= date('d-m-Y', strtotime($event['date_event'])); ?></div>
                                 </div>
                             </div>
                         </div>
