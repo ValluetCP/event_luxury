@@ -45,8 +45,8 @@ $userList = User::findAllUser();
 
                 <!-- btn Prochainement - btn historique -->
                 <div class="btnProchainHistorique">
-                    <a href="" id="reinitialiser_resultat" class="prochainement_listEvent">clients</a>
-                    <a href="" id="prochain_event" class="historique_listEvent">admins</a>
+                    <a href="" id="reinitialiser_resultat" class="prochainement_listEvent">client</a>
+                    <a href="" id="prochain_event" class="historique_listEvent">admin</a>
                 </div>
 
                 <!-- FILTRE -->
@@ -54,7 +54,7 @@ $userList = User::findAllUser();
                     <button type="submit" class="lb_filtre">Filtrer</button>
                     <div class="lb_selectFiltre">
                         <select name="lb_categoryFiltre" id="lb_categoryFiltre">
-                            <option value="1">Toutes les catégories</option>
+                            <option value="1">client / admin</option>
                             <option value="2">Divertissement</option>
                             <option value="3">Atelier</option>
                         </select>
@@ -107,7 +107,7 @@ $userList = User::findAllUser();
                                 <!-- image -->
                                 <td>
                                     <div class="table_img">
-                                        <img src="http://localhost/event_luxury/views/asset/img/<?= $user['image']; ?>" alt="">
+                                        <img src="../asset/img/<?= $user['	img_profil']; ?>" alt="">
                                     </div>
                                 </td>
 
@@ -132,7 +132,7 @@ $userList = User::findAllUser();
                                 <!-- bouton -->
                                 <td>
                                     <p class="table_btn">
-                                        <a href="./user.php?book=<?= $user['id_utilisateur']; ?>" id="table_btnTxt">Consulter</a>
+                                        <a href="../profil.php?book=<?= $user['id_utilisateur']; ?>" id="table_btnTxt">Consulter</a>
                                     </p>
                                 </td>
 

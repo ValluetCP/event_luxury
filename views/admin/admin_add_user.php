@@ -49,7 +49,7 @@ include_once "../inc/navigation.php";
                     <!-- BOUTON DE VALIDATION RESERVATION -->
                     <div class="btn_flex">
                         <!-- <button type="button" class="reserve  btnEvent btnEvent-3">Réserver</button> -->
-                        <button onclick="window.location.href='#modalEvent'" type="button" class="btnEvent btnEvent-3">Ajouter un utilisateur</button>
+                        <button name="register" value="register" type="submit" class="btnEvent btnEvent-3">Ajouter un utilisateur</button>
                     </div>
                 </form>
 
