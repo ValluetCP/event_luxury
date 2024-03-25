@@ -1,7 +1,7 @@
 <?php
 // session_start();
 
-// require_once $_SERVER["DOCUMENT_ROOT"] . "/event/models/database.php";
+// require_once $_SERVER["DOCUMENT_ROOT"] . "/event_luxury/models/database.php";
 // require_once __DIR__."/database.php";
 require_once "database.php";
 
@@ -22,7 +22,7 @@ class Event{
             $request->execute(array($titre,$prix,$resume,$categorie_id,$imgName,$dateEvent,$nbrPlace,));
 
             // rediriger vers la page list_user.php
-            // header("Location: http://localhost/event/views/list_event.php");
+            // header("Location: http://localhost/event_luxury/views/list_event.php");
             if($_SESSION['user_role'] == 'admin')                    
                         header("Location: http://localhost/event_luxury/views/admin/admin_list_event.php");
                     else 
@@ -117,7 +117,7 @@ class Event{
 
 
     //         // rediriger vers la page list_event.php
-    //         header("Location: http://localhost/event/views/admin_list_event.php");
+    //         header("Location: http://localhost/event_luxury/views/admin_list_event.php");
 
             
     //     } catch (PDOException $e) {
@@ -136,7 +136,7 @@ class Event{
         if (!empty($_FILES['image']['name'])) {
             $imgName = $_FILES['image']['name'];
             $tmpName = $_FILES['image']['tmp_name'];
-            $destination = $_SERVER['DOCUMENT_ROOT'] . '/event/views/asset/img_event/' . $imgName;
+            $destination = $_SERVER['DOCUMENT_ROOT'] . '/event_luxury/views/asset/img_event/' . $imgName;
             
             // Assurez-vous de gérer les erreurs lors du téléchargement du fichier
             if (move_uploaded_file($tmpName, $destination)) {
@@ -144,7 +144,7 @@ class Event{
                 $request = $db->prepare("UPDATE events SET titre = ?, prix = ?, resume = ?, categorie_id = ?, date_event = ?, nbr_place = ?, image = ? WHERE id_evenement = ?");
                 $request->execute([$titre, $prix, $resume, $categorie_id, $dateEvent, $nbrPlace, $imgName, $id]);
                 // rediriger vers la page list_event.php
-                header("Location: http://localhost/event/views/admin_list_event.php");
+                header("Location: http://localhost/event_luxury/views/admin/admin_list_event.php");
             } else {
                 // Gestion de l'erreur de téléchargement
                 echo "Erreur lors du téléchargement de l'image.";
@@ -154,7 +154,7 @@ class Event{
             $request = $db->prepare("UPDATE events SET titre = ?, prix = ?, resume = ?, categorie_id = ?, date_event = ?, nbr_place = ? WHERE id_evenement = ?");
             $request->execute([$titre, $prix, $resume, $categorie_id, $dateEvent, $nbrPlace, $id]);
             // rediriger vers la page list_event.php
-            header("Location: http://localhost/event/views/admin_list_event.php");
+            header("Location: http://localhost/event_luxury/views/admin/admin_list_event.php");
         }
     }
 
@@ -172,7 +172,7 @@ class Event{
         try {
             $request->execute([0, $id]);
             // recuperer le resultat dans un tableau
-            header("Location: http://localhost/event/views/admin_list_event.php");
+            header("Location: http://localhost/event_luxury/views/admin/admin_list_event.php");
         } catch (PDOException $e) {
             $e->getMessage();
         }
@@ -190,7 +190,7 @@ class Event{
         try {
             $request->execute(array($id));
             // recuperer le resultat dans un tableau
-            header("Location: http://localhost/event/views/admin_list_event.php");
+            header("Location: http://localhost/event_luxury/views/admin/admin_list_event.php");
         } catch (PDOException $e) {
             $e->getMessage();
         }
@@ -208,7 +208,7 @@ class Event{
         try {
             $request->execute([1, $id]);
             // recuperer le resultat dans un tableau
-            header("Location: http://localhost/event/views/admin_list_event.php");
+            header("Location: http://localhost/event_luxury/views/admin/admin_list_event.php");
         } catch (PDOException $e) {
             $e->getMessage();
         }
@@ -222,7 +222,7 @@ class Event{
             $request->execute([$categoryId]);
             return $request->fetchAll(PDO::FETCH_ASSOC);
             // recuperer le resultat dans un tableau
-            header("Location: http://localhost/event/views/admin_list_event.php");
+            header("Location: http://localhost/event_luxury/views/admin_list_event.php");
         } catch (PDOException $e) {
             $e->getMessage();
         }

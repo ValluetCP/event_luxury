@@ -96,7 +96,7 @@ if (isset($_GET['id_event_update'])) {
 
                         <!-- Afficher l'image actuelle -->
                         <?php if (!empty($event['image'])): ?>
-                            <img src="./asset/img_event/<?=$event['image'] ?>" alt="Image actuelle" class="current-image">
+                            <img src="../asset/img_event/<?=$event['image'] ?>" alt="Image actuelle" class="current-image">
 
                         <!-- Sinon msg : aucune image -->
                         <?php else: ?>

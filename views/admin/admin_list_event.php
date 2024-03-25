@@ -74,69 +74,6 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                         </tr>
                     </thead>
                     <tbody id="tbody_adminListEvent" class="tbody_adminList">
-    
-                        <!-- MODULE 1 -->
-                        <tr class="table_module">
-                            <td class="table_img_none">
-                                <div class="table_img">
-                                    <img src="../asset/img/event_flamant.jpg" alt="">
-                                </div>
-                            </td>
-                            <td class="table_titre">Pink flamingo</td>
-                            <td class="table_category table_category_none">Découverte</td>
-                            <td class="table_date">29.05.24</td>
-                            <td class="table_action"><a href="">consulter</a></td>
-                            <td class="table_action"><a href="">annuler</a></td>
-                            <td class="table_action"><a href="">supprimer</a></td>
-                            <!-- bouton -->
-                            <td>
-                                <p class="table_btn">
-                                    <a href="" id="table_btnTxt">modifier</a>
-                                </p>
-                            </td>
-                        </tr>
-    
-                        <!-- MODULE 2 -->
-                        <tr class="table_module">
-                            <td class="table_img_none">
-                                <div class="table_img">
-                                    <img src="../asset/img/event_tennis.jpg" alt="">
-                                </div>
-                            </td>
-                            <td class="table_titre">Comme un pro</td>
-                            <td class="table_category table_category_none">Divertissement</td>
-                            <td class="table_date">29.05.24</td>
-                            <td class="table_action"><a href="">consulter</a></td>
-                            <td class="table_action"><a href="">annuler</a></td>
-                            <td class="table_action"><a href="">supprimer</a></td>
-                            <!-- bouton -->
-                            <td>
-                                <p class="table_btn">
-                                    <a href="" id="table_btnTxt">modifier</a>
-                                </p>
-                            </td>
-                        </tr>
-    
-                        <!-- MODULE BOUCLE -->
-                        <tr class="table_module">
-                            <td class="table_img_none">
-                                <div class="table_img">
-                                    <img src="../asset/img/event_tennis.jpg" alt="">
-                                </div>
-                            </td>
-                            <td class="table_titre">Comme un pro</td>
-                            <td class="table_category table_category_none">Divertissement</td>
-                            <td class="table_date">29.05.24</td>
-                            <td class="table_action"><a href="">consulter</a></td>
-                            <td class="table_action"><a href="">annuler</a></td>
-                            <td class="table_action"><a href="">supprimer</a></td>
-                            <!-- bouton -->
-                            <td>
-                                <p class="table_btn">
-                                    <a href="" id="table_btnTxt">modifier</a>
-                                </p>
-                            </td>
-                        </tr>
 
                         <?php 
                         foreach($listEvent as $event){ 
@@ -157,24 +94,24 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                                     <td class="table_category table_category_none"><?= $event['categorie_name']; ?></td>
 
                                     <!-- Date -->
-                                    <td class="table_date"><?= $event['date_event']; ?></td>
+                                    <td class="table_date"><?= date('d-m-Y', strtotime($event['date_event'])); ?></td>
                                     
                                     <!-- Action -->
                                     <?php if ($event['events_actif'] == 1){ ?>
 
                                         <!-- Visualiser / Consulter -->
-                                        <td class="table_action"><a href="./event.php?event=<?= $event['id_evenement']; ?>">Consulter</a></td>
+                                        <td class="table_action"><a href="./admin_evenement.php?event=<?= $event['id_evenement']; ?>">Consulter</a></td>
 
                                         <!-- Annuler -->
-                                        <td class="table_action"><a href="traitement/action.php?id_event_desactive=<?= $event['id_evenement']; ?>">Annuler</a></td>
+                                        <td class="table_action"><a href="../traitement/action.php?id_event_desactive=<?= $event['id_evenement']; ?>">Annuler</a></td>
                                         
                                         <!-- Supprimer -->
-                                        <td><a href="traitement/action.php?id_event_delete=<?= $event['id_evenement']; ?>">Supprimer</a></td>
+                                        <td><a href="../traitement/action.php?id_event_delete=<?= $event['id_evenement']; ?>">Supprimer</a></td>
 
                                         <!-- bouton - Modifier -->
                                         <td>
                                             <p class="table_btn">
-                                            <a href="./add_event.php?id_event_update=<?= $event['id_evenement']; ?>" id="table_btnTxt">Modifier</a>
+                                                <a href="./admin_add_evenement.php?id_event_update=<?= $event['id_evenement']; ?>" id="table_btnTxt">Modifier</a>
                                             </p>
                                         </td>
 
@@ -184,7 +121,9 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                                     <?php }elseif($event['events_actif'] == 0){ ?>
 
                                         <!-- bouton - Activer l'événement -->
-                                        <td colspan="4"><a href="traitement/action.php?id_event_active=<?= $event['id_evenement']; ?>">Activer l'évènement</a></td>
+                                        <td colspan="3">
+                                            <a href="../traitement/action.php?id_event_active=<?= $event['id_evenement']; ?>">Activer l'évènement</a>
+                                        </td>
 
                                         <!-- message état -->
                                         <td>annulation</td>
