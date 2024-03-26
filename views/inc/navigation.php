@@ -1,3 +1,9 @@
+<?php
+if(!empty($_SESSION)) {
+    $user["role"] = $_SESSION["user_role"];
+}
+?>
+
 
 <nav class="nav_home_page">
 
@@ -45,10 +51,37 @@
                     </div>
                     <!-- PROFIL CONNEXION  - (prénom & image profil rond) -->
                     <div class="profil_nav">
+
+                        <!-- Affichage photo -->
                         <div class="img_profil_nav">
-                            <a href=""><img class="img_profil" src="../asset/img/calamar.JPG" alt=""></a>
+
+                        <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
+                            <a href="">
+                                <img class="img_profil" src="../asset/img/coco2.JPG" alt="">
+                            </a>
+                            <!-- <a href="">
+                                <img class="img_profil" src="../asset/img/<?= $_SESSION['user_img_profil']; ?>" alt="">
+                            </a> -->
+                        <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
+                            <a href="">
+                                <img class="img_profil" src="../asset/img/calamar.JPG" alt="">
+                            </a>
+                        <?php } else { ?>
+                            <a href="">
+                                <img class="img_profil" src="../asset/img/calamar.JPG" alt="">
+                            </a>
+                        <?php } ?>
                         </div>
-                        <p>Bonjour Clara,</p>
+
+                        <!-- Affichage prénom -->
+                        <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
+                            <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
+                        <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
+                            <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
+                        <?php } else { ?>
+                            <p>Bonjour</p>
+                        <?php } ?>
+                        <!-- <p>Bonjour Clara,</p> -->
                     </div>
     
                     <!-- ESPACE NAVIGATION  - BOUTON MENU (admin & client) -->

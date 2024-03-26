@@ -32,7 +32,7 @@ foreach ($listEvent as $event) {
     <!-- MODAL BILLET (structure générale)-->
     <div id="modalBillet">
         <div class="modalContentBillet">
-            <div class="modalBilletBg" style="background-image: url(./asset/img/event_miami.jpg);"></div>
+            <div class="modalBilletBg" style="background-image: url(./asset/img/<?= $event['image'];?>);"></div>
         </div>
         <a class="modalCloseBillet" href="#"><img class="img_croix_popup2" src="./asset/img/croix_close.svg" alt=""></a>
         <a href="" id="lb_btnBillet" class="btn_billet_panier">Télécharger le billet</a>
@@ -42,7 +42,7 @@ foreach ($listEvent as $event) {
             <!-- <img src="./img/test_billet.png" alt=""> -->
             <div class="billet_partie_haute">
             <div class="imgEventBillet">
-                <div class="bgEventBillet" style="background-image: url(./asset/img/event_miami.jpg);"></div>
+                <div class="bgEventBillet" style="background-image: url(./asset/img/<?= $event['image'];?>);"></div>
                 <!-- <img src="./img/coco2.JPG" alt=""> -->
             </div>
             <div class="divDate">
@@ -64,7 +64,6 @@ foreach ($listEvent as $event) {
 
         </div>
     </div>
-
 
 <main id="siteListBook" class="siteList">
 
@@ -171,7 +170,7 @@ foreach ($listEvent as $event) {
                         </div>
                     </div>
                     <div class="lb_reservation">
-                        <a id="billet" href="#modalBillet" class="lb_billet">Télécharger le billet</a>
+                        <a href="#modalBillet" class="lb_billet">Télécharger le billet</a>
                         <a href="" class="lb_consulter">Consulter</a>
                     </div>
                 </div>
@@ -232,7 +231,9 @@ foreach ($listEvent as $event) {
                                         </div>
                                     </div>
                                     <div class="lb_reservation">
-                                        <a href="#modalBillet" class="lb_billet">Télécharger le billet</a>
+
+                                        <a onclick="window.location.href='#modalBillet?event=<?= $event['id_evenement']; ?>'" href="#modalBillet" class="lb_billet">Télécharger le billet</a>
+
                                         <a href="./book.php?event=<?= $event['id_evenement']; ?>" class="lb_consulter">Consulter</a>
                                     </div>
                                 </div>
@@ -243,7 +244,7 @@ foreach ($listEvent as $event) {
                 
                     <?php }
                 } ?>
-    
+     
             </div>
 
         </div>
@@ -281,23 +282,16 @@ foreach ($listEvent as $event) {
         // Stocker le contenu initial de la div resultat
         var contenuInitial = $('#resultat').html();
 
-        // Dès que la page sera complètement chargée, que le DOM (Document Objet Modèle) sera entièrement généré
         $(document).ready(function() {
 
-            // a) utiliser la fonction on('change') de jquery afin de sélectionner un nom dans la liste déroulante : $('#personne').on('change', function()
             $('#prochain_event').on('click', function(event) {
                 event.preventDefault()
 
-                // c) Sérialiser le contenu des champs du formulaire (dans cet exemple il y a un seul champ), à l'aide de la fonction serialize() de jQuery
-
-                // d) utiliser la méthode ajax de jquery pour l'affichage de la réponse
                 $.ajax({
-                    url: "traitement/traitement_ajax2.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
-                    type: "POST", // la méthode utilisée (projet : ne rien mettre, par défaut on sera sur la method GET)
-                    // les paramètres à fournir ex : ...id=4&nom=anonyme...(projet : on ne met rien) 
-                    dataType: 'json', // le format des données attendues en tableau JSON pour être interprété et éxécuté par AJAX (projet : 'json') 
+                    url: "traitement/traitement_ajax2.php", 
+                    type: "POST",
+                    dataType: 'json', 
                     success: function(response) {
-                        // la fonction qui doit s'exécuter lors de la réussite de la communication ajax 
                         console.log(response);
                         $('#resultat').html(response.contenu);
                     },
@@ -314,6 +308,26 @@ foreach ($listEvent as $event) {
                 $('#resultat').html(contenuInitial);
             });
 
+
+
+
+            $('.billet').on('click', function(event) {
+                console.log()
+
+                $.ajax({
+                    url: "traitement/traitement_ajax6.php", 
+                    type: "POST",
+                    dataType: 'json', 
+                    success: function(response) {
+                        console.log(response);
+                        $('#resultat').html(response.contenu);
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        console.log(xhr.status);
+                        console.log(thrownError);
+                    }
+                });
+            });
 
         });
     </script>

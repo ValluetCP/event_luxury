@@ -764,9 +764,9 @@ background-color: rgba(255, 255, 255, 0.5);
 .divDate {
     background-color: var(--vertFonceMoin);
     width: 30px;
-    height: 101px;
+    height: 112px;
     position: absolute;
-    top: 33px;
+    top: 34px;
     left: -1px;
     border-radius: 0 4px 4px 0;
     /* position: relative; */
@@ -775,12 +775,13 @@ background-color: rgba(255, 255, 255, 0.5);
 .dateBillet {
     color: var(--vertClair);
     font-family: 'AmericanaRegular';
-    font-size: 15px;
+    font-size: 13px;
     transform: rotate(-90deg);
-    top: 42px;
-    right: -27px;
+    top: -1px;
+    right: -78px;
     position: absolute;
     letter-spacing: 3px;
+    height: 100%;
 }
 
 /* TITRE & SOUS-TITRE */
