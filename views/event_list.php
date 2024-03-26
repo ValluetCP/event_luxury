@@ -88,99 +88,7 @@ foreach ($listEvent as $event) {
             <!-- Div vide pour afficher le contenu -->
             <div id="resultat" class="overflow_listEvent">  
 
-                <!-- MODULE 1 -->
-                <!-- MODULE pour la boucle -->
-                <div class="module_listEvent">
-                    
-                    <!-- MODULE - partie gauche - image -->
-                    <div class="img_listEvent"><img src="./asset/img/event_bateau.jpg" alt=""></div>
-    
-                    <!-- MODULE - partie centrale - texte -->
-                    <div class="center_txt_listEvent grand_ecran_listEvent">
-                        <div class="txt_container_listEvent">
-                            <!-- numéro -->
-                            <div class="num_listEvent">01</div>
-                            <div class="txt_listEvent">
-                                <div class="titre_listEvent">Calamar gourmand</div>
-                                <!-- date / category -->
-                                <div class="ss_titre_listEvent">
-                                    <div class="category">Atelier</div>
-                                    <div class="date">29-05-2024</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!-- MODULE - partie droite - tarif & état -->
-                    <div class="tarif_etat_listEvent grand_ecran_listEvent">
-                        <div class="tarif_listEvent">Tarif: 75€</div>
-                        <div class="etat_listEvent">Complet</div>
-                    </div>
-
-
-                    <!-- MODULE RESPONSIVE - PETIT ECRAN (partie centrale & droite) -->
-                    <div class="petit_ecran_listEvent">
-        
-                        <!-- MODULE - partie droite - tarif & état -->
-                        <div class="tarif_etat_listEvent">
-                            <div class="tarif_listEvent">Tarif: 75€</div>
-                            <div class="etat_listEvent">Complet</div>
-                        </div>
-        
-                        <!-- MODULE - partie centrale - texte -->
-                        <div class="center_txt_listEvent">
-                            <div class="txt_container_listEvent">
-                                <!-- numéro -->
-                                <div class="num_listEvent">01</div>
-                                <div class="txt_listEvent">
-                                    <div class="titre_listEvent">Calamar gourmand</div>
-                                    <!-- date / category -->
-                                    <div class="ss_titre_listEvent">
-                                        <div class="category">Atelier</div>
-                                        <div class="date">29-05-2024</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-    
-                <!-- MODULE 2 -->
-                <!-- MODULE pour la boucle -->
-                <div class="module_listEvent">
-    
-                    <!-- EMMET -->
-                    <!-- .img_listEvent>img^.txt_container_listEvent>.num_listEvent+.txt_listEvent^.tarif_etat_listEvent>.tarif_listEvent+.etat_listEvent -->
-                    
-                    <!-- MODULE - partie gauche - image -->
-                    <div class="img_listEvent"><img src="./asset/img/event_tennis.jpg" alt=""></div>
-    
-                    <!-- MODULE - partie centrale - texte -->
-                    <div class="center_txt_listEvent">
-                        <div class="txt_container_listEvent">
-                            <!-- numéro -->
-                            <div class="num_listEvent">02</div>
-                            <div class="txt_listEvent">
-                                <div class="titre_listEvent">Tel un athlète</div>
-                                <!-- date / category -->
-                                <div class="ss_titre_listEvent">
-                                    <div class="category">Divertissement</div>
-                                    <div class="date">29-05-2024</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!-- MODULE - partie droite - tarif & état -->
-                    <div class="tarif_etat_listEvent">
-                        <div class="tarif_listEvent">Tarif: 75€</div>
-                        <div class="etat_listEvent">Réservé</div>
-                    </div>
-                </div>
-
-
-                <!-- CODE : MODULE BOUCLE -->
+                <!-- MODULE BOUCLE : CODE -->
                 <?php foreach($evenementsByCategory as $event){
                 // Comparer la date de l'événement avec la date actuelle, si la date est déjà passé ne l'afficher ici
 
@@ -306,7 +214,7 @@ foreach ($listEvent as $event) {
 
                 // d) utiliser la méthode ajax de jquery pour l'affichage de la réponse
                 $.ajax({
-                    url: "traitement/traitement_ajax.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
+                    url: "traitement/traitement_ajax5.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
                     type: "POST", // la méthode utilisée (projet : ne rien mettre, par défaut on sera sur la method GET)
                     // les paramètres à fournir ex : ...id=4&nom=anonyme...(projet : on ne met rien) 
                     dataType: 'json', // le format des données attendues en tableau JSON pour être interprété et éxécuté par AJAX (projet : 'json') 

@@ -1,6 +1,6 @@
 <?php
    
-    $listEvent = Event::findAllEvent();
+    // $listEvent = Event::findAllEvent();
     $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD HH:MM:SS)
 
     $tab = [];
