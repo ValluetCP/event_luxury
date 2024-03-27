@@ -27,7 +27,7 @@ if(!empty($_SESSION)) {
 
 
             <div class="panier">
-                <a href="http://localhost/event_luxury/views/panier_0">PANIER (<?= $_SESSION["nombre"] ?? ''; ?>)</a>
+                <a href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? ''; ?></span>)</a>
             </div>
         </div>
 

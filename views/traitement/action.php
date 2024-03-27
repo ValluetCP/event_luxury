@@ -387,7 +387,7 @@ if (isset($_POST['valider_panier'])) {
 // Met à jour la quantité de places réservées en ajoutant la nouvelle quantité à l'ancienne.
 if (isset($_POST['add_another_book'])) {
     $idUser = $_SESSION['id_user'];
-    $eventId = htmlspecialchars($_POST['id_event']);
+    $eventId = htmlspecialchars($_POST['event']);
     // $idEvent = htmlspecialchars($_POST['id_event']);
     $placeReserve = htmlspecialchars($_POST['place_reserve']);
 

@@ -26,6 +26,7 @@ if (isset($_SESSION['reservation']) && !empty($_SESSION['reservation'])) {
 
     $prixTotal = 0;
     foreach ($_SESSION['reservation'] as $item) {
+        // debug($item);die;
         // Récupérer les détails de l'événement en utilisant l'ID de l'événement
         $eventId = $item["events"]["id_evenement"];
         $eventDetails = Event::findEventById($eventId);

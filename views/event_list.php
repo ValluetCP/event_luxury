@@ -7,8 +7,9 @@ require_once "../models/bookModel.php";
 require_once "../models/userModel.php";
 require_once "../models/categorieModel.php";
 
-
+if(!empty($_SESSION["id_user"])) {
 $listEvent = Event::findAllEvent();
+
 $userReservation = User::userReservation($_SESSION['id_user']);
 
 // $userReservationIds = array_column($reservations, 'event_id');
@@ -110,7 +111,7 @@ foreach ($listEvent as $event) {
                             <!-- numéro -->
                             <div class="num_listEvent">03</div>
                             <div class="txt_listEvent">
-                                <div class="titre_listEvent"><a href="./evenement2.php?event=<?= $event['id_evenement']; ?>"><?= $event['titre']; ?></a></div>
+                                <div class="titre_listEvent"><a href="./evenement2.php?id_event=<?= $event['id_evenement']; ?>"><?= $event['titre']; ?></a></div>
                                 <!-- date / category -->
                                 <div class="ss_titre_listEvent">
                                     <div class="category"><?= $event['categorie_name']; ?></div>
@@ -239,5 +240,8 @@ foreach ($listEvent as $event) {
 
         });
     </script>
+    <?php
+    } 
+    ?>
 </body>
 </html>

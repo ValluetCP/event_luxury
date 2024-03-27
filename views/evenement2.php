@@ -9,8 +9,8 @@ require_once "../models/bookModel.php";
 require_once "../models/userModel.php";
 
 // $listEvent = Event::findAllEvent();
-$userReservation = User::userReservation($_GET['event']);
-$eventId = $_GET['event'];
+$userReservation = User::userReservation($_SESSION['id_user']);
+$eventId = $_GET['id_event'];
 $ficheEvent = Event::findEventById($eventId);
 $totalPlacesReservees = Book::calculReservation($eventId);
 $placesDisponibles = $ficheEvent['nbr_place'] - $totalPlacesReservees;
@@ -42,7 +42,7 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
                     <div class="modalPaniertxt">
                         <h1 class="modalPaniertitre"><?= $ficheEvent['titre']; ?></h1>
                         <h2 class="modalPanierCategorie"><?= $ficheEvent['categorie_name']; ?></h2>
-                        <p class="modalPanierQuantite">Quantité :<span> 1</span></p>
+                        <p class="modalPanierQuantite">Quantité : <span class="quantite_panier"> <?= $_SESSION["nombre"] ?? ''; ?></span></p>
                     </div>
                 </div>
                 <!-- FIN ITEM -->
@@ -67,7 +67,8 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
                 Consulter <a href=""> l'historique</a></p>
             </div>
             <div class="btnEventGroup">
-                <a href="#modalPanier" id="e_btnEventReservation"class="modal_btn btn_modal_1_trait">Ajouter une autre réservation</a>
+                <button onclick="window.location.href='#modalPanier'" type="submit" name="add_panier" class="modal_btn btn_modal_1_trait">Ajouter une autre réservation</button>
+                
                 <a href="" id="e_btnEventQuitter"class="modal_btn btn_modal_2_fond">Fermer</a>
             </div>
         </div>
@@ -248,7 +249,7 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
 
                                             <!-- BOUTON DE VALIDATION RESERVATION -->
                                             <div class="btn_flex">
-                                                <button onclick="window.location.href='#modalPanier'" type="submit" name="add_panier" class="btnEvent btnEvent-3" value="reserver">Réserver</button>
+                                                <button onclick="window.location.href='#modalPanier'" type="submit" name="add_panier" class="btnEvent btnEvent-3" value="reserver" id="add_reservation">Réserver</button>
                                             </div>
                                         <?php } ?>
 
@@ -341,7 +342,7 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
                 type:'post',
                 dataType: "json",
                 success: (data) => {
-                    $("#nombre").html(data);
+                    $(".quantite_panier").html(data);
                     console.log("nb produits dans mon deuxième cart = " + data);
                 },
                 error: (jqXHR, status, error) => {
