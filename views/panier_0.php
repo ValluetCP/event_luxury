@@ -48,7 +48,7 @@ if (isset($_SESSION['reservation']) && !empty($_SESSION['reservation'])) {
             <form action="./traitement/action.php" method="post">
     
                     <input type="hidden" name="id_evenement" value="<?= $eventDetails['id_evenement'];?>">
-                    <input type="submit" name="supprimer">
+                    <input type="submit" name="supprimer" value="supprimer">
             </form>
             <?php 
     } 
@@ -57,20 +57,11 @@ if (isset($_SESSION['reservation']) && !empty($_SESSION['reservation'])) {
     // Afficher le montant total en bas de la page
     echo "Montant total : " . $prixTotal. "<br>";
     ?>
-
-    <a href="./commande.php" class="btn btn-outline-warning mt-3 mb-5">Valider la commande</a>
-
-<?php
+    <form action="./traitement/action.php">
+        <button name="valider_commande" class="btn btn-outline-warning mt-3 mb-5" value="valide commande">Valider la commande</button>
+    </form>
     
-
-}
-    // unset($_SESSION["reservation"]);
-    // unset($_SESSION["nombre"]);
-?>
-
-
-
-
 <?php
+}
     include_once "./inc/footer.php";
 ?>

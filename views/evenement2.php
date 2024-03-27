@@ -67,7 +67,7 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
                 Consulter <a href=""> l'historique</a></p>
             </div>
             <div class="btnEventGroup">
-                <button onclick="window.location.href='#modalPanier'" type="submit" name="add_panier" class="modal_btn btn_modal_1_trait">Ajouter une autre réservation</button>
+                <button onclick="window.location.href='#modalPanier'" type="submit" name="add_panier" class="modal_btn btn_modal_1_trait" id="add_reservation">Ajouter une autre réservation</button>
                 
                 <a href="" id="e_btnEventQuitter"class="modal_btn btn_modal_2_fond">Fermer</a>
             </div>
