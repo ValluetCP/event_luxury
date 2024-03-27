@@ -120,13 +120,18 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                                     <!-- Message - Evénement annulé -->
                                     <?php }elseif($event['events_actif'] == 0){ ?>
 
-                                        <!-- bouton - Activer l'événement -->
-                                        <td colspan="3">
-                                            <a href="../traitement/action.php?id_event_active=<?= $event['id_evenement']; ?>">Activer l'évènement</a>
-                                        </td>
-
                                         <!-- message état -->
-                                        <td>annulation</td>
+                                        <td colspan="2" style="color:red;">Annulation</td>
+
+                                        <!-- Visualiser / Consulter -->
+                                        <td class="table_action"><a href="./admin_evenement.php?event=<?= $event['id_evenement']; ?>">Consulter</a></td>
+
+                                        <!-- bouton - Activer l'événement -->
+                                        <td>
+                                            <p class="table_btn">
+                                                <a href="../traitement/action.php?id_event_active=<?= $event['id_evenement']; ?>">Activer</a>
+                                            </p>
+                                        </td>
                                     <?php } ?>
                                 </tr>
                             <?php }
@@ -135,17 +140,18 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                     </tbody>
                 </table>
             </div>
+            <!-- --------- BTN - PREVISUALISER LA LISTE ---------- -->
+            <div class="container_btnAjouter">
+                <!-- btn - visualiser -->
+                <a href="./client_list_event.php" class="btn_ajouter"><p>Prévisualiser la liste</p></a>
+            </div>
 
         </div>
 
         <!-- --------- BTN - AJOUTER UN EVENEMENT ---------- -->
-        <div class="container_btnAjouter">
-            
+        <div class="container_btnAjouter"> 
             <!-- btn - ajouter -->
             <a href="./admin_add_evenement.php" class="btn_ajouter"><p><i class="fa-light fa-plus"></i>Ajouter un événement</p></a>
-
-            <!-- btn - visualiser -->
-            <!-- <a href="./admin_add_evenement.php" class="btn_ajouter"><p>Visualiser la liste des évènements</p></a> -->
         </div>
 
     </section>

@@ -292,7 +292,8 @@ foreach ($listEvent as $event) {
 
                 // d) utiliser la méthode ajax de jquery pour l'affichage de la réponse
                 $.ajax({
-                    url: "traitement/traitement_ajax2.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
+                    // traitement/traitement_ajax2.php
+                    url: "traitement/traitement_ajax8.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
                     type: "POST", // la méthode utilisée (projet : ne rien mettre, par défaut on sera sur la method GET)
                     // les paramètres à fournir ex : ...id=4&nom=anonyme...(projet : on ne met rien) 
                     dataType: 'json', // le format des données attendues en tableau JSON pour être interprété et éxécuté par AJAX (projet : 'json') 

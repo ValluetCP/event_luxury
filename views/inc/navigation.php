@@ -112,7 +112,7 @@ if(!empty($_SESSION)) {
                         <ul class="filtre">
 
                             <!-- ADMIN - Accueil -->
-                            <li><a href="" class="admin_accueil_link sous_menu_admin linkActive">Accueil</a></li>
+                            <li><a href="http://localhost/event_luxury/views/admin/admin_accueil.php" class="admin_accueil_link sous_menu_admin linkActive">Accueil</a></li>
 
                             <!-- ADMIN - Liste des catégories -->
                             <li><a href="http://localhost/event_luxury/views/admin/admin_list_categorie.php" class="admin_categorie_link sous_menu_admin">Catégories</a></li>
