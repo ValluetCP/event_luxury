@@ -330,7 +330,7 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
         $(document).ready(function() {
 
 
-            $("#add_reservation").on("click", (evtSubmit) => {
+            $("button[id='add_reservation']").on("click", (evtSubmit) => {
                 evtSubmit.preventDefault();
                 var submitVal = $(this).attr("");
                 var url_action = "./traitement/action.php";
