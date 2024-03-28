@@ -34,7 +34,7 @@ if (isset($_SESSION['reservation']) && !empty($_SESSION['reservation'])) {
             $prixTotal += $prixTotalEvent;
             ?>
         
-            <a href="./event.php?event=<?= $eventDetails['id_evenement']; ?>">
+            <a href="./evenement2.php?id_event=<?= $eventDetails['id_evenement']; ?>">
                 <div>
                     <p>Titre de l'événement :<?= $eventDetails['titre']; ?></p>
                     <p>Catégorie :<?= $eventDetails['categorie_name']; ?></p>

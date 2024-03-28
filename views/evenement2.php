@@ -27,7 +27,7 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
 // var_dump($userReservation);
 ?>
 
-    <!-- ---------------------------- MODAL BILLET ----------------------------- -->
+    <!-- ---------------------------- MODAL PANIER ----------------------------- -->
     <!-- MODAL PANIER (structure générale)-->
     <div id="modalPanier">
         <div class="modalContentPanier">
@@ -50,7 +50,7 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
         </div>
         <a class="modalClosePanier" href="#"><img class="img_croix_popup2" src="./asset/img/coix_verte.svg" alt=""></a>
         <div class="modalPanierDegrade">
-            <a href="" id="lb_btnPanier" class="btn_billet_panier">Voir panier</a>
+            <a href="http://localhost/event_luxury/views/panier_0.php" id="lb_btnPanier" class="btn_billet_panier">Voir panier</a>
         </div>
     </div>
 
