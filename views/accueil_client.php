@@ -1,38 +1,12 @@
 <?php
-
-if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
-    include_once "./inc/header.php";
-    include_once "./inc/navigation.php";
-
- } elseif(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client"){
-    include_once "./views/inc/header.php";
-    include_once "./views/inc/navigation.php";
-
-} else { 
-
-    include_once "./inc/header2.php";
-    include_once "./inc/navigation.php";
-}
-
-
+include_once "./inc/header.php";
+include_once "./inc/navigation.php";
 ?>
-
-
-<header>
-    <!-- TEST -->
-        <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
-            <h1>Bonjour admin<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
-        <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-            <h1>Bonjour client<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
-        <?php } else { ?>
-            <h1>Bonjour</h1>
-        <?php } ?>
+    <header>
         <div class="hp_bg">
             <div class="hp_bg_img" style="background-image: url(./asset/img/header2.JPG);">
             </div>
         </div>
-
-        <!-- HEADER -->
         <div class="logo_header">
             <img src="./asset/img/img_logo/logo_big.svg" alt="" class="logo_header_big">
         </div>
@@ -106,6 +80,6 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
 
     </main>
     <script src="./asset/js/nav_scroll.js"></script>
-    <script src="./asset/js/espace_navigation.js"></script>
+    <!-- <script src="./asset/js/espace_navigation.js"></script> -->
 </body>
 </html>

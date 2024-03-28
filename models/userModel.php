@@ -1,7 +1,7 @@
 <?php
 // session_start();
 
-// require_once $_SERVER["DOCUMENT_ROOT"] . "/event/models/database.php";
+// require_once $_SERVER["DOCUMENT_ROOT"] . "/event_luxury/models/database.php";
 // require_once __DIR__."/database.php";
 require_once "database.php";
 
@@ -24,7 +24,7 @@ class User
             $request->execute(array($imgName,$nom,$prenom,$pseudo,$email, $password));
 
             // rediriger vers la page list_user.php
-            header("Location: http://localhost/event/views/connexion.php");
+            header("Location: http://localhost/event_luxury/views/connexion.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -78,7 +78,7 @@ class User
             // vérifier si l'email existe dans la base de donnée
             
             if (!$user) {
-                $_SESSION['error_message'] = "Cet email n'existe pas";
+                $_SESSION['error_message'] = "Ce pseudo n'existe pas";
                 // rediriger vers la page précédente
                 header("location:" . $_SERVER['HTTP_REFERER']);
                 // vérifier si le mot de passe est correct
@@ -111,13 +111,21 @@ class User
                     $_SESSION["user_img_profil"] = $user["img_profil"];
                     
 
-                    // rediriger vers la page home.php
-                    header("Location: http://localhost/event/views/home.php");
+                    if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
+                        // rediriger vers la page home.php
+                        header("Location: http://localhost/event_luxury/views/admin/admin_accueil.php");
+
+                    } elseif(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client"){
+                        header("Location: http://localhost/event_luxury/views/accueil_client.php");
+
+                    } else {
+                        header("Location: http://localhost/event_luxury/views/home.php");
+                    }
 
                     // if($user['role'] == 'admin')                    
-                    //     header("Location: http://localhost/event/views/add_categorie.php");
+                    //     header("Location: http://localhost/event_luxury/views/add_categorie.php");
                     // else 
-                    //     header("Location: http://localhost/event/views/info_user.php");
+                    //     header("Location: http://localhost/event_luxury/views/info_user.php");
                 } else {
                     $_SESSION['error_message'] = "Mot de passe incorrect";
                     // rediriger vers la page précédente
@@ -151,12 +159,12 @@ class User
             $_SESSION["user_email"] = $email;
 
             // rediriger vers la page list_user.php
-            header("Location: http://localhost/event/views/info_user.php");
+            header("Location: http://localhost/event_luxury/views/info_user.php");
 
             //  if($_SESSION["user_role"] == 'admin')                    
-            //             header("Location: http://localhost/event/views/add_categorie.php");
+            //             header("Location: http://localhost/event_luxury/views/add_categorie.php");
             //         else 
-            //             header("Location: http://localhost/event/views/info_user.php");
+            //             header("Location: http://localhost/event_luxury/views/info_user.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -174,7 +182,7 @@ class User
         try {
             $request->execute(array($id));
             // recuperer le resultat dans un tableau
-            header("Location: http://localhost/event/views/admin_list_user.php");
+            header("Location: http://localhost/event_luxury/views/admin_list_user.php");
         } catch (PDOException $e) {
             $e->getMessage();
         }
@@ -193,7 +201,7 @@ class User
         try {
             $request->execute([0, $id]);
             // recuperer le resultat dans un tableau
-            header("Location: http://localhost/event/views/home.php");
+            header("Location: http://localhost/event_luxury/views/home.php");
         } catch (PDOException $e) {
             $e->getMessage();
         }
@@ -212,7 +220,7 @@ class User
         try {
             $request->execute([1, $id]);
             // recuperer le resultat dans un tableau
-            header("Location: http://localhost/event/views/admin_list_user.php");
+            header("Location: http://localhost/event_luxury/views/admin_list_user.php");
         } catch (PDOException $e) {
             $e->getMessage();
         }
