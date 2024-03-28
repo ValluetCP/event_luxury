@@ -52,7 +52,7 @@ include_once "../inc/navigation.php";
 
 <!-- BALISE SCRIPT -->
 <script src="../js/nav_scroll.js"></script>
-<script src="../js/espace_navigation.js"></script>
+<script src="../asset/js/espace_navigation2.js"></script>
 
 <?php
 include_once "../inc/footer.php";

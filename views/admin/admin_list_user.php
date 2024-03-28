@@ -107,7 +107,7 @@ $userList = User::findAllUser();
                                 <!-- image -->
                                 <td>
                                     <div class="table_img">
-                                        <img src="../asset/img/<?= $user['	img_profil']; ?>" alt="">
+                                        <img src="http://localhost/event_luxury/views/asset/img_event/<?= $user['img_profil']; ?>" alt="">
                                     </div>
                                 </td>
 
