@@ -18,7 +18,7 @@ if(!empty($_SESSION)) {
 
         <!-- BARRE DE NAVIGATION - début -->
         <div class="nav_logo">
-            <a href=""><img id="scrollLogoClair" class="logo logo_vert_clair" src="../asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
+            <a href=""><img id="scrollLogoClair" class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
         </div>
 
         <div class="navigation">
@@ -48,7 +48,7 @@ if(!empty($_SESSION)) {
                     <!-- PARTIE DROITE -->
                     <!-- LOGO - MENU DE NAVIGATION -->
                     <div class="logo_menu">
-                        <a href=""><img class="logo logo_vert_clair" src="../asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
+                        <a href=""><img class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
                     </div>
                     <!-- PROFIL CONNEXION  - (prénom & image profil rond) -->
                     <div class="profil_nav">
