@@ -2425,6 +2425,7 @@ padding-left: 624px;
     display: grid;
     grid-template-columns: 205px auto 100px;
     gap: 50px;
+    cursor: pointer;
 }
 
 /* MODULE - partie gauche - image */

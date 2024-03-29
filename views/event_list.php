@@ -100,7 +100,7 @@ foreach ($listEvent as $event) {
             
                 
                 <!-- MODULE BOUCLE -->
-                <div class="module_listEvent">
+                <div class="module_listEvent" button onclick="window.location.href='./evenement2.php?id_event=<?= $event['id_evenement']; ?>'">
                     
                     <!-- MODULE - partie gauche - image -->
                     <div class="img_listEvent"><img src="./asset/img/<?= $event['image']; ?>" alt=""></div>
@@ -111,7 +111,7 @@ foreach ($listEvent as $event) {
                             <!-- numéro -->
                             <div class="num_listEvent">03</div>
                             <div class="txt_listEvent">
-                                <div class="titre_listEvent"><a href="./evenement2.php?id_event=<?= $event['id_evenement']; ?>"><?= $event['titre']; ?></a></div>
+                                <div class="titre_listEvent"><?= $event['titre']; ?></div>
                                 <!-- date / category -->
                                 <div class="ss_titre_listEvent">
                                     <div class="category"><?= $event['categorie_name']; ?></div>
