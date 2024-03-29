@@ -27,319 +27,321 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
 // var_dump($userReservation);
 ?>
 
-    <!-- ---------------------------- MODAL PANIER ----------------------------- -->
-    <!-- MODAL PANIER (structure générale)-->
-    <div id="modalPanier">
-        <div class="modalContentPanier">
-            <div class="modalPanierContainer">
-                <p class="modalPanierAjout">Produit ajouté au panier</p>
-                <!-- DEBUT ITEM -->
-                <div class="modalPanierContainerItems">
-                    <div class="modalPanierimg">
-                        <!-- image en bg -->
-                        <img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="">
-                    </div>
-                    <div class="modalPaniertxt">
-                        <h1 class="modalPaniertitre"><?= $ficheEvent['titre']; ?></h1>
-                        <h2 class="modalPanierCategorie"><?= $ficheEvent['categorie_name']; ?></h2>
-                        <p class="modalPanierQuantite">Quantité : <span class="quantite_panier"> <?= $_SESSION["nombre"] ?? ''; ?></span></p>
-                    </div>
+<!-- ---------------------------- MODAL PANIER ----------------------------- -->
+<!-- MODAL PANIER (structure générale)-->
+<div id="modalPanier">
+    <div class="modalContentPanier">
+        <div class="modalPanierContainer">
+            <p class="modalPanierAjout">Produit ajouté au panier</p>
+            <!-- DEBUT ITEM -->
+            <div class="modalPanierContainerItems">
+                <div class="modalPanierimg">
+                    <!-- image en bg -->
+                    <img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="">
                 </div>
-                <!-- FIN ITEM -->
+                <div class="modalPaniertxt">
+                    <h1 class="modalPaniertitre"><?= $ficheEvent['titre']; ?></h1>
+                    <h2 class="modalPanierCategorie"><?= $ficheEvent['categorie_name']; ?></h2>
+                    <p class="modalPanierQuantite">Quantité : <span class="quantite_panier"> <?= $_SESSION["nombre"] ?? ''; ?></span></p>
+                </div>
             </div>
-        </div>
-        <a class="modalClosePanier" href="#"><img class="img_croix_popup2" src="./asset/img/coix_verte.svg" alt=""></a>
-        <div class="modalPanierDegrade">
-            <a href="http://localhost/event_luxury/views/panier_0.php" id="lb_btnPanier" class="btn_billet_panier">Voir panier</a>
+            <!-- FIN ITEM -->
         </div>
     </div>
+    <a class="modalClosePanier" href="#"><img class="img_croix_popup2" src="./asset/img/coix_verte.svg" alt=""></a>
+    <div class="modalPanierDegrade">
+        <a href="http://localhost/event_luxury/views/panier_0.php" id="lb_btnPanier" class="btn_billet_panier">Voir panier</a>
+    </div>
+</div>
 
 
-    <!-- MODAL EVENT (Confirmation "Ajouter une réservation")-->
-    <div id="modalEvent">
-        <div class="modal_content">
-            <a class="modal_close" href="#"><img class="img_croix_popup" src="../asset/img/croix_close.svg" alt=""></a>
-            <div class="modalTexte">
-                <h2 class="modalTitre">Votre événement</h2>
-                <hr class="modalTrait">
-                <p>Une réservation a déjà été faite. Vous souhaitez :</p>
-                <p>Effectuer une <a href="./historique.php?id_event=<?= $ficheEvent['id_evenement']; ?>"> annulation</a><br>
+<!-- MODAL EVENT (Confirmation "Ajouter une réservation")-->
+<div id="modalEvent">
+    <div class="modal_content">
+        <a class="modal_close" href="#"><img class="img_croix_popup" src="../asset/img/croix_close.svg" alt=""></a>
+        <div class="modalTexte">
+            <h2 class="modalTitre">Votre événement</h2>
+            <hr class="modalTrait">
+            <p>Une réservation a déjà été faite. Vous souhaitez :</p>
+            <p>Effectuer une <a href="./historique.php?id_event=<?= $ficheEvent['id_evenement']; ?>"> annulation</a><br>
                 Consulter <a href="./historique.php?id_event=<?= $ficheEvent['id_evenement']; ?>"> l'historique</a></p>
-            </div>
-            <div class="btnEventGroup">
-                <button onclick="window.location.href='#modalPanier'" type="submit" name="add_panier" class="modal_btn btn_modal_1_trait" id="add_reservation">Ajouter une autre réservation</button>
-                
-                <a href="" id="e_btnEventQuitter"class="modal_btn btn_modal_2_fond">Fermer</a>
-            </div>
+        </div>
+        <div class="btnEventGroup">
+            <button onclick="window.location.href='#modalPanier'" type="submit" name="add_panier" class="modal_btn btn_modal_1_trait" id="add_reservation">Ajouter une autre réservation</button>
+
+            <a href="" id="e_btnEventQuitter" class="modal_btn btn_modal_2_fond">Fermer</a>
         </div>
     </div>
-    
-    <main class="site siteEvent">
-        <!-- ------------------------------- HAUT -------------------------------- -->
-        <!-- SECTION GAUCHE - IMAGE FIXE -->
-        <section class="gauche gaucheEvent">
-            <div class="gaucheImg gaucheImgEvent">
-                <img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="">
-            </div>
-        </section>
-        
-        <!-- ------------------------------- BAS -------------------------------- -->
-        <!-- SECTION DROITE - FICHE PRODUIT -->
-        <section class="droite">
-            <div class="containerDroit containerDroitEvent">
+</div>
 
-                <!-- ------ ETAT DE L'EVENT ------ -->
-                <!-- Etat de l'événement : réservé, complet, annuler, terminé -->
+<main class="site siteEvent">
+    <!-- ------------------------------- HAUT -------------------------------- -->
+    <!-- SECTION GAUCHE - IMAGE FIXE -->
+    <section class="gauche gaucheEvent">
+        <div class="gaucheImg gaucheImgEvent">
+            <img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="">
+        </div>
+    </section>
 
-                <?php if(!empty($_SESSION['id_user']) && $ficheEvent['date_event'] >= $currentDate){ ?>
+    <!-- ------------------------------- BAS -------------------------------- -->
+    <!-- SECTION DROITE - FICHE PRODUIT -->
+    <section class="droite">
 
-                    <!-- Réservé & Complet -->
-                    <?php if(in_array($ficheEvent['id_evenement'], $userReservationIds) && $ficheEvent['events_actif'] == 1 && ($totalPlacesReservees >= $ficheEvent['nbr_place'])){ ?>
-                        <div class="alert alert-success" role="alert">
-                            Réservation confirmée. Pour toutes modifications de votre réservation merci de nous <a href="">contacter</a>!
-                        </div>
-                        <div class="alert alert-warning" role="alert">
-                            Événement complet. <a href="">Me contacter si de la place se libère</a>
-                        </div>
+        <div class="navBlanche"></div>
 
-                    <!-- Réservé -->  
-                    <?php } elseif(in_array($ficheEvent['id_evenement'], $userReservationIds) && $ficheEvent['events_actif'] == 1){ ?>
-                        
-                        <div class="bgEtat">
-                            <div class="borderEtat">
-                                <p>
-                                    <span class="etat">Réservation confirmée - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
-                                </p>
-                            </div>
-                        </div>
+        <div class="containerDroit containerDroitEvent">
 
-                    <!-- Complet -->
-                    <?php } elseif($totalPlacesReservees >= $ficheEvent['nbr_place']) { ?>
-                        
-                        <div id="bgEtat_complet" class="bgEtat">
-                            <div class="borderEtat">
-                                <p>
-                                    <span class="etat">événement complet - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
-                                </p>
-                            </div>
-                        </div>
+            <!-- ------ ETAT DE L'EVENT ------ -->
+            <!-- Etat de l'événement : réservé, complet, annuler, terminé -->
 
-                    <!-- Annulé -->
-                    <?php } elseif($ficheEvent['events_actif'] == 0){?>
-                        
-                        <div id="bgEtat_annule" class="bgEtat">
-                            <div class="borderEtat">
-                                <p>
-                                    <span class="etat">événement annulé - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
-                                </p>
-                            </div>
-                        </div>
-                        
-                    <?php } ?>
+            <?php if (!empty($_SESSION['id_user']) && $ficheEvent['date_event'] >= $currentDate) { ?>
 
-                <!-- Terminé -->
-                <?php }else{ ?>
-                    
-                    <div id="bgEtat_termine" class="bgEtat">
+                <!-- Réservé & Complet -->
+                <?php if (in_array($ficheEvent['id_evenement'], $userReservationIds) && $ficheEvent['events_actif'] == 1 && ($totalPlacesReservees >= $ficheEvent['nbr_place'])) { ?>
+                    <div class="alert alert-success" role="alert">
+                        Réservation confirmée. Pour toutes modifications de votre réservation merci de nous <a href="">contacter</a>!
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        Événement complet. <a href="">Me contacter si de la place se libère</a>
+                    </div>
+
+                    <!-- Réservé -->
+                <?php } elseif (in_array($ficheEvent['id_evenement'], $userReservationIds) && $ficheEvent['events_actif'] == 1) { ?>
+
+                    <div class="bgEtat">
                         <div class="borderEtat">
                             <p>
-                                <span class="etat">événement terminé - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
+                                <span class="etat">Réservation confirmée - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Complet -->
+                <?php } elseif ($totalPlacesReservees >= $ficheEvent['nbr_place']) { ?>
+
+                    <div id="bgEtat_complet" class="bgEtat">
+                        <div class="borderEtat">
+                            <p>
+                                <span class="etat">Événement complet - </span><span class="msgEtat">S'il y a de nouveau des places disponibles - </span><a href="" class="etatContacter">me contacter</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Annulé -->
+                <?php } elseif ($ficheEvent['events_actif'] == 0) { ?>
+
+                    <div id="bgEtat_annule" class="bgEtat">
+                        <div class="borderEtat">
+                            <p>
+                                <span class="etat">Événement annulé - </span><span class="msgEtat">S'il est de nouveau disponible </span><a href="" class="etatContacter"> - me contacter</a>
                             </p>
                         </div>
                     </div>
 
                 <?php } ?>
 
+                <!-- Terminé -->
+            <?php } else { ?>
 
-
-                <!-- Etat complet -->
-                <!-- <div id="bgEtat_complet" class="bgEtat">
+                <div id="bgEtat_termine" class="bgEtat">
                     <div class="borderEtat">
                         <p>
-                            <span class="etat">événement complet - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
+                            <span class="etat">Événement terminé - </span><span class="msgEtat">S'il à lieu de nouveau - </span><a href="" class="etatContacter">me contacter</a>
                         </p>
                     </div>
-                </div> -->
-                <!-- Etat annulé -->
-                <!-- <div id="bgEtat_annule" class="bgEtat">
-                    <div class="borderEtat">
-                        <p>
-                            <span class="etat">événement complet - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
-                        </p>
-                    </div>
-                </div> -->
-                <!-- Etat terminé -->
-                <!-- <div id="bgEtat_termine" class="bgEtat">
-                    <div class="borderEtat">
-                        <p>
-                            <span class="etat">événement complet - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
-                        </p>
-                    </div>
-                </div> -->
-                <h1><?= $ficheEvent['titre']; ?></h1>
-                <h2><?= $ficheEvent['categorie_name']; ?></h2>
-                <div class="imgEvent">
-                    <a href=""><img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="" title="agrandir l'image"></a>
                 </div>
-                <h4>Date</h4>
-                <p class="dateEvent"><?= date('d-m-Y', strtotime($ficheEvent['date_event'])); ?></p>
-                <h4>Résumé</h4>
-                <p><?= $ficheEvent['resume']; ?></p>
 
-                <!-- INFO - DETAIL NBR DE PLACE -->
-                <!-- <p class="statePlace">
+            <?php } ?>
+
+
+
+            <!-- Etat complet -->
+            <!-- <div id="bgEtat_complet" class="bgEtat">
+                    <div class="borderEtat">
+                        <p>
+                            <span class="etat">événement complet - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
+                        </p>
+                    </div>
+                </div> -->
+            <!-- Etat annulé -->
+            <!-- <div id="bgEtat_annule" class="bgEtat">
+                    <div class="borderEtat">
+                        <p>
+                            <span class="etat">événement complet - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
+                        </p>
+                    </div>
+                </div> -->
+            <!-- Etat terminé -->
+            <!-- <div id="bgEtat_termine" class="bgEtat">
+                    <div class="borderEtat">
+                        <p>
+                            <span class="etat">événement complet - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
+                        </p>
+                    </div>
+                </div> -->
+            <h1><?= $ficheEvent['titre']; ?></h1>
+            <h2><?= $ficheEvent['categorie_name']; ?></h2>
+            <div class="imgEvent">
+                <a href=""><img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="" title="agrandir l'image"></a>
+            </div>
+            <h4>Date</h4>
+            <p class="dateEvent"><?= date('d-m-Y', strtotime($ficheEvent['date_event'])); ?></p>
+            <h4>Résumé</h4>
+            <p><?= $ficheEvent['resume']; ?></p>
+
+            <!-- INFO - DETAIL NBR DE PLACE -->
+            <!-- <p class="statePlace">
                     Nombre de place disponible : <span>23</span><br>
                     Nombre de place totale : 40 <br>
                     Nombre de place réservée : 15 <br>
                 </p> -->
-                <div class="placeDisponible">
-                    Place disponible : <span><?= $placesDisponibles; ?></span><br>
-                </div>
-
-
-
-                <?php if(isset($_SESSION['user_role'])){
-            
-                    if ($placesDisponibles !== 0) { ?>
-
-                        <!-- FORMULAIRE RESERVATION -->
-                        <form id="form_event">
-                            <input type="hidden" name="id_event" value="<?= $ficheEvent['id_evenement']; ?>">
-
-                            <!-- Si l'event n'est pas passé -->
-                            <?php if ($ficheEvent['date_event'] >= $currentDate) { ?>
-
-
-                                <!-- et n'est pas annulé -->
-                                <?php if ($ficheEvent['events_actif'] == 1) { ?>
-
-                                    <!-- CHOIX - NBR DE PLACE -->
-                                    <div class="place_prix">
-                                        <!-- bouton SELECT -->
-                                        <div class="placeSelect">
-                                            <div class='ui-dropdown'>
-                                                <select name="place_reserve">
-                                                    <?php $maxPlaces = min($placesDisponibles, 4);
-                                                    for ($i = 1; $i <= $maxPlaces; $i++) { ?>
-                                                        <option value="<?= $i; ?>"><?= $i; ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                            <div class="place">
-                                                <p>Nombre de place</p>
-                                            </div>  
-                                        </div>
-                                        <!-- PRIX -->
-                                        <div class="prix">
-                                            <p>Prix : <?= $ficheEvent['prix']; ?>€ / <span>unité</span></p>
-                                        </div>
-                                    </div>
-
-
-                                    <!-- BOUTON -->
-                                    <?php if(!empty($_SESSION['id_user']) && $ficheEvent['date_event'] >= $currentDate){ ?>
-
-                                        <?php if(in_array($ficheEvent['id_evenement'], $userReservationIds) && $ficheEvent['events_actif'] == 1){ ?>
-                                            <!-- BOUTON DE VALIDATION RESERVATION -->
-                                            <div class="btn_flex">
-                                                <button onclick="window.location.href='#modalEvent'" type="submit" class="btnEvent btnEvent-3">Ajouter une réservation</button>
-                                            </div>
-                                        
-                                        <?php } else { ?>
-
-                                            <!-- BOUTON DE VALIDATION RESERVATION -->
-                                            <div class="btn_flex">
-                                                <button onclick="window.location.href='#modalPanier'" type="submit" name="add_panier" class="btnEvent btnEvent-3" value="reserver" id="add_reservation">Réserver</button>
-                                            </div>
-                                        <?php } ?>
-
-                                    <?php } ?> 
-                                <?php } ?>
-                            <?php } ?>
-                        </form>
-                        
-                    <!-- }elseif($totalPlacesReservees == null){ -->
-                    <?php }
-                } ?> 
-
-
-
-                <h3>Vous pourriez aimer . . .</h3>
-                <div class="trioCategory">
-                    <article class="categoryUn">
-                        <figure class="fig_1">
-                            <a href="">
-                                <div class="imgCategory"><img src="./asset/img/event_poisson.jpg" alt=""></div>
-                            </a>
-                        </figure>
-                        <div class="titreCategory">
-                            Asseyez-vous à la grande table
-                        </div>
-                        <div class="sousTitreCategory">
-                            DIVERTISSEMENT
-                        </div>
-                    </article>
-                    <article class="categoryDeux">
-                        <figure class="fig_1">
-                            <a href="">
-                                <div class="imgCategory"><img src="./asset/img/event_bocal.jpg" alt=""></div>
-                            </a>
-                        </figure>
-                        <div class="titreCategory">
-                            Calamar gourmand
-                        </div>
-                        <div class="sousTitreCategory">
-                            DIVERTISSEMENT
-                        </div>
-                    </article>
-                    <article class="categoryTrois">
-                        <figure class="fig_1">
-                            <a href="">
-                                <div class="imgCategory"><img src="./asset/img/event_salon_automobile.jpg" alt=""></div>
-                            </a>
-                        </figure>
-                        <div class="titreCategory">
-                            Salon de l'automobile
-                        </div>
-                        <div class="sousTitreCategory">
-                            DIVERTISSEMENT
-                        </div>
-                    </article>
-                    
-                </div>
+            <div class="placeDisponible">
+                Place disponible : <span><?= $placesDisponibles; ?></span>
             </div>
 
-        </section>
-    </main>
-    <footer></footer>
-    <script src="./asset/js/nav_scroll2.js"></script>
-    <script>
-        
-        function showList(listClassName){
-            var allLists = document.querySelectorAll('.nav2_container div:not(.nav2_menu,.deconnexion,.profil_nav,.img_profil_nav)');
-            allLists.forEach(function(list) {
-                list.classList.add('hidden');
-            });
-    
-            // Afficher la liste correspondante
-            var selectedList = document.querySelector('.' + listClassName);
-            selectedList.classList.remove('hidden');
-        }
 
 
-        $(document).ready(function() {
+            <?php if (isset($_SESSION['user_role'])) {
+
+                if ($placesDisponibles !== 0) { ?>
+
+                    <!-- FORMULAIRE RESERVATION -->
+                    <form id="form_event">
+                        <input type="hidden" name="id_event" value="<?= $ficheEvent['id_evenement']; ?>">
+
+                        <!-- Si l'event n'est pas passé -->
+                        <?php if ($ficheEvent['date_event'] >= $currentDate) { ?>
 
 
-            $("button[id='add_reservation']").on("click", (evtSubmit) => {
-                evtSubmit.preventDefault();
-                var submitVal = $(this).attr("");
-                var url_action = "./traitement/action.php";
-                var event_fields = $("#form_event").serialize()+ "&add_panier=reserver";
-                
-                $.ajax({
+                            <!-- et n'est pas annulé -->
+                            <?php if ($ficheEvent['events_actif'] == 1) { ?>
+
+                                <!-- CHOIX - NBR DE PLACE -->
+                                <div class="place_prix">
+                                    <!-- bouton SELECT -->
+                                    <div class="placeSelect">
+                                        <div class='ui-dropdown'>
+                                            <select name="place_reserve">
+                                                <?php $maxPlaces = min($placesDisponibles, 4);
+                                                for ($i = 1; $i <= $maxPlaces; $i++) { ?>
+                                                    <option value="<?= $i; ?>"><?= $i; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="place">
+                                            <p>Nombre de place</p>
+                                        </div>
+                                    </div>
+                                    <!-- PRIX -->
+                                    <div class="prix">
+                                        <p>Prix : <?= $ficheEvent['prix']; ?>€ / <span>unité</span></p>
+                                    </div>
+                                </div>
+
+
+                                <!-- BOUTON -->
+                                <?php if (!empty($_SESSION['id_user']) && $ficheEvent['date_event'] >= $currentDate) { ?>
+
+                                    <?php if (in_array($ficheEvent['id_evenement'], $userReservationIds) && $ficheEvent['events_actif'] == 1) { ?>
+                                        <!-- BOUTON DE VALIDATION RESERVATION -->
+                                        <div class="btn_flex">
+                                            <button onclick="window.location.href='#modalEvent'" type="submit" class="btnEvent btnEvent-3">Ajouter une réservation</button>
+                                        </div>
+
+                                    <?php } else { ?>
+
+                                        <!-- BOUTON DE VALIDATION RESERVATION -->
+                                        <div class="btn_flex">
+                                            <button onclick="window.location.href='#modalPanier'" type="submit" name="add_panier" class="btnEvent btnEvent-3" value="reserver" id="add_reservation">Réserver</button>
+                                        </div>
+                                    <?php } ?>
+
+                                <?php } ?>
+                            <?php } ?>
+                        <?php } ?>
+                    </form>
+
+                    <!-- }elseif($totalPlacesReservees == null){ -->
+            <?php }
+            } ?>
+
+
+
+            <h3>Vous pourriez aimer . . .</h3>
+            <div class="trioCategory">
+                <article class="categoryUn">
+                    <figure class="fig_1">
+                        <a href="">
+                            <div class="imgCategory"><img src="./asset/img/event_poisson.jpg" alt=""></div>
+                        </a>
+                    </figure>
+                    <div class="titreCategory">
+                        Asseyez-vous à la grande table
+                    </div>
+                    <div class="sousTitreCategory">
+                        DIVERTISSEMENT
+                    </div>
+                </article>
+                <article class="categoryDeux">
+                    <figure class="fig_1">
+                        <a href="">
+                            <div class="imgCategory"><img src="./asset/img/event_bocal.jpg" alt=""></div>
+                        </a>
+                    </figure>
+                    <div class="titreCategory">
+                        Calamar gourmand
+                    </div>
+                    <div class="sousTitreCategory">
+                        DIVERTISSEMENT
+                    </div>
+                </article>
+                <article class="categoryTrois">
+                    <figure class="fig_1">
+                        <a href="">
+                            <div class="imgCategory"><img src="./asset/img/event_salon_automobile.jpg" alt=""></div>
+                        </a>
+                    </figure>
+                    <div class="titreCategory">
+                        Salon de l'automobile
+                    </div>
+                    <div class="sousTitreCategory">
+                        DIVERTISSEMENT
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+    </section>
+</main>
+<footer></footer>
+<script src="./asset/js/nav_scroll2.js"></script>
+<script>
+    function showList(listClassName) {
+        var allLists = document.querySelectorAll('.nav2_container div:not(.nav2_menu,.deconnexion,.profil_nav,.img_profil_nav)');
+        allLists.forEach(function(list) {
+            list.classList.add('hidden');
+        });
+
+        // Afficher la liste correspondante
+        var selectedList = document.querySelector('.' + listClassName);
+        selectedList.classList.remove('hidden');
+    }
+
+
+    $(document).ready(function() {
+
+
+        $("button[id='add_reservation']").on("click", (evtSubmit) => {
+            evtSubmit.preventDefault();
+            var submitVal = $(this).attr("");
+            var url_action = "./traitement/action.php";
+            var event_fields = $("#form_event").serialize() + "&add_panier=reserver";
+
+            $.ajax({
                 url: url_action,
                 data: event_fields,
-                type:'post',
+                type: 'post',
                 dataType: "json",
                 success: (data) => {
                     $(".quantite_panier").html(data);
@@ -348,11 +350,11 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
                 error: (jqXHR, status, error) => {
                     console.log("ERREUR AJAX", status, error);
                 },
-                });
             });
-
         });
 
-    </script>
+    });
+</script>
 </body>
+
 </html>

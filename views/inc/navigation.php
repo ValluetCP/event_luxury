@@ -46,7 +46,7 @@ if(!empty($_SESSION)) {
 
 
             <div class="panier">
-                <a href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
+                <a id="panier_nav" href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
             </div>
         </div>
 
@@ -119,7 +119,7 @@ if(!empty($_SESSION)) {
                         <ul class="filtre">
 
                             <!-- ESPACE PERSONNEL -->
-                            <li><a href="http://localhost/event_luxury/views/info_user.php?id=<?= $_SESSION["id_user"]; ?>" class="profil_info_link sous_menu_profil">Informations personnelles</a></li>
+                            <li><a href="http://localhost/event_luxury/views/profil.php?id=<?= $_SESSION["id_user"]; ?>" class="profil_info_link sous_menu_profil">Informations personnelles</a></li>
 
                             <!-- FACTURE -->
                             <li><a href="" class="profil_facture_link sous_menu_profil">Factures</a></li>
@@ -189,7 +189,7 @@ if(!empty($_SESSION)) {
 
 
             <div class="panier">
-                <a href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
+                <a id="panier_nav" href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
             </div>
         </div>
 
@@ -262,7 +262,7 @@ if(!empty($_SESSION)) {
                         <ul class="filtre">
 
                             <!-- ESPACE PERSONNEL -->
-                            <li><a href="http://localhost/event_luxury/views/info_user.php?id=<?= $_SESSION["id_user"]; ?>" class="profil_info_link sous_menu_profil">Informations personnelles</a></li>
+                            <li><a href="http://localhost/event_luxury/views/profil.php?id=<?= $_SESSION["id_user"]; ?>" class="profil_info_link sous_menu_profil">Informations personnelles</a></li>
 
                             <!-- FACTURE -->
                             <li><a href="" class="profil_facture_link sous_menu_profil">Factures</a></li>

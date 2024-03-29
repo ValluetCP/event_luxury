@@ -149,59 +149,9 @@ foreach ($listEvent as $event) {
 
             <!-- Div vide pour afficher le contenu -->
             <div id="resultat" class="overflow_listEvent">
-                
-                <!-- MODULE 1 -->
-                <!-- MODULE pour la boucle -->
-                <div class="lb_event">
 
-                    <!-- image en backgound -->
-                    <div class="lb_imageEvent">
-                        <img src="./asset/img/event_miami.jpg" alt="">
-                    </div>
-
-                    <!-- texte -->
-                    <div class="lb_eventContainer">
-                        <div class="lb_numeroEvent">01</div>
-                        <div class="lb_text">
-                        <div class="lb_titre">The french miami</div>
-                            <div class="lb_categoryDate">
-                                <div class="lb_category">Atelier</div>
-                                <div class="lb_date">29-05-2024</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lb_reservation">
-                        <a id="billet" href="#modalBillet" class="lb_billet">Télécharger le billet</a>
-                        <a href="" class="lb_consulter">Consulter</a>
-                    </div>
-                </div>
 
                 <!-- MODULE BOUCLE -->
-                <div class="lb_event">
-
-                    <!-- image en backgound -->
-                    <div class="lb_imageEvent">
-                        <img src="./asset/img/event_flamant.jpg" alt="">
-                    </div>
-
-                    <!-- texte -->
-                    <div class="lb_eventContainer">
-                        <div class="lb_numeroEvent">03</div>
-                        <div class="lb_text">
-                        <div class="lb_titre">Pink Flamingo</div>
-                        <div class="lb_categoryDate">
-                            <div class="lb_category">Atelier</div>
-                            <div class="lb_date">29-05-2024</div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="lb_reservation">
-                        <a href="#modalInfoPerso" class="lb_billet">Télécharger le billet</a>
-                        <a href="" class="lb_consulter">Consulter</a>
-                    </div>
-                </div>
-
-
                 <?php foreach($evenementsByCategory as $event){
                 // Comparer la date de l'événement avec la date actuelle, si la date est déjà passé ne l'afficher ici
 
@@ -224,7 +174,7 @@ foreach ($listEvent as $event) {
                                     <div class="lb_eventContainer">
                                         <div class="lb_numeroEvent"><?= $event['id_evenement']; ?></div>
                                         <div class="lb_text">
-                                            <div class="lb_titre"><a href=""><?= $event['titre'];?></a></div>
+                                            <div class="lb_titre"><?= $event['titre'];?></div>
                                             <div class="lb_categoryDate">
                                                 <div class="lb_category"><?= $event['categorie_name'];?></div>
                                                 <div class="lb_date"><?= date('d-m-Y', strtotime($event['date_event'])); ?></div>
@@ -247,9 +197,10 @@ foreach ($listEvent as $event) {
 
                         <?php } ?>
                 
-                    <?php }
-                } ?>
-    
+                    <?php } ?>
+
+                
+                <?php } ?>
             </div>
 
         </div>

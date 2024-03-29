@@ -95,6 +95,11 @@ html {
     
 }
 
+#panier_nav{
+    text-decoration: none;
+    color: var(--vertFonce);
+}
+
 .navigation div{
     margin-left: 30px;
 }
@@ -898,7 +903,7 @@ background-color: rgba(255, 255, 255, 0.5);
     height: 100%;
     border-left: 1px solid var(--vertFonce);
     padding-top: 112px;
-    margin-top: 30px;
+    margin-top: 38px;
 }
 
 .modalPanierContainer{
@@ -957,7 +962,7 @@ background-color: rgba(255, 255, 255, 0.5);
     /* background-image: url(./img/coco2.JPG); */
     background-repeat: no-repeat;
     width: 168px;
-    height: 214px;
+    height: auto;
     /* height: 232px; */
     background-position: center;
     position: relative;
@@ -970,7 +975,7 @@ background-color: rgba(255, 255, 255, 0.5);
 .modalClosePanier {
     display:block;
     position:absolute;
-    top:20px;
+    top: 40px;
     right:20px;
     font-size:20px;
 }
@@ -1095,6 +1100,14 @@ background-color: rgba(255, 255, 255, 0.5);
     margin-top: 50px;
 }
 
+.navBlanche {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    z-index: 8;
+    background-color: white;
+}
 .containerDroit{
     width: 730px;
     margin-top: 75px;
@@ -1120,6 +1133,7 @@ background-color: rgba(255, 255, 255, 0.5);
     justify-content: center;
 }
 
+
 /* Texte - Etat de l'event */
 
 .etat{
@@ -1138,7 +1152,8 @@ background-color: rgba(255, 255, 255, 0.5);
     font-size: 14px;
     color: var(--vertFonceTransparent);
     text-decoration: underline;
-    font-family: 'AmericanaRegular';
+    /* font-family: 'AmericanaRegular'; */
+    text-transform: uppercase;
 }
 
 /* Texte - Etat de l'event - complet */
@@ -1146,14 +1161,50 @@ background-color: rgba(255, 255, 255, 0.5);
     background-color: var(--vertFonce);
 }
 
+#bgEtat_complet .borderEtat{
+    border: solid 2px var(--vertClair);
+}
+
+#bgEtat_complet p,
+#bgEtat_complet span,
+#bgEtat_complet a{
+    color: var(--vertClair);
+}
+
+#bgEtat_complet span{
+    padding: 0 2px;
+}
+
+
 /* Texte - Etat de l'event - complet */
 #bgEtat_annule{
     background-color: var(--vertMoyen);
 }
 
+#bgEtat_annule .borderEtat{
+    border: solid 2px var(--vertClair);
+}
+
+
+#bgEtat_annule .etat,
+#bgEtat_annule .msgEtat,
+#bgEtat_annule a{
+    color: var(--vertClair);
+}
+
 /* Texte - Etat de l'event - complet */
 #bgEtat_termine{
     background-color: var(--vertHover);
+}
+
+#bgEtat_termine .borderEtat{
+    border: solid 2px var(--vertClair);
+}
+
+#bgEtat_termine .etat,
+#bgEtat_termine .msgEtat,
+#bgEtat_termine a{
+    color: var(--vertClair);
 }
 
 
@@ -1763,7 +1814,7 @@ background-color: rgba(255, 255, 255, 0.5);
 }
 
 .containerDroit h2{
-    margin-bottom: 35px;
+    margin-bottom: 120px;
     margin-top: 20px;
 }
 
@@ -1808,6 +1859,11 @@ background-color: rgba(255, 255, 255, 0.5);
     font-family: 'Karla', sans-serif;
     font-weight: 400;
     color: var(--vertMoyen);
+    background-color: var(--vertNavTrait);
+}
+
+.b_tableau_titre th{
+    padding: 10px;
 }
 
 .b_tableau_contenu{
@@ -2423,7 +2479,7 @@ padding-left: 624px;
     border-top: solid 1px var(--vertFonce);
     padding: 8px 0px;
     display: grid;
-    grid-template-columns: 205px auto 100px;
+    grid-template-columns: 205px auto 115px;
     gap: 50px;
     cursor: pointer;
 }
@@ -3283,6 +3339,10 @@ input[type=file]::file-selector-button {
         background-color: var(--vertClair);
     }
 
+    #panier_nav{
+        color: var(--vertClair);
+    }
+
     /* - PAGE EVENT - scroll (1200px) - */
 
     .navbar.scroll #recherche{
@@ -3297,6 +3357,7 @@ input[type=file]::file-selector-button {
     .navbar.scroll .panier{
         color: var(--vertFonce);
     }
+    
 
     .navbar.scroll #recherche::placeholder{
         color: var(--vertFonce);
@@ -3309,6 +3370,10 @@ input[type=file]::file-selector-button {
         grid-template-areas: 
         "gauche"
         "droite";
+    }
+
+    .navBlanche {
+        display: none;
     }
 
     /* - PAGE EVENT - section gauche (1200px) - */

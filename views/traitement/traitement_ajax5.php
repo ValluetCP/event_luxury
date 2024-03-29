@@ -16,7 +16,7 @@
             
             $tab['contenu'] .= 
             '<!-- MODULE BOUCLE -->
-            <div class="module_listEvent">
+            <div class="module_listEvent" onclick="window.location.href=\'./evenement2.php?id_event='.$event['id_evenement'].'\'">
 
                 <!-- MODULE - partie gauche - image -->
                 <div class="img_listEvent">
@@ -30,7 +30,7 @@
                         <!-- numéro -->
                         <div class="num_listEvent">03</div>
                         <div class="txt_listEvent">
-                            <div class="titre_listEvent"><a href="./evenement2.php?event='.$event['id_evenement'].'">'.$event['titre'].'</a></div>
+                            <div class="titre_listEvent">'.$event['titre'].'</div>
 
                             <!-- date / category -->
                             <div class="ss_titre_listEvent">

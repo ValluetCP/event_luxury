@@ -38,9 +38,9 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
 
                     <h1><?= ucfirst($ficheEvent['titre']); ?></h1>
                     <h2><?= $ficheEvent['categorie_name']; ?></h2>
-                    <h5 class="b_historique">
+                    <!-- <h5 class="b_historique">
                         Historique
-                    </h5>
+                    </h5> -->
                     <table class="b_tableau">
                         <tr class="b_tableau_titre">
                             <th>Date & heure de réservation</th>
@@ -145,5 +145,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
             selectedList.classList.remove('hidden');
         }
     </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./asset/js/site.js"></script>
 </body>
 </html>

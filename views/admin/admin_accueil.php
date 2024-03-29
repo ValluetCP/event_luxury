@@ -15,7 +15,7 @@ include_once "../inc/navigation.php";
                     <p>Consulter, modifier, désactiver, supprimer</p>
                     <h4><a href="">ajouter une catégorie</a></h4>
                 </figcaption>
-                <a href="./admin_list_category.php"></a>
+                <a href="./admin_list_categorie.php"></a>
                 <!-- balise a : technique pour rendre toute la balise figure cliquable. en css on va lui donner 100% la taille de son parent figure -->
             </figure>
         </article>
@@ -28,7 +28,7 @@ include_once "../inc/navigation.php";
                     <p>Consulter, modifier, annuler, supprimer</p>
                     <h4><a href="">ajouter un événement</a></h4>
                 </figcaption>
-                <a href="admin_list_event.php"></a>
+                <a href="./admin_list_event.php"></a>
             </figure>
         </article>
 
@@ -40,7 +40,7 @@ include_once "../inc/navigation.php";
                     <p>Consulter, modifier, désactiver, supprimer</p>
                     <h4><a href="">ajouter un utilisateur</a></h4>
                 </figcaption>
-                <a href="./test_list_user.php"></a>
+                <a href="./admin_list_user.php"></a>
             </figure>
         </article>
 
