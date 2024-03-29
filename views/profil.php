@@ -1,6 +1,6 @@
 <?php
 include_once "./inc/header.php";
-include_once "./inc/nav.php";
+include_once "./inc/navigation.php";
 require_once "../models/userModel.php";
 // // $_SESSION["user_role"] = $user["role"];
 // $user["role"] = $_SESSION["user_role"];
@@ -11,15 +11,15 @@ $userList = User::findAllUser();
         <!-- -------------------- PAGE PROFIL USER - début -------------------- -->
         <main class="profil_container">
 
-            <div class="filAriane">
+            <!-- <div class="filAriane">
                 <a href="./admin/admin_list_user.php">Liste des utilisateurs > </a>
                 <a href="">Profil utilisateur </a>
-            </div>
+            </div> -->
             <p class="profilRole">rôle admin / client</p>
             <hr>
             <div class="profilUser">
                 <div class="imgProfil">
-                    <img src="./asset/img/<?= $_SESSION["user_img_profil"]; ?>" alt="">
+                    <img src="http://localhost/event_luxury/views/asset/img_event/<?= $_SESSION["user_img_profil"]; ?>" alt="photo profil utilisateur">
                 </div>
                 <div class="profilForm">
                     <h1>Informations personnelles</h1>
@@ -50,7 +50,7 @@ $userList = User::findAllUser();
                         <!-- BOUTON DE VALIDATION RESERVATION -->
                         <div class="btn_flex btn_profil">
                             <!-- <button type="button" class="reserve  btnEvent btnEvent-3">Réserver</button> -->
-                            <button onclick="window.location.href='./update_user.php'" type="button" class="btnEvent btnEvent-3">modifier</button>
+                            <button onclick="window.location.href='./update_profil.php'" type="button" class="btnEvent btnEvent-3">modifier</button>
                         </div>
                     </form>
                 </div>

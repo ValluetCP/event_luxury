@@ -2899,7 +2899,7 @@ input[type=file]::file-selector-button {
 .profil_container{
     max-width: 1200px;
     margin: auto;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
 .profilRole{
@@ -2934,7 +2934,7 @@ input[type=file]::file-selector-button {
 }
 
 .profilForm h1{
-    margin-top: 20px;
+    margin-top: 180px;
 }
 
 .profilForm p,

@@ -19,20 +19,15 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
 
 
 <header>
-    <!-- TEST -->
-        <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
-            <h1>Bonjour admin<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
-        <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-            <h1>Bonjour client<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
-        <?php } else { ?>
-            <h1>Bonjour</h1>
-        <?php } ?>
+    
+
+
+        
+        <!-- HEADER -->
         <div class="hp_bg">
             <div class="hp_bg_img" style="background-image: url(./asset/img/header2.JPG);">
             </div>
         </div>
-
-        <!-- HEADER -->
         <div class="logo_header">
             <img src="./asset/img/img_logo/logo_big.svg" alt="" class="logo_header_big">
         </div>

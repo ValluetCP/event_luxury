@@ -5,24 +5,6 @@ if(!empty($_SESSION)) {
 ?>
 
 
-<!-- ------------------ MODAL INSCRIPTION / CONNEXION ------------------ -->
-
-<div id="modalInscription" class="modalContainer">
-    <div class="modal_content">
-
-        <a class="modal_close" href="#"><img class="img_croix_popup" src="http://localhost/event_luxury/views/asset/img/croix_close.svg" alt=""></a>
-        <div class="modalTexte">
-            <h2 class="modalTitre">Rendez-vous sur votre espace</h2>
-            <hr class="modalTrait">
-            <p>Pour participer à nos événements, vous devez être détenteur d'un compte. Veuillez vous connecter ou bien vous inscrire.</p>
-        </div>
-        <div class="ModalBtnGroup">
-            <a href="http://localhost/event_luxury/views/connexion" id="btnHomeConnxion"class="modal_btn btn_modal_1_trait">Je me connecte</a>
-            <a href="http://localhost/event_luxury/views/inscription" id="btnHomeInscription"class="modal_btn btn_modal_2_fond">Je m'inscris</a>
-        </div>
-    </div>
-</div>
-
 
 <!-- -------------------- ACCUEIL - sans connection -------------------- -->
 
@@ -328,28 +310,15 @@ if(!empty($_SESSION)) {
         
         <div class="navigation hp_navigation">
 
-            
-            <!-- Bonjour -->
-            <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
-                <h1>Bonjour admin<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
-            <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-                <h1>Bonjour client<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
-            <?php } else { ?>
-                <h1>Bonjour</h1>
-            <?php } ?>
+            <!-- S'incrire  -->
+            <a href="http://localhost/event_luxury/views/inscription">Inscription</a>
 
-            <div class="commande_navigation">
+            <!-- Se connecter  -->
+            <a href="http://localhost/event_luxury/views/connexion">Connexion</a>
 
+            <!-- Réservations  -->
+            <a href="http://localhost/event_luxury/views/connexion" data-bs-toggle="modal" data-bs-target="#exampleModal">Réservations</a>
 
-                <!-- S'incrire  -->
-                <a href="http://localhost/event_luxury/views/inscription">Inscription</a>
-    
-                <!-- Se connecter  -->
-                <a href="http://localhost/event_luxury/views/connexion">Connexion</a>
-    
-                <!-- Réservations  -->
-                <a href="#modalInscription">Réservations</a>
-            </div>
         </div>
 
     </nav>
