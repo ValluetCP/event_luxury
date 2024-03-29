@@ -135,7 +135,7 @@ foreach ($listEvent as $event) {
                                 <div class="etat_listEvent">Réservé & Complet</div>
 
                             <!-- Réservé -->
-                            <?php } elseif(in_array($event['id_evenement'], $userReservationIds) && $event['events_actif'] == 1){ ?>
+                            <?php } elseif(in_array($event['id_evenement'], $userReservationIds) && $event['events_actif'] == 1 && $event['reservation_actif'] == 1){ ?>
                                 <div class="etat_listEvent">Réservé</div>
 
                             <!-- Complet -->   

@@ -63,8 +63,8 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
                 <h2 class="modalTitre">Votre événement</h2>
                 <hr class="modalTrait">
                 <p>Une réservation a déjà été faite. Vous souhaitez :</p>
-                <p>Effectuer une <a href=""> annulation</a><br>
-                Consulter <a href=""> l'historique</a></p>
+                <p>Effectuer une <a href="./historique.php?id_event=<?= $ficheEvent['id_evenement']; ?>"> annulation</a><br>
+                Consulter <a href="./historique.php?id_event=<?= $ficheEvent['id_evenement']; ?>"> l'historique</a></p>
             </div>
             <div class="btnEventGroup">
                 <button onclick="window.location.href='#modalPanier'" type="submit" name="add_panier" class="modal_btn btn_modal_1_trait" id="add_reservation">Ajouter une autre réservation</button>

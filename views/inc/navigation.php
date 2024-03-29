@@ -28,7 +28,7 @@ if(!empty($_SESSION)) {
 
 
             <div class="panier">
-                <a href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? ''; ?></span>)</a>
+                <a href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
             </div>
         </div>
 
@@ -131,7 +131,7 @@ if(!empty($_SESSION)) {
                         <ul class="filtre">
 
                             <!-- CLIENT - Accueil -->
-                            <li><a href="http://localhost/event_luxury/views/home" class="client_accueil_link sous_menu_client">Accueil</a></li>
+                            <li><a href="http://localhost/event_luxury/views/accueil_client" class="client_accueil_link sous_menu_client">Accueil</a></li>
 
                             <!-- CLIENT - La liste des évènements -->
                             <li><a href="http://localhost/event_luxury/views/event_list" class="client_event_link sous_menu_client">Nos événements</a></li>
@@ -161,7 +161,7 @@ if(!empty($_SESSION)) {
 
         <!-- BARRE DE NAVIGATION - début -->
         <div class="nav_logo">
-            <a href=""><img id="scrollLogoClair" class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
+            <a href="http://localhost/event_luxury/views/accueil_client.php"><img id="scrollLogoClair" class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
         </div>
 
         <div class="navigation">
@@ -171,7 +171,7 @@ if(!empty($_SESSION)) {
 
 
             <div class="panier">
-                <a href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? ''; ?></span>)</a>
+                <a href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
             </div>
         </div>
 

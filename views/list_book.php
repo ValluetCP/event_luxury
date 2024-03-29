@@ -231,9 +231,15 @@ foreach ($listEvent as $event) {
                                             </div>
                                         </div>
                                     </div>
+
+                                    <!-- BOUTONS -->
                                     <div class="lb_reservation">
+
+                                        <!-- Afficher le billet -->
                                         <a href="#modalBillet" class="lb_billet">Télécharger le billet</a>
-                                        <a href="./book.php?event=<?= $event['id_evenement']; ?>" class="lb_consulter">Consulter</a>
+
+                                        <!-- Consulter l'historique -->
+                                        <a href="./historique.php?id_event=<?= $event['id_evenement']; ?>" class="lb_consulter">Consulter</a>
                                     </div>
                                 </div>
 

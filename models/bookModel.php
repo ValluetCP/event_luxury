@@ -1,6 +1,6 @@
 <?php
 // session_start();
-// require_once $_SERVER["DOCUMENT_ROOT"]."/event/models/database.php";
+// require_once $_SERVER["DOCUMENT_ROOT"]."/event_luxury/models/database.php";
 // require_once "./models/database.php";
 require_once "database.php";
 
@@ -51,7 +51,7 @@ class Book{
             unset($_SESSION["nombre"]);
 
             // rediriger vers la page list_user.php
-            // header("Location: http://localhost/event/views/list_book.php");
+            // header("Location: http://localhost/event_luxury/views/list_book.php");
             
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -73,7 +73,7 @@ class Book{
 //         $request->execute(array($idUser,$eventId,$placeReserve));
 
 //         // rediriger vers la page list_user.php
-//         header("Location: http://localhost/event/views/list_book.php");
+//         header("Location: http://localhost/event_luxury/views/list_book.php");
         
 //     } catch (PDOException $e) {
 //         echo $e->getMessage();
@@ -95,7 +95,7 @@ class Book{
             $request->execute(array($idUser,$eventId,$placeReserve));
 
             // rediriger vers la page list_user.php
-            header("Location: http://localhost/event/views/list_book.php");
+            header("Location: http://localhost/event_luxury/views/list_book.php");
             
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -117,7 +117,7 @@ class Book{
     //         $request->execute(array($idUser,$idEvenement,$titre,$categorieName,$prix,$quantity,$price));
 
     //         // rediriger vers la page list_user.php
-    //         header("Location: http://localhost/event/views/list_book.php");
+    //         header("Location: http://localhost/event_luxury/views/list_book.php");
             
     //     } catch (PDOException $e) {
     //         echo $e->getMessage();
@@ -132,7 +132,7 @@ class Book{
     //     $_SESSION['panier'][]= $tab;
 
     //     // rediriger vers la page list_user.php
-    //     header("Location: http://localhost/event/views/panier_0.php");
+    //     header("Location: http://localhost/event_luxury/views/panier_0.php");
         
     // }
 
@@ -203,7 +203,7 @@ class Book{
         try {
             $request->execute([0, $id]);
             // recuperer le resultat dans un tableau
-            header("Location: http://localhost/event/views/list_book.php");
+            header("Location: http://localhost/event_luxury/views/list_book.php");
         } catch (PDOException $e) {
             $e->getMessage();
         }
@@ -223,7 +223,7 @@ class Book{
         try {
             $request->execute([1, $id]);
             // recuperer le resultat dans un tableau
-            header("Location: http://localhost/event/views/list_book.php");
+            header("Location: http://localhost/event_luxury/views/list_book.php");
         } catch (PDOException $e) {
             $e->getMessage();
         }
@@ -243,7 +243,7 @@ class Book{
         try {
             $request->execute([1, $id]);
             // recuperer le resultat dans un tableau
-            header("Location: http://localhost/event/views/list_book.php");
+            header("Location: http://localhost/event_luxury/views/list_book.php");
         } catch (PDOException $e) {
             $e->getMessage();
         }
@@ -305,7 +305,7 @@ class Book{
                 $updateRequest->execute([$newTotalPlaces, $existingReservationId]);
 
                 // Rediriger vers la page de réservation ou toute autre page appropriée
-                header("Location: http://localhost/event/views/list_book.php");
+                header("Location: http://localhost/event_luxury/views/list_book.php");
             } catch (PDOException $e) {
                 echo $e->getMessage();
             }
