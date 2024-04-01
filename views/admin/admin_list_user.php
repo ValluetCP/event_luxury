@@ -1,6 +1,6 @@
 <?php
 include_once "../inc/header.php";
-include_once "../inc/navigation.php";
+include_once "../inc/navigation_header.php";
 require_once "../../models/userModel.php";
 $userList = User::findAllUser();
 ?>
@@ -161,7 +161,11 @@ $userList = User::findAllUser();
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
+<!-- Changement d'état au scroll -->
 <script src="../asset/js/nav_scroll2.js"></script>
+
+<!-- Espace navigation -->
+<!-- <script src="../asset/js/espace_navigation2.js"></script> -->
 
 <script>
     // CODE JS : SCROLLBAR

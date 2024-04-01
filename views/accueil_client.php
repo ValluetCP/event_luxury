@@ -1,6 +1,6 @@
 <?php
 include_once "./inc/header.php";
-include_once "./inc/navigation.php";
+include_once "./inc/navigation_header.php";
 ?>
 <header>
   <div class="hp_bg">

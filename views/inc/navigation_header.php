@@ -32,11 +32,13 @@ if(!empty($_SESSION)) {
 
 <?php if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){ ?>
 
-    <nav class="nav_home_page">
+    <nav class="navbar">
 
         <!-- BARRE DE NAVIGATION - début -->
         <div class="nav_logo">
             <a href=""><img id="scrollLogoClair" class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
+
+            <a href=""><img id="scrollLogoFonce" class="logo logo_vert_fonce" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_fonce.svg" alt="logo"></a>
         </div>
 
         <div class="navigation">
@@ -46,15 +48,15 @@ if(!empty($_SESSION)) {
 
 
             <div class="panier">
-                <a id="panier_nav" href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
+                <a id="hdr_panier_nav" href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
             </div>
         </div>
 
         <!-- Burger - animation -->
         <input type="checkbox" class="trigger" />
         <div class="burger">
-            <div id="e_trait1" class="trait1"></div>
-            <div id="e_trait2" class="trait2"></div>
+            <div id="hdr_trait1" class="trait1"></div>
+            <div id="hdr_trait2" class="trait2"></div>
         </div>
         <!-- BARRE DE NAVIGATION - fin -->
 

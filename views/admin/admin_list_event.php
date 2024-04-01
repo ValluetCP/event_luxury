@@ -1,6 +1,6 @@
 <?php
 include_once "../inc/header.php";
-include_once "../inc/navigation.php";
+include_once "../inc/navigation_header.php";
 require_once "../../models/eventModel.php";
 
 $listEvent = Event::findAllEvent();
@@ -66,7 +66,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                 <table class="tableau_adminListEvent">
                     <thead class="thead_adminListEvent">
                         <tr>
-                            <th class="table_img_none"></th>
+                            <th class="table_img_none">Image</th>
                             <th>Titre</th>
                             <th class="table_category_none">Catégorie</th>
                             <th class="table_date">Date</th>
@@ -106,7 +106,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                                         <td class="table_action"><a href="../traitement/action.php?id_event_desactive=<?= $event['id_evenement']; ?>">Annuler</a></td>
                                         
                                         <!-- Supprimer -->
-                                        <td><a href="../traitement/action.php?id_event_delete=<?= $event['id_evenement']; ?>">Supprimer</a></td>
+                                        <td class="table_action"><a href="../traitement/action.php?id_event_delete=<?= $event['id_evenement']; ?>">Supprimer</a></td>
 
                                         <!-- bouton - Modifier -->
                                         <td>
@@ -121,7 +121,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                                     <?php }elseif($event['events_actif'] == 0){ ?>
 
                                         <!-- message état -->
-                                        <td colspan="2" style="color:red;">Annulation</td>
+                                        <td colspan="2" class="annulation_listEvent">Annulation</td>
 
                                         <!-- Visualiser / Consulter -->
                                         <td class="table_action"><a href="./admin_evenement.php?event=<?= $event['id_evenement']; ?>">Consulter</a></td>
@@ -129,7 +129,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                                         <!-- bouton - Activer l'événement -->
                                         <td>
                                             <p class="table_btn">
-                                                <a href="../traitement/action.php?id_event_active=<?= $event['id_evenement']; ?>">Activer</a>
+                                                <a href="../traitement/action.php?id_event_active=<?= $event['id_evenement']; ?>" id="table_btnTxt_activer">Activer</a>
                                             </p>
                                         </td>
                                     <?php } ?>
@@ -141,9 +141,9 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                 </table>
             </div>
             <!-- --------- BTN - PREVISUALISER LA LISTE ---------- -->
-            <div class="container_btnAjouter">
+            <div class="container_btnPrevisualiser">
                 <!-- btn - visualiser -->
-                <a href="./client_list_event.php" class="btn_ajouter"><p>Prévisualiser la liste</p></a>
+                <a href="./client_list_event.php" class="btn_previsualiser">Prévisualiser la liste</a>
             </div>
 
         </div>
@@ -162,7 +162,11 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    <script src="./js/nav_scroll2.js"></script>
+    <!-- Changement d'état au scroll -->
+    <script src="../asset/js/nav_scroll2.js"></script>
+
+    <!-- Espace navigation -->
+    <!-- <script src="../asset/js/espace_navigation2.js"></script> -->
 
     <script>
 

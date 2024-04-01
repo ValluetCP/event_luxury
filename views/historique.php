@@ -78,7 +78,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                                     <tr class="event-passe b_tableau_contenu">
 
                                         <!-- date & heure de réservation -->
-                                        <td>
+                                        <td class="date-event">
                                             <?= date('d-m-Y H:i:s', strtotime($reservation['date_reservation'])); ?>
                                         </td>
                                         
@@ -88,7 +88,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                                         </td>
                                         
                                         <!-- Réservation déjà annulé -->
-                                        <td class="event-passe">Réservation annulée</td>
+                                        <td class="event-passe">annulé</td>
                                     </tr>
                                 <?php } ?>
                             <?php }

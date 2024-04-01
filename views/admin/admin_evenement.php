@@ -133,7 +133,7 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
             <div class="place_prix">
 
                 <div class="placeDisponible">
-                    Place disponible : <span><?= $placesDisponibles; ?></span><br>
+                    Place disponible : <span><?= $placesDisponibles; ?></span>
                 </div>
                 <!-- PRIX -->
                 <div class="prix">

@@ -1,6 +1,6 @@
 <?php
 include_once "../inc/header.php";
-include_once "../inc/navigation.php";
+include_once "../inc/navigation_header.php";
 include_once "../inc/functions.php";
 require_once "../../models/eventModel.php";
 require_once "../../models/bookModel.php";
@@ -30,7 +30,7 @@ foreach ($listEvent as $event) {
     <!-- ------------------------------- HAUT -------------------------------- -->
     <!-- SECTION DU HAUT - IMAGE FIXE -->
     <section class="haut">
-        <div id="ImgHauteListEvent" class="ImgHaute" style="background-image: url(../asset/img/event_horizontal_cocktail.jpg);">
+        <div id="ImgHauteListEvent" class="ImgHaute" style="background-image: url(../asset/img/event_horizontal_bateau.jpg);">
         </div>
         <div class="titreListEvent">
             <h1>tous nos événements</h1>
@@ -108,9 +108,9 @@ foreach ($listEvent as $event) {
                     <div class="center_txt_listEvent">
                         <div class="txt_container_listEvent">
                             <!-- numéro -->
-                            <div class="num_listEvent">03</div>
+                            <div class="num_listEvent"><?= $event['id_evenement']; ?></div>
                             <div class="txt_listEvent">
-                                <div class="titre_listEvent"><a href="./evenement2.php?event=<?= $event['id_evenement']; ?>"><?= $event['titre']; ?></a></div>
+                                <div class="titre_listEvent titre_previsualisation"><a href="./admin_evenement.php?event=<?= $event['id_evenement']; ?>"><?= $event['titre']; ?></a></div>
                                 <!-- date / category -->
                                 <div class="ss_titre_listEvent">
                                     <div class="category"><?= $event['categorie_name']; ?></div>
@@ -129,16 +129,8 @@ foreach ($listEvent as $event) {
 
                         <?php if(!empty($_SESSION['id_user'])){ ?>
 
-                            <!-- Réservé & Complet -->
-                            <?php if(in_array($event['id_evenement'], $userReservationIds) && $event['events_actif'] == 1 && ($totalPlacesReservees >= $event['nbr_place'])){ ?>
-                                <div class="etat_listEvent">Réservé & Complet</div>
-
-                            <!-- Réservé -->
-                            <?php } elseif(in_array($event['id_evenement'], $userReservationIds) && $event['events_actif'] == 1){ ?>
-                                <div class="etat_listEvent">Réservé</div>
-
-                            <!-- Complet -->   
-                            <?php } elseif($totalPlacesReservees >= $event['nbr_place']) { ?>
+                            <!-- Complet -->
+                            <?php if($totalPlacesReservees >= $event['nbr_place']) { ?>
                                 <div class="etat_listEvent">Complet</div>
 
                             <!-- Annulation -->
@@ -174,7 +166,7 @@ foreach ($listEvent as $event) {
         <div class="container_btnAjouter">
             
             <!-- btn - ajouter -->
-            <a href="./admin_list_event.php" class="btn_ajouter"><p>Quitter la visualisation</p></a>
+            <a href="./admin_list_event.php" id="quitter_previsualisation" class="btn_ajouter"><p>Quitter la visualisation</p></a>
 
             <!-- btn - visualiser -->
             <!-- <a href="./admin_add_evenement.php" class="btn_ajouter"><p>Visualiser la liste des évènements</p></a> -->
@@ -190,7 +182,11 @@ foreach ($listEvent as $event) {
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    <script src="./asset/js/nav_scroll2.js"></script>
+    <!-- Changement d'état au scroll -->
+    <script src="../asset/js/nav_scroll2.js"></script>
+
+    <!-- Espace navigation -->
+    <!-- <script src="./asset/js/espace_navigation2.js"></script> -->
 
     <script>
 

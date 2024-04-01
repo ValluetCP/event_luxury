@@ -118,6 +118,7 @@ html {
     padding-right: 8px;
 }
 
+/* (barre de navigation - home) */
 .trait1{
     width: 45px;
     height: 3px;
@@ -132,6 +133,16 @@ html {
     margin-top: 8px;
 }
 
+/* (barre de navigation - header) */
+#hdr_trait1,
+#hdr_trait2{
+    background-color: var(--vertClair);
+}
+
+#hdr_panier_nav{
+    color: var(--vertClair);
+    text-decoration: none;
+}
 
 
 
@@ -146,6 +157,10 @@ html {
 .navbar.scroll{
     background-color: #fff;
     height: 75px;
+}
+
+.panier #hdr_panier_nav.scroll{
+    color: var(--vertFonce);
 }
 
 /* NAV - Animation scroll - FIN */
@@ -1598,6 +1613,7 @@ background-color: rgba(255, 255, 255, 0.5);
 }
 
 .lb_filtre{
+    font-family: 'Karla', sans-serif;
     border: none;
     background-color: var(--vertFonce);
     color: var(--vertClair);
@@ -1610,6 +1626,15 @@ background-color: rgba(255, 255, 255, 0.5);
     border: solid 1px #172A23;
     text-align: center;
     color: var(--vertMoyen);
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+}
+
+#categorie{
+    height: 30px;
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    text-align: center; 
 }
 
 /* -- LISTE DES RESERVATIONS (list_book.php) -- */
@@ -1890,6 +1915,14 @@ background-color: rgba(255, 255, 255, 0.5);
 
 .b_annuler{
     text-align: end;
+}
+
+.event-passe{
+    text-align: end;
+}
+
+.date-event{
+    text-align: start;
 }
 
 /* MENU ACCORDEON */
@@ -2371,7 +2404,7 @@ padding-left: 624px;
     grid-area: bas;
     margin-top: 100vh;
     z-index: 0;
-    height: 100%;
+    /* height: 100%; */
     background-color: white;
 }
 
@@ -2462,11 +2495,11 @@ padding-left: 624px;
     max-width: 1201px;
     margin: auto;
     padding: 0 20px;
-    margin-top: 80px;
+    margin-top: 70px;
 }
 
 .overflow_listEvent {
-    min-height: 760px;
+    min-height: 568px;
     overflow: hidden;
     position: relative;
     /* overflow-y: scroll; */
@@ -2601,6 +2634,16 @@ padding-left: 624px;
 
 /* ------------ LISTE EVENT - FIN ------------ */
 
+/* --- LISTE EVENT PREVISUALISATION (admin_list_event.php/client_list_event.php)- DEBUT --- */
+.titre_previsualisation a{
+    text-decoration: none;
+    color: var(--vertMoyen);
+}
+
+
+/* ------------ LISTE EVENT PREVISUALISATION - FIN ------------ */
+
+
 
 
 /* ------------ ADMIN LISTE EVENT (admin_list_event.php/)- DEBUT ------------ */
@@ -2632,6 +2675,41 @@ padding-left: 624px;
     padding-right: 10px;
 }
 
+.annulation_listEvent{
+    font-family: 'AmericanaRegular';
+    font-size: 21px;
+}
+
+/* BTN - PREVISUALISER LA LISTE DES EVENEMENTS */
+
+.container_btnPrevisualiser {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 40px;
+}
+
+.btn_previsualiser {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    background-color: var(--vertClair);
+    border: 1px solid var(--vertClair);
+    color: var(--vertFonce);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+#quitter_previsualisation{
+    background-color: var(--vertClair);
+}
+
+#quitter_previsualisation p{
+    color: var(--vertFonce);
+}
+
+
 /* --- PARTIE BASSE --- */
 
 /* btn -  */
@@ -2641,11 +2719,11 @@ padding-left: 624px;
 
 /* TABLEAU - LISTE DES EVENTS */
 .tableau_adminListEvent{
-    margin-top: 95px;
     width: 100%;
     border-collapse: collapse;
     font-family: 'Karla', sans-serif;
     color: var(--vertMoyen);
+    margin-top: 20px;
 }
 
 .thead_adminListEvent tr th,
@@ -2656,6 +2734,14 @@ padding-left: 624px;
 /* thead */
 .thead_adminListEvent{
     border-bottom: 2px solid var(--vertFonce);
+}
+
+.thead_adminListEvent tr{
+    background-color: var(--vertNavTrait);
+}
+
+.thead_adminListEvent tr th {
+    padding: 10px;
 }
 
 .thead_adminListEvent tr th{
@@ -2671,7 +2757,7 @@ padding-left: 624px;
 } */
 
 .tbody_adminList tr td{
-    font-size: 18px;
+    font-size: 16px;
     padding: 10px 0 20px;
 }
 
@@ -2717,10 +2803,10 @@ padding-left: 624px;
     padding: 8px 0;
 }
 
-#table_btnTxt{
+#table_btnTxt,
+#table_btnTxt_activer{
     color: var(--vertClair);
 }
-
 /* ------------ ADMIN LISTE EVENT (admin_list_event.php/)- FIN ------------ */
 
 
@@ -2748,6 +2834,7 @@ padding-left: 624px;
 .tbody_adminList .table_action a{
     color: var(--vertNavMenu);
     text-decoration : underline;
+    font-weight: 300;
 }
 
 /* .table_action::before{
@@ -3297,7 +3384,7 @@ input[type=file]::file-selector-button {
     /* --- HISTORIQUE - (max-width:1400px)--- */
     
     #b_containerDroit {
-        width: 550px;
+        max-width: 550px;
     }
 
     /* --- LISTE EVENT - (max-width:1400px)--- */
@@ -3446,7 +3533,20 @@ input[type=file]::file-selector-button {
     .table_pseudo {
         display: none;
     }
+
+    /* ------------ HISTORIQUE - (max-width:1200px)------------ */
+
+    /* --- PARTIE HAUTE --- */
     
+    /* --- PARTIE BASSE --- */
+    
+    #b_containerDroit {
+        max-width: 760px;
+    }
+        
+    .container_historique h1 {
+        margin-top: 0px;
+    }
 
 }
 
