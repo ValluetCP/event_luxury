@@ -1277,6 +1277,10 @@ background-color: rgba(255, 255, 255, 0.5);
     margin-bottom: 35px;
 }
 
+#event_ss_titre{
+    margin-bottom: 28px; 
+}
+
 .droite h3{
     font-family: 'AmericanaRegular';
     color: var(--vertMoyen);
@@ -1565,6 +1569,7 @@ background-color: rgba(255, 255, 255, 0.5);
     /* font-style: italic; */
     color: var(--vertFonce);
     /* margin-top: 12px; */
+    text-transform: uppercase;
 }
 
 /* ------------ PAGE LIST BOOK - DEBUT ------------ */

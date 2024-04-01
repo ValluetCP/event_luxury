@@ -174,7 +174,7 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
                         <!-- MODULE BOUCLE -->
                         <article class="categoryUn">
                             <figure class="fig_1">
-                                <a href="">
+                                <a href="./admin_evenement.php?event=<?= $event['id_evenement']; ?>">
                                     <div class="imgCategory"><img src="../asset/img/<?= $event['image']; ?>" alt=""></div>
                                 </a>
                             </figure>

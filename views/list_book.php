@@ -26,13 +26,13 @@ foreach ($listEvent as $event) {
 
 
 
-<!-- ------------------------------- MODAL BILLET -------------------------------- -->
+<!-- ----------------------------- MODAL BILLET ------------------------------ -->
 
 
     <!-- MODAL BILLET (structure générale)-->
     <div id="modalBillet">
         <div class="modalContentBillet">
-            <div class="modalBilletBg" style="background-image: url(./asset/img/event_miami.jpg);"></div>
+            <div class="modalBilletBg" style="background-image: url(./asset/img/event_flamant.jpg);"></div>
         </div>
         <a class="modalCloseBillet" href="#"><img class="img_croix_popup2" src="./asset/img/croix_close.svg" alt=""></a>
         <a href="" id="lb_btnBillet" class="btn_billet_panier">Télécharger le billet</a>
@@ -42,17 +42,17 @@ foreach ($listEvent as $event) {
             <!-- <img src="./img/test_billet.png" alt=""> -->
             <div class="billet_partie_haute">
             <div class="imgEventBillet">
-                <div class="bgEventBillet" style="background-image: url(./asset/img/event_miami.jpg);"></div>
+                <div class="bgEventBillet" style="background-image: url(./asset/img/event_flamant.jpg);"></div>
                 <!-- <img src="./img/coco2.JPG" alt=""> -->
             </div>
             <div class="divDate">
                 <div class="dateBillet"><?= date('d-m-y', strtotime($event['date_event'])); ?></div>
             </div>
-            <h2 class="titreBillet"><?= $event['titre'];?></h2>
+            <h2 class="titreBillet">Pink flamingo</h2>
             <p class="categorieBillet"><?= $event['categorie_name'];?></p>
             <div class="placeBillet">
                 <div class="txtPlaceBillet"><p>Nombre de <br> places réservées</p></div>
-                <div class="nbPlaceBillet">01</div>
+                <div class="nbPlaceBillet">04</div>
             </div>
             <div class="txtBillet">
                 Merci de vous présenter à l'événement 30 minutes avant le commencement et de vous munir de votre billet de réservation.

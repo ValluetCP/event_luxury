@@ -154,33 +154,10 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
             <?php } ?>
 
 
+            <!-- ------------------------------- CONTENU -------------------------------- -->
 
-            <!-- Etat complet -->
-            <!-- <div id="bgEtat_complet" class="bgEtat">
-                    <div class="borderEtat">
-                        <p>
-                            <span class="etat">événement complet - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
-                        </p>
-                    </div>
-                </div> -->
-            <!-- Etat annulé -->
-            <!-- <div id="bgEtat_annule" class="bgEtat">
-                    <div class="borderEtat">
-                        <p>
-                            <span class="etat">événement complet - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
-                        </p>
-                    </div>
-                </div> -->
-            <!-- Etat terminé -->
-            <!-- <div id="bgEtat_termine" class="bgEtat">
-                    <div class="borderEtat">
-                        <p>
-                            <span class="etat">événement complet - </span><span class="msgEtat">Pour toutes modifications merci de nous </span><a href="" class="etatContacter">contacter</a>
-                        </p>
-                    </div>
-                </div> -->
             <h1><?= $ficheEvent['titre']; ?></h1>
-            <h2><?= $ficheEvent['categorie_name']; ?></h2>
+            <h2 id="event_ss_titre"><?= $ficheEvent['categorie_name']; ?></h2>
             <div class="imgEvent">
                 <a href=""><img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="" title="agrandir l'image"></a>
             </div>
@@ -265,13 +242,50 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
             <?php }
             } ?>
 
+            <!-- -------------------------- CATEGORIE  -------------------------- -->
+            <?php
 
+            // Ajoutez ces lignes pour récupérer la catégorie de l'événement en cours
+            $eventCategory = $ficheEvent['categorie_id'];
+
+            // Ajoutez ces lignes pour trouver tous les événements associés à la catégorie
+            $associatedEvents = Event::findEventsByCategory($eventCategory);
+
+            ?>
+
+            <!-- CATEGORIE - PROPOSITIONS -->
+            <h3>Vous pourriez aimer . . .</h3>
+            <div class="trioCategory">
+
+                <!-- BOUCLE -->
+                <?php foreach ($associatedEvents as $event) { ?>
+                    <?php if ($event['id_evenement'] != $eventId) { ?>
+
+                        <!-- MODULE BOUCLE -->
+                        <article class="categoryUn">
+                            <figure class="fig_1">
+                                <a href="./evenement2.php?id_event=<?= $event['id_evenement']; ?>">
+                                    <div class="imgCategory"><img src="../asset/img/<?= $event['image']; ?>" alt=""></div>
+                                </a>
+                            </figure>
+                            <div class="titreCategory">
+                                <?= $event['titre']; ?>
+                            </div>
+                            <div class="sousTitreCategory">
+                                <?= $ficheEvent['categorie_name']; ?>
+                            </div>
+                        </article>
+
+                    <?php } ?>
+                <?php } ?>
+
+            </div>
 
             <h3>Vous pourriez aimer . . .</h3>
             <div class="trioCategory">
                 <article class="categoryUn">
                     <figure class="fig_1">
-                        <a href="">
+                        <a href="./evenement2.php?id_event=<?= $ficheEvent['id_evenement']; ?>">
                             <div class="imgCategory"><img src="./asset/img/event_poisson.jpg" alt=""></div>
                         </a>
                     </figure>
