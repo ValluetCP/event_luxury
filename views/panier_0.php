@@ -1,67 +1,70 @@
 <?php
 include_once "./inc/header.php";
-include_once "./inc/nav.php";
+include_once "./inc/navigation_vert.php";
 include_once "./inc/functions.php";
 // Inclure le fichier contenant la classe Book
 require_once "../models/bookModel.php";
 require_once "../models/eventModel.php"; // Ajoutez cette ligne pour inclure la classe Event
+?>
 
-// Vérifier si les données nécessaires sont disponibles
-// if (isset($_SESSION['id_user'], $_GET['event'], $_POST['place_reserve'])) {
-    
-//     $tab = [$idUser,$eventId,$placeReserve];
-//     $_SESSION['panier'][]= $tab;
+<div class="containerPanier">
 
-//     // rediriger vers la page list_user.php
-//     // header("Location: http://localhost/event/views/panier_0.php");
-//     // Appeler la fonction addPanier de la classe Book
-//     // Book::addPanier($_SESSION['id_user'], $_GET['event'], $_POST['place_reserve']);
-// }
+    <?php
+    // Récupérer les événements dans le panier
+    if (isset($_SESSION['reservation']) && !empty($_SESSION['reservation'])) {
+        // Utiliser un tableau associatif pour éviter les doublons
+        // $panierItems = array();
+        // $totalMontant = 0;
 
-// Récupérer les événements dans le panier
-if (isset($_SESSION['reservation']) && !empty($_SESSION['reservation'])) {
-    // Utiliser un tableau associatif pour éviter les doublons
-    // $panierItems = array();
-    // $totalMontant = 0;
+        $prixTotal = 0;
+        foreach ($_SESSION['reservation'] as $item) {
+            // debug($item);die;
+            // Récupérer les détails de l'événement en utilisant l'ID de l'événement
+            $eventId = $item["events"]["id_evenement"];
+            $eventDetails = Event::findEventById($eventId);
+                $prixTotalEvent = $eventDetails['prix'] * $item["quantite"];
+                $prixTotal += $prixTotalEvent;
+                ?>
+            
+                <a href="./evenement2.php?id_event=<?= $eventDetails['id_evenement']; ?>">
+                    <div>
+                        <p>Titre de l'événement :<?= $eventDetails['titre']; ?></p>
+                        <p>Catégorie :<?= $eventDetails['categorie_name']; ?></p>
+                        <p>Prix unitaire :<?= $eventDetails['prix']; ?></p>
+                        <p>Quantité :<?= $item["quantite"]; ?></p>
+                        <!-- Ajoutez un lien "supprimer" avec l'identifiant de l'article dans l'URL -->
+                        <p>Prix total :<?= $prixTotalEvent; ?></p><br><br>
+                    </div>
+                </a>
 
-    $prixTotal = 0;
-    foreach ($_SESSION['reservation'] as $item) {
-        // debug($item);die;
-        // Récupérer les détails de l'événement en utilisant l'ID de l'événement
-        $eventId = $item["events"]["id_evenement"];
-        $eventDetails = Event::findEventById($eventId);
-            $prixTotalEvent = $eventDetails['prix'] * $item["quantite"];
-            $prixTotal += $prixTotalEvent;
-            ?>
+                <form action="./traitement/action.php" method="post">
         
-            <a href="./evenement2.php?id_event=<?= $eventDetails['id_evenement']; ?>">
-                <div>
-                    <p>Titre de l'événement :<?= $eventDetails['titre']; ?></p>
-                    <p>Catégorie :<?= $eventDetails['categorie_name']; ?></p>
-                    <p>Prix unitaire :<?= $eventDetails['prix']; ?></p>
-                    <p>Quantité :<?= $item["quantite"]; ?></p>
-                    <!-- Ajoutez un lien "supprimer" avec l'identifiant de l'article dans l'URL -->
-                    <p>Prix total :<?= $prixTotalEvent; ?></p><br><br>
-                </div>
-            </a>
+                        <input type="hidden" name="id_evenement" value="<?= $eventDetails['id_evenement'];?>">
+                        <input type="submit" name="supprimer" value="supprimer">
+                </form>
+                <?php 
+        } 
+        
+        
+        // Afficher le montant total en bas de la page
+        echo "Montant total : " . $prixTotal. "<br>";
+        ?>
+        <form action="./traitement/action.php">
+            <button name="valider_commande" class="btn btn-outline-warning mt-3 mb-5" value="valide commande">Valider la commande</button>
+        </form>
 
-            <form action="./traitement/action.php" method="post">
-    
-                    <input type="hidden" name="id_evenement" value="<?= $eventDetails['id_evenement'];?>">
-                    <input type="submit" name="supprimer" value="supprimer">
-            </form>
-            <?php 
-    } 
-    
-    
-    // Afficher le montant total en bas de la page
-    echo "Montant total : " . $prixTotal. "<br>";
-    ?>
-    <form action="./traitement/action.php">
-        <button name="valider_commande" class="btn btn-outline-warning mt-3 mb-5" value="valide commande">Valider la commande</button>
-    </form>
-    
+
+        <div class="nav_panier">
+            
+        </div>
+
+        <!-- Changement d'état au scroll -->
+        <!-- <script src="./asset/js/nav_scroll2.js"></script> -->
+
+        <!-- Espace navigation -->
+        <script src="./asset/js/espace_navigation2.js"></script>
+    <?php } ?>
+</div>
 <?php
-}
     include_once "./inc/footer.php";
 ?>

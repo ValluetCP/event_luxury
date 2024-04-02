@@ -32,11 +32,11 @@ if(!empty($_SESSION)) {
 
 <?php if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){ ?>
 
-    <nav class="nav_home_page">
+    <nav class="navbar">
 
         <!-- BARRE DE NAVIGATION - début -->
         <div class="nav_logo">
-            <a href=""><img id="scrollLogoClair" class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
+            <a href=""><img id="scrollLogoFonce" class="logo logo_vert_fonce" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_fonce.svg" alt="logo"></a>
         </div>
 
         <div class="navigation">
@@ -46,15 +46,15 @@ if(!empty($_SESSION)) {
 
 
             <div class="panier">
-                <a id="panier_nav" href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
+                <a id="vert_panier_nav" href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
             </div>
         </div>
 
         <!-- Burger - animation -->
         <input type="checkbox" class="trigger" />
         <div class="burger">
-            <div id="e_trait1" class="trait1"></div>
-            <div id="e_trait2" class="trait2"></div>
+            <div id="vert_trait1" class="trait1"></div>
+            <div id="vert_trait2" class="trait2"></div>
         </div>
         <!-- BARRE DE NAVIGATION - fin -->
 
@@ -318,9 +318,8 @@ if(!empty($_SESSION)) {
 
 <?php } else { ?>
 
-    <nav class="nav_home_page nav_home_page_noConnect">
+    <nav class="nav_home_page">
 
-        
         <!-- BARRE DE NAVIGATION - début -->
         <div class="nav_logo">
             <img class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo">
@@ -328,31 +327,30 @@ if(!empty($_SESSION)) {
         </div>
         
         <div class="navigation hp_navigation">
-            
+
             
             <!-- Bonjour -->
             <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
                 <h1>Bonjour admin<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
-                <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-                    <h1>Bonjour client<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
+            <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
+                <h1>Bonjour client<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
             <?php } else { ?>
                 <h1>Bonjour</h1>
             <?php } ?>
 
-            <!-- Navigation -->
-            <ul class="commande_navigation">
-                
+            <div class="commande_navigation_header">
+
+
                 <!-- S'incrire  -->
-                <li><a href="http://localhost/event_luxury/views/inscription">Inscription</a></li>
-                
+                <a href="http://localhost/event_luxury/views/inscription">Inscription</a>
+    
                 <!-- Se connecter  -->
-                <li><a href="http://localhost/event_luxury/views/connexion">Connexion</a></li>
-                
+                <a href="http://localhost/event_luxury/views/connexion">Connexion</a>
+    
                 <!-- Réservations  -->
-                <li class="nav_reservation"><a href="#modalInscription">Réservations</a></li>
-            </ul>
+                <a href="#modalInscription">Réservations</a>
+            </div>
         </div>
-        
 
     </nav>
 

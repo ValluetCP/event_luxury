@@ -74,13 +74,13 @@ html {
     /* padding: 30px 70px; */
     border-bottom: solid 1px var(--vertNavTrait);
     position: fixed;
+    top: 0;
     width: 100%;
     z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding: 0 150px 0 80px; */
-    padding: 0 80px 0 80px;
+    padding: 0 150px 0 80px;
     transition: all 0.25s ease-in-out;
     height: 80px;
 }
@@ -97,6 +97,11 @@ html {
 }
 
 /* (barre de navigation - inscription non connecté)- DEBUT */
+
+.nav_home_page_noConnect{
+    padding: 0 80px 0 80px;
+}
+
 .commande_navigation{
     display: flex;
 }
@@ -154,7 +159,7 @@ html {
     margin-top: 8px;
 }
 
-/* (barre de navigation - header) */
+/* (barre de navigation - header/ blanc) */
 #hdr_trait1,
 #hdr_trait2{
     background-color: var(--vertClair);
@@ -162,6 +167,17 @@ html {
 
 #hdr_panier_nav{
     color: var(--vertClair);
+    text-decoration: none;
+}
+
+/* (barre de navigation - vert) */
+#vert_trait1,
+#vert_trait2{
+    background-color: var(--vertFonce);
+}
+
+#vert_panier_nav{
+    color: var(--vertFonce);
     text-decoration: none;
 }
 
@@ -3002,6 +3018,11 @@ input[type=file]::file-selector-button {
 
 /* --------- ADMIN GABARIT FORMULAIRE (category, event, user) - FIN --------- */
 
+/* --------- FORMULAIRE CONNEXION (connexion.php) - DEBUT --------- */
+#form_connexion{
+    margin-top: 20px;
+}
+/* --------- FORMULAIRE CONNEXION (connexion.php) - FIN --------- */
 
 /* ------------ ADMIN AJOUTER CATEGORY (category.php/) - DEBUT ------------ */
 
@@ -3214,6 +3235,14 @@ input[type=file]::file-selector-button {
 
 
 /* ------------ INSCRIPTION (info_user.php/) - FIN ------------ */
+
+
+
+/* ------------ PANIER (panier_0.php/) - DEBUT ------------ */
+.containerPanier{
+    margin-top: 100px;
+}
+/* ------------ PANIER (panier_0.php/) - FIN ------------ */
 
 
 
