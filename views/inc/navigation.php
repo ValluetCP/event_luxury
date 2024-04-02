@@ -320,6 +320,7 @@ if(!empty($_SESSION)) {
 
     <nav class="nav_home_page">
 
+        
         <!-- BARRE DE NAVIGATION - début -->
         <div class="nav_logo">
             <img class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo">
@@ -327,30 +328,31 @@ if(!empty($_SESSION)) {
         </div>
         
         <div class="navigation hp_navigation">
-
+            
             
             <!-- Bonjour -->
             <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
                 <h1>Bonjour admin<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
-            <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-                <h1>Bonjour client<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
+                <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
+                    <h1>Bonjour client<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
             <?php } else { ?>
                 <h1>Bonjour</h1>
             <?php } ?>
 
-            <div class="commande_navigation">
-
-
+            <!-- Navigation -->
+            <ul class="commande_navigation">
+                
                 <!-- S'incrire  -->
-                <a href="http://localhost/event_luxury/views/inscription">Inscription</a>
-    
+                <li><a href="http://localhost/event_luxury/views/inscription">Inscription</a></li>
+                
                 <!-- Se connecter  -->
-                <a href="http://localhost/event_luxury/views/connexion">Connexion</a>
-    
+                <li><a href="http://localhost/event_luxury/views/connexion">Connexion</a></li>
+                
                 <!-- Réservations  -->
-                <a href="#modalInscription">Réservations</a>
-            </div>
+                <li class="nav_reservation"><a href="#modalInscription">Réservations</a></li>
+            </ul>
         </div>
+        
 
     </nav>
 

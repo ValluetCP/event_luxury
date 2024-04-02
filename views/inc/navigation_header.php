@@ -340,7 +340,7 @@ if(!empty($_SESSION)) {
                 <h1>Bonjour</h1>
             <?php } ?>
 
-            <div class="commande_navigation">
+            <div class="commande_navigation_header">
 
 
                 <!-- S'incrire  -->
