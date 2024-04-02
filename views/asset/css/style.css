@@ -2903,7 +2903,8 @@ padding-left: 624px;
 
 /* ------------ ADMIN LISTE CAREGORY (admin_list_category.php/) - DEBUT ------------ */
 #container_adminCategory{
-    margin-top: 0px;
+    margin-top: 62px;
+    margin-bottom: 62px;
 }
 /* ------------ ADMIN LISTE CAREGORY (admin_list_category.php/) - FIN ------------ */
 
@@ -3006,6 +3007,31 @@ input[type=file]::file-selector-button {
 }
 
 /* ------------ ADMIN AJOUTER CATEGORY (category.php/) - FIN ------------ */
+
+
+
+/* ------------ COMMANDE (commande2.php/) - DEBUT ------------ */
+
+.droiteCommande{
+    display: flex;
+    align-items: center;
+}
+
+#containerCommande h1{
+    margin-bottom: 24px;
+}
+
+#containerCommande h2{
+    font-size: 28px;
+    margin-bottom: 75px;
+    color: var(--vertMoyen);
+}
+
+#containerCommande P{
+    margin-bottom: 75px;
+}
+
+/* ------------ COMMANDE (commande2.php/) - FIN ------------ */
 
 
 

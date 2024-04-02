@@ -1,7 +1,7 @@
 <?php
 
 include_once "../inc/header.php";
-include_once "../inc/navigation.php";
+include_once "../inc/navigation_header.php";
 require_once "../../models/categorieModel.php";
 $listCategorie = Categorie::findAllCategorie();
 ?>
@@ -92,7 +92,11 @@ $listCategorie = Categorie::findAllCategorie();
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    <script src="./js/nav_scroll2.js"></script>
+    <!-- BALISE SCRIPT -->
+    <!-- Espace navigation -->
+    <script src="../asset/js/espace_navigation2.js"></script>
+    <!-- Changement d'état au scroll -->
+    <script src="../asset/js/nav_scroll2.js"></script>
 
     <script>
 

@@ -1,6 +1,6 @@
 <?php
 include_once "../inc/header.php";
-include_once "../inc/navigation.php";
+include_once "../inc/navigation_header.php";
 ?>
 
 <main>
@@ -51,8 +51,10 @@ include_once "../inc/navigation.php";
 </main>
 
 <!-- BALISE SCRIPT -->
-<script src="../js/nav_scroll.js"></script>
+<!-- Espace navigation -->
 <script src="../asset/js/espace_navigation2.js"></script>
+<!-- Changement d'état au scroll -->
+<script src="../asset/js/nav_scroll2.js"></script>
 
 <?php
 include_once "../inc/footer.php";
