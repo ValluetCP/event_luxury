@@ -45,6 +45,7 @@ $listCategorie = Categorie::findAllCategorie();
                 <table class="tableau_adminListEvent">
                     <thead class="thead_adminListEvent">
                         <tr>
+                            <th>Id</th>
                             <th>Catégorie</th>
                             <th>Nombre d'événements</th>
                             <th colspan="2">Action</th>
@@ -55,6 +56,10 @@ $listCategorie = Categorie::findAllCategorie();
                         <!-- MODULE BOUCLE -->
                         <?php foreach($listCategorie as $categorie){ ?>
                             <tr class="table_module">
+
+                                <!-- Identifiant -->
+                                <td class="table_quatite"><?= $categorie['id_categorie']; ?></td>
+
                                 <!-- titre -->
                                 <td class="table_titre"><?= $categorie['categorie_name']; ?></td>
 

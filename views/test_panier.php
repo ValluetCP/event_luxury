@@ -160,10 +160,6 @@ foreach ($listEvent as $event) {
             <?php }
             } ?>
 
-
-
-
-
                 <!-- <div class="degrade_listEvent"> -->
             </div>
 

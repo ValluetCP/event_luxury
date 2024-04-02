@@ -120,7 +120,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                         </dl>
                     </div>
                     <div class="b_facture">
-                        <a href="" class="b_btn_facture">Facture</a>
+                        <a href="http://localhost/event_luxury/views/list_book.php" class="b_btn_facture">Retour à la liste des réservations</a>
                     </div>
     
                     <p class="b_defaut">
