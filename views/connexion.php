@@ -16,15 +16,17 @@ include_once "./inc/navigation.php";
 
                 <h1>Connexion</h1>
                 <!-- <h2>Nous ravie de vous retrouvez</h2> -->
-
+                <?php if (isset($_SESSION["error_message"]['identifiant'])) { ?>
+                    <p>
+                        <?= $_SESSION["error_message"]['identifiant']; ?>
+                    </p>
+                <?php }
+                    unset($_SESSION["error_message"]['identifiant']); 
+                ?>
                 <form action="./traitement/action.php" method="post">
 
                     <div id="form_connexion" class="gabarit_form">
-                        <input type="text" placeholder="pseudo" name="pseudo">
-                        <?php if (isset($_SESSION["error_message"])) { ?>
-                            <p><?= $_SESSION["error_message"]; ?></p>
-                        <?php }
-                        unset($_SESSION["error_message"]);  ?>
+                        <input type="text" placeholder="pseudo" name="pseudo">                        
                     </div>
 
                     <div id="form_connexion" class="gabarit_form">

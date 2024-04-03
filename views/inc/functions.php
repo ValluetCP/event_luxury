@@ -1,4 +1,7 @@
 <?php
+
+define("MAIN_ROOT", "http://localhost/event_luxury");
+
 function debug($param)
 {
     echo "<pre>";

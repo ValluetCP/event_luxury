@@ -11,7 +11,7 @@ class User
     // pour la méthode static, pas besoin de déclarer une variable à l'inverse des contructeurs
 
     // methode pour s'inscrire
-    public static function addUser($imgName,$nom,$prenom,$pseudo,$email,$password)
+    public static function addUser($imgName, $nom, $prenom, $pseudo, $email, $password)
     {
 
         // on appel la fonction dbConnect qui est dans la class Database
@@ -21,10 +21,8 @@ class User
 
         // exécuter la requête
         try {
-            $request->execute(array($imgName,$nom,$prenom,$pseudo,$email, $password));
-
-            // rediriger vers la page list_user.php
-            header("Location: http://localhost/event_luxury/views/connexion.php");
+            $result = $request->execute(array($imgName, $nom, $prenom, $pseudo, $email, $password));
+            return $result;
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -76,62 +74,61 @@ class User
             // $password2 = password_hash($password, PASSWORD_DEFAULT);
             // var_dump(password_verify($password, $user['mdp']));die;
             // vérifier si l'email existe dans la base de donnée
-            
+
             if (!$user) {
-                $_SESSION['error_message'] = "Ce pseudo n'existe pas";
+                $_SESSION['error_message']['identifiant'] = "mot de passe et/ou identifiant incorrect";
+                // Ce pseudo n'existe pas
                 // rediriger vers la page précédente
                 header("location:" . $_SERVER['HTTP_REFERER']);
                 // vérifier si le mot de passe est correct
-                
-            } else if(password_verify($password, $user['mdp'])) { 
-                    // il a taper le bon mail et le bon mot de passe
-                    // version avec $_COOKIE
-                    //setcookie("id_user", $user['id_user'],time() + 86400,"/","localhost", false, true);
 
-                    // $_SESSION["user"] = $user;
-                    //<?= $_SESSION["user"]["id_user"] syntaxe dans les fichiers où je l'appel
+            } else if (password_verify($password, $user['mdp'])) {
+                // il a taper le bon mail et le bon mot de passe
+                // version avec $_COOKIE
+                //setcookie("id_user", $user['id_user'],time() + 86400,"/","localhost", false, true);
+
+                // $_SESSION["user"] = $user;
+                //<?= $_SESSION["user"]["id_user"] syntaxe dans les fichiers où je l'appel
 
 
-                    // version avec $_SESSION
-                    $_SESSION["id_user"] = $user["id_utilisateur"];
+                // version avec $_SESSION
+                $_SESSION["id_user"] = $user["id_utilisateur"];
 
-                    // version avec $_COOKIE
-                    // setcookie("user_role", $user['role'],time() + 86400,"/","localhost", false, true);
+                // version avec $_COOKIE
+                // setcookie("user_role", $user['role'],time() + 86400,"/","localhost", false, true);
 
-                    // version avec $_SESSION
-                    $_SESSION["user_role"] = $user["role"];
+                // version avec $_SESSION
+                $_SESSION["user_role"] = $user["role"];
 
-                    // version avec $_COOKIE
-                    // setcookie("user_name", $user['name'],time() + 86400,"/","localhost", false, true);
+                // version avec $_COOKIE
+                // setcookie("user_name", $user['name'],time() + 86400,"/","localhost", false, true);
 
-                    $_SESSION["user_name"] = $user["nom"];
-                    $_SESSION["user_firstName"] = $user["prenom"];
-                    $_SESSION["user_pseudo"] = $user["pseudo"];
-                    $_SESSION["user_email"] = $user["email"];
-                    $_SESSION["user_img_profil"] = $user["img_profil"];
-                    
+                $_SESSION["user_name"] = $user["nom"];
+                $_SESSION["user_firstName"] = $user["prenom"];
+                $_SESSION["user_pseudo"] = $user["pseudo"];
+                $_SESSION["user_email"] = $user["email"];
+                $_SESSION["user_img_profil"] = $user["img_profil"];
 
-                    if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
-                        // rediriger vers la page home.php
-                        header("Location: http://localhost/event_luxury/views/admin/admin_accueil.php");
 
-                    } elseif(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client"){
-                        header("Location: http://localhost/event_luxury/views/accueil_client.php");
-
-                    } else {
-                        header("Location: http://localhost/event_luxury/views/home.php");
-                    }
-
-                    // if($user['role'] == 'admin')                    
-                    //     header("Location: http://localhost/event_luxury/views/add_categorie.php");
-                    // else 
-                    //     header("Location: http://localhost/event_luxury/views/info_user.php");
+                if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
+                    // rediriger vers la page home.php
+                    header("Location: http://localhost/event_luxury/views/admin/admin_accueil.php");
+                } elseif (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client") {
+                    header("Location: http://localhost/event_luxury/views/accueil_client.php");
                 } else {
-                    $_SESSION['error_message'] = "Mot de passe incorrect";
-                    // rediriger vers la page précédente
-                    header("location:" . $_SERVER['HTTP_REFERER']);
+                    header("Location: http://localhost/event_luxury/views/home.php");
                 }
-            
+
+                // if($user['role'] == 'admin')                    
+                //     header("Location: http://localhost/event_luxury/views/add_categorie.php");
+                // else 
+                //     header("Location: http://localhost/event_luxury/views/info_user.php");
+            } else {
+                $_SESSION['error_message']['identifiant'] = "mot de passe et/ou identifiant incorrect";
+                // Mot de passe incorrect
+                // rediriger vers la page précédente
+                header("location:" . $_SERVER['HTTP_REFERER']);
+            }
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -141,7 +138,7 @@ class User
 
     // methode pour changer à partir de l'id 
     // CLIENT -  modifier ses infos personnels depuis son profil
-    public static function updateUserById($nom,$prenom,$pseudo,$email)
+    public static function updateUserById($nom, $prenom, $pseudo, $email)
     {
 
         // on appel la fonction dbConnect qui est dans la class Database
@@ -152,7 +149,7 @@ class User
         // exécuter la requête
         try {
             $request->execute(array($nom, $prenom, $pseudo, $email, $_SESSION["id_user"]));
-            
+
             $_SESSION["user_name"] = $nom;
             $_SESSION["user_firstName"] = $prenom;
             $_SESSION["user_pseudo"] = $pseudo;
@@ -263,7 +260,4 @@ class User
             $e->getMessage();
         }
     }
-
-
-    
 }

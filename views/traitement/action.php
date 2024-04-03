@@ -30,6 +30,34 @@ if(isset($_POST['register'])){
     $email = htmlspecialchars($_POST['email']);
     $mdp = htmlspecialchars($_POST['mdp']);
     $password = password_hash($mdp, PASSWORD_DEFAULT);
+    
+
+    // MESSAGE D'ERREUR COTE NAVIGATEUR (page inscription.php)
+    if(empty($nom)){        
+        $_SESSION['error_message']["nom"] = "<span class='msg_erreur'>Le champs 'nom' est obligatoire !</span>";
+        debug($_SESSION['error_message']);
+    }
+    if(empty($prenom)){        
+        $_SESSION['error_message']["prenom"] = "<span class='msg_erreur'>Le champs 'prenom' est obligatoire !</span>";
+    }
+    if(empty($pseudo)){        
+        $_SESSION['error_message']["pseudo"] = "<span class='msg_erreur'>Le champs 'pseudo' est obligatoire !</span>";
+        debug($_SESSION['error_message']);
+    }
+    if(empty($email)){        
+        $_SESSION['error_message']["email"] = "<span class='msg_erreur'>Le champs 'email' est obligatoire !</span>";
+    }
+    if(empty($mdp)){        
+        $_SESSION['error_message']["mdp"] = "<span class='msg_erreur'>Le champs 'mot de passe' est obligatoire !</span>";
+    }
+    if(empty($img_profil)){        
+        $_SESSION['error_message']["img_profil"] = "<span class='msg_erreur'>Veuillez choisir une image !</span>";
+    }
+
+    if(!empty($_SESSION['error_message'])){
+        // rediriger vers la page précédente
+        header("location:".MAIN_ROOT."/views/inscription.php");
+    }
 
      // ----------  RECUPERER L'IMAGE ---------- //
 
@@ -39,17 +67,22 @@ if(isset($_POST['register'])){
         - on lui donnera par la suite le chemin d'accès à notre dossier
     */
 
-    $imgName = $_FILES['img_profil']['name'].uniqid(); // nom de l'image
+    $imgName = $_FILES['img_profil']['name']; // nom de l'image
     // la 1ère valeur 'image' (récupéré dans le formulaire)
     // la 2ème valeur 'name' (toujours la même, ne change pas)
+    $extension = pathinfo( $imgName, PATHINFO_EXTENSION );
+    // debug($extension);
+    $baseNameImg = basename($imgName, ".".$extension).uniqid();
+    $fullNameImg = $baseNameImg.".".$extension;
 
+    // debug($fullNameImg);die;
     $tmpName = $_FILES['img_profil']['tmp_name']; // localisation temporaire sur le server
 
 
     // ----------  DESTINATION DE L'IMAGE ---------- //
 
     //1
-    $destination = $_SERVER['DOCUMENT_ROOT'].'/event/views/asset/img_event/'.$imgName; // destination finale de mon image
+    $destination = $_SERVER['DOCUMENT_ROOT'].'/event_luxury/views/asset/img_event/'.$fullNameImg; // destination finale de mon image
     // $_SERVER['DOCUMENT_ROOT'] + chemin du dossier image
     //['DOCUMENT_ROOT'] : syntaxe qui veut dire pointe à la racine du serveur, si on n'indique pas le chemin, il s'arrêra au dossier 'htdocs'
 
@@ -57,10 +90,16 @@ if(isset($_POST['register'])){
     
     //2
     //echo $destination;
-    if(move_uploaded_file($tmpName, $destination)){
+    if(!empty($tmpName)){
 
         try{
-            User::addUser($imgName,$nom,$prenom,$pseudo,$email,$password);
+            $result = User::addUser($fullNameImg,$nom,$prenom,$pseudo,$email,$password);
+            if($result) {
+                move_uploaded_file($tmpName, $destination);
+            }
+            
+            // rediriger vers la page list_user.php
+            header("Location: http://localhost/event_luxury/views/connexion.php");
         }catch(PDOException $e){
             echo $e->getMessage();
         }

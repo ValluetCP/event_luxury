@@ -3080,6 +3080,12 @@ input[type=file]::file-selector-button {
 /* .droiteInscription{
     background-color: var(--vertFonce);
 } */
+
+.msg_erreur{
+    color: red;
+    font-weight: 300;
+}
+
 /* ------------ INSCRIPTION (inscription.php/) - FIN ------------ */
 
 

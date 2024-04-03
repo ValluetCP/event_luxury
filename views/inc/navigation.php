@@ -1,5 +1,5 @@
 <?php
-if(!empty($_SESSION)) {
+if(!empty($_SESSION["user_role"])) {
     $user["role"] = $_SESSION["user_role"];
 }
 ?>
@@ -331,9 +331,9 @@ if(!empty($_SESSION)) {
             
             
             <!-- Bonjour -->
-            <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
+            <?php if(!empty($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') { ?>                 
                 <h1>Bonjour admin<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
-                <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
+                <?php } elseif(!empty($_SESSION['user_role']) && $_SESSION['user_role'] == 'client') { ?>
                     <h1>Bonjour client<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
             <?php } else { ?>
                 <h1>Bonjour</h1>
