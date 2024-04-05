@@ -1,6 +1,6 @@
 <?php
 include_once "./inc/header.php";
-include_once "./inc/navigation.php";
+include_once "./inc/navigation_vert.php";
 require_once "../models/userModel.php";
 // // $_SESSION["user_role"] = $user["role"];
 // $user["role"] = $_SESSION["user_role"];
@@ -54,37 +54,6 @@ $userList = User::findAllUser();
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="profilHistorique">
-                <h2>Liste des réservations</h2>
-                <p class="ss_titre_historique">En cours & passée</p>
-                <table class="table_profil">
-                    <thead>
-                        <tr>
-                            <th>Titre</th>
-                            <th>Catégorie</th>
-                            <th>Nombre de place</th>
-                            <th>Date de réservation</th>
-                            <th>Date de l'événement</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="table_titre">calamard gourmand</td>
-                            <td class="table_category">gastronomie</td>
-                            <td>2</td>
-                            <td>18-09-2023</td>
-                            <td>20-09-2023</td>
-                        </tr>
-                        <tr>
-                            <td class="table_titre">pink flamingo</td>
-                            <td class="table_category">atelier</td>
-                            <td>3</td>
-                            <td>18-09-2023</td>
-                            <td>20-09-2023</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </main>
         <footer>

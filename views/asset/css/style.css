@@ -3147,8 +3147,8 @@ input[type=file]::file-selector-button {
 .profilUser{
     display: grid;
     grid-template-columns: 408px auto;
-    gap: 100px;
-    margin-top: 158px;
+    gap: 130px;
+    margin-top: 176px;
 }
 
 /* .imgProfil{
