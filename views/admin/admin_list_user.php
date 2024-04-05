@@ -44,13 +44,13 @@ $userList = User::findAllUser();
             <div class="container_btnFiltre_listEvent">
 
                 <!-- btn Prochainement - btn historique -->
-                <div class="btnProchainHistorique">
+                <!-- <div class="btnProchainHistorique">
                     <a href="" id="reinitialiser_resultat" class="prochainement_listEvent">client</a>
                     <a href="" id="prochain_event" class="historique_listEvent">admin</a>
-                </div>
+                </div> -->
 
                 <!-- FILTRE -->
-                <div class="filtreCategory">
+                <!-- <div class="filtreCategory">
                     <button type="submit" class="lb_filtre">Filtrer</button>
                     <div class="lb_selectFiltre">
                         <select name="lb_categoryFiltre" id="lb_categoryFiltre">
@@ -59,7 +59,7 @@ $userList = User::findAllUser();
                             <option value="3">Atelier</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- Div vide pour afficher le contenu -->
@@ -78,27 +78,6 @@ $userList = User::findAllUser();
                         </tr>
                     </thead>
                     <tbody id="tbody_adminListUser" class="tbody_adminList">
-
-                        <!-- MODULE 1 -->
-                        <tr class="table_module">
-                            <td>
-                                <div class="table_img">
-                                    <img src="../asset/img/user_lea.jpg" alt="">
-                                </div>
-                            </td>
-                            <td class="table_titre table_nom">davidson</td>
-                            <td class="table_category table_penom">léa</td>
-                            <td class="table_email">lea@mail.com</td>
-                            <td class="table_pseudo">lea1</td>
-                            <td class="table_action"><a href="">modifier</a></td>
-                            <td class="table_action"><a href="">supprimer</a></td>
-                            <!-- bouton -->
-                            <td>
-                                <p class="table_btn">
-                                    <a href="./info_user.php" id="table_btnTxt">Consulter</a>
-                                </p>
-                            </td>
-                        </tr>
 
                         <!-- MODULE BOUCLE -->
                         <?php foreach ($userList as $user) { ?>
@@ -123,16 +102,13 @@ $userList = User::findAllUser();
                                 <!-- pseudo -->
                                 <td class="table_pseudo"><?= $user['pseudo']; ?></td>
 
-                                <!-- modifier -->
-                                <td class="table_action"><a href="../profil_user2.php?id_user_update=<?= $user['id_utilisateur']; ?>">modifier</a></td>
-
                                 <!-- supprimer -->
                                 <td class="table_action"><a href="traitement/action.php?id_user_delete=<?= $user['id_utilisateur']; ?>">supprimer</a></td>
 
                                 <!-- bouton -->
                                 <td>
                                     <p class="table_btn">
-                                        <a href="../profil.php?book=<?= $user['id_utilisateur']; ?>" id="table_btnTxt">Consulter</a>
+                                        <a href="../profil_user2.php?id_user_update=<?= $user['id_utilisateur']; ?>" id="table_btnTxt">Consulter</a>
                                     </p>
                                 </td>
 

@@ -1,6 +1,6 @@
 <?php
 include_once "./inc/header.php";
-include_once "./inc/navigation.php";
+include_once "./inc/navigation_vert.php";
 require_once "../models/userModel.php";
 
 if (isset($_GET['id_user_update'])) {
@@ -16,10 +16,6 @@ if (isset($_GET['id_user_update'])) {
 <!-- -------------------- PAGE PROFIL USER - début -------------------- -->
 <main class="profil_container">
 
-    <!-- <div class="filAriane">
-                <a href="./admin/admin_list_user.php">Liste des utilisateurs > </a>
-                <a href="">Profil utilisateur </a>
-            </div> -->
     <p class="profilRole">rôle admin / client</p>
     <hr>
     <div class="profilUser">
@@ -29,67 +25,39 @@ if (isset($_GET['id_user_update'])) {
         <div class="profilForm">
             <h1>Informations personnelles</h1>
             <p>profil utilisateur</p>
+            
             <!-- FORMULAIRE - PROFIL USER -->
             <form id="userProfil" class="userForm" action="./traitement/action.php" method="post">
 
                 <div class="user_form">
                     <label id="nom">Nom</label>
-                    <input type="text" name="nom" value="<?= !empty($userProfil) ? $userProfil["nom"] : "" ?>">
+                    <input type="text" name="nom" value="<?= !empty($userProfil) ? $userProfil["nom"] : "" ?>" disabled>
                 </div>
 
                 <div class="user_form">
                     <label id="prenom">Prénom</label>
-                    <input type="text" name="prenom" value="<?= !empty($userProfil) ? $userProfil["prenom"] : "" ?>">
+                    <input type="text" name="prenom" value="<?= !empty($userProfil) ? $userProfil["prenom"] : "" ?>" disabled>
                 </div>
 
                 <div class="user_form">
                     <label id="pseudo">Pseudo</label>
-                    <input type="text" name="pseudo" value="<?= $userProfil["pseudo"] ?>">
+                    <input type="text" name="pseudo" value="<?= $userProfil["pseudo"] ?>" disabled>
                 </div>
 
                 <div class="user_form">
                     <label id="email">Email</label>
-                    <input type="email" name="email" value="<?= !empty($userProfil) ? $userProfil["email"] : "" ?>">
+                    <input type="email" name="email" value="<?= !empty($userProfil) ? $userProfil["email"] : "" ?>" disabled>
                 </div>
 
                 <!-- BOUTON DE VALIDATION RESERVATION -->
                 <div class="btn_flex btn_profil">
-                    <!-- <button type="button" class="reserve  btnEvent btnEvent-3">Réserver</button> -->
-                    <button onclick="window.location.href='./update_profil.php'" type="button" class="btnEvent btnEvent-3">modifier</button>
+                    
+                    <!-- Retour à la liste -->
+                    <button onclick="window.location.href='./admin/admin_list_user.php'" type="button" class="btnEvent btnEvent-3" >Retour à la liste</button>
+
                 </div>
             </form>
         </div>
-    </div>
-    <div class="profilHistorique">
-        <h2>Liste des réservations</h2>
-        <p class="ss_titre_historique">En cours & passée</p>
-        <table class="table_profil">
-            <thead>
-                <tr>
-                    <th>Titre</th>
-                    <th>Catégorie</th>
-                    <th>Nombre de place</th>
-                    <th>Date de réservation</th>
-                    <th>Date de l'événement</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="table_titre">calamard gourmand</td>
-                    <td class="table_category">gastronomie</td>
-                    <td>2</td>
-                    <td>18-09-2023</td>
-                    <td>20-09-2023</td>
-                </tr>
-                <tr>
-                    <td class="table_titre">pink flamingo</td>
-                    <td class="table_category">atelier</td>
-                    <td>3</td>
-                    <td>18-09-2023</td>
-                    <td>20-09-2023</td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 </main>
 <footer>
