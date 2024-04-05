@@ -76,17 +76,16 @@ if(!empty($_SESSION)) {
                         <!-- Affichage photo -->
                         <div class="img_profil_nav">
 
-                        <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
-                            <a href="">
-                                <img class="img_profil" src="../asset/img/coco2.JPG" alt="">
-                            </a>
-                            <!-- <a href="">
-                                <img class="img_profil" src="../asset/img/<?= $_SESSION['user_img_profil']; ?>" alt="">
-                            </a> -->
+                        <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?> 
+                            
+                            <div class="img_profil"  button onclick="window.location.href='./evenement2.php?id_event=<?= $event['id_evenement']; ?>'">
+                                <img src="../asset/img_event/<?= $_SESSION['user_img_profil']; ?>" alt="">
+                            </div>
+                            
                         <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-                            <a href="">
-                                <img class="img_profil" src="../asset/img/calamar.JPG" alt="">
-                            </a>
+                            <div class="img_profil">
+                                <img src="../asset/img_event/<?= $_SESSION['user_img_profil']; ?>" alt="">
+                            </div>
                         <?php } else { ?>
                             <a href="">
                                 <img class="img_profil" src="../asset/img/calamar.JPG" alt="">

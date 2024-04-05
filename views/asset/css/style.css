@@ -342,6 +342,8 @@ background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     width: 62px;
     height: 62px;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .profil_nav p{
