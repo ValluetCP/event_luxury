@@ -124,7 +124,7 @@ $userList = User::findAllUser();
                                 <td class="table_pseudo"><?= $user['pseudo']; ?></td>
 
                                 <!-- modifier -->
-                                <td class="table_action"><a href="./add_user.php?id_user_update=<?= $user['id_utilisateur']; ?>">modifier</a></td>
+                                <td class="table_action"><a href="../profil_user2.php?id_user_update=<?= $user['id_utilisateur']; ?>">modifier</a></td>
 
                                 <!-- supprimer -->
                                 <td class="table_action"><a href="traitement/action.php?id_user_delete=<?= $user['id_utilisateur']; ?>">supprimer</a></td>

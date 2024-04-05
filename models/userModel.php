@@ -244,6 +244,25 @@ class User
     }
 
     // methode pour rechercher un user par id
+    public static function getUserById($id)
+    {
+        $db = Database::dbConnect();
+
+        // preparer la requete
+        $request = $db->prepare("SELECT * FROM users u WHERE u.id_utilisateur=?");
+        // $request = $db->prepare("SELECT * FROM users u LEFT JOIN events e ON u.categorie_id = c.id_categorie WHERE id_utilisateur=? AND users_actif=1");
+        //executer la requete
+        try {
+            $request->execute(array($id));
+            // recuperer le resultat dans un tableau
+            $user = $request->fetch();
+            return $user;
+        } catch (PDOException $e) {
+            $e->getMessage();
+        }
+    }
+
+    // methode pour rechercher un user par id
     public static function userReservation($idUser)
     {
         $db = Database::dbConnect();
