@@ -253,7 +253,7 @@ if (isset($_POST['update_event'])) {
     $nbrPlace = htmlspecialchars($_POST['nbr_place']);
     $categorie_id = htmlspecialchars($_POST['categorie_id']);
 
-    // apeler la methode inscription de la classe User
+    // apeler la methode updateEventById de la classe Event
     Event::updateEventById($id,$titre,$prix,$resume,$dateEvent,$nbrPlace,$categorie_id);
 
     
