@@ -32,7 +32,15 @@ if (isset($_GET['id_event_update'])) {
     <main class="site siteEvent">
         <!-- SECTION GAUCHE - IMAGE FIXE -->
         <section class="gauche gaucheEvent">
-            <div class="gaucheImg gaucheImgEvent" style="background-image: url(../asset/img/event_horizontal_bateau.jpg);"></div>
+        <div class="gaucheImg gaucheImgEvent" style="background-image: url(<?php
+            if (!empty($event) && !empty($event['image'])) {
+                echo '../asset/img_event/' . $event['image'];
+            } else {
+                echo '../asset/img/event_horizontal_bateau.jpg';
+            }
+            ?>);">
+        </div>
+
         </section>
 
         <!-- SECTION DROITE - FICHE PRODUIT -->

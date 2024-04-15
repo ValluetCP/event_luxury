@@ -83,7 +83,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                                     <!-- Image -->
                                     <td class="table_img_none">
                                         <div class="table_img">
-                                            <img src="../asset/img/<?=$event['image']; ?>" alt="">
+                                            <img src="../asset/img/<?=$event['image']; ?>" alt="Image <?=$event['titre']; ?>" title="Image <?=$event['titre']; ?>">
                                         </div>
                                     </td>
 

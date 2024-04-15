@@ -80,7 +80,7 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
                 <div id="bgEtat_termine" class="bgEtat">
                     <div class="borderEtat">
                         <p>
-                            <span class="etat">Événement terminé - </span><span class="msgEtat">Changer la date - </span><a href="" class="etatContacter">Modifier</a>
+                            <span class="etat">Événement terminé - </span><span class="msgEtat">Pour de nouveau l'activer, changer la date - </span><a href="./admin_add_evenement.php?id_event_update=<?= $ficheEvent['id_evenement']; ?>" class="etatContacter">Modifier</a>
                         </p>
                     </div>
                 </div>
