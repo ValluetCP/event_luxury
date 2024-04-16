@@ -19,9 +19,6 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
 
 
 <header>
-    
-
-
         
         <!-- HEADER -->
         <div class="hp_bg">

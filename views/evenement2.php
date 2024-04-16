@@ -347,16 +347,17 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
 
 
         $("button[id='add_reservation']").on("click", (evtSubmit) => {
+            // Annule le comportement par défaut de l'événement clique
             evtSubmit.preventDefault();
-            var submitVal = $(this).attr("");
             var url_action = "./traitement/action.php";
+            // récupère les données du formulaire avec l'ID form_event sous forme de chaîne de requête
             var event_fields = $("#form_event").serialize() + "&add_panier=reserver";
 
             $.ajax({
                 url: url_action,
                 data: event_fields,
                 type: 'post',
-                dataType: "json",
+                dataType: "json", //Le type de donnée attendu
                 success: (data) => {
                     $(".quantite_panier").html(data);
                     console.log("nb produits dans mon deuxième cart = " + data);

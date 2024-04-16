@@ -562,15 +562,18 @@ if (isset($_GET['id_book_active'])) {
 
 
 if (isset($_POST['add_panier'])) {
+    // converti les index en variable avec le nom de ses index
     extract($_POST);
 
         $quantite = $place_reserve ?: 1;
         $events = Event::findEventById($id_event);
 
+        // S'il n'existe pas de $_SESSION avec la clé réservation alors
         if( !array_key_exists('reservation', $_SESSION) ){
             $_SESSION['reservation'] = [];
         }
 
+        // égale à un tableau vide pour la première fois
        	$panier = $_SESSION['reservation'];
 
         $eventsDejaDansPanier = false;

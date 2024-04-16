@@ -18,19 +18,20 @@ require_once "../models/eventModel.php"; // Ajoutez cette ligne pour inclure la 
 
         $prixTotal = 0;
         foreach ($_SESSION['reservation'] as $item) {
+            // debug($item["events"]);die;
             // debug($item);die;
             // Récupérer les détails de l'événement en utilisant l'ID de l'événement
             $eventId = $item["events"]["id_evenement"];
-            $eventDetails = Event::findEventById($eventId);
-                $prixTotalEvent = $eventDetails['prix'] * $item["quantite"];
+            // $eventDetails = Event::findEventById($eventId);
+                $prixTotalEvent = $item["events"]['prix'] * $item["quantite"];
                 $prixTotal += $prixTotalEvent;
                 ?>
             
-                <a href="./evenement2.php?id_event=<?= $eventDetails['id_evenement']; ?>">
+                <a href="./evenement2.php?id_event=<?= $item["events"]['id_evenement']; ?>">
                     <div>
-                        <p>Titre de l'événement :<?= $eventDetails['titre']; ?></p>
-                        <p>Catégorie :<?= $eventDetails['categorie_name']; ?></p>
-                        <p>Prix unitaire :<?= $eventDetails['prix']; ?></p>
+                        <p>Titre de l'événement :<?= $item["events"]['titre']; ?></p>
+                        <p>Catégorie :<?= $item["events"]['categorie_name']; ?></p>
+                        <p>Prix unitaire :<?= $item["events"]['prix']; ?></p>
                         <p>Quantité :<?= $item["quantite"]; ?></p>
                         <!-- Ajoutez un lien "supprimer" avec l'identifiant de l'article dans l'URL -->
                         <p>Prix total :<?= $prixTotalEvent; ?></p><br><br>
@@ -39,7 +40,7 @@ require_once "../models/eventModel.php"; // Ajoutez cette ligne pour inclure la 
 
                 <form action="./traitement/action.php" method="post">
         
-                        <input type="hidden" name="id_evenement" value="<?= $eventDetails['id_evenement'];?>">
+                        <input type="hidden" name="id_evenement" value="<?= $item["events"]['id_evenement'];?>">
                         <input type="submit" name="supprimer" value="supprimer">
                 </form>
                 <?php 
@@ -63,7 +64,9 @@ require_once "../models/eventModel.php"; // Ajoutez cette ligne pour inclure la 
 
         <!-- Espace navigation -->
         <script src="./asset/js/espace_navigation2.js"></script>
-    <?php } ?>
+    <?php } else {
+        echo "panier vide";
+    } ?>
 </div>
 <?php
     include_once "./inc/footer.php";
