@@ -26,11 +26,11 @@ include_once "./inc/navigation.php";
                 <form action="./traitement/action.php" method="post">
 
                     <div id="form_connexion" class="gabarit_form">
-                        <input type="text" placeholder="pseudo" name="pseudo">                        
+                        <input type="text" placeholder="pseudo" name="pseudo" title="Saisissez votre pseudo" required>                        
                     </div>
 
                     <div id="form_connexion" class="gabarit_form">
-                        <input type="password" name="password" placeholder="mot de passe">
+                        <input type="password" name="password" placeholder="mot de passe" title="Saisissez votre mot de passe">
                     </div>
 
                     <!-- BOUTON DE VALIDATION CONNEXION -->
