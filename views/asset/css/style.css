@@ -495,6 +495,36 @@ background-color: rgba(255, 255, 255, 0.5);
 }
  
 
+/* -------------- NAVIGATION ANONYME - DEBUT -------------- */
+.commande_navigation_header{
+    display: flex;
+}
+
+.commande_navigation_header a{
+    margin: 10px;
+    text-decoration: none;
+    color: var(--vertClair);
+    text-transform: uppercase;
+}
+
+.commande_navigation_header a p{
+    padding: 10px;
+    text-decoration: none;
+    color: var(--vertClair);
+    text-transform: uppercase;
+}
+
+.btn_reservation{
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: var(--vertClair);
+}
+
+.commande_navigation_header .btn_reservation p{
+    color: var(--vertFonce);
+}
+
+/* -------------- NAVIGATION ANONYME - FIN -------------- */
 
 
 
@@ -555,6 +585,73 @@ background-color: rgba(255, 255, 255, 0.5);
 } */
 
 
+
+
+/* ------- PAGE ERREUR 404 - DEBUT ------- */
+
+.container_404{
+    grid-area: haut;
+    background-color: var(--vertFonce);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.bg_404{
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.zone_txt_404{ 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.titre_404{
+    color: var(--vertClair);
+    font-family: 'AmericanaRegular';
+    font-size: 350px;
+}
+
+.zone_txt_404 p {
+    color: var(--vertClair);
+    font-size: 30px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 20px;
+    line-height: 52px;
+}
+
+.container_btn404 {
+    display: flex;
+    justify-content: center;
+}
+
+.btn_404{
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    background-color: var(--vertClair);
+    border: 1px solid var(--vertClair);
+    color: var(--vertFonce);
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* ------- PAGE ERREUR 404 - FIN ------- */
 
 
 /* ------- MODAL MESSAGE (info_user.php, home.php, event.php) - DEBUT ------- */

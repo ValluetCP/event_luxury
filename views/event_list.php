@@ -211,7 +211,8 @@ foreach ($listEvent as $event) {
         // Dès que la page sera complètement chargée, que le DOM (Document Objet Modèle) sera entièrement généré
         $(document).ready(function() {
 
-            // a) utiliser la fonction on('change') de jquery afin de sélectionner un nom dans la liste déroulante : $('#personne').on('change', function()
+            // Exemple : utiliser la fonction on('change') de jquery afin de sélectionner un nom dans la liste déroulante : $('#personne').on('change', function()
+            // a) Au clique sur le lien contenant l'id prochain_event
             $('#prochain_event').on('click', function(event) {
                 event.preventDefault()
 

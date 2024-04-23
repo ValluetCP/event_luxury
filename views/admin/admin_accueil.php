@@ -2,7 +2,7 @@
 include_once "../inc/header.php";
 include_once "../inc/navigation_header.php";
 ?>
-
+<?php if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){ ?>
 <main>
     <section class="hpa_container">
 
@@ -56,6 +56,26 @@ include_once "../inc/navigation_header.php";
 <!-- Changement d'état au scroll -->
 <script src="../asset/js/nav_scroll2.js"></script>
 
-<?php
+
+<?php } else { ?>
+    <main>
+        <section class="container_404">
+            <div class="bg_404" style="background-image: url(../asset/img/event_flamant.jpg);">
+            </div>
+        </section>
+        <!-- ZONE TEXTE -->
+        <div class="zone_txt_404">
+            <h1 class="titre_404">404</h1>
+            <p>Cette page est réservée aux administrateurs du site.</p>
+
+            <!-- --------- BTN - PREVISUALISER LA LISTE ---------- -->
+            <div class="container_btn404">
+                <!-- btn - visualiser -->
+                <a href="http://localhost/event_luxury/" class="btn_404">Retour à l'accueil</a>
+            </div>
+
+        </div>
+    </main>
+<?php }
 include_once "../inc/footer.php";
 ?>
