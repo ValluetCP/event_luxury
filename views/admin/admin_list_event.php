@@ -5,6 +5,10 @@ require_once "../../models/eventModel.php";
 
 $listEvent = Event::findAllEvent();
 $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD HH:MM:SS)
+
+
+// -------------- SECURITE ACCES ADMIN -------------- //
+if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
 ?>
 
 
@@ -143,7 +147,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
             <!-- --------- BTN - PREVISUALISER LA LISTE ---------- -->
             <div class="container_btnPrevisualiser">
                 <!-- btn - visualiser -->
-                <a href="./client_list_event.php" class="btn_previsualiser">Prévisualiser la liste</a>
+                <a href="./admin_previsualisation.php" class="btn_previsualiser">Prévisualiser la liste</a>
             </div>
 
         </div>
@@ -225,5 +229,11 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
 
         });
     </script>
+
+
+    <!-- -------------- SUITE SECURITE ACCES -------------- -->
+    <?php } else { 
+        require_once "../inc/securite_admin.php";
+    } ?>
 </body>
 </html>

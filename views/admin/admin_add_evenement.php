@@ -5,6 +5,11 @@ require_once "../../models/categorieModel.php";
 require_once "../../models/eventModel.php";
 require_once "../../models/bookModel.php";
 
+// -------------- SECURITE ACCES ADMIN -------------- //
+if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
+
+
+// -------------- CODE PAGE -------------- //
 $listCategorie = Categorie::findAllCategorie();
 
 // modifier un event
@@ -24,11 +29,14 @@ if (isset($_GET['id_event_update'])) {
     $totalPlacesReservees = 0;
     $placesDisponibles = 0;
 }
+
+
 ?>
 
 
 
-    <!-- ------------------------ PAGE FORMULAIRE EVENT ------------------------ -->
+    <!-- ------------------------ PAGE AJOUTER/MODIFIER UN EVENT ------------------------ -->
+
     <main class="site siteEvent">
         <!-- SECTION GAUCHE - IMAGE FIXE -->
         <section class="gauche gaucheEvent">
@@ -151,6 +159,14 @@ if (isset($_GET['id_event_update'])) {
             selectedList.classList.remove('hidden');
         }
     </script>
+
+
+
+    <!-- -------------- SUITE SECURITE ACCES -------------- -->
+    <?php } else { 
+        require_once "../inc/securite_admin.php";
+    } ?>
+
 </body>
 
 </html>

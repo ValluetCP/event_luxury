@@ -1,6 +1,9 @@
 <?php
 include_once "../inc/header.php";
 include_once "../inc/navigation.php";
+
+// -------------- SECURITE ACCES ADMIN -------------- //
+if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
 ?>
 
     
@@ -71,6 +74,12 @@ include_once "../inc/navigation.php";
             selectedList.classList.remove('hidden');
         }
     </script>
+
+
+    <!-- -------------- SUITE SECURITE ACCES -------------- -->
+    <?php } else { 
+        require_once "../inc/securite_admin.php";
+    } ?>
 </body>
 
 </html>

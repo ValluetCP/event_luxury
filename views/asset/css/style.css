@@ -2775,7 +2775,7 @@ padding-left: 624px;
 
 /* ------------ LISTE EVENT - FIN ------------ */
 
-/* --- LISTE EVENT PREVISUALISATION (admin_list_event.php/client_list_event.php)- DEBUT --- */
+/* --- LISTE EVENT PREVISUALISATION (admin_list_event.php/admin_previsualisation.php)- DEBUT --- */
 .titre_previsualisation a{
     text-decoration: none;
     color: var(--vertMoyen);

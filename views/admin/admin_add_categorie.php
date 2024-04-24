@@ -6,7 +6,11 @@ include_once "../inc/navigation.php";
 require_once "../../models/categorieModel.php";
 
 
+// -------------- SECURITE ACCES ADMIN -------------- //
+if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
+    
 
+// -------------- CODE PAGE -------------- //
 if (isset($_GET['id_categorie_update'])) {
     // identifiant de l'emprunt
     $id = $_GET['id_categorie_update'];
@@ -15,6 +19,9 @@ if (isset($_GET['id_categorie_update'])) {
 }
 
 ?>
+
+
+<!-- ---------------- PAGE AJOUTER/MODIFIER UNE CATEGORIE - ADMIN ----------------- -->
 
     <main class="site siteEvent">
         <!-- SECTION GAUCHE - IMAGE FIXE -->
@@ -63,6 +70,13 @@ if (isset($_GET['id_categorie_update'])) {
             selectedList.classList.remove('hidden');
         }
     </script>
+
+
+    <!-- -------------- SUITE SECURITE ACCES -------------- -->
+    <?php } else { 
+        require_once "../inc/securite_admin.php";
+    } ?>
+
 </body>
 
 </html>

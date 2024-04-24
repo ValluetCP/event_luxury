@@ -1,6 +1,4 @@
 <?php
-// Page - Affiche un évènement (côté CLIENT)
-// session_start();
 include_once "../inc/header.php";
 include_once "../inc/navigation.php";
 include_once "../inc/functions.php";
@@ -8,6 +6,12 @@ require_once "../../models/eventModel.php";
 require_once "../../models/bookModel.php";
 require_once "../../models/userModel.php";
 
+
+// -------------- SECURITE ACCES ADMIN -------------- //
+if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
+
+
+// ---------------------------- CODE PAGE EVENT ----------------------------- //
 // $listEvent = Event::findAllEvent();
 $userReservation = User::userReservation($_GET['event']);
 $eventId = $_GET['event'];
@@ -25,9 +29,11 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
 // var_dump($placeList);
 // ["SUM(place_reserve)"]=> NULL
 // var_dump($userReservation);
+
+
 ?>
 
-
+<!-- ---------------------------- PAGE EVENT - ADMIN ----------------------------- -->
 
 <main class="site siteEvent">
     <!-- ------------------------------- HAUT -------------------------------- -->
@@ -208,6 +214,12 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
         selectedList.classList.remove('hidden');
     }
 </script>
+
+
+    <!-- -------------- SUITE SECURITE ACCES -------------- -->
+    <?php } else { 
+        require_once "../inc/securite_admin.php";
+    } ?>
 </body>
 
 </html>

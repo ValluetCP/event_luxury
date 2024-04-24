@@ -3,6 +3,9 @@ include_once "../inc/header.php";
 include_once "../inc/navigation_header.php";
 require_once "../../models/userModel.php";
 $userList = User::findAllUser();
+
+// -------------- SECURITE ACCES ADMIN -------------- //
+if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
 ?>
 
 
@@ -199,6 +202,12 @@ $userList = User::findAllUser();
 
     });
 </script>
+
+
+    <!-- -------------- SUITE SECURITE ACCES -------------- -->
+    <?php } else { 
+        require_once "../inc/securite_admin.php";
+    } ?>
 </body>
 
 </html>
