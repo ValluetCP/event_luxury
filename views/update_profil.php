@@ -6,6 +6,11 @@ require_once "../models/userModel.php";
 // $user["role"] = $_SESSION["user_role"];
 
 
+// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
+if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
+    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
+) {
+
 ?>
 <!-- ---------------------------- MODAL INFO PERSO ----------------------------- -->
 <div id="modalInfoPerso">
@@ -93,5 +98,13 @@ function showList(listClassName){
     selectedList.classList.remove('hidden');
 }
 </script>
+
+
+
+    <!-- -------------- SUITE SECURITE ACCES -------------- -->
+    <?php } else {
+        require_once "./inc/securite.php";
+    }
+    ?>
 </body>
 </html>

@@ -5,6 +5,12 @@ require_once "../models/userModel.php";
 // // $_SESSION["user_role"] = $user["role"];
 // $user["role"] = $_SESSION["user_role"];
 $userList = User::findAllUser();
+
+
+// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
+if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
+    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
+) {
 ?>
 
 
@@ -72,5 +78,13 @@ $userList = User::findAllUser();
                 selectedList.classList.remove('hidden');
             }
         </script>
+
+
+
+        <!-- -------------- SUITE SECURITE ACCES -------------- -->
+        <?php } else {
+            require_once "./inc/securite.php";
+        }
+        ?>
     </body>
 </html>

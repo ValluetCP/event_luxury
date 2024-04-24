@@ -7,21 +7,21 @@ require_once "../../models/categorieModel.php";
 
 
 // -------------- SECURITE ACCES ADMIN -------------- //
-if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
-    
+if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
-// -------------- CODE PAGE -------------- //
-if (isset($_GET['id_categorie_update'])) {
-    // identifiant de l'emprunt
-    $id = $_GET['id_categorie_update'];
-    // appel de la methode returnBook
-    $categorie = Categorie::findCategorieById($id);
-}
+
+    // -------------- CODE PAGE -------------- //
+    if (isset($_GET['id_categorie_update'])) {
+        // identifiant de l'emprunt
+        $id = $_GET['id_categorie_update'];
+        // appel de la methode returnBook
+        $categorie = Categorie::findCategorieById($id);
+    }
 
 ?>
 
 
-<!-- ---------------- PAGE AJOUTER/MODIFIER UNE CATEGORIE - ADMIN ----------------- -->
+    <!-- ---------------- PAGE AJOUTER/MODIFIER UNE CATEGORIE - ADMIN ----------------- -->
 
     <main class="site siteEvent">
         <!-- SECTION GAUCHE - IMAGE FIXE -->
@@ -73,9 +73,9 @@ if (isset($_GET['id_categorie_update'])) {
 
 
     <!-- -------------- SUITE SECURITE ACCES -------------- -->
-    <?php } else { 
-        require_once "../inc/securite_admin.php";
-    } ?>
+<?php } else {
+    require_once "../inc/securite.php";
+} ?>
 
 </body>
 

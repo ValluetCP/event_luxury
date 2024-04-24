@@ -8,6 +8,15 @@ require_once "../models/eventModel.php";
 require_once "../models/bookModel.php";
 require_once "../models/userModel.php";
 
+
+// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
+if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
+    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
+) {
+
+
+// -------------- CODE -------------- //
+
 // $listEvent = Event::findAllEvent();
 $userReservation = User::userReservation($_SESSION['id_user']);
 $eventId = $_GET['id_event'];
@@ -370,6 +379,13 @@ $userReservationIds = Book::userReservationIds($_SESSION['id_user']);  // Utilis
 
     });
 </script>
+
+<!-- -------------- SUITE SECURITE ACCES -------------- -->
+<?php } else {
+    require_once "./inc/securite.php";
+}
+?>
+
 </body>
 
 </html>

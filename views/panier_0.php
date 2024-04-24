@@ -5,6 +5,12 @@ include_once "./inc/functions.php";
 // Inclure le fichier contenant la classe Book
 require_once "../models/bookModel.php";
 require_once "../models/eventModel.php"; // Ajoutez cette ligne pour inclure la classe Event
+
+// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
+if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
+    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
+) {
+
 ?>
 
 <div class="containerPanier">
@@ -68,6 +74,15 @@ require_once "../models/eventModel.php"; // Ajoutez cette ligne pour inclure la 
         echo "panier vide";
     } ?>
 </div>
+
+
+<!-- -------------- SUITE SECURITE ACCES -------------- -->
+<?php } else {
+    require_once "./inc/securite.php";
+}
+?>
+
+<!-- -------------- FOOTER -------------- -->
 <?php
     include_once "./inc/footer.php";
 ?>

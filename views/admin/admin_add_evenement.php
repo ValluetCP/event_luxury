@@ -6,29 +6,28 @@ require_once "../../models/eventModel.php";
 require_once "../../models/bookModel.php";
 
 // -------------- SECURITE ACCES ADMIN -------------- //
-if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
+if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
 
-// -------------- CODE PAGE -------------- //
-$listCategorie = Categorie::findAllCategorie();
+    // -------------- CODE PAGE -------------- //
+    $listCategorie = Categorie::findAllCategorie();
 
-// modifier un event
-if (isset($_GET['id_event_update'])) {
-    // identifiant de l'emprunt
-    $id = $_GET['id_event_update'];
-    // appel de la methode returnBook
-    $event = Event::findEventById($id);
+    // modifier un event
+    if (isset($_GET['id_event_update'])) {
+        // identifiant de l'emprunt
+        $id = $_GET['id_event_update'];
+        // appel de la methode returnBook
+        $event = Event::findEventById($id);
 
-    // récupérer le nombre total de places réservées
-    $totalPlacesReservees = Book::calculReservation($id);
-    // calculer le nombre de places disponibles
-    $placesDisponibles = $event['nbr_place'] - $totalPlacesReservees;
-    
-} else {
-    // Si c'est un nouvel événement, initialiser les valeurs
-    $totalPlacesReservees = 0;
-    $placesDisponibles = 0;
-}
+        // récupérer le nombre total de places réservées
+        $totalPlacesReservees = Book::calculReservation($id);
+        // calculer le nombre de places disponibles
+        $placesDisponibles = $event['nbr_place'] - $totalPlacesReservees;
+    } else {
+        // Si c'est un nouvel événement, initialiser les valeurs
+        $totalPlacesReservees = 0;
+        $placesDisponibles = 0;
+    }
 
 
 ?>
@@ -41,12 +40,12 @@ if (isset($_GET['id_event_update'])) {
         <!-- SECTION GAUCHE - IMAGE FIXE -->
         <section class="gauche gaucheEvent">
             <div class="gaucheImg gaucheImgEvent" style="background-image: url(<?php
-                if (!empty($event) && !empty($event['image'])) {
-                    echo '../asset/img_event/' . $event['image'];
-                } else {
-                    echo '../asset/img/event_horizontal_bateau.jpg';
-                }
-                ?>);">
+                                                                                if (!empty($event) && !empty($event['image'])) {
+                                                                                    echo '../asset/img_event/' . $event['image'];
+                                                                                } else {
+                                                                                    echo '../asset/img/event_horizontal_bateau.jpg';
+                                                                                }
+                                                                                ?>);">
             </div>
         </section>
 
@@ -58,30 +57,30 @@ if (isset($_GET['id_event_update'])) {
 
                 <!-- FORMULAIRE - AJOUTER UN EVENT -->
                 <form id="eventForm" class="gabaritForm" action="../traitement/action.php" method="post" enctype="multipart/form-data">
-                    
+
                     <!-- titre -->
                     <div class="gabarit_form">
                         <input type="text" name="titre" placeholder="titre" value="<?= !empty($event) ? $event["titre"] : "" ?>">
                     </div>
-                    
+
                     <!-- tarif -->
                     <div class="gabarit_form">
                         <input type="number" name="prix" placeholder="tarif" value="<?= !empty($event) ? $event["prix"] : "" ?>">
                     </div>
-                    
+
                     <!-- résumé -->
                     <div class="gabarit_form">
                         <input type="text" name="resume" placeholder="résumé" value="<?= !empty($event) ? $event["resume"] : "" ?>">
                     </div>
-                    
+
                     <!-- date -->
                     <div class="gabarit_form">
                         <input type="date" name="date_event" placeholder="date" value="<?= !empty($event) ? $event["date_event"] : "" ?>">
                     </div>
-                    
+
                     <!-- nombre de place -->
                     <div class="gabarit_form">
-                        <input type="number"  name="nbr_place" placeholder="nombre de place" value="<?= !empty($event) ? $event["nbr_place"] : "" ?>">
+                        <input type="number" name="nbr_place" placeholder="nombre de place" value="<?= !empty($event) ? $event["nbr_place"] : "" ?>">
                     </div>
 
                     <!-- catégorie choix -->
@@ -92,16 +91,16 @@ if (isset($_GET['id_event_update'])) {
                         <select name="categorie">
 
                             <!-- si ce n'est pas vide - champs déjà renseigné-->
-                            <?php if(!empty($event)){?>
+                            <?php if (!empty($event)) { ?>
                                 <option value=""><?= $event["categorie_name"]; ?></option>
 
-                            <!-- Sinon sélectionner catégories -->
-                            <?php }else{?>
+                                <!-- Sinon sélectionner catégories -->
+                            <?php } else { ?>
                                 <option value="">Choisir une categorie</option>
-                                <?php foreach($listCategorie as $categorie){ ?>
+                                <?php foreach ($listCategorie as $categorie) { ?>
                                     <option value="<?= $categorie['id_categorie']; ?>"><?= $categorie['categorie_name']; ?></option>
-                                <?php } 
-                            }?>
+                            <?php }
+                            } ?>
                         </select>
                     </div>
 
@@ -110,11 +109,11 @@ if (isset($_GET['id_event_update'])) {
                         <label class="m-2" id="image">Image actuelle :</label>
 
                         <!-- Afficher l'image actuelle -->
-                        <?php if (!empty($event['image'])): ?>
-                            <img src="../asset/img_event/<?=$event['image'] ?>" alt="Image actuelle" class="current-image">
+                        <?php if (!empty($event['image'])) : ?>
+                            <img src="../asset/img_event/<?= $event['image'] ?>" alt="Image actuelle" class="current-image">
 
-                        <!-- Sinon msg : aucune image -->
-                        <?php else: ?>
+                            <!-- Sinon msg : aucune image -->
+                        <?php else : ?>
                             <span>Aucune image</span>
                         <?php endif; ?>
                     </div>
@@ -125,14 +124,14 @@ if (isset($_GET['id_event_update'])) {
                         <input type="file" class="form-control" name="image" class="file">
                     </div>
 
-                    
+
 
                     <!-- INPUT HIDDEN -->
 
                     <!-- Pour les id se référer à la bdd -->
-                    <input type="hidden" class="form-control"  name="id_evenement" value="<?= !empty($event) ? $event["id_evenement"] : "" ?>">
-                    
-                    <input type="hidden" class="form-control"  name="categorie_id" value="<?= !empty($event) ? $event["categorie_id"] : "" ?>">
+                    <input type="hidden" class="form-control" name="id_evenement" value="<?= !empty($event) ? $event["id_evenement"] : "" ?>">
+
+                    <input type="hidden" class="form-control" name="categorie_id" value="<?= !empty($event) ? $event["categorie_id"] : "" ?>">
 
 
                     <!-- BOUTON - VALIDER / SAUVEGARDER -->
@@ -163,9 +162,9 @@ if (isset($_GET['id_event_update'])) {
 
 
     <!-- -------------- SUITE SECURITE ACCES -------------- -->
-    <?php } else { 
-        require_once "../inc/securite_admin.php";
-    } ?>
+<?php } else {
+    require_once "../inc/securite.php";
+} ?>
 
 </body>
 

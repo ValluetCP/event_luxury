@@ -9,40 +9,51 @@ require_once "../models/bookModel.php";
 require_once "../models/userModel.php";
 
 
-// $listEvent = Event::findAllEvent();
-$userReservation = User::userReservation($_GET['event']);
-$eventId = $_GET['event'];
-$ficheEvent = Event::findEventById($eventId);
-$bookList = Book::findAllBookByIdUser();
-$totalPlacesReservees = Book::calculReservation($eventId);
-$placesDisponibles = $ficheEvent['nbr_place'] - $totalPlacesReservees;
-$currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD HH:MM:SS)
+// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
+if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
+    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
+) {
+
+
+    // -------------- CODE -------------- //
+    // $listEvent = Event::findAllEvent();
+    $userReservation = User::userReservation($_GET['event']);
+    $eventId = $_GET['event'];
+    $ficheEvent = Event::findEventById($eventId);
+    $bookList = Book::findAllBookByIdUser();
+    $totalPlacesReservees = Book::calculReservation($eventId);
+    $placesDisponibles = $ficheEvent['nbr_place'] - $totalPlacesReservees;
+    $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD HH:MM:SS)
 ?>
 
-<div class="container">
-    
-    <h2><?= ucfirst($ficheEvent['titre']); ?></h2>
+    <div class="container">
 
-    <!-- <p>Identifiant : <?= $ficheEvent['id_evenement']; ?></p> -->
+        <h2><?= ucfirst($ficheEvent['titre']); ?></h2>
+
+        <!-- <p>Identifiant : <?= $ficheEvent['id_evenement']; ?></p> -->
 
         <div><img src="./asset/img_event/<?= $ficheEvent['image']; ?>" alt=""></div>
 
         <p>Catégorie : <?= $ficheEvent['categorie_name']; ?></p>
-        
+
         <p>Titre : <?= $ficheEvent['titre']; ?></p>
 
         <p>Date : <?= date('d-m-Y', strtotime($ficheEvent['date_event'])); ?></p>
         <p>Nombre de places réservées : <?= $totalPlacesReservees; ?></p>
 
-</div>
+    </div>
 
 
 
-<script>
-    
-</script>
+    <script>
+
+    </script>
+
+    <!-- -------------- SUITE SECURITE ACCES -------------- -->
+<?php } else {
+    require_once "./inc/securite.php";
+} ?>
 
 <?php
 include_once "./inc/footer.php";
 ?>
-

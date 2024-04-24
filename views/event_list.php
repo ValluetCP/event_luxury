@@ -7,6 +7,14 @@ require_once "../models/bookModel.php";
 require_once "../models/userModel.php";
 require_once "../models/categorieModel.php";
 
+
+// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
+if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
+    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
+) {
+
+
+// -------------- CODE -------------- //
 if(!empty($_SESSION["id_user"])) {
 $listEvent = Event::findAllEvent();
 
@@ -247,6 +255,12 @@ foreach ($listEvent as $event) {
     </script>
     <?php
     } 
+    ?>
+
+    <!-- -------------- SUITE SECURITE ACCES -------------- -->
+    <?php } else {
+        require_once "./inc/securite.php";
+        }
     ?>
 </body>
 </html>

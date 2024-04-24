@@ -10,6 +10,10 @@ if (isset($_GET['id_user_update'])) {
     $userProfil = User::getUserById($id);
 }
 
+
+// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
+if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
+
 ?>
 
 
@@ -76,6 +80,13 @@ if (isset($_GET['id_user_update'])) {
         selectedList.classList.remove('hidden');
     }
 </script>
+
+<!-- -------------- SUITE SECURITE ACCES -------------- -->
+<?php } else {
+    require_once "./inc/securite.php";
+}
+?>
+
 </body>
 
 </html>

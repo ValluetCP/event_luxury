@@ -335,21 +335,23 @@ if(!empty($_SESSION)) {
             <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
                 <h1>Bonjour client<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
             <?php } else { ?>
-                <h1>Bonjour</h1>
+                <!-- <h1>Bonjour</h1> -->
             <?php } ?>
 
+            
+            <!-- NAVIGATION -->
             <div class="commande_navigation_header">
 
-
                 <!-- S'incrire  -->
-                <a href="http://localhost/event_luxury/views/inscription">Inscription</a>
+                <a href="http://localhost/event_luxury/views/inscription"><p>Inscription</p></a>
     
                 <!-- Se connecter  -->
-                <a href="http://localhost/event_luxury/views/connexion">Connexion</a>
+                <a href="http://localhost/event_luxury/views/connexion"><p>Connexion</p></a>
     
                 <!-- Réservations  -->
-                <a href="#modalInscription">Réservations</a>
+                <a href="#modalInscription" class="btn_reservation"><p>Réservation</p></a>
             </div>
+
         </div>
 
     </nav>

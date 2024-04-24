@@ -7,14 +7,14 @@ $listCategorie = Categorie::findAllCategorie();
 
 
 // -------------- SECURITE ACCES ADMIN -------------- //
-if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
+if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 ?>
 
-    
+
     <!-- ---------------------- PAGE LISTE CATEGORIE ---------------------- -->
     <main id="siteListEvent" class="siteList">
-        
-        
+
+
         <!-- ------------------------------- HAUT -------------------------------- -->
         <!-- SECTION DU HAUT - IMAGE FIXE -->
         <section class="haut">
@@ -23,81 +23,83 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
             <div class="titreListEvent">
                 <h1>liste des catégories</h1>
                 <h2>ajouter, modifier, désactiver</h2>
-                
+
                 <!-- <p>
                     Plongez dans un monde d'expériences exclusives et inoubliables où chaque moment est une découverte. Assistez à des concerts privés, privatisez des lieux insolites et d'exception, et vivez des compétitions de haut vol en compagnie de vos athlètes préférés. Transformez-vous en star internationale ou en pilote de Formule 1 le temps d'une journée. Laissez-vous guider par des chefs étoilés qui dévoileront leurs secrets culinaires lors d'ateliers intimes. Savourez des brunchs aux meilleures tables et émerveillez-vous devant des shows culinaires spectaculaires. Offrez-vous des instants uniques où le luxe et l'exclusivité se marient pour créer des souvenirs inoubliables.
                 </p> -->
-                
+
                 <!-- catégorie : divertissement, atelier, gastronomie, représentation, loisir -->
             </div>
-            
+
         </section>
 
 
-    <!-- ------------------------------- BAS -------------------------------- -->
-    <!-- SECTION DU BAS - LISTE DES EVENTS -->
-    <section class="bas">
-        
-        
-        <!-- CONTAINER GLOBAL - liste des events -->
-        <div id="container_adminCategory" class="container_list">
+        <!-- ------------------------------- BAS -------------------------------- -->
+        <!-- SECTION DU BAS - LISTE DES EVENTS -->
+        <section class="bas">
 
-            <!-- Div vide pour afficher le contenu -->
-            <div id="resultat" class="overflow_listEvent"> 
 
-                <!-- TABLEAU - LISTE DES EVENTS -->
-                <table class="tableau_adminListEvent">
-                    <thead class="thead_adminListEvent">
-                        <tr>
-                            <th>Id</th>
-                            <th>Catégorie</th>
-                            <th>Nombre d'événements</th>
-                            <th colspan="2">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody_adminListEvent" class="tbody_adminList">
-                        
-                        <!-- MODULE BOUCLE -->
-                        <?php foreach($listCategorie as $categorie){ ?>
-                            <tr class="table_module">
+            <!-- CONTAINER GLOBAL - liste des events -->
+            <div id="container_adminCategory" class="container_list">
 
-                                <!-- Identifiant -->
-                                <td class="table_quatite"><?= $categorie['id_categorie']; ?></td>
+                <!-- Div vide pour afficher le contenu -->
+                <div id="resultat" class="overflow_listEvent">
 
-                                <!-- titre -->
-                                <td class="table_titre"><?= $categorie['categorie_name']; ?></td>
-
-                                <!-- nombre d'event associés -->
-                                <td class="table_quatite">4</td>
-
-                                <!-- supprimer -->
-                                <td class="table_action"><a href="traitement/action.php?id_categorie_delete=<?= $categorie['id_categorie']; ?>">supprimer</a></td>
-
-                                <!-- modifier -->
-                                <td>
-                                    <p class="table_btn">
-                                        <a href="./admin_add_categorie.php?id_categorie_update=<?= $categorie['id_categorie']; ?>" id="table_btnTxt">modifier</a>
-                                    </p>
-                                </td>
-
+                    <!-- TABLEAU - LISTE DES EVENTS -->
+                    <table class="tableau_adminListEvent">
+                        <thead class="thead_adminListEvent">
+                            <tr>
+                                <th>Id</th>
+                                <th>Catégorie</th>
+                                <th>Nombre d'événements</th>
+                                <th colspan="2">Action</th>
                             </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody id="tbody_adminListEvent" class="tbody_adminList">
+
+                            <!-- MODULE BOUCLE -->
+                            <?php foreach ($listCategorie as $categorie) { ?>
+                                <tr class="table_module">
+
+                                    <!-- Identifiant -->
+                                    <td class="table_quatite"><?= $categorie['id_categorie']; ?></td>
+
+                                    <!-- titre -->
+                                    <td class="table_titre"><?= $categorie['categorie_name']; ?></td>
+
+                                    <!-- nombre d'event associés -->
+                                    <td class="table_quatite">4</td>
+
+                                    <!-- supprimer -->
+                                    <td class="table_action"><a href="traitement/action.php?id_categorie_delete=<?= $categorie['id_categorie']; ?>">supprimer</a></td>
+
+                                    <!-- modifier -->
+                                    <td>
+                                        <p class="table_btn">
+                                            <a href="./admin_add_categorie.php?id_categorie_update=<?= $categorie['id_categorie']; ?>" id="table_btnTxt">modifier</a>
+                                        </p>
+                                    </td>
+
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
 
-        <!-- --------- BTN - AJOUTER UN EVENEMENT ---------- -->
-        <div class="container_btnAjouter">
-            
-            <a href="./admin_add_categorie.php" class="btn_ajouter"><p><i class="fa-light fa-plus"></i>Ajouter une catégorie</p></a>
-        </div>
+            <!-- --------- BTN - AJOUTER UN EVENEMENT ---------- -->
+            <div class="container_btnAjouter">
 
-    </section>
-</main>
+                <a href="./admin_add_categorie.php" class="btn_ajouter">
+                    <p><i class="fa-light fa-plus"></i>Ajouter une catégorie</p>
+                </a>
+            </div>
+
+        </section>
+    </main>
 
 
-<footer></footer>
+    <footer></footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
@@ -108,14 +110,13 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
     <script src="../asset/js/nav_scroll2.js"></script>
 
     <script>
-
         // CODE JS : SCROLLBAR
-        function showList(listClassName){
+        function showList(listClassName) {
             var allLists = document.querySelectorAll('.nav2_container div:not(.nav2_menu,.deconnexion,.profil_nav,.img_profil_nav)');
             allLists.forEach(function(list) {
                 list.classList.add('hidden');
             });
-    
+
             // Afficher la liste correspondante
             var selectedList = document.querySelector('.' + listClassName);
             selectedList.classList.remove('hidden');
@@ -148,7 +149,7 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
                         console.log(response);
                         $('#resultat').html(response.contenu);
                     },
-                    error: function (xhr, ajaxOptions, thrownError) {
+                    error: function(xhr, ajaxOptions, thrownError) {
                         console.log(xhr.status);
                         console.log(thrownError);
                     }
@@ -168,8 +169,9 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
 
 
     <!-- -------------- SUITE SECURITE ACCES -------------- -->
-    <?php } else { 
-        require_once "../inc/securite_admin.php";
-    } ?>
+<?php } else {
+    require_once "../inc/securite.php";
+} ?>
 </body>
+
 </html>

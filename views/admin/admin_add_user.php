@@ -3,10 +3,10 @@ include_once "../inc/header.php";
 include_once "../inc/navigation.php";
 
 // -------------- SECURITE ACCES ADMIN -------------- //
-if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
+if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 ?>
 
-    
+
 
     <!-- ------------------------ PAGE FORMULAIRE USER ------------------------ -->
     <main class="site siteEvent">
@@ -23,25 +23,25 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
 
                 <!-- FORMULAIRE - AJOUTER UN USER -->
                 <form id="userForm" class="gabaritForm" action="../traitement/action.php" method="post" enctype="multipart/form-data">
-                    
+
                     <div class="gabarit_form">
-                        <input type="text"  placeholder="nom" name="nom" >
+                        <input type="text" placeholder="nom" name="nom">
                     </div>
-                    
+
                     <div class="gabarit_form">
-                        <input type="text"  placeholder="prenom" name="prenom" >
+                        <input type="text" placeholder="prenom" name="prenom">
                     </div>
-                    
+
                     <div class="gabarit_form">
-                        <input type="text"  placeholder="pseudo" name="pseudo" >
+                        <input type="text" placeholder="pseudo" name="pseudo">
                     </div>
-                    
+
                     <div class="gabarit_form">
-                        <input type="email"  placeholder="email" name="email" >
+                        <input type="email" placeholder="email" name="email">
                     </div>
-                    
+
                     <div class="gabarit_form">
-                        <input type="password"  placeholder="mot de passe" name="mdp" >
+                        <input type="password" placeholder="mot de passe" name="mdp">
                     </div>
 
                     <div class="gabarit_form">
@@ -77,9 +77,9 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
 
 
     <!-- -------------- SUITE SECURITE ACCES -------------- -->
-    <?php } else { 
-        require_once "../inc/securite_admin.php";
-    } ?>
+<?php } else {
+    require_once "../inc/securite.php";
+} ?>
 </body>
 
 </html>

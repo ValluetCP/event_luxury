@@ -5,14 +5,20 @@ include_once "./inc/navigation.php";
 // include_once "../inc/nav_admin_bicolor.php";
 require_once "../models/bookModel.php";
 
+// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
+if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
+    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
+) {
 
 
-if (isset($_GET['id_categorie_update'])) {
-    // identifiant de l'emprunt
-    $id = $_GET['id_categorie_update'];
-    // appel de la methode returnBook
-    $categorie = Categorie::findCategorieById($id);
-}
+    // -------------- CODE -------------- //
+
+    if (isset($_GET['id_categorie_update'])) {
+        // identifiant de l'emprunt
+        $id = $_GET['id_categorie_update'];
+        // appel de la methode returnBook
+        $categorie = Categorie::findCategorieById($id);
+    }
 
 ?>
 
@@ -52,6 +58,12 @@ if (isset($_GET['id_categorie_update'])) {
             selectedList.classList.remove('hidden');
         }
     </script>
+
+
+    <!-- -------------- SUITE SECURITE ACCES -------------- -->
+<?php } else {
+    require_once "./inc/securite.php";
+} ?>
 </body>
 
 </html>

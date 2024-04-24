@@ -6,7 +6,7 @@
     <!-- ZONE TEXTE -->
     <div class="zone_txt_404">
         <h1 class="titre_404">404</h1>
-        <p>Cette page est réservée aux administrateurs du site.</p>
+        <p>Cette page est réservée aux membres du site.</p>
 
         <!-- --------- BTN - PREVISUALISER LA LISTE ---------- -->
         <div class="container_btn404">

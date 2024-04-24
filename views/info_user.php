@@ -1,12 +1,19 @@
 <?php
 include_once "./inc/header.php";
-include_once "./inc/nav.php";
+include_once "./inc/navigation.php";
 require_once "../models/userModel.php";
 // // $_SESSION["user_role"] = $user["role"];
 // $user["role"] = $_SESSION["user_role"];
 $userList = User::findAllUser();
+
+// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
+if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
+    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
+) {
+
 ?>
 
+<!-- ---------------- PAGE MES INFOS PERSONNELLES ----------------- -->
 <div class="container">
 <h1 class="m-5">Mes informations personnelles</h1>
     <form action="./traitement/action.php" method="post">
@@ -59,6 +66,13 @@ $userList = User::findAllUser();
         myInput.focus()
     })
 </script> -->
+
+
+<!-- -------------- SUITE SECURITE ACCES -------------- -->
+<?php } else {
+    require_once "./inc/securite.php";
+}
+?>
 
 <?php
 include_once "./inc/footer.php";

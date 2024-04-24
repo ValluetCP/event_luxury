@@ -9,6 +9,13 @@ require_once "../models/bookModel.php";
 require_once "../models/userModel.php";
 
 
+// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
+if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
+    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
+) {
+
+
+// -------------- CODE -------------- //
 // $listEvent = Event::findAllEvent();
 $userReservation = User::userReservation($_GET['id_event']);
 $eventId = $_GET['id_event'];
@@ -25,6 +32,9 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
 // var_dump($userReservation);
 ?>
 
+
+    <!-- ---------------- PAGE HISTORIQUE ----------------- -->
+    
     <main class="site">
         <!-- SECTION GAUCHE - IMAGE FIXE -->
         <section class="gauche">
@@ -147,5 +157,12 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
     </script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="./asset/js/site.js"></script>
+
+
+    <!-- -------------- SUITE SECURITE ACCES -------------- -->
+    <?php } else {
+        require_once "./inc/securite.php";
+    }
+    ?>
 </body>
 </html>
