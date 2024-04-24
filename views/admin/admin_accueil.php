@@ -1,10 +1,12 @@
 <?php
 include_once "../inc/header.php";
-include_once "../inc/navigation.php";
 
 
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
+
+    include_once "../inc/navigation.php";
+
 ?>
 
 
@@ -67,6 +69,8 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
     <!-- -------------- SUITE SECURITE ACCES -------------- -->
     <?php } else {
+
+        include_once "../inc/navigation_vert.php";
         require_once "../inc/securite.php";
     }
 
