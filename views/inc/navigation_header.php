@@ -78,7 +78,7 @@ if(!empty($_SESSION)) {
 
                         <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?> 
                             
-                            <div class="img_profil"  button onclick="window.location.href='./evenement2.php?id_event=<?= $event['id_evenement']; ?>'">
+                            <div class="img_profil">
                                 <img src="../asset/img_event/<?= $_SESSION['user_img_profil']; ?>" alt="">
                             </div>
                             
@@ -352,7 +352,6 @@ if(!empty($_SESSION)) {
                 <a href="#modalInscription" class="btn_reservation"><p>Réservation</p></a>
             </div>
         </div>
-
     </nav>
 
 <?php } ?>

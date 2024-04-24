@@ -20,14 +20,14 @@ function showList(listClassName){
 }
 
 $('.filtre li a').click(function(e){
-    e.preventDefault(); // Pour éviter le comportement par défaut du lien
+    //e.preventDefault(); // Pour éviter le comportement par défaut du lien
     $('.filtre li a').removeClass('linkActive'); // Supprimer la classe linkActive de tous les liens
     $(this).addClass('linkActive'); // Ajouter la classe linkActive au lien cliqué
 });
 
 // Gérer le clic sur un lien du sous-menu "PROFIL"
 $('.sous_menu_profil').click(function(e) {
-    e.preventDefault();
+    // e.preventDefault();
 
     $('.nav2_menu ul li a').removeClass('activeMenuLink'); // Supprimer la classe "activeMenuLink" sur tous les liens
     
@@ -39,7 +39,7 @@ $('.sous_menu_profil').click(function(e) {
 
 // Gérer le clic sur un lien du sous-menu "ADMIN"
 $('.sous_menu_admin').click(function(e) {
-    e.preventDefault();
+    // e.preventDefault();
 
     $('.nav2_menu ul li a').removeClass('activeMenuLink'); // Supprimer la classe "activeMenuLink" sur tous les liens
     
@@ -50,7 +50,7 @@ $('.sous_menu_admin').click(function(e) {
 
 // Gérer le clic sur un lien du sous-menu "CLIENT"
 $('.sous_menu_client').click(function(e) {
-    e.preventDefault();
+    // e.preventDefault();
 
     $('.nav2_menu ul li a').removeClass('activeMenuLink'); // Supprimer la classe "activeMenuLink" sur tous les liens
     
