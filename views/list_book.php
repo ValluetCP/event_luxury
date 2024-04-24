@@ -226,7 +226,7 @@ foreach ($listEvent as $event) {
     <script src="./asset/js/nav_scroll2.js"></script>
 
     <!-- Espace navigation -->
-    <script src="./asset/js/espace_navigation2.js"></script>
+    <script src="./asset/js/espace_navigation.js"></script>
     
 
     <script>
