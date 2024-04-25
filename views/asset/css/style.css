@@ -337,7 +337,7 @@ background-color: rgba(255, 255, 255, 0.5);
     align-items: center;
 }
 
-.img_profil {
+.img_profil_nav {
     border: 2px solid var(--vertNavMenu);
     border-radius: 50%;
     width: 62px;

@@ -30,43 +30,31 @@
         <div class="menu_vert">
             <div class="nav2_container">
                 <!-- PARTIE DROITE -->
+
                 <!-- LOGO - MENU DE NAVIGATION -->
                 <div class="logo_menu">
                     <a href=""><img class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
                 </div>
+
                 <!-- PROFIL CONNEXION  - (prénom & image profil rond) -->
                 <div class="profil_nav">
 
-                    <!-- Affichage photo -->
+                    <!-- Nouvel Affichage photo -->
                     <div class="img_profil_nav">
 
-                    <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
-                        <a href="">
-                            <img class="img_profil" src="../asset/img/coco2.JPG" alt="">
-                        </a>
-                        <!-- <a href="">
-                            <img class="img_profil" src="../asset/img/<?= $_SESSION['user_img_profil']; ?>" alt="">
-                        </a> -->
-                    <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-                        <a href="">
-                            <img class="img_profil" src="../asset/img/calamar.JPG" alt="">
-                        </a>
-                    <?php } else { ?>
-                        <a href="">
-                            <img class="img_profil" src="../asset/img/calamar.JPG" alt="">
-                        </a>
-                    <?php } ?>
+                        <img class="img_profil" src="http://localhost/event_luxury/views/asset/img_event/<?= $_SESSION['user_img_profil']; ?>" alt="votre photo de profil" title="votre photo de profil">
+
                     </div>
 
                     <!-- Affichage prénom -->
-                    <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
+                    <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
+
                         <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
-                    <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-                        <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
+                    
                     <?php } else { ?>
                         <p>Bonjour</p>
                     <?php } ?>
-                    <!-- <p>Bonjour Clara,</p> -->
+
                 </div>
 
                 <!-- ESPACE NAVIGATION  - BOUTON MENU (admin & client) -->

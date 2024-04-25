@@ -18,7 +18,7 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
             <!-- EFFET-1 -->
             <article class="hpa_article">
                 <figure class="effet-1">
-                    <img src="../asset/img/voiture_fond_vert.jpg" alt="">
+                    <img src="../asset/img/voiture_fond_vert.jpg" alt="image événement">
                     <figcaption class="hpa_figcaption">
                         <h3>Liste des<br><span>catégories</span></h3>
                         <p>Consulter, modifier, désactiver, supprimer</p>
@@ -31,7 +31,7 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
             <article class="hpa_article">
                 <figure class="effet-1">
-                    <img src="../asset/img/bocal_fond_vert.jpg" alt="">
+                    <img src="../asset/img/bocal_fond_vert.jpg" alt="image événement">
                     <figcaption class="hpa_figcaption">
                         <h3>Liste des<br><span>événements</h3>
                         <p>Consulter, modifier, annuler, supprimer</p>
@@ -43,7 +43,7 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
             <article class="hpa_article">
                 <figure class="effet-1">
-                    <img src="../asset/img/poisson_fond_vert.jpg" alt="">
+                    <img src="../asset/img/poisson_fond_vert.jpg" alt="image événement">
                     <figcaption class="hpa_figcaption">
                         <h3>Liste des<br><span>utilisateurs</span></h3>
                         <p>Consulter, modifier, désactiver, supprimer</p>
