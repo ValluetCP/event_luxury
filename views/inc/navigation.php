@@ -29,7 +29,7 @@ if(!empty($_SESSION["user_role"])) {
 <?php if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
     
     // ---- ESPACE ADMIN (espace navigation)---- //
-    include_once "../inc/espace_nav_admin.php";    
+    include_once "./inc/espace_nav_admin.php";    
 
 
 // --------------------------- CLIENT - rôle --------------------------- //
@@ -37,7 +37,7 @@ if(!empty($_SESSION["user_role"])) {
 } elseif(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client"){
 
     // ---- ESPACE CLIENT(espace navigation) ---- //
-    include_once "../inc/espace_nav_client.php"; 
+    include_once "./inc/espace_nav_client.php"; 
 
 
 // --------------------------- ANONYME - sans connection --------------------------- //
