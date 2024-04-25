@@ -1,13 +1,14 @@
 <?php
 
 include_once "../inc/header.php";
+
+// -------------- SECURITE ACCES ADMIN -------------- //
+if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
+
 include_once "../inc/navigation.php";
 // include_once "../inc/nav_admin_bicolor.php";
 require_once "../../models/categorieModel.php";
 
-
-// -------------- SECURITE ACCES ADMIN -------------- //
-if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
 
     // -------------- CODE PAGE -------------- //

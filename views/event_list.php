@@ -1,5 +1,11 @@
 <?php
 include_once "./inc/header.php";
+
+// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
+if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
+    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
+) {
+
 include_once "./inc/navigation_header.php";
 include_once "./inc/functions.php";
 require_once "../models/eventModel.php";
@@ -7,11 +13,6 @@ require_once "../models/bookModel.php";
 require_once "../models/userModel.php";
 require_once "../models/categorieModel.php";
 
-
-// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
-if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
-    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
-) {
 
 
 // -------------- CODE -------------- //
@@ -111,7 +112,7 @@ foreach ($listEvent as $event) {
                 <div class="module_listEvent" button onclick="window.location.href='./evenement2.php?id_event=<?= $event['id_evenement']; ?>'">
                     
                     <!-- MODULE - partie gauche - image -->
-                    <div class="img_listEvent"><img src="./asset/img/<?= $event['image']; ?>" alt=""></div>
+                    <div class="img_listEvent"><img src="./asset/img/<?= $event['image']; ?>" alt="Image de l'évenement <?= $event['image']; ?>"></div>
 
                     <!-- MODULE - partie centrale - texte -->
                     <div class="center_txt_listEvent">

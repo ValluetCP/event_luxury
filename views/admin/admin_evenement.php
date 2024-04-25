@@ -1,14 +1,14 @@
 <?php
 include_once "../inc/header.php";
+
+// -------------- SECURITE ACCES ADMIN -------------- //
+if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
+
 include_once "../inc/navigation.php";
 include_once "../inc/functions.php";
 require_once "../../models/eventModel.php";
 require_once "../../models/bookModel.php";
 require_once "../../models/userModel.php";
-
-
-// -------------- SECURITE ACCES ADMIN -------------- //
-if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
 
     // ---------------------------- CODE PAGE EVENT ----------------------------- //

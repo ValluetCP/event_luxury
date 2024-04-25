@@ -1,5 +1,10 @@
 <?php
+
 include_once "../inc/header.php";
+
+// -------------- SECURITE ACCES ADMIN -------------- //
+if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
+
 include_once "../inc/navigation_header.php";
 require_once "../../models/eventModel.php";
 
@@ -7,11 +12,7 @@ $listEvent = Event::findAllEvent();
 $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD HH:MM:SS)
 
 
-// -------------- SECURITE ACCES ADMIN -------------- //
-if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 ?>
-
-
 
 
     <!-- ------------------------ PAGE LISTE EVENT ------------------------ -->

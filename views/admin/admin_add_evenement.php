@@ -1,13 +1,13 @@
 <?php
 include_once "../inc/header.php";
-include_once "../inc/navigation.php";
-require_once "../../models/categorieModel.php";
-require_once "../../models/eventModel.php";
-require_once "../../models/bookModel.php";
 
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
+include_once "../inc/navigation.php";
+require_once "../../models/categorieModel.php";
+require_once "../../models/eventModel.php";
+require_once "../../models/bookModel.php";
 
     // -------------- CODE PAGE -------------- //
     $listCategorie = Categorie::findAllCategorie();

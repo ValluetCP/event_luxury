@@ -1,9 +1,10 @@
 <?php
 include_once "../inc/header.php";
-include_once "../inc/navigation.php";
 
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
+    
+include_once "../inc/navigation.php";
 ?>
 
 
