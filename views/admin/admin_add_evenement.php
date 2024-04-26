@@ -4,10 +4,10 @@ include_once "../inc/header.php";
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
-include_once "../inc/navigation_admin_bicolor.php";
-require_once "../../models/categorieModel.php";
-require_once "../../models/eventModel.php";
-require_once "../../models/bookModel.php";
+    include_once "../inc/navigation_bicolor.php";
+    require_once "../../models/categorieModel.php";
+    require_once "../../models/eventModel.php";
+    require_once "../../models/bookModel.php";
 
     // -------------- CODE PAGE -------------- //
     $listCategorie = Categorie::findAllCategorie();
@@ -145,14 +145,14 @@ require_once "../../models/bookModel.php";
         </section>
     </main>
     <footer></footer>
-     
+
     <!-- -------------- BALISE SCRIPT -------------- -->
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
 
     <!-- Changement d'état au scroll -->
     <script src="../asset/js/nav_scroll2.js"></script>
-    
+
 
     <!-- -------------- SUITE SECURITE ACCES -------------- -->
 <?php } else {

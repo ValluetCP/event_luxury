@@ -5,7 +5,7 @@ include_once "../inc/header.php";
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
-    include_once "../inc/navigation_admin_bicolor.php";
+    include_once "../inc/navigation_bicolor.php";
 
 ?>
 
@@ -68,9 +68,9 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
 
     <!-- -------------- SUITE SECURITE ACCES -------------- -->
-    <?php } else {
-        require_once "../inc/securite.php";
-    }
+<?php } else {
+    require_once "../inc/securite.php";
+}
 
 // -------------- FOOTER --------------  
 include_once "../inc/footer.php";

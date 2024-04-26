@@ -5,9 +5,9 @@ include_once "../inc/header.php";
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
-include_once "../inc/navigation_admin_bicolor.php";
-// include_once "../inc/nav_admin_bicolor.php";
-require_once "../../models/categorieModel.php";
+    include_once "../inc/navigation_bicolor.php";
+    // include_once "../inc/nav_admin_bicolor.php";
+    require_once "../../models/categorieModel.php";
 
 
 
@@ -58,7 +58,7 @@ require_once "../../models/categorieModel.php";
         </section>
     </main>
     <footer></footer>
-    
+
     <!-- -------------- BALISE SCRIPT -------------- -->
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
