@@ -70,7 +70,6 @@ if(!empty($_SESSION)) {
                     <div class="logo_menu">
                         <a href=""><img class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
                     </div>
-
                     <!-- PROFIL CONNEXION  - (prénom & image profil rond) -->
                     <div class="profil_nav">
 
@@ -211,7 +210,7 @@ if(!empty($_SESSION)) {
                         </div>
 
                         <!-- Affichage prénom -->
-                        <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
+                        <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
 
                             <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
 

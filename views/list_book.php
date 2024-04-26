@@ -1,16 +1,17 @@
 <?php
 include_once "./inc/header.php";
+
+// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
+if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
+    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
+) {
+
 include_once "./inc/navigation_header.php";
 include_once "./inc/functions.php";
 require_once "../models/eventModel.php";
 require_once "../models/bookModel.php";
 require_once "../models/userModel.php";
 require_once "../models/categorieModel.php";
-
-// -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
-if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
-    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
-) {
 
 
 // -------------- CODE -------------- //
@@ -220,10 +221,8 @@ foreach ($listEvent as $event) {
 
 <footer></footer>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
-
     <!-- Changement d'état au scroll -->
-    <script src="./asset/js/nav_scroll2.js"></script>
+    <script src="./asset/js/nav_scroll.js"></script>
 
     <!-- Espace navigation -->
     <script src="./asset/js/espace_navigation.js"></script>

@@ -5,8 +5,8 @@ include_once "../inc/header.php";
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
     
-include_once "../inc/navigation_blanc.php";
-// include_once "../inc/navigation_header.php";
+// include_once "../inc/navigation_blanc.php";
+include_once "../inc/navigation_header.php";
 require_once "../../models/categorieModel.php";
 $listCategorie = Categorie::findAllCategorie();
 
@@ -102,13 +102,15 @@ $listCategorie = Categorie::findAllCategorie();
 
 
     <footer></footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
     <!-- BALISE SCRIPT -->
     <!-- Espace navigation -->
-    <script src="../asset/js/espace_navigation2.js"></script>
+    <script src="../asset/js/espace_navigation.js"></script>
     <!-- Changement d'état au scroll -->
     <script src="../asset/js/nav_scroll2.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 
     <script>

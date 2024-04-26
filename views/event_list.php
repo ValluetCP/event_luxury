@@ -194,23 +194,9 @@ foreach ($listEvent as $event) {
     <script src="./asset/js/nav_scroll2.js"></script>
 
     <!-- Espace navigation -->
-    <script src="./asset/js/espace_navigation2.js"></script>
+    <script src="./asset/js/espace_navigation.js"></script>
 
     <script>
-
-        // CODE JS : SCROLLBAR
-        function showList(listClassName){
-            var allLists = document.querySelectorAll('.nav2_container div:not(.nav2_menu,.deconnexion,.profil_nav,.img_profil_nav)');
-            allLists.forEach(function(list) {
-                list.classList.add('hidden');
-            });
-    
-            // Afficher la liste correspondante
-            var selectedList = document.querySelector('.' + listClassName);
-            selectedList.classList.remove('hidden');
-        }
-
-
 
         // CODE JS : BTN AJAX (PROCHAINEMENT & HISTORIQUE)
 
