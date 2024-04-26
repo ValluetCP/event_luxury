@@ -169,25 +169,15 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
+    
+    <!-- -------------- BALISE SCRIPT -------------- -->
+    <!-- Espace navigation -->
+    <script src="../asset/js/espace_navigation.js"></script>
+
     <!-- Changement d'état au scroll -->
     <script src="../asset/js/nav_scroll2.js"></script>
 
-    <!-- Espace navigation -->
-    <!-- <script src="../asset/js/espace_navigation2.js"></script> -->
-
     <script>
-        // CODE JS : SCROLLBAR
-        function showList(listClassName) {
-            var allLists = document.querySelectorAll('.nav2_container div:not(.nav2_menu,.deconnexion,.profil_nav,.img_profil_nav)');
-            allLists.forEach(function(list) {
-                list.classList.add('hidden');
-            });
-
-            // Afficher la liste correspondante
-            var selectedList = document.querySelector('.' + listClassName);
-            selectedList.classList.remove('hidden');
-        }
-
 
 
         // CODE JS : BTN AJAX (PROCHAINEMENT & HISTORIQUE)
