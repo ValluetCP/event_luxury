@@ -19,6 +19,7 @@ class Event{
 
         // exécuter la requête
         try {
+            
             $request->execute(array($titre,$prix,$resume,$categorie_id,$imgName,$dateEvent,$nbrPlace,));
 
             // rediriger vers la page list_user.php
