@@ -3591,6 +3591,16 @@ input[type=file]::file-selector-button {
         gap: 20px;
     }
 
+    /* ------------ PAGE ACCUEIL (max-width:1400px) - DEBUT ------------ */
+    /* .hpa_container {
+        display: grid;
+        grid-template-columns: repeat(1fr);
+    }
+
+    .hpa_article {
+        width: 100%;
+        height: 100vh;
+    } */
 
 }
 
