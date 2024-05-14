@@ -222,7 +222,7 @@ foreach ($listEvent as $event) {
 <footer></footer>
 
     <!-- Changement d'état au scroll -->
-    <script src="./asset/js/nav_scroll.js"></script>
+    <script src="./asset/js/nav_scroll2.js"></script>
 
     <!-- Espace navigation -->
     <script src="./asset/js/espace_navigation.js"></script>

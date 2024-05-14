@@ -85,6 +85,11 @@ html {
     height: 80px;
 }
 
+    
+#navVerte{
+    background-color: #fff;
+}
+
 
 .navigation{
     display: flex;
@@ -3602,6 +3607,13 @@ input[type=file]::file-selector-button {
         height: 100vh;
     } */
 
+    /* ------------ PAGE PROFIL.php (max-width:1400px) - DEBUT ------------ */
+    .profilUser {
+        gap: 78px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
 }
 
 
@@ -4036,7 +4048,18 @@ input[type=file]::file-selector-button {
     .tbody_adminList tr td{
         font-size: 16px;
     }
+
+    /* ------------ PAGE PROFIL.php (max-width:900px) - DEBUT ------------ */
     
+    .profilUser {
+        grid-template-columns: 1fr;
+        gap: 64px;
+        margin: 116px 30px;
+    }
+
+    .profilForm p, .profilHistorique p {
+        margin-bottom: 82px;
+    }
     
 }
 
@@ -4371,6 +4394,13 @@ input[type=file]::file-selector-button {
 
     /* ------------ PAGE BOOK (max-width:500px) - FIN ------------ */
 
+    
+    /* --- LISTE BOOK - (max-width:500px)--- */
+    .titreListEvent h1 {
+        font-size: 42px;
+        line-height: 75px;
+    }
+
 }
 
 @media screen and (max-width:415px){
@@ -4506,4 +4536,6 @@ input[type=file]::file-selector-button {
     .num_listEvent {
         font-size: 12px;
     }
+
+
 }

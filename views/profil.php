@@ -65,19 +65,13 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
         <footer>
 
         </footer>
-        <script src="./js/nav_scroll2.js"></script>
-        <script>
-            function showList(listClassName){
-                var allLists = document.querySelectorAll('.nav2_container div:not(.nav2_menu,.deconnexion,.profil_nav,.img_profil_nav)');
-                allLists.forEach(function(list) {
-                    list.classList.add('hidden');
-                });
         
-                // Afficher la liste correspondante
-                var selectedList = document.querySelector('.' + listClassName);
-                selectedList.classList.remove('hidden');
-            }
-        </script>
+        <!-- Changement d'état au scroll -->
+        <script src="./asset/js/nav_scroll2.js"></script>
+
+        <!-- Espace navigation -->
+        <script src="./asset/js/espace_navigation.js"></script>
+
 
 
 
