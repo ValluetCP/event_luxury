@@ -3348,11 +3348,165 @@ input[type=file]::file-selector-button {
 
 
 
-/* ------------ PANIER (panier_0.php/) - DEBUT ------------ */
-.containerPanier{
-    margin-top: 100px;
+/* ------------------ PANIER (panier_0.php)- DEBUT ------------------ */
+
+.containerPagePanier{
+    max-width: 1600px;
+    margin: auto;
+    margin-top: 114px;
 }
-/* ------------ PANIER (panier_0.php/) - FIN ------------ */
+
+.containerPanier{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 30px;
+}
+
+.sousTitrePanier{
+    border-bottom: 2px solid var(--vertFonce);
+    padding-bottom: 15px;
+}
+
+.sousTitrePanier p{
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--vertMoyen);
+}
+
+.titrePanier{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titrePanier p{
+    font-family: 'AmericanaRegular';
+    font-size: 80px;
+    color: var(--vertMoyen);
+}
+
+/* AFFICHAGE LISTE PRODUIT */
+.listeProduit{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    padding-top: 25px;
+}
+
+/* MODULE BOUCLE*/
+.produitPanier{
+    border-bottom: 1px solid var(--vertFonce);
+    padding-bottom: 10px;
+}
+
+/* image */
+.imgProduitPanier{
+    margin-bottom: 20px;
+}
+
+/* Titre + Supression article */
+.titreSupprimer{
+    display: flex;
+    justify-content: space-between;  
+}
+
+.titreProduitPanier{
+    font-family: 'AmericanaRegular';
+    font-size: 24px;
+    color: var(--vertMoyen);
+    padding-bottom: 10px;    
+    line-height: 28px;
+}
+
+.categorieProduit{
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+    font-weight: 400; 
+}
+
+.suppressionProduit{
+    width: 15px;
+}
+
+/* Catégorie */
+.categorieProduit{
+    text-transform: uppercase;
+    margin-bottom: 28px;
+}
+
+/* Quantité + Prix */
+.quantitePrixPanier{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'AmericanaRegular';
+    font-size: 14px;
+    color: var(--vertMoyen);
+}
+
+/* NAVIGATION PANIER */
+.navPanier{
+    margin: 30px;
+    display: flex;
+    justify-content: space-between; 
+    position: fixed;
+    bottom: 0;
+}
+
+/* LIENS */
+.lienPanier ul{
+    display: flex;
+}
+
+.lienPanier ul li{
+    padding-right: 50px;
+}
+
+.lienPanier ul li a{
+    text-decoration: none;
+    font-family: 'AmericanaRegular';
+    font-size: 35px;
+    color: var(--vertMoyen);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Valider la commande */
+.validerPanier{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--vertFonce);
+    width: 460px;
+    font-family: 'Karla', sans-serif;
+    font-size: 18px;
+    margin-left: 126px;
+}
+
+.tva{
+    font-size: 12px;
+    color: var(--vertHover);
+}
+
+.total{
+    padding-left: 10px;
+}
+
+.totalPrix{
+    padding-bottom: 10px;
+}
+
+
+.validerBtn{
+    font-family: 'Karla', sans-serif;
+    color: var(--vertClair);
+    font-size: 18px;
+    font-weight: 300;
+    background-color: var(--vertFonce);
+    cursor: pointer;  
+}
+
+
+/* ------------------ PANIER (panier_0.php)- FIN ------------------ */
 
 
 

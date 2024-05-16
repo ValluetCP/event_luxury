@@ -13,7 +13,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
 ?>
 
-<div class="containerPanier">
+z
 
     <?php
     // Récupérer les événements dans le panier
