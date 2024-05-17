@@ -19,7 +19,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
             <div class="contenuPanier">
                 <div class="sousTitrePanier">
-                    <p>PANIER (2)</p>
+                    <p>PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</p>
                 </div>
     
                 <!-- AFFICHAGE LISTE PRODUIT -->
@@ -45,17 +45,27 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                                 <div class="produitPanier">
                 
                                     <!-- IMAGE -->
-                                    <div class="imgProduitPanier">
-                                        <img src="./asset/img/event_flamant.jpg" alt="image événement">
+                                    <div class="imgProduitPanier" onclick="window.location.href='./evenement2.php?id_event=<?= $item['events']['id_evenement']; ?>'">
+                                        <!-- VOIR DETAIL -->
+                                        <div class="detailProduit">
+                                            <p>Voir détail</p>
+                                        </div>
+
+                                        <img src="./asset/img/<?= $item["events"]['image']; ?>" alt="image événement">
                                     </div>
                                     <!-- Titre + Supression article -->
                                     <div class="titreSupprimer">
                                         <div class="titreProduitPanier">
                                             <p><?= $item["events"]['titre']; ?></p>
                                         </div>
-                                        <div class="suppressionProduit">
-                                        <img src="./asset/img/coix_verte.svg" alt="icone pour supprimer">
-                                        </div>
+                                        
+                                        <form action="./traitement/action.php" method="post" class="btnSuppressionProduit">
+                                            <input type="hidden" name="id_evenement" value="<?= $item["events"]['id_evenement'];?>">
+                                            <input type="submit" name="supprimer" value="sup">
+                                            <div class="suppressionProduit">
+                                                <img src="./asset/img/coix_verte.svg" alt="icone pour supprimer">
+                                            </div>
+                                        </form>
                                     </div>
 
                                     <!-- Catégorie -->
@@ -72,33 +82,13 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                                     </div>
                                 </div>
 
-                        
-                            <a href="./evenement2.php?id_event=<?= $item["events"]['id_evenement']; ?>">
-                                <div>
-                                    <p>Titre de l'événement :<?= $item["events"]['titre']; ?></p>
-                                    <p>Catégorie :<?= $item["events"]['categorie_name']; ?></p>
-                                    <p>Prix unitaire :<?= $item["events"]['prix']; ?></p>
-                                    <p>Quantité :<?= $item["quantite"]; ?></p>
-                                    <!-- Ajoutez un lien "supprimer" avec l'identifiant de l'article dans l'URL -->
-                                    <p>Prix total :<?= $prixTotalEvent; ?></p><br><br>
-                                </div>
-                            </a>
-
-                            <form action="./traitement/action.php" method="post">
-                    
-                                    <input type="hidden" name="id_evenement" value="<?= $item["events"]['id_evenement'];?>">
-                                    <input type="submit" name="supprimer" value="supprimer">
-                            </form>
                             <?php 
                     } 
                     
-                    
-                    // Afficher le montant total en bas de la page
-                    echo "Montant total : " . $prixTotal. "<br>";
                     ?>
-                    <form action="./traitement/action.php">
+                    <!-- <form action="./traitement/action.php">
                         <button name="valider_commande" class="btn btn-outline-warning mt-3 mb-5" value="valide commande">Valider la commande</button>
-                    </form>
+                    </form> -->
 
 
                     <div class="nav_panier">
@@ -114,70 +104,9 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                     echo "panier vide";
                 } ?>
     
-                    <!-- MODULE BOUCLE -->
-                    <div class="produitPanier">
-    
-                        <!-- IMAGE -->
-                        <div class="imgProduitPanier">
-                            <img src="./asset/img/event_flamant.jpg" alt="image événement">
-                        </div>
-                        <!-- Titre + Supression article -->
-                        <div class="titreSupprimer">
-                            <div class="titreProduitPanier">
-                                <p>Salon de l'automobile</p>
-                            </div>
-                            <div class="suppressionProduit">
-                            <img src="./asset/img/coix_verte.svg" alt="icone pour supprimer">
-                            </div>
-                        </div>
-    
-                        <!-- Catégorie -->
-                        <p class="categorieProduit">Divertissement</p>
-    
-                        <!-- Quantité + Prix -->
-                        <div class="quantitePrixPanier">
-                            <div class="quantitePanier">
-                                <p>Quantité : 2</p>
-                            </div>
-                            <div class="prixPanier">
-                                <p>Prix : 75€</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- MODULE BOUCLE -->
-                    <div class="produitPanier">
-    
-                        <!-- IMAGE -->
-                        <div class="imgProduitPanier">
-                            <img src="./asset/img/event_flamant.jpg" alt="image événement">
-                        </div>
-                        <!-- Titre + Supression article -->
-                        <div class="titreSupprimer">
-                            <div class="titreProduitPanier">
-                                <p>Salon de l'automobile</p>
-                            </div>
-                            <div class="suppressionProduit">
-                                <img src="./asset/img/coix_verte.svg" alt="icone pour supprimer">
-                            </div>
-                        </div>
-    
-                        <!-- Catégorie -->
-                        <p class="categorieProduit">Divertissement</p>
-    
-                        <!-- Quantité + Prix -->
-                        <div class="quantitePrixPanier">
-                            <div class="quantitePanier">
-                                <p>Quantité : 2</p>
-                            </div>
-                            <div class="prixPanier">
-                                <p>Prix : 75€</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="titrePanier">
-                <img src="./asset/img/img_logo/" alt="">
+                <img src="./asset/img/img_logo/mon_panier.png" alt="mon panier">
             </div>
         </div>
 
@@ -185,19 +114,23 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
         <div class="navPanier">
     
             <!-- LIENS -->
-            <div class="lienPanier">
+            <!-- <div class="lienPanier">
                 <ul>
                     <li><a href="">listes événements</a></li>
                     <li><a href="">mes réservations</a></li>
                 </ul>
-            </div>
+            </div> -->
             <!-- VALIDER LA COMMANDE -->
             <div class="validerPanier">
                 <div class="totalPrix">
-                    <p>TOTAL <span class="total">115 EUR</span><br><span class="tva">*TVA COMPRISE</span></p>
+                    <p>TOTAL <span class="total"><?= $prixTotal; ?> EUR</span><br><span class="tva">*TVA COMPRISE</span></p>
                 </div>
+
+                <form action="./traitement/action.php" id="btnValider">
+                    <button name="valider_commande" class="validerBtn" value="valide commande">Valider</button>
+                </form>
+
                 
-                <button type="submit" class="validerBtn" onclick="window.location.href='./st_book.php'">Valider</button>
             </div>
         </div>
 

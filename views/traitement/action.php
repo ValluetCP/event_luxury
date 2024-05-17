@@ -309,7 +309,7 @@ if (isset($_POST['supprimer'])) {
         }
         break;
     }
-    header("Location: ../panier_0.php");
+    header("Location: ../panier_css.php");
 }
 
 
