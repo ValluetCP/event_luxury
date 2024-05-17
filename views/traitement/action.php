@@ -23,43 +23,43 @@ require_once "../inc/functions.php";
 
 // Ajouter un utilisateur  - INSERT INTO
 // inscription.php
-if(isset($_POST['register'])){
+if (isset($_POST['register'])) {
     $nom = htmlspecialchars($_POST['nom']);
     $prenom = htmlspecialchars($_POST['prenom']);
     $pseudo = htmlspecialchars($_POST['pseudo']);
     $email = htmlspecialchars($_POST['email']);
     $mdp = htmlspecialchars($_POST['mdp']);
     $password = password_hash($mdp, PASSWORD_DEFAULT);
-    
+
 
     // MESSAGE D'ERREUR COTE NAVIGATEUR (page inscription.php)
-    if(empty($nom)){        
+    if (empty($nom)) {
         $_SESSION['error_message']["nom"] = "<span class='msg_erreur'>Le champs 'nom' est obligatoire !</span>";
         debug($_SESSION['error_message']);
     }
-    if(empty($prenom)){        
+    if (empty($prenom)) {
         $_SESSION['error_message']["prenom"] = "<span class='msg_erreur'>Le champs 'prenom' est obligatoire !</span>";
     }
-    if(empty($pseudo)){        
+    if (empty($pseudo)) {
         $_SESSION['error_message']["pseudo"] = "<span class='msg_erreur'>Le champs 'pseudo' est obligatoire !</span>";
         debug($_SESSION['error_message']);
     }
-    if(empty($email)){        
+    if (empty($email)) {
         $_SESSION['error_message']["email"] = "<span class='msg_erreur'>Le champs 'email' est obligatoire !</span>";
     }
-    if(empty($mdp)){        
+    if (empty($mdp)) {
         $_SESSION['error_message']["mdp"] = "<span class='msg_erreur'>Le champs 'mot de passe' est obligatoire !</span>";
     }
-    if(empty($img_profil)){        
+    if (empty($img_profil)) {
         $_SESSION['error_message']["img_profil"] = "<span class='msg_erreur'>Veuillez choisir une image !</span>";
     }
 
-    if(!empty($_SESSION['error_message'])){
+    if (!empty($_SESSION['error_message'])) {
         // rediriger vers la page précédente
-        header("location:".MAIN_ROOT."/views/inscription.php");
+        header("location:" . MAIN_ROOT . "/views/inscription.php");
     }
 
-     // ----------  RECUPERER L'IMAGE ---------- //
+    // ----------  RECUPERER L'IMAGE ---------- //
 
     /*objectif : 
         - récupérer tous les fichiers (images) qui sont dans le formulaire.
@@ -70,10 +70,10 @@ if(isset($_POST['register'])){
     $imgName = $_FILES['img_profil']['name']; // nom de l'image
     // la 1ère valeur 'image' (récupéré dans le formulaire)
     // la 2ème valeur 'name' (toujours la même, ne change pas)
-    $extension = pathinfo( $imgName, PATHINFO_EXTENSION );
+    $extension = pathinfo($imgName, PATHINFO_EXTENSION);
     // debug($extension);
-    $baseNameImg = basename($imgName, ".".$extension).uniqid();
-    $fullNameImg = $baseNameImg.".".$extension;
+    $baseNameImg = basename($imgName, "." . $extension) . uniqid();
+    $fullNameImg = $baseNameImg . "." . $extension;
 
     // debug($fullNameImg);die;
     $tmpName = $_FILES['img_profil']['tmp_name']; // localisation temporaire sur le server
@@ -82,47 +82,47 @@ if(isset($_POST['register'])){
     // ----------  DESTINATION DE L'IMAGE ---------- //
 
     //1
-    $destination = $_SERVER['DOCUMENT_ROOT'].'/event_luxury/views/asset/img_event/'.$fullNameImg; // destination finale de mon image
+    $destination = $_SERVER['DOCUMENT_ROOT'] . '/event_luxury/views/asset/img_event/' . $fullNameImg; // destination finale de mon image
     // $_SERVER['DOCUMENT_ROOT'] + chemin du dossier image
     //['DOCUMENT_ROOT'] : syntaxe qui veut dire pointe à la racine du serveur, si on n'indique pas le chemin, il s'arrêra au dossier 'htdocs'
 
     // $_SERVER['DOCUMENT_ROOT'] pointe à la racine du server c'est à dire le dossier principal (dossier racine)
-    
+
     //2
     //echo $destination;
-    if(!empty($tmpName)){
+    if (!empty($tmpName)) {
 
-        try{
-            $result = User::addUser($fullNameImg,$nom,$prenom,$pseudo,$email,$password);
-            if($result) {
+        try {
+            $result = User::addUser($fullNameImg, $nom, $prenom, $pseudo, $email, $password);
+            if ($result) {
                 move_uploaded_file($tmpName, $destination);
             }
-            
+
             // rediriger vers la page list_user.php
             header("Location: http://localhost/event_luxury/views/connexion.php");
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }
     // permet de prendre l'image et de la mettre dans le dossier que l'on a pointé au dessus.
     // 1er paramètre, la destination temporaire où a été stocker le fichier temporairement
     // 2ème paramètre, c'est la destination que l'on souhaite
-    
+
     // apeler la methode inscription de la classe User
     // User::addUser($statut,$nom,$prenom,$pseudo,$email,$password,$role);
-    
-    
+
+
 }
 
 
 // Se connecter - SELECT BY
 // connexion.php
-if(isset($_POST['login'])){
+if (isset($_POST['login'])) {
     $pseudo = htmlspecialchars($_POST['pseudo']);
     $password = htmlspecialchars($_POST['password']);
 
-   // apeler la methode connexion de la classe User 
-   User::connexion($pseudo,$password);
+    // apeler la methode connexion de la classe User 
+    User::connexion($pseudo, $password);
 }
 
 
@@ -140,8 +140,7 @@ if (isset($_POST['update_user'])) {
     // $role = htmlspecialchars($_POST['role']);
 
     // apeler la methode inscription de la classe User
-    User::updateUserById($nom,$prenom,$pseudo,$email);
-
+    User::updateUserById($nom, $prenom, $pseudo, $email);
 }
 
 
@@ -187,7 +186,7 @@ if (isset($_GET['id_user_active'])) {
 
 // Ajouter un évènement  - INSERT INTO 
 // inscription.php
-if(isset($_POST['add_event'])){
+if (isset($_POST['add_event'])) {
     $titre = htmlspecialchars($_POST['titre']);
     // $duree = htmlspecialchars($_POST['duree']);
     $prix = htmlspecialchars($_POST['prix']);
@@ -197,7 +196,7 @@ if(isset($_POST['add_event'])){
     $nbrPlace = htmlspecialchars($_POST['nbr_place']);
     $categorie_id = htmlspecialchars($_POST['categorie']);
 
-     // ----------  RECUPERER L'IMAGE ---------- //
+    // ----------  RECUPERER L'IMAGE ---------- //
 
     /*objectif : 
         - récupérer tous les fichiers (images) qui sont dans le formulaire.
@@ -205,25 +204,25 @@ if(isset($_POST['add_event'])){
         - on lui donnera par la suite le chemin d'accès à notre dossier
     */
 
-    $imgName = $_FILES ['image']['name']; // nom de l'image
+    $imgName = $_FILES['image']['name']; // nom de l'image
     // la 1ère valeur 'image' (récupéré dans le formulaire)
     // la 2ème valeur 'name' (toujours la même, ne change pas)
 
-    $tmpName = $_FILES ['image']['tmp_name']; // localisation temporaire sur le server
+    $tmpName = $_FILES['image']['tmp_name']; // localisation temporaire sur le server
 
 
     // ----------  DESTINATION DE L'IMAGE ---------- //
 
     //1
-    $destination = $_SERVER['DOCUMENT_ROOT'].'/event/views/asset/img_event/'.$imgName; // destination finale de mon image
+    $destination = $_SERVER['DOCUMENT_ROOT'] . '/event/views/asset/img_event/' . $imgName; // destination finale de mon image
     // $_SERVER['DOCUMENT_ROOT'] + chemin du dossier image
     //['DOCUMENT_ROOT'] : syntaxe qui veut dire pointe à la racine du serveur, si on n'indique pas le chemin, il s'arrêra au dossier 'htdocs'
 
     // $_SERVER['DOCUMENT_ROOT'] pointe à la racine du server c'est à dire le dossier principal (dossier racine)
-    
+
     //2
     //echo $destination;
-    move_uploaded_file($tmpName,$destination);
+    move_uploaded_file($tmpName, $destination);
     // permet de prendre l'image et de la mettre dans le dossier que l'on a pointé au dessus.
     // 1er paramètre, la destination temporaire où a été stocker le fichier temporairement
     // 2ème paramètre, c'est la destination que l'on souhaite
@@ -232,7 +231,7 @@ if(isset($_POST['add_event'])){
     // ----------  APPEL DE LA METHOD ---------- //
 
     // apeler la methode inscription de la classe Event
-    Event::addEvent($titre,$prix,$resume,$dateEvent,$nbrPlace,$categorie_id,$imgName);
+    Event::addEvent($titre, $prix, $resume, $dateEvent, $nbrPlace, $categorie_id, $imgName);
     // cette syntaxe uniquement pour appeler les méthodes static.
     // la méthode addEvent étant static donc on utilise le nom de la classe suivi de "::" ensuite le nom de la méthode qui est addEvent.
 
@@ -254,9 +253,9 @@ if (isset($_POST['update_event'])) {
     $categorie_id = htmlspecialchars($_POST['categorie_id']);
 
     // apeler la methode updateEventById de la classe Event
-    Event::updateEventById($id,$titre,$prix,$resume,$dateEvent,$nbrPlace,$categorie_id);
+    Event::updateEventById($id, $titre, $prix, $resume, $dateEvent, $nbrPlace, $categorie_id);
 
-    
+
     // CALCUL TARIF
 }
 
@@ -299,11 +298,11 @@ if (isset($_POST['supprimer'])) {
     echo "<pre>";
     var_dump($_SESSION['reservation']);
     echo "</pre>";
-    foreach ( $_SESSION['reservation'] as $k => $v ) {
-        foreach ( $v['events'] as $k2 => $v2 ) {
+    foreach ($_SESSION['reservation'] as $k => $v) {
+        foreach ($v['events'] as $k2 => $v2) {
             if (array_search($_POST['id_evenement'], $v['events'])) {
-                unset($_SESSION['reservation'][$k]);   
-                $_SESSION['nombre'] -= $v['quantite'];        
+                unset($_SESSION['reservation'][$k]);
+                $_SESSION['nombre'] -= $v['quantite'];
             }
             break;
         }
@@ -324,12 +323,11 @@ if (isset($_POST['supprimer'])) {
 // Ajouter une catégorie  - INSERT INTO 
 // add_categorie.php
 // categorieModel.php
-if(isset($_POST['add_categorie'])){
+if (isset($_POST['add_categorie'])) {
     $categorieName = htmlspecialchars($_POST['categorie_name']);
 
     // apeler la methode inscription de la classe Event
     Categorie::addCategorie($categorieName);
-
 }
 
 
@@ -341,8 +339,7 @@ if (isset($_POST['update_categorie'])) {
     $categorieName = htmlspecialchars($_POST['categorie_name']);
 
     // apeler la methode inscription de la classe Categorie
-    Categorie::updateCategorieById($id,$categorieName);
-
+    Categorie::updateCategorieById($id, $categorieName);
 }
 
 
@@ -413,8 +410,9 @@ if (isset($_GET['id_categorie_delete'])) {
 // }
 
 if (isset($_POST['valider_panier'])) {
-    
-    debug($_SESSION);die;
+
+    debug($_SESSION);
+    die;
     $idUser = $_SESSION['id_user'];
     $idEvent = htmlspecialchars($_POST['id_evenement']);
     $placeReserve = htmlspecialchars($_POST['quantity']);
@@ -441,29 +439,29 @@ if (isset($_POST['add_another_book'])) {
 //     $eventId = htmlspecialchars($_POST['id_event']);
 
 //     Book::getUserReservationsForEvent($userId, $eventId);
-    
+
 // }
 
 if (isset($_POST['add_book2'])) {
     // Récupérez les données du formulaire
     $eventId = $_POST['id_event'];
-$placesToReserve = $_POST['place_reserve'];
+    $placesToReserve = $_POST['place_reserve'];
 
-// Effectuez la réservation en utilisant la méthode makeReservation de la classe Book
-$reservationSuccess = Book::makeReservation($_SESSION['id_user'], $eventId, $placesToReserve);
+    // Effectuez la réservation en utilisant la méthode makeReservation de la classe Book
+    $reservationSuccess = Book::makeReservation($_SESSION['id_user'], $eventId, $placesToReserve);
 
-// Vérifiez si la réservation a réussi
-if ($reservationSuccess) {
-    // Définissez le message de confirmation dans la session
-    $_SESSION['reservation_confirmation'] = "Votre réservation a été confirmée avec succès!";
-} else {
-    // Gérez le cas où la réservation a échoué (par exemple, places épuisées)
-    $_SESSION['reservation_error'] = "Désolé, la réservation a échoué. Veuillez réessayer.";
-}
+    // Vérifiez si la réservation a réussi
+    if ($reservationSuccess) {
+        // Définissez le message de confirmation dans la session
+        $_SESSION['reservation_confirmation'] = "Votre réservation a été confirmée avec succès!";
+    } else {
+        // Gérez le cas où la réservation a échoué (par exemple, places épuisées)
+        $_SESSION['reservation_error'] = "Désolé, la réservation a échoué. Veuillez réessayer.";
+    }
 
-// Redirigez l'utilisateur vers la page de détails de l'événement avec un paramètre de confirmation
-header("Location: ./event.php?event=$eventId&reservation_confirmation=" . ($reservationSuccess ? '1' : '0'));
-exit();
+    // Redirigez l'utilisateur vers la page de détails de l'événement avec un paramètre de confirmation
+    header("Location: ./event.php?event=$eventId&reservation_confirmation=" . ($reservationSuccess ? '1' : '0'));
+    exit();
 }
 
 
@@ -473,7 +471,6 @@ if (isset($_POST['historique_book'])) {
     $eventId = htmlspecialchars($_POST['id_event']);
 
     Book::getUserPreviousReservations($userId, $eventId);
-    
 }
 
 
@@ -565,44 +562,44 @@ if (isset($_POST['add_panier'])) {
     // converti les index en variable avec le nom de ses index
     extract($_POST);
 
-        $quantite = $place_reserve ?: 1;
-        $events = Event::findEventById($id_event);
+    $quantite = $place_reserve ?: 1;
+    $events = Event::findEventById($id_event);
 
-        // S'il n'existe pas de $_SESSION avec la clé réservation alors
-        if( !array_key_exists('reservation', $_SESSION) ){
-            $_SESSION['reservation'] = [];
+    // S'il n'existe pas de $_SESSION avec la clé réservation alors
+    if (!array_key_exists('reservation', $_SESSION)) {
+        $_SESSION['reservation'] = [];
+    }
+
+    // égale à un tableau vide pour la première fois
+    $panier = $_SESSION['reservation'];
+
+    $eventsDejaDansPanier = false;
+    foreach ($panier as $indice => $value) {
+        if ($events['id_evenement'] == $value["events"]['id_evenement']) {
+            $panier[$indice]["quantite"] += $quantite;
+            $eventsDejaDansPanier = true;
+            break;  // pour sortir de la boucle foreach
         }
+    }
 
-        // égale à un tableau vide pour la première fois
-       	$panier = $_SESSION['reservation'];
+    if (!$eventsDejaDansPanier) {
+        $panier[] = ["quantite" => $quantite, "events" => $events];  // on ajoute une value au panier => $panier est un array d'array
+    }
 
-        $eventsDejaDansPanier = false;
-        foreach ($panier as $indice => $value) {
-            if ($events['id_evenement'] == $value["events"]['id_evenement']) {                
-                $panier[$indice]["quantite"] += $quantite;
-                $eventsDejaDansPanier = true;
-                break;  // pour sortir de la boucle foreach
-            }
-        }
+    $_SESSION['reservation'] = $panier; // je remets $panier dans la session, à l'indice 'reservation'
 
-        if (!$eventsDejaDansPanier) {
-            $panier[] = ["quantite" => $quantite, "events" => $events];  // on ajoute une value au panier => $panier est un array d'array
-        }
+    $nb = 0;
 
-		$_SESSION['reservation'] = $panier; // je remets $panier dans la session, à l'indice 'reservation'
+    foreach ($panier as $value) {
+        $nb += $value["quantite"];
+    }
 
-        $nb = 0;
-
-        foreach ($panier as $value) {
-            $nb += $value["quantite"];
-        }
-
-        $_SESSION["nombre"] = $nb;
-        echo $nb;
+    $_SESSION["nombre"] = $nb;
+    echo $nb;
 
 
-        // création du panier dans la session
-        // header("Location: http://localhost/event/views/panier_0.php");
+    // création du panier dans la session
+    // header("Location: http://localhost/event/views/panier_css.php");
 }
 
 
@@ -616,28 +613,28 @@ if (isset($_POST['add_panier'])) {
 
 
 
-if(!empty($_GET['valider_commande'])){
+if (!empty($_GET['valider_commande'])) {
 
     // Récupérez l'ID de l'utilisateur depuis la session (ajustez selon votre structure de session)
     $userId = $_SESSION['id_user'];
-    
+
     // Parcourez chaque élément du panier et insérez-le dans la base de données
     foreach ($_SESSION['reservation'] as $item) {
         $eventId = $item['events']['id_evenement'];
         $quantity = $item['quantite'];
-    
+
         // Utilisez la méthode d'insertion que vous avez définie dans bookModel.php
         $insertResult = Book::insertReservation($userId, $eventId, $quantity);
-    
+
         // Gérez le résultat de l'insertion (par exemple, affichez un message d'erreur si nécessaire)
         if (!$insertResult) {
             echo "Erreur lors de l'insertion de la réservation pour l'événement ID $eventId.";
         }
     }
-    
+
     // Effacez le panier après l'insertion dans la base de données (vous pouvez ajuster cette étape selon votre logique)
     unset($_SESSION['reservation']);
     unset($_SESSION["nombre"]);
-    
+
     header("Location: http://localhost/event_luxury/views/commande.php");
-    }
+}

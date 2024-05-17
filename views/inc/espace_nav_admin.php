@@ -12,7 +12,7 @@
 
 
         <div class="panier">
-            <a id="panier_nav" href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
+            <a id="panier_nav" href="http://localhost/event_luxury/views/panier_css">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
         </div>
     </div>
 
@@ -47,10 +47,10 @@
                     </div>
 
                     <!-- Affichage prénom -->
-                    <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
+                    <?php if (!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
 
                         <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
-                    
+
                     <?php } else { ?>
                         <p>Bonjour</p>
                     <?php } ?>
@@ -121,7 +121,7 @@
         </div>
 
         <!-- PARTIE GAUCHE -->
-        <div class="menu_fond">   
+        <div class="menu_fond">
         </div>
     </div>
     <!-- ESPACE DE NAVIGATION - fin -->

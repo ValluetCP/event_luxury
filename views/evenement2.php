@@ -61,7 +61,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
         </div>
         <a class="modalClosePanier" href="#"><img class="img_croix_popup2" src="./asset/img/coix_verte.svg" alt=""></a>
         <div class="modalPanierDegrade">
-            <a href="http://localhost/event_luxury/views/panier_0.php" id="lb_btnPanier" class="btn_billet_panier">Voir panier</a>
+            <a href="http://localhost/event_luxury/views/panier_css.php" id="lb_btnPanier" class="btn_billet_panier">Voir panier</a>
         </div>
     </div>
 
@@ -92,7 +92,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
         <!-- SECTION GAUCHE - IMAGE FIXE -->
         <section class="gauche gaucheEvent">
             <div class="gaucheImg gaucheImgEvent">
-                <img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="">
+                <img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="image <?= $ficheEvent['titre']; ?>">
             </div>
         </section>
 
@@ -103,6 +103,11 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
             <div class="navBlanche"></div>
 
             <div class="containerDroit containerDroitEvent">
+
+                <!-- Fil d'ariane page événement -->
+                <p class="retourListe">
+                    <a href="./event_list.php">Retour à la liste des événements</a>
+                </p>
 
                 <!-- ------ ETAT DE L'EVENT ------ -->
                 <!-- Etat de l'événement : réservé, complet, annuler, terminé -->
@@ -278,7 +283,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                             <article class="categoryUn">
                                 <figure class="fig_1">
                                     <a href="./evenement2.php?id_event=<?= $event['id_evenement']; ?>">
-                                        <div class="imgCategory"><img src="../asset/img/<?= $event['image']; ?>" alt=""></div>
+                                        <div class="imgCategory"><img src="../asset/img/<?= $event['image']; ?>" alt="événement <?= $event['titre']; ?> "></div>
                                     </a>
                                 </figure>
                                 <div class="titreCategory">
@@ -294,7 +299,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
                 </div>
 
-                <h3>Vous pourriez aimer . . .</h3>
+                <!-- <h3>Vous pourriez aimer . . .</h3>
                 <div class="trioCategory">
                     <article class="categoryUn">
                         <figure class="fig_1">
@@ -336,7 +341,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                         </div>
                     </article>
 
-                </div>
+                </div> -->
             </div>
 
         </section>

@@ -1,5 +1,5 @@
 <?php
-if(!empty($_SESSION)) {
+if (!empty($_SESSION)) {
     $user["role"] = $_SESSION["user_role"];
 }
 ?>
@@ -17,8 +17,8 @@ if(!empty($_SESSION)) {
             <p>Pour participer à nos événements, vous devez être détenteur d'un compte. Veuillez vous connecter ou bien vous inscrire.</p>
         </div>
         <div class="ModalBtnGroup">
-            <a href="http://localhost/event_luxury/views/connexion" id="btnHomeConnxion"class="modal_btn btn_modal_1_trait">Je me connecte</a>
-            <a href="http://localhost/event_luxury/views/inscription" id="btnHomeInscription"class="modal_btn btn_modal_2_fond">Je m'inscris</a>
+            <a href="http://localhost/event_luxury/views/connexion" id="btnHomeConnxion" class="modal_btn btn_modal_1_trait">Je me connecte</a>
+            <a href="http://localhost/event_luxury/views/inscription" id="btnHomeInscription" class="modal_btn btn_modal_2_fond">Je m'inscris</a>
         </div>
     </div>
 </div>
@@ -30,7 +30,7 @@ if(!empty($_SESSION)) {
 
 <!-- --------------------------- ADMIN - rôle --------------------------- -->
 
-<?php if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){ ?>
+<?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") { ?>
 
     <nav class="navbar">
 
@@ -48,7 +48,7 @@ if(!empty($_SESSION)) {
 
 
             <div class="panier">
-                <a id="hdr_panier_nav" href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
+                <a id="hdr_panier_nav" href="http://localhost/event_luxury/views/panier_css">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
             </div>
         </div>
 
@@ -76,34 +76,34 @@ if(!empty($_SESSION)) {
                         <!-- Affichage photo -->
                         <div class="img_profil_nav">
 
-                        <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?> 
-                            
-                            <div class="img_profil">
-                                <img src="../asset/img_event/<?= $_SESSION['user_img_profil']; ?>" alt="">
-                            </div>
-                            
-                        <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-                            <div class="img_profil">
-                                <img src="../asset/img_event/<?= $_SESSION['user_img_profil']; ?>" alt="">
-                            </div>
-                        <?php } else { ?>
-                            <a href="">
-                                <img class="img_profil" src="../asset/img/calamar.JPG" alt="">
-                            </a>
-                        <?php } ?>
+                            <?php if (!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
+
+                                <div class="img_profil">
+                                    <img src="../asset/img_event/<?= $_SESSION['user_img_profil']; ?>" alt="">
+                                </div>
+
+                            <?php } elseif (!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
+                                <div class="img_profil">
+                                    <img src="../asset/img_event/<?= $_SESSION['user_img_profil']; ?>" alt="">
+                                </div>
+                            <?php } else { ?>
+                                <a href="">
+                                    <img class="img_profil" src="../asset/img/calamar.JPG" alt="">
+                                </a>
+                            <?php } ?>
                         </div>
 
                         <!-- Affichage prénom -->
-                        <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
+                        <?php if (!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
                             <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
-                        <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
+                        <?php } elseif (!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
                             <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
                         <?php } else { ?>
                             <p>Bonjour</p>
                         <?php } ?>
                         <!-- <p>Bonjour Clara,</p> -->
                     </div>
-    
+
                     <!-- ESPACE NAVIGATION  - BOUTON MENU (admin & client) -->
                     <div class="nav2_menu">
                         <ul>
@@ -112,7 +112,7 @@ if(!empty($_SESSION)) {
                             <li id="menu_client"><a href="#" onclick="showList('listeClient')" class="slide-line">Espace Client</a></li>
                         </ul>
                     </div>
-    
+
                     <!-- ESPACE NAVIGATION  - LES LIENS -->
 
                     <!-- MENU ESPACE PERSONNEL -->
@@ -159,22 +159,22 @@ if(!empty($_SESSION)) {
                             <li><a href="http://localhost/event_luxury/views/list_book" class="client_book_link sous_menu_client">Vos réservations</a></li>
                         </ul>
                     </div>
-    
+
                     <!-- DECONNEXION  - LIENS -->
                     <div class="deconnexion">
                         <a href="http://localhost/event_luxury/views/logout">Déconnexion</a>
                     </div>
                 </div>
             </div>
-    
+
             <!-- PARTIE GAUCHE -->
-            <div class="menu_fond">   
+            <div class="menu_fond">
             </div>
         </div>
         <!-- ESPACE DE NAVIGATION - fin -->
     </nav>
 
-<?php } elseif(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client"){ ?>
+<?php } elseif (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client") { ?>
 
     <nav class="nav_home_page">
 
@@ -190,7 +190,7 @@ if(!empty($_SESSION)) {
 
 
             <div class="panier">
-                <a id="panier_nav" href="http://localhost/event_luxury/views/panier_0">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
+                <a id="panier_nav" href="http://localhost/event_luxury/views/panier_css">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
             </div>
         </div>
 
@@ -218,35 +218,35 @@ if(!empty($_SESSION)) {
                         <!-- Affichage photo -->
                         <div class="img_profil_nav">
 
-                        <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
-                            <a href="">
-                                <img class="img_profil" src="http://localhost/event_luxury/views/asset/img/coco2.JPG" alt="">
-                            </a>
-                            <!-- <a href="">
+                            <?php if (!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
+                                <a href="">
+                                    <img class="img_profil" src="http://localhost/event_luxury/views/asset/img/coco2.JPG" alt="">
+                                </a>
+                                <!-- <a href="">
                                 <img class="img_profil" src="../asset/img/<?= $_SESSION['user_img_profil']; ?>" alt="">
                             </a> -->
-                        <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-                            <a href="">
-                                <img class="img_profil" src="http://localhost/event_luxury/views/asset/img/calamar.JPG" alt="">
-                            </a>
-                        <?php } else { ?>
-                            <a href="">
-                                <img class="img_profil" src="http://localhost/event_luxury/views/asset/img/calamar.JPG" alt="">
-                            </a>
-                        <?php } ?>
+                            <?php } elseif (!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
+                                <a href="">
+                                    <img class="img_profil" src="http://localhost/event_luxury/views/asset/img/calamar.JPG" alt="">
+                                </a>
+                            <?php } else { ?>
+                                <a href="">
+                                    <img class="img_profil" src="http://localhost/event_luxury/views/asset/img/calamar.JPG" alt="">
+                                </a>
+                            <?php } ?>
                         </div>
 
                         <!-- Affichage prénom -->
-                        <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
+                        <?php if (!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
                             <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
-                        <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
+                        <?php } elseif (!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
                             <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
                         <?php } else { ?>
                             <p>Bonjour</p>
                         <?php } ?>
                         <!-- <p>Bonjour Clara,</p> -->
                     </div>
-    
+
                     <!-- ESPACE NAVIGATION  - BOUTON MENU (admin & client) -->
                     <div class="nav2_menu">
                         <ul>
@@ -255,7 +255,7 @@ if(!empty($_SESSION)) {
                             <li id="menu_client"><a href="#" onclick="showList('listeClient')" class="slide-line">Espace Client</a></li>
                         </ul>
                     </div>
-    
+
                     <!-- ESPACE NAVIGATION  - LES LIENS -->
 
                     <!-- MENU ESPACE PERSONNEL -->
@@ -302,16 +302,16 @@ if(!empty($_SESSION)) {
                             <li><a href="http://localhost/event_luxury/views/list_book" class="client_book_link sous_menu_client">Vos réservations</a></li>
                         </ul>
                     </div>
-    
+
                     <!-- DECONNEXION  - LIENS -->
                     <div class="deconnexion">
                         <a href="http://localhost/event_luxury/views/logout">Déconnexion</a>
                     </div>
                 </div>
             </div>
-    
+
             <!-- PARTIE GAUCHE -->
-            <div class="menu_fond">   
+            <div class="menu_fond">
             </div>
         </div>
         <!-- ESPACE DE NAVIGATION - fin -->
@@ -326,14 +326,14 @@ if(!empty($_SESSION)) {
             <img class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo">
             <!-- <img class="logo logo_vert_fonce" src="./img/img_logo/logo_vert_fonce.svg" alt=""> -->
         </div>
-        
+
         <div class="navigation hp_navigation">
 
-            
+
             <!-- Bonjour -->
-            <?php if(!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>                 
+            <?php if (!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
                 <h1>Bonjour admin<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
-            <?php } elseif(!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
+            <?php } elseif (!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
                 <h1>Bonjour client<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
             <?php } else { ?>
                 <!-- <h1>Bonjour</h1> -->
@@ -343,13 +343,19 @@ if(!empty($_SESSION)) {
 
 
                 <!-- S'incrire  -->
-                <a href="http://localhost/event_luxury/views/inscription"><p>Inscription</p></a>
-    
+                <a href="http://localhost/event_luxury/views/inscription">
+                    <p>Inscription</p>
+                </a>
+
                 <!-- Se connecter  -->
-                <a href="http://localhost/event_luxury/views/connexion"><p>Connexion</p></a>
-    
+                <a href="http://localhost/event_luxury/views/connexion">
+                    <p>Connexion</p>
+                </a>
+
                 <!-- Réservations  -->
-                <a href="#modalInscription" class="btn_reservation"><p>Réservation</p></a>
+                <a href="#modalInscription" class="btn_reservation">
+                    <p>Réservation</p>
+                </a>
             </div>
         </div>
     </nav>

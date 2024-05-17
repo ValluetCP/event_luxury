@@ -1269,6 +1269,16 @@ background-color: rgba(255, 255, 255, 0.5);
     margin-top: 75px;
 }
 
+/* Fil d'ariane page événement */
+.retourListe::before{
+    content: "<";
+}
+
+.retourListe a{
+    text-decoration: none;
+    color: var(--vertFonce);
+}
+
 /* Encadré - Etat de l'event */
 .bgEtat{
     background-color: var(--vertClair);
@@ -1276,6 +1286,7 @@ background-color: rgba(255, 255, 255, 0.5);
     width: 592px;
     display: flex;
     margin: auto;
+    margin-top: 62px;
 }
 
 .borderEtat{
@@ -1350,7 +1361,7 @@ background-color: rgba(255, 255, 255, 0.5);
 
 /* Texte - Etat de l'event - complet */
 #bgEtat_termine{
-    background-color: var(--vertHover);
+    background-color: var(--vertFonce);
 }
 
 #bgEtat_termine .borderEtat{
@@ -1477,7 +1488,7 @@ background-color: rgba(255, 255, 255, 0.5);
 .place_prix{
     display: flex;
     justify-content: space-between;
-    margin-top: 80px;
+    margin-top: 50px;
     margin-bottom: 80px;
     align-items: center;
 }
@@ -1661,7 +1672,7 @@ background-color: rgba(255, 255, 255, 0.5);
 .trioCategory article {
     display: grid;
     grid-template-rows: auto 63px 25px;
-    gap: 15px;
+    gap: 10px;
     cursor: pointer;
 }
 
@@ -3348,7 +3359,7 @@ input[type=file]::file-selector-button {
 
 
 
-/* ------------------ PANIER (panier_0.php)- DEBUT ------------------ */
+/* ------------------ PANIER (panier_css.php)- DEBUT ------------------ */
 
 .containerPagePanier{
     max-width: 1600px;
@@ -3402,6 +3413,16 @@ input[type=file]::file-selector-button {
     margin-bottom: 20px;
     position: relative;
     cursor: pointer;
+    overflow: hidden;
+}
+
+.imgProduitPanier img{
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+}
+
+.imgProduitPanier:hover img{
+    transform: scale(1.05);
 }
 
 /* voir détail */
@@ -3418,6 +3439,7 @@ input[type=file]::file-selector-button {
     position: absolute;
     top: 15px;
     left: 15px;
+    z-index: 1;
 }
 
 .detailProduit p{
@@ -3551,7 +3573,7 @@ input[type=file]::file-selector-button {
 }
 
 
-/* ------------------ PANIER (panier_0.php)- FIN ------------------ */
+/* ------------------ PANIER (panier_css.php)- FIN ------------------ */
 
 
 
@@ -3812,7 +3834,11 @@ input[type=file]::file-selector-button {
         margin-left: 30px;
         margin-right: 30px;
     }
-
+    
+    /* ------------ PAGE PANIER panier_css.php (max-width:1400px) - DEBUT ------------ */
+    .titrePanier {
+        width: 376px;
+    }
 }
 
 
@@ -3949,7 +3975,7 @@ input[type=file]::file-selector-button {
     }
 
     /* ------------ HISTORIQUE - (max-width:1200px)------------ */
-
+    
     /* --- PARTIE HAUTE --- */
     
     /* --- PARTIE BASSE --- */
@@ -3957,11 +3983,36 @@ input[type=file]::file-selector-button {
     #b_containerDroit {
         max-width: 760px;
     }
-        
+    
     .container_historique h1 {
         margin-top: 0px;
     }
+    
+    /* ------------ PAGE PANIER - (max-width:1200px)------------ */
+    .containerPanier {
+        grid-template-columns: 1fr;
+    }
 
+    .titrePanier {
+        display: none;
+    }
+
+    .containerPagePanier {
+        max-width: 770px;
+    }
+
+    .validerPanier {
+        background-color: var(--vertClair);
+    }
+
+    .totalPrix p {
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+
+    .listeProduit {
+        margin-bottom: 85px;
+    }
 }
 
 /* ---------------------- (max-width: 1200px) - FIN ---------------------- */

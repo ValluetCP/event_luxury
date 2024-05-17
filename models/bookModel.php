@@ -132,7 +132,7 @@ class Book{
     //     $_SESSION['panier'][]= $tab;
 
     //     // rediriger vers la page list_user.php
-    //     header("Location: http://localhost/event_luxury/views/panier_0.php");
+    //     header("Location: http://localhost/event_luxury/views/panier_css.php");
         
     // }
 
