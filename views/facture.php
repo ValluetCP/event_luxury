@@ -21,14 +21,14 @@ include_once "./inc/nav_blc_espace_profil.php";
     </div>
 </main>
 <footer></footer>
-        <!-- Changement attérir sur l'espace client de la nav -->
-        <script src="./asset/js/espace_admin/nav_espace_profil_facture.js"></script>
-        
-        <!-- Changement d'état au scroll -->
-        <script src="./asset/js/nav_scroll2.js"></script>
+    <!-- Changement attérir sur l'espace client de la nav -->
+    <script src="./asset/js/espace_admin/nav_espace_profil_facture.js"></script>
+    
+    <!-- Changement d'état au scroll -->
+    <script src="./asset/js/nav_scroll2.js"></script>
 
-        <!-- Espace navigation -->
-        <script src="./asset/js/espace_navigation.js"></script>
+    <!-- Espace navigation -->
+    <script src="./asset/js/espace_navigation.js"></script>
 </body>
 
 </html>

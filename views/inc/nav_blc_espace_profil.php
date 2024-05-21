@@ -104,7 +104,7 @@ if (!empty($_SESSION)) {
                     <!-- ESPACE NAVIGATION  - LES LIENS -->
 
                     <!-- MENU ESPACE PERSONNEL -->
-                    <div class="listeProfil hidden list_sous_menu">
+                    <div class="listeProfil list_sous_menu">
                         <ul class="filtre">
 
                             <!-- ESPACE PERSONNEL -->
@@ -135,7 +135,7 @@ if (!empty($_SESSION)) {
                     </div>
 
                     <!-- MENU CLIENT -->
-                    <div class="listeClient list_sous_menu">
+                    <div class="listeClient hidden list_sous_menu">
                         <ul class="filtre">
 
                             <!-- CLIENT - Accueil -->
@@ -235,7 +235,7 @@ if (!empty($_SESSION)) {
                     <!-- ESPACE NAVIGATION  - LES LIENS -->
 
                     <!-- MENU ESPACE PERSONNEL -->
-                    <div class="listeProfil hidden list_sous_menu">
+                    <div class="listeProfil list_sous_menu">
                         <ul class="filtre">
 
                             <!-- ESPACE PERSONNEL -->
