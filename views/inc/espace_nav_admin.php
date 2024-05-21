@@ -61,8 +61,9 @@
                 <div class="nav2_menu">
                     <ul>
                         <li id="menu_profil"><a href="#" onclick="showList('listeProfil')" class="slide-line">Profil</a></li>
-                        <li id="menu_admin"><a href="#" onclick="showList('listeAdmin')" class="slide-line activeMenuLink">Espace Admin</a></li>
+                        <li id="menu_admin"><a href="#" onclick="showList('listeAdmin')" class="slide-line ">Espace Admin</a></li>
                         <li id="menu_client"><a href="#" onclick="showList('listeClient')" class="slide-line">Espace Client</a></li>
+                        <!-- activeMenuLink -->
                     </ul>
                 </div>
 
@@ -81,11 +82,12 @@
                 </div>
 
                 <!-- MENU ADMIN -->
-                <div class="listeAdmin list_sous_menu">
+                <div class="listeAdmin hidden list_sous_menu">
                     <ul class="filtre">
 
                         <!-- ADMIN - Accueil -->
-                        <li><a href="http://localhost/event_luxury/views/admin/admin_accueil.php" class="admin_accueil_link sous_menu_admin linkActive">L'accueil</a></li>
+                        <li><a href="http://localhost/event_luxury/views/admin/admin_accueil.php" class="admin_accueil_link sous_menu_admin ">L'accueil</a></li>
+                        <!-- linkActive -->
 
                         <!-- ADMIN - Liste des catégories -->
                         <li><a href="http://localhost/event_luxury/views/admin/admin_list_categorie.php" class="admin_categorie_link sous_menu_admin">Les catégories</a></li>
@@ -99,7 +101,7 @@
                 </div>
 
                 <!-- MENU CLIENT -->
-                <div class="listeClient hidden list_sous_menu">
+                <div class="listeClient list_sous_menu">
                     <ul class="filtre">
 
                         <!-- CLIENT - Accueil -->

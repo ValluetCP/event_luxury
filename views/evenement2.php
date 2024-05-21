@@ -348,6 +348,9 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     </main>
     <footer></footer>
 
+    <!-- Changement attérir sur l'espace client de la nav -->
+    <script src="./asset/js/nav_espace_client_event.js"></script>
+
     <!-- Changement d'état au scroll -->
     <script src="./asset/js/nav_scroll2.js"></script>
 

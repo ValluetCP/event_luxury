@@ -16,26 +16,26 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 ) {
 
 
-// -------------- CODE -------------- //
-// $listEvent = Event::findAllEvent();
-$userReservation = User::userReservation($_GET['id_event']);
-$eventId = $_GET['id_event'];
-$ficheEvent = Event::findEventById($eventId);
-$bookList = Book::findAllBookByIdUser();
-$totalPlacesReservees = Book::calculReservation($eventId);
-$placesDisponibles = $ficheEvent['nbr_place'] - $totalPlacesReservees;
-$currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD HH:MM:SS)
-// Book::cancelBook($userId, $eventId);
+    // -------------- CODE -------------- //
+    // $listEvent = Event::findAllEvent();
+    $userReservation = User::userReservation($_GET['id_event']);
+    $eventId = $_GET['id_event'];
+    $ficheEvent = Event::findEventById($eventId);
+    $bookList = Book::findAllBookByIdUser();
+    $totalPlacesReservees = Book::calculReservation($eventId);
+    $placesDisponibles = $ficheEvent['nbr_place'] - $totalPlacesReservees;
+    $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD HH:MM:SS)
+    // Book::cancelBook($userId, $eventId);
 
-// $placeList = Book::calculReservation($eventId);
-// var_dump($placeList);
-// ["SUM(place_reserve)"]=> NULL
-// var_dump($userReservation);
+    // $placeList = Book::calculReservation($eventId);
+    // var_dump($placeList);
+    // ["SUM(place_reserve)"]=> NULL
+    // var_dump($userReservation);
 ?>
 
 
     <!-- ---------------- PAGE HISTORIQUE ----------------- -->
-    
+
     <main class="site">
         <!-- SECTION GAUCHE - IMAGE FIXE -->
         <section class="gauche">
@@ -44,7 +44,9 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
 
         <!-- SECTION DROITE - FICHE PRODUIT -->
         <section class="droite droiteHistorique">
+            <div class="navBlanche"></div>
             <div id="b_containerDroit" class="containerDroit">
+
                 <div class="b_container container_historique">
 
                     <h1><?= ucfirst($ficheEvent['titre']); ?></h1>
@@ -60,15 +62,15 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                         </tr>
 
 
-                        <?php 
+                        <?php
                         $userPreviousReservations = Book::getUserPreviousReservations($_SESSION['id_user'], $ficheEvent['id_evenement']);
-                        foreach($userPreviousReservations as $reservation){ 
+                        foreach ($userPreviousReservations as $reservation) {
                             // Comparer la date de l'événement avec la date actuelle
                             if ($userPreviousReservations) { ?>
-                                <?php if($reservation['reservation_actif'] == 1){ ?>
+                                <?php if ($reservation['reservation_actif'] == 1) { ?>
 
                                     <tr class="b_tableau_contenu">
-                                        
+
                                         <!-- date & heure de réservation -->
                                         <td>
                                             <?= date('d-m-Y H:i:s', strtotime($reservation['date_reservation'])); ?>
@@ -85,36 +87,36 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                                         </td>
                                     </tr>
 
-                                <?php } else if($reservation['reservation_actif'] == 0){ ?>
+                                <?php } else if ($reservation['reservation_actif'] == 0) { ?>
                                     <tr class="event-passe b_tableau_contenu">
 
                                         <!-- date & heure de réservation -->
                                         <td class="date-event">
                                             <?= date('d-m-Y H:i:s', strtotime($reservation['date_reservation'])); ?>
                                         </td>
-                                        
+
                                         <!-- nombre de place réservées -->
                                         <td>
-                                            
+
                                         </td>
-                                        
+
                                         <!-- Réservation déjà annulé -->
                                         <td class="event-passe">annulé</td>
                                     </tr>
                                 <?php } ?>
-                            <?php }
+                        <?php }
                         } ?>
                     </table>
-    
+
                     <!-- MENU ACCORDEON -->
                     <div class="contenuEvent">
-    
+
                         <dl id="accordeon">
                             <dt id="b_resume">Descriptif</dt>
                             <dd>
                                 <p><?= $ficheEvent['resume']; ?></p>
                             </dd>
-                            
+
                             <dt>Détail place</dt>
                             <dd>
                                 <p class="statePlace">
@@ -123,7 +125,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                                     Nombre de place réservée : <?= $totalPlacesReservees; ?> <br>
                                 </p>
                             </dd>
-                            
+
                             <dt id="b_tarif">Tarif</dt>
                             <dd>
                                 <p>Prix : <?= $ficheEvent['prix']; ?>€</p>
@@ -133,9 +135,9 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                     <div class="b_facture">
                         <a href="http://localhost/event_luxury/views/list_book.php" class="b_btn_facture">Retour à la liste des réservations</a>
                     </div>
-    
+
                     <p class="b_defaut">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
                     </p>
                 </div>
             </div>
@@ -143,27 +145,24 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
         </section>
     </main>
     <footer></footer>
+
+    <!-- Changement attérir sur l'espace client de la nav -->
+    <script src="./asset/js/nav_espace_client_reservation.js"></script>
+
+    <!-- Changement d'état au scroll -->
     <script src="./asset/js/nav_scroll2.js"></script>
-    <script>
-        function showList(listClassName){
-            var allLists = document.querySelectorAll('.nav2_container div:not(.nav2_menu,.deconnexion,.profil_nav,.img_profil_nav)');
-            allLists.forEach(function(list) {
-                list.classList.add('hidden');
-            });
-    
-            // Afficher la liste correspondante
-            var selectedList = document.querySelector('.' + listClassName);
-            selectedList.classList.remove('hidden');
-        }
-    </script>
+
+    <!-- Espace navigation -->
+    <script src="./asset/js/espace_navigation.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="./asset/js/site.js"></script>
 
 
     <!-- -------------- SUITE SECURITE ACCES -------------- -->
-    <?php } else {
-        require_once "./inc/securite.php";
-    }
-    ?>
+<?php } else {
+    require_once "./inc/securite.php";
+}
+?>
 </body>
+
 </html>
