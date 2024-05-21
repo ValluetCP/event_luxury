@@ -60,6 +60,8 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
     </main>
 
     <!-- BALISE SCRIPT -->
+    <!-- Changement attérir sur l'espace client de la nav -->
+    <script src="../asset/js/nav_espace_admin_accueil.js"></script>
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
     <!-- Changement d'état au scroll -->

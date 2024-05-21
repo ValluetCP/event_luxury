@@ -4,7 +4,7 @@ include_once "../inc/header.php";
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
-    include_once "../inc/navigation_bicolor.php";
+    include_once "../inc/nav_bicolor_espace_admin.php";
     require_once "../../models/categorieModel.php";
     require_once "../../models/eventModel.php";
     require_once "../../models/bookModel.php";
@@ -40,17 +40,20 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
         <!-- SECTION GAUCHE - IMAGE FIXE -->
         <section class="gauche gaucheEvent">
             <div class="gaucheImg gaucheImgEvent" style="background-image: url(<?php
-                                                                                if (!empty($event) && !empty($event['image'])) {
-                                                                                    echo '../asset/img_event/' . $event['image'];
-                                                                                } else {
-                                                                                    echo '../asset/img/event_horizontal_bateau.jpg';
-                                                                                }
-                                                                                ?>);">
+                if (!empty($event) && !empty($event['image'])) {
+                    echo '../asset/img_event/' . $event['image'];
+                } else {
+                    echo '../asset/img/event_horizontal_bateau.jpg';
+                }
+            ?>);">
             </div>
         </section>
 
         <!-- SECTION DROITE - FICHE PRODUIT -->
         <section class="droite">
+
+            <div class="navBlanche"></div>
+            
             <div id="containerEventForm" class="containerGabaritForm containerDroit containerDroitEvent">
 
                 <h1><?= !empty($event) ? "Modifier<br>un événement" : "Ajouter<br>un événement" ?></h1>
@@ -146,7 +149,9 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
     </main>
     <footer></footer>
 
-    <!-- -------------- BALISE SCRIPT -------------- -->
+    <!-- BALISE SCRIPT -->
+    <!-- Changement attérir sur l'espace client de la nav -->
+    <script src="../asset/js/espace_admin/nav_espace_admin_event.js"></script>
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
 

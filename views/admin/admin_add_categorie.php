@@ -5,7 +5,7 @@ include_once "../inc/header.php";
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
-    include_once "../inc/navigation_bicolor.php";
+    include_once "../inc/nav_bicolor_espace_admin.php";
     // include_once "../inc/nav_admin_bicolor.php";
     require_once "../../models/categorieModel.php";
 
@@ -32,6 +32,9 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
         <!-- SECTION DROITE - FICHE PRODUIT -->
         <section class="droite">
+
+            <div class="navBlanche"></div>
+            
             <div id="containerCategory" class="containerGabaritForm containerDroit containerDroitEvent">
 
                 <!-- <h1>Ajouter<br>une catégorie</h1> -->
@@ -60,6 +63,8 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
     <footer></footer>
 
     <!-- -------------- BALISE SCRIPT -------------- -->
+    <!-- Changement attérir sur l'espace client de la nav -->
+    <script src="../asset/js/espace_admin/nav_espace_admin_categorie.js"></script>
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
 

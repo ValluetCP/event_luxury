@@ -1,6 +1,6 @@
 <?php
 include_once "./inc/header.php";
-include_once "./inc/navigation_vert.php";
+include_once "./inc/nav_vert_espace_profil.php";
 require_once "../models/userModel.php";
 // // $_SESSION["user_role"] = $user["role"];
 // $user["role"] = $_SESSION["user_role"];
@@ -85,6 +85,9 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 <footer>
 
 </footer>
+
+<!-- Changement attérir sur l'espace client de la nav -->
+<script src="./asset/js/nav_espace_profil.js"></script>
 
 <!-- Changement d'état au scroll -->
 <script src="./asset/js/nav_scroll2.js"></script>

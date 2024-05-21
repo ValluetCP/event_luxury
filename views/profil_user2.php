@@ -1,6 +1,6 @@
 <?php
 include_once "./inc/header.php";
-include_once "./inc/navigation_vert.php";
+include_once "./inc/nav_vert_espace_admin.php";
 require_once "../models/userModel.php";
 
 if (isset($_GET['id_user_update'])) {
@@ -67,19 +67,14 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 <footer>
 
 </footer>
-<script src="./js/nav_scroll2.js"></script>
-<script>
-    function showList(listClassName) {
-        var allLists = document.querySelectorAll('.nav2_container div:not(.nav2_menu,.deconnexion,.profil_nav,.img_profil_nav)');
-        allLists.forEach(function(list) {
-            list.classList.add('hidden');
-        });
+<!-- -------------- BALISE SCRIPT -------------- -->
+    <!-- Changement attérir sur l'espace client de la nav -->
+    <script src="../asset/js/espace_admin/nav_espace_admin_user.js"></script>
+    <!-- Espace navigation -->
+    <script src="../asset/js/espace_navigation.js"></script>
 
-        // Afficher la liste correspondante
-        var selectedList = document.querySelector('.' + listClassName);
-        selectedList.classList.remove('hidden');
-    }
-</script>
+    <!-- Changement d'état au scroll -->
+    <script src="../asset/js/nav_scroll2.js"></script>
 
 <!-- -------------- SUITE SECURITE ACCES -------------- -->
 <?php } else {

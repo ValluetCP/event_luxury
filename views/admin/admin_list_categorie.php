@@ -6,7 +6,7 @@ include_once "../inc/header.php";
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
     
 // include_once "../inc/navigation_blanc.php";
-include_once "../inc/navigation_header.php";
+include_once "../inc/nav_blc_espace_admin.php";
 require_once "../../models/categorieModel.php";
 $listCategorie = Categorie::findAllCategorie();
 
@@ -106,6 +106,8 @@ $listCategorie = Categorie::findAllCategorie();
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <!-- BALISE SCRIPT -->
+    <!-- Changement attérir sur l'espace client de la nav -->
+    <script src="../asset/js/espace_admin/nav_espace_admin_categorie.js"></script>
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
     <!-- Changement d'état au scroll -->

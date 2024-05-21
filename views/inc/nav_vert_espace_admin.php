@@ -5,6 +5,24 @@ if (!empty($_SESSION)) {
 ?>
 
 
+<!-- ------------------ MODAL INSCRIPTION / CONNEXION ------------------ -->
+
+<div id="modalInscription" class="modalContainer">
+    <div class="modal_content">
+
+        <a class="modal_close" href="#"><img class="img_croix_popup" src="http://localhost/event_luxury/views/asset/img/croix_close.svg" alt=""></a>
+        <div class="modalTexte">
+            <h2 class="modalTitre">Rendez-vous sur votre espace</h2>
+            <hr class="modalTrait">
+            <p>Pour participer à nos événements, vous devez être détenteur d'un compte. Veuillez vous connecter ou bien vous inscrire.</p>
+        </div>
+        <div class="ModalBtnGroup">
+            <a href="http://localhost/event_luxury/views/connexion" id="btnHomeConnxion" class="modal_btn btn_modal_1_trait">Je me connecte</a>
+            <a href="http://localhost/event_luxury/views/inscription" id="btnHomeInscription" class="modal_btn btn_modal_2_fond">Je m'inscris</a>
+        </div>
+    </div>
+</div>
+
 
 <!-- -------------------- ACCUEIL - sans connection -------------------- -->
 
@@ -14,11 +32,11 @@ if (!empty($_SESSION)) {
 
 <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") { ?>
 
-    <nav class="nav_home_page">
+    <nav id="navVerte" class="navbar">
 
         <!-- BARRE DE NAVIGATION - début -->
         <div class="nav_logo">
-            <a href=""><img id="scrollLogoClair" class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
+            <a href=""><img id="scrollLogoFonce" class="logo logo_vert_fonce" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_fonce.svg" alt="logo"></a>
         </div>
 
         <div class="navigation">
@@ -28,15 +46,15 @@ if (!empty($_SESSION)) {
 
 
             <div class="panier">
-                <a href="http://localhost/event_luxury/views/panier_css">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
+                <a id="vert_panier_nav" href="http://localhost/event_luxury/views/panier_css">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
             </div>
         </div>
 
         <!-- Burger - animation -->
         <input type="checkbox" class="trigger" />
         <div class="burger">
-            <div id="e_trait1" class="trait1"></div>
-            <div id="e_trait2" class="trait2"></div>
+            <div id="vert_trait1" class="trait1"></div>
+            <div id="vert_trait2" class="trait2"></div>
         </div>
         <!-- BARRE DE NAVIGATION - fin -->
 
@@ -53,43 +71,30 @@ if (!empty($_SESSION)) {
                     <!-- PROFIL CONNEXION  - (prénom & image profil rond) -->
                     <div class="profil_nav">
 
-                        <!-- Affichage photo -->
+                        <!-- Nouvel Affichage photo -->
                         <div class="img_profil_nav">
 
-                            <?php if (!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
-                                <a href="">
-                                    <img class="img_profil" src="../asset/img/coco2.JPG" alt="">
-                                </a>
-                                <!-- <a href="">
-                                <img class="img_profil" src="../asset/img/<?= $_SESSION['user_img_profil']; ?>" alt="">
-                            </a> -->
-                            <?php } elseif (!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-                                <a href="">
-                                    <img class="img_profil" src="../asset/img/calamar.JPG" alt="">
-                                </a>
-                            <?php } else { ?>
-                                <a href="">
-                                    <img class="img_profil" src="../asset/img/calamar.JPG" alt="">
-                                </a>
-                            <?php } ?>
+                            <img class="img_profil" src="http://localhost/event_luxury/views/asset/img_event/<?= $_SESSION['user_img_profil']; ?>" alt="votre photo de profil" title="votre photo de profil">
+
                         </div>
 
                         <!-- Affichage prénom -->
                         <?php if (!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
+
                             <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
-                        <?php } elseif (!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-                            <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
+
                         <?php } else { ?>
                             <p>Bonjour</p>
                         <?php } ?>
-                        <!-- <p>Bonjour Clara,</p> -->
+
                     </div>
 
                     <!-- ESPACE NAVIGATION  - BOUTON MENU (admin & client) -->
                     <div class="nav2_menu">
                         <ul>
                             <li id="menu_profil"><a href="#" onclick="showList('listeProfil')" class="slide-line">Profil</a></li>
-                            <li id="menu_admin"><a href="#" onclick="showList('listeAdmin')" class="slide-line activeMenuLink">Espace Admin</a></li>
+                            <li id="menu_admin"><a href="#" onclick="showList('listeAdmin')" class="slide-line ">Espace Admin</a></li>
+                            <!-- activeMenuLink -->
                             <li id="menu_client"><a href="#" onclick="showList('listeClient')" class="slide-line">Espace Client</a></li>
                         </ul>
                     </div>
@@ -101,7 +106,7 @@ if (!empty($_SESSION)) {
                         <ul class="filtre">
 
                             <!-- ESPACE PERSONNEL -->
-                            <li><a href="http://localhost/event_luxury/views/info_user.php?id=<?= $_SESSION["id_user"]; ?>" class="profil_info_link sous_menu_profil">Informations personnelles</a></li>
+                            <li><a href="http://localhost/event_luxury/views/profil.php?id=<?= $_SESSION["id_user"]; ?>" class="profil_info_link sous_menu_profil">Mes informations</a></li>
 
                             <!-- FACTURE -->
                             <li><a href="http://localhost/event_luxury/views/facture.php" class="profil_facture_link sous_menu_profil">Factures</a></li>
@@ -113,16 +118,17 @@ if (!empty($_SESSION)) {
                         <ul class="filtre">
 
                             <!-- ADMIN - Accueil -->
-                            <li><a href="http://localhost/event_luxury/views/admin/admin_accueil.php" class="admin_accueil_link sous_menu_admin linkActive">Accueil</a></li>
+                            <li><a href="http://localhost/event_luxury/views/admin/admin_accueil.php" class="admin_accueil_link sous_menu_admin ">L'accueil</a></li>
+                            <!-- linkActive -->
 
                             <!-- ADMIN - Liste des catégories -->
-                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_categorie.php" class="admin_categorie_link sous_menu_admin">Catégories</a></li>
+                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_categorie.php" class="admin_categorie_link sous_menu_admin">Les catégories</a></li>
 
                             <!-- ADMIN - La liste des évènements  -->
-                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_event.php" class="admin_event_link sous_menu_admin">événements</a></li>
+                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_event.php" class="admin_event_link sous_menu_admin">Les événements</a></li>
 
                             <!-- ADMIN - Liste des utilisateurs -->
-                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_user.php" class="admin_user_link sous_menu_admin">utilisateurs</a></li>
+                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_user.php" class="admin_user_link sous_menu_admin">Les utilisateurs</a></li>
                         </ul>
                     </div>
 
@@ -131,7 +137,7 @@ if (!empty($_SESSION)) {
                         <ul class="filtre">
 
                             <!-- CLIENT - Accueil -->
-                            <li><a href="http://localhost/event_luxury/views/accueil_client" class="client_accueil_link sous_menu_client">Accueil</a></li>
+                            <li><a href="http://localhost/event_luxury/views/accueil_client" class="client_accueil_link sous_menu_client">L'accueil</a></li>
 
                             <!-- CLIENT - La liste des évènements -->
                             <li><a href="http://localhost/event_luxury/views/event_list" class="client_event_link sous_menu_client">Nos événements</a></li>
@@ -171,7 +177,7 @@ if (!empty($_SESSION)) {
 
 
             <div class="panier">
-                <a href="http://localhost/event_luxury/views/panier_css">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
+                <a id="panier_nav" href="http://localhost/event_luxury/views/panier_css">PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</a>
             </div>
         </div>
 
@@ -196,44 +202,31 @@ if (!empty($_SESSION)) {
                     <!-- PROFIL CONNEXION  - (prénom & image profil rond) -->
                     <div class="profil_nav">
 
-                        <!-- Affichage photo -->
+                        <!-- Nouvel Affichage photo -->
                         <div class="img_profil_nav">
 
-                            <?php if (!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
-                                <a href="">
-                                    <img class="img_profil" src="http://localhost/event_luxury/views/asset/img/coco2.JPG" alt="">
-                                </a>
-                                <!-- <a href="">
-                                <img class="img_profil" src="../asset/img/<?= $_SESSION['user_img_profil']; ?>" alt="">
-                            </a> -->
-                            <?php } elseif (!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-                                <a href="">
-                                    <img class="img_profil" src="http://localhost/event_luxury/views/asset/img/calamar.JPG" alt="">
-                                </a>
-                            <?php } else { ?>
-                                <a href="">
-                                    <img class="img_profil" src="http://localhost/event_luxury/views/asset/img/calamar.JPG" alt="">
-                                </a>
-                            <?php } ?>
+                            <img class="img_profil" src="http://localhost/event_luxury/views/asset/img_event/<?= $_SESSION['user_img_profil']; ?>" alt="votre photo de profil" title="votre photo de profil">
+
                         </div>
 
                         <!-- Affichage prénom -->
                         <?php if (!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
+
                             <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
-                        <?php } elseif (!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
-                            <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
+
                         <?php } else { ?>
                             <p>Bonjour</p>
                         <?php } ?>
-                        <!-- <p>Bonjour Clara,</p> -->
+
                     </div>
 
                     <!-- ESPACE NAVIGATION  - BOUTON MENU (admin & client) -->
                     <div class="nav2_menu">
                         <ul>
                             <li id="menu_profil"><a href="#" onclick="showList('listeProfil')" class="slide-line">Profil</a></li>
-                            <li id="menu_admin"><a href="#" onclick="showList('listeAdmin')" class="slide-line activeMenuLink">Espace Admin</a></li>
+                            <li id="menu_admin"><a href="#" onclick="showList('listeAdmin')" class="slide-line ">Espace Admin</a></li>
                             <li id="menu_client"><a href="#" onclick="showList('listeClient')" class="slide-line">Espace Client</a></li>
+                            <!-- activeMenuLink -->
                         </ul>
                     </div>
 
@@ -244,7 +237,7 @@ if (!empty($_SESSION)) {
                         <ul class="filtre">
 
                             <!-- ESPACE PERSONNEL -->
-                            <li><a href="http://localhost/event_luxury/views/info_user.php?id=<?= $_SESSION["id_user"]; ?>" class="profil_info_link sous_menu_profil">Informations personnelles</a></li>
+                            <li><a href="http://localhost/event_luxury/views/profil.php?id=<?= $_SESSION["id_user"]; ?>" class="profil_info_link sous_menu_profil">Mes informations</a></li>
 
                             <!-- FACTURE -->
                             <li><a href="http://localhost/event_luxury/views/facture.php" class="profil_facture_link sous_menu_profil">Factures</a></li>
@@ -256,16 +249,17 @@ if (!empty($_SESSION)) {
                         <ul class="filtre">
 
                             <!-- ADMIN - Accueil -->
-                            <li><a href="http://localhost/event_luxury/views/admin/admin_accueil.php" class="admin_accueil_link sous_menu_admin linkActive">Accueil</a></li>
+                            <li><a href="http://localhost/event_luxury/views/admin/admin_accueil.php" class="admin_accueil_link sous_menu_admin ">L'accueil</a></li>
+                            <!-- linkActive -->
 
                             <!-- ADMIN - Liste des catégories -->
-                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_categorie.php" class="admin_categorie_link sous_menu_admin">Catégories</a></li>
+                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_categorie.php" class="admin_categorie_link sous_menu_admin">Les catégories</a></li>
 
                             <!-- ADMIN - La liste des évènements  -->
-                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_event.php" class="admin_event_link sous_menu_admin">événements</a></li>
+                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_event.php" class="admin_event_link sous_menu_admin">Les événements</a></li>
 
                             <!-- ADMIN - Liste des utilisateurs -->
-                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_user.php" class="admin_user_link sous_menu_admin">utilisateurs</a></li>
+                            <li><a href="http://localhost/event_luxury/views/admin/admin_list_user.php" class="admin_user_link sous_menu_admin">Les utilisateurs</a></li>
                         </ul>
                     </div>
 
@@ -274,7 +268,7 @@ if (!empty($_SESSION)) {
                         <ul class="filtre">
 
                             <!-- CLIENT - Accueil -->
-                            <li><a href="http://localhost/event_luxury/views/accueil_client" class="client_accueil_link sous_menu_client">Accueil</a></li>
+                            <li><a href="http://localhost/event_luxury/views/accueil_client" class="client_accueil_link sous_menu_client">L'accueil</a></li>
 
                             <!-- CLIENT - La liste des évènements -->
                             <li><a href="http://localhost/event_luxury/views/event_list" class="client_event_link sous_menu_client">Nos événements</a></li>
@@ -310,14 +304,35 @@ if (!empty($_SESSION)) {
 
         <div class="navigation hp_navigation">
 
-            <!-- S'incrire  -->
-            <a href="http://localhost/event_luxury/views/inscription">Inscription</a>
 
-            <!-- Se connecter  -->
-            <a href="http://localhost/event_luxury/views/connexion">Connexion</a>
+            <!-- Bonjour -->
+            <?php if (!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
+                <h1>Bonjour admin<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
+            <?php } elseif (!empty($_SESSION) && $_SESSION['user_role'] == 'client') { ?>
+                <h1>Bonjour client<?= ucfirst($_SESSION['user_pseudo']); ?> </h1>
+            <?php } else { ?>
+                <!-- <h1>Bonjour</h1> -->
+            <?php } ?>
 
-            <!-- Réservations  -->
-            <a href="http://localhost/event_luxury/views/connexion" data-bs-toggle="modal" data-bs-target="#exampleModal">Réservations</a>
+
+            <!-- NAVIGATION -->
+            <div class="commande_navigation_header">
+
+                <!-- S'incrire  -->
+                <a href="http://localhost/event_luxury/views/inscription">
+                    <p>Inscription</p>
+                </a>
+
+                <!-- Se connecter  -->
+                <a href="http://localhost/event_luxury/views/connexion">
+                    <p>Connexion</p>
+                </a>
+
+                <!-- Réservations  -->
+                <a href="#modalInscription" class="btn_reservation">
+                    <p>Réservation</p>
+                </a>
+            </div>
 
         </div>
 

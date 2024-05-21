@@ -5,7 +5,7 @@ include_once "../inc/header.php";
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
 // include_once "../inc/navigation.php";
-include_once "../inc/navigation_bicolor.php";
+include_once "../inc/nav_bicolor_espace_admin.php";
 include_once "../inc/functions.php";
 require_once "../../models/eventModel.php";
 require_once "../../models/bookModel.php";
@@ -48,6 +48,9 @@ require_once "../../models/userModel.php";
         <!-- ------------------------------- BAS -------------------------------- -->
         <!-- SECTION DROITE - FICHE PRODUIT -->
         <section class="droite">
+
+            <div class="navBlanche"></div>
+
             <div class="containerDroit containerDroitEvent">
 
 
@@ -202,19 +205,13 @@ require_once "../../models/userModel.php";
         </section>
     </main>
     <footer></footer>
-    <script src="./asset/js/nav_scroll2.js"></script>
-    <script>
-        function showList(listClassName) {
-            var allLists = document.querySelectorAll('.nav2_container div:not(.nav2_menu,.deconnexion,.profil_nav,.img_profil_nav)');
-            allLists.forEach(function(list) {
-                list.classList.add('hidden');
-            });
-
-            // Afficher la liste correspondante
-            var selectedList = document.querySelector('.' + listClassName);
-            selectedList.classList.remove('hidden');
-        }
-    </script>
+    <!-- -------------- BALISE SCRIPT -------------- -->
+    <!-- Changement attérir sur l'espace client de la nav -->
+    <script src="../asset/js/espace_admin/nav_espace_admin_event.js"></script>
+    <!-- Espace navigation -->
+    <script src="../asset/js/espace_navigation.js"></script>
+    <!-- Changement d'état au scroll -->
+    <script src="../asset/js/nav_scroll2.js"></script>
 
 
     <!-- -------------- SUITE SECURITE ACCES -------------- -->

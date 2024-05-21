@@ -5,7 +5,7 @@ include_once "../inc/header.php";
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
-include_once "../inc/navigation_header.php";
+include_once "../inc/nav_blc_espace_admin.php";
 require_once "../../models/eventModel.php";
 
 $listEvent = Event::findAllEvent();
@@ -171,9 +171,10 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
 
     
     <!-- -------------- BALISE SCRIPT -------------- -->
+    <!-- Changement attérir sur l'espace client de la nav -->
+    <script src="../asset/js/espace_admin/nav_espace_admin_event.js"></script>
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
-
     <!-- Changement d'état au scroll -->
     <script src="../asset/js/nav_scroll2.js"></script>
 

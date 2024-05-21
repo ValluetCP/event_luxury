@@ -4,7 +4,7 @@ include_once "../inc/header.php";
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
     
-include_once "../inc/navigation_header.php";
+include_once "../inc/nav_blc_espace_admin.php";
 require_once "../../models/userModel.php";
 $userList = User::findAllUser();
 ?>
@@ -143,6 +143,8 @@ $userList = User::findAllUser();
 
 
     <!-- -------------- BALISE SCRIPT -------------- -->
+    <!-- Changement attérir sur l'espace client de la nav -->
+    <script src="../asset/js/espace_admin/nav_espace_admin_user.js"></script>
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
 

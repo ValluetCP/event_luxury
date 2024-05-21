@@ -123,7 +123,7 @@ if (!empty($_SESSION)) {
                             <li><a href="http://localhost/event_luxury/views/profil.php?id=<?= $_SESSION["id_user"]; ?>" class="profil_info_link sous_menu_profil">Mes informations</a></li>
 
                             <!-- FACTURE -->
-                            <li><a href="" class="profil_facture_link sous_menu_profil">Factures</a></li>
+                            <li><a href="http://localhost/event_luxury/views/facture.php" class="profil_facture_link sous_menu_profil">Factures</a></li>
                         </ul>
                     </div>
 
@@ -266,7 +266,7 @@ if (!empty($_SESSION)) {
                             <li><a href="http://localhost/event_luxury/views/profil.php?id=<?= $_SESSION["id_user"]; ?>" class="profil_info_link sous_menu_profil">Mes informations</a></li>
 
                             <!-- FACTURE -->
-                            <li><a href="" class="profil_facture_link sous_menu_profil">Factures</a></li>
+                            <li><a href="http://localhost/event_luxury/views/facture.php" class="profil_facture_link sous_menu_profil">Factures</a></li>
                         </ul>
                     </div>
 
