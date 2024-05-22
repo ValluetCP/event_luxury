@@ -900,35 +900,35 @@ background-color: rgba(255, 255, 255, 0.5);
 /* -------------- MODAL BILLET - modélisation (list_book.php) -------------- */
 
 
-.billet{
+/* .billet{
     width: 256px;
     position: fixed;
     right: 176px;
-}
+} */
 
 /* -- MODAL BILLET (partie haute)-- */
 
 
-.billet_partie_haute{
+/* .billet_partie_haute{
     width: 100%;
     height: 565px;
     background-color: #fff;
     border: 1px solid #fff;
     border-bottom: 2px dashed var(--vertNavTrait);
     border-radius: 11px;
-}
+} */
 
 
 /* IMAGE BILLET */
-.imgEventBillet {
+/* .imgEventBillet {
     width: 96%;
     height: 318px;
     margin: auto;
     margin-top: 4px;
-}
+} */
 
 /* DATE */
-.divDate {
+/* .divDate {
     background-color: var(--vertFonceMoin);
     width: 30px;
     height: 112px;
@@ -936,10 +936,9 @@ background-color: rgba(255, 255, 255, 0.5);
     top: 34px;
     left: -1px;
     border-radius: 0 4px 4px 0;
-    /* position: relative; */
-}
+} */
 
-.dateBillet {
+/* .dateBillet {
     color: var(--vertClair);
     font-family: 'AmericanaRegular';
     font-size: 13px;
@@ -949,10 +948,10 @@ background-color: rgba(255, 255, 255, 0.5);
     position: absolute;
     letter-spacing: 3px;
     height: 100%;
-}
+} */
 
 /* TITRE & SOUS-TITRE */
-.titreBillet{
+/* .titreBillet{
     text-align: center;
     color: var(--vertMoyen);
     font-family: 'AmericanaRegular';
@@ -967,16 +966,17 @@ background-color: rgba(255, 255, 255, 0.5);
     font-family: 'Karla', sans-serif;
     font-weight: 400;
     font-size: 12px;
-}
+} */
 
 /* PLACE RESERVEES */
+/* déjà en commentaire */
 /* .placeBillet{
     display: flex;
     justify-content: center;
     text-align: center;
 } */
 
-.placeBillet{
+/* .placeBillet{
     display: grid;
     grid-template-columns: 70% auto;
     grid-template-areas: 
@@ -1009,17 +1009,15 @@ background-color: rgba(255, 255, 255, 0.5);
     font-size: 24px;
     color: var(--vertMoyen);
     border-left: 1px solid var(--vertFonceTransparent);
-}
+} */
 
-
+/* 
 .bgEventBillet{
-    /* background-image: url(./img/coco2.JPG); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 100%;
     height: 300px;
-    /* border: 1px solid #fff; */
     border-radius: 7px;
 }
 
@@ -1031,11 +1029,11 @@ background-color: rgba(255, 255, 255, 0.5);
     width: 86%;
     margin: auto;
     line-height: 15px;
-}
+} */
 
 /* -- MODAL BILLET (partie basse)-- */
 
-.billet_partie_basse{
+/* .billet_partie_basse{
     width: 100%;
     height: 80px;
     background-color: #fff;
@@ -1046,7 +1044,7 @@ background-color: rgba(255, 255, 255, 0.5);
 
 .imgCodeBarre{
     padding: 12px;
-}
+} */
 
 
 /* -------------- MODAL BILLET (list_book.php) - FIN -------------- */
@@ -3582,6 +3580,246 @@ input[type=file]::file-selector-button {
 /* ------------------ PANIER (panier_css.php)- FIN ------------------ */
 
 
+/* ------------------ BILLETERIE (billet.php)- DEBUT ------------------ */
+.siteBillet{
+    /* display: flex;
+    flex-direction: row-reverse; */
+    display: grid;
+    grid-template-columns: 1fr;
+    /* grid-template-columns: auto 45%; */
+    /* grid-template-areas: 
+    "gaucheBillet droitBillet"; */
+    height: 100vh;
+}
+
+/* --- GAUCHE --- */
+.gaucheBillet{
+    background-color: var(--vertFonce);
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+
+/* .containerGaucheBillet h1 {
+    color: var(--vertClair);
+    font-family: 'AmericanaRegular';
+    font-size: 112px;
+    line-height: 142px;
+    margin: auto;
+} */
+
+.containerGaucheBillet h1 {
+    color: var(--vertClair);
+    font-family: 'AmericanaRegular';
+    font-size: 96px;
+    line-height: 126px;
+    margin: auto;
+}
+
+.capitalize{
+    text-transform: capitalize;
+}
+
+.containerGaucheBillet{
+    margin: auto;
+    width: 80%;
+}
+
+.containerGaucheBillet .retourListe{
+    color: var(--vertClair);
+    margin-bottom: 15px;
+}
+
+.containerGaucheBillet .retourListe a{
+    color: var(--vertClair);
+    font-size: 18px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    line-height: 23px;
+
+}
+
+.telechargementBillet{
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: var(--vertMoyen);
+    color: var(--vertClair);
+    padding: 12px 42px;
+    border: none;
+    margin-top: 26px;
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* --- DROITE --- */
+.droitBillet{
+    background-color: var(--vertFonce);
+}
+
+.droitImgBillet{
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+/* ------------------ BILLETERIE (billet.php)- FIN ------------------ */
+
+/* -------------- MODELISATION BILLET (billet.php) - DEBUT -------------- */
+
+.billet{
+    width: 256px;
+    position: fixed;
+    right: 16%;
+    top: 16%;
+}
+
+/* -- MODAL BILLET (partie haute)-- */
+
+
+.billet_partie_haute{
+    width: 100%;
+    height: 565px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-bottom: 2px dashed var(--vertNavTrait);
+    border-radius: 11px;
+}
+
+
+/* IMAGE BILLET */
+.imgEventBillet {
+    width: 96%;
+    height: 318px;
+    margin: auto;
+    margin-top: 4px;
+}
+
+/* DATE */
+.divDate {
+    background-color: var(--vertFonceMoin);
+    width: 30px;
+    height: 112px;
+    position: absolute;
+    top: 34px;
+    left: -1px;
+    border-radius: 0 4px 4px 0;
+    /* position: relative; */
+}
+
+.dateBillet {
+    color: var(--vertClair);
+    font-family: 'AmericanaRegular';
+    font-size: 13px;
+    transform: rotate(-90deg);
+    top: -1px;
+    right: -78px;
+    position: absolute;
+    letter-spacing: 3px;
+    height: 100%;
+}
+
+/* TITRE & SOUS-TITRE */
+.titreBillet{
+    text-align: center;
+    color: var(--vertMoyen);
+    font-family: 'AmericanaRegular';
+    font-size: 34px;
+}
+
+.categorieBillet {
+    margin-top: 6px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--vertFonce);
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* PLACE RESERVEES */
+/* .placeBillet{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+} */
+
+.placeBillet{
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-template-areas: 
+    "txtPlaceBillet nbPlaceBillet";
+    text-align: center;
+    border: 1px solid var(--vertFonceTransparent);
+    width: 86%;
+    margin: 20px auto;
+    padding: 10px 0;
+}
+
+
+.txtPlaceBillet{
+    grid-area: txtPlaceBillet;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--vertFonce);
+}
+
+.nbPlaceBillet{
+    grid-area: nbPlaceBillet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'AmericanaRegular';
+    font-size: 24px;
+    color: var(--vertMoyen);
+    border-left: 1px solid var(--vertFonceTransparent);
+}
+
+
+.bgEventBillet{
+    /* background-image: url(./img/coco2.JPG); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    /* border: 1px solid #fff; */
+    border-radius: 7px;
+}
+
+.txtBillet {
+    color: var(--vertFonce);
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    width: 86%;
+    margin: auto;
+    line-height: 15px;
+}
+
+/* -- MODAL BILLET (partie basse)-- */
+
+.billet_partie_basse{
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 11px;
+    padding-bottom: 86px;
+}
+
+.imgCodeBarre{
+    padding: 12px;
+}
+
+/* -------------- MODELISATION BILLET (billet.php) - FIN -------------- */
+
 
 /* ------- LISTE BOOK (test_list_reservation.php/list_book.php)- DEBUT ------- */
 
@@ -3844,6 +4082,15 @@ input[type=file]::file-selector-button {
     /* ------------ PAGE PANIER panier_css.php (max-width:1400px) - DEBUT ------------ */
     .titrePanier {
         width: 376px;
+    }
+
+    /* ------------------ PANIER (panier_css.php)- FIN ------------------ */
+
+
+    /* ---------- MODELISATION BILLET billet.php (max-width:1400px) ---------- */
+    .containerGaucheBillet h1 {
+        font-size: 80px;
+        line-height: 98px;
     }
 }
 

@@ -196,7 +196,8 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                                         <div class="lb_reservation">
 
                                             <!-- Afficher le billet -->
-                                            <a href="#modalBillet" class="lb_billet">Télécharger le billet</a>
+                                            <a href="./billet.php?id_event=<?= $event['id_evenement']; ?>" class="lb_billet">Télécharger le billet</a>
+                                            <!-- <a href="#modalBillet" class="lb_billet">Télécharger le billet</a> -->
 
                                             <!-- Consulter l'historique -->
                                             <a href="./historique.php?id_event=<?= $event['id_evenement']; ?>" class="lb_consulter">Consulter</a>
