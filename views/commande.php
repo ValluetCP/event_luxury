@@ -60,6 +60,8 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 <?php } else {
     require_once "./inc/securite.php";
 } ?>
-</body>
 
-</html>
+<?php
+// -------------- FOOTER --------------  
+include_once "../inc/footer.php";
+?>

@@ -143,6 +143,10 @@ $userList = User::findAllUser();
 
 
     <!-- -------------- BALISE SCRIPT -------------- -->
+    <!-- Souris -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="../asset/js/app.js"></script>
+    <script src="../asset/js/cercle.js"></script>
     <!-- Changement attérir sur l'espace client de la nav -->
     <script src="../asset/js/espace_admin/nav_espace_admin_user.js"></script>
     <!-- Espace navigation -->

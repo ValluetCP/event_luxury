@@ -394,6 +394,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 }
 ?>
 
-</body>
-
-</html>
+<!-- -------------- FOOTER -------------- -->
+<?php
+    include_once "./inc/footer.php";
+?>

@@ -7,6 +7,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 ) {
 
 include_once "./inc/nav_blc_espace_client.php";
+include_once "./inc/cursor.php";
 include_once "./inc/functions.php";
 require_once "../models/eventModel.php";
 require_once "../models/bookModel.php";
@@ -33,6 +34,12 @@ foreach ($listEvent as $event) {
 ?>
 
 
+<!-- <div class="cursorSouris">
+
+</div> -->
+
+<!-- Cercle souris-->                     
+<div class="cercle"></div>
 
 <!-- ------------------------ PAGE LISTE EVENT ------------------------ -->
 <main id="siteListEvent" class="siteList">
@@ -189,6 +196,9 @@ foreach ($listEvent as $event) {
 <footer></footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Souris -->
+    <script src="./asset/js/app.js"></script>
+    <script src="./asset/js/cercle.js"></script>
 
     <!-- Changement attérir sur l'espace client de la nav -->
     <script src="./asset/js/nav_espace_client_event.js"></script>
@@ -198,6 +208,7 @@ foreach ($listEvent as $event) {
 
     <!-- Espace navigation -->
     <script src="./asset/js/espace_navigation.js"></script>
+
 
     <script>
 
@@ -252,5 +263,8 @@ foreach ($listEvent as $event) {
         require_once "./inc/securite.php";
         }
     ?>
-</body>
-</html>
+
+<!-- -------------- FOOTER -------------- -->
+<?php
+    include_once "./inc/footer.php";
+?>

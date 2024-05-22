@@ -60,6 +60,10 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
     </main>
 
     <!-- BALISE SCRIPT -->
+    <!-- Souris -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="../asset/js/app.js"></script>
+    <script src="../asset/js/cercle.js"></script>
     <!-- Changement attérir sur l'espace client de la nav -->
     <script src="../asset/js/nav_espace_admin_accueil.js"></script>
     <!-- Espace navigation -->

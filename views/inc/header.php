@@ -36,5 +36,6 @@ session_start();
     <!-- Base de donnée : nom de la base de donnée -->
 </head>
 <body>
+    <div class="cercle"></div>
 
     

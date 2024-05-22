@@ -136,7 +136,6 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
     </div>
 
-
     <!-- Changement attérir sur l'espace client de la nav -->
     <script src="./asset/js/esapce_profil/nav_espace_profil_panier.js"></script>
     

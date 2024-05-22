@@ -190,6 +190,10 @@ require_once "../../models/categorieModel.php";
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <!-- -------------- BALISE SCRIPT -------------- -->
+    <!-- Souris -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="../asset/js/app.js"></script>
+    <script src="../asset/js/cercle.js"></script>
     <!-- Changement attérir sur l'espace client de la nav -->
     <script src="../asset/js/espace_admin/nav_espace_admin_event.js"></script>
     <!-- Espace navigation -->
