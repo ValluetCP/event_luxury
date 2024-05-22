@@ -90,7 +90,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 <script src="./asset/js/nav_espace_profil.js"></script>
 
 <!-- Changement d'état au scroll -->
-<script src="./asset/js/nav_scroll2.js"></script>
+<!-- <script src="./asset/js/nav_scroll2.js"></script> -->
 
 <!-- Espace navigation -->
 <script src="./asset/js/espace_navigation.js"></script>

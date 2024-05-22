@@ -100,9 +100,9 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
                     <!-- Espace navigation -->
                     <script src="./asset/js/espace_navigation2.js"></script>
-                <?php } else {
-                    echo "panier vide";
-                } ?>
+                <?php } else { ?>
+                    <p class="panierVide">Votre panier est vide</p>
+                <?php } ?>
     
             </div>
             <div class="titrePanier">
@@ -123,7 +123,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
             <!-- VALIDER LA COMMANDE -->
             <div class="validerPanier">
                 <div class="totalPrix">
-                    <p>TOTAL <span class="total"><?= $prixTotal; ?> EUR</span><br><span class="tva">*TVA COMPRISE</span></p>
+                <p>TOTAL <span class="total"><?= isset($prixTotal) ? $prixTotal : '0'; ?> EUR</span><br><span class="tva">*TVA COMPRISE</span></p>
                 </div>
 
                 <form action="./traitement/action.php" id="btnValider">
@@ -137,6 +137,14 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     </div>
 
 
+    <!-- Changement attérir sur l'espace client de la nav -->
+    <script src="./asset/js/esapce_profil/nav_espace_profil_panier.js"></script>
+    
+    <!-- Changement d'état au scroll -->
+    <!-- <script src="./asset/js/nav_scroll2.js"></script> -->
+
+    <!-- Espace navigation -->
+    <script src="./asset/js/espace_navigation.js"></script>
 
 <!-- -------------- SUITE SECURITE ACCES -------------- -->
 <?php } else {

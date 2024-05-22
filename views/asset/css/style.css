@@ -3576,6 +3576,12 @@ input[type=file]::file-selector-button {
     border: none;  
 }
 
+.panierVide{
+    font-family: 'Karla', sans-serif;
+    font-size: 25px;
+    color: var(--vertMoyen);
+    text-transform: uppercase;
+}
 
 /* ------------------ PANIER (panier_css.php)- FIN ------------------ */
 
