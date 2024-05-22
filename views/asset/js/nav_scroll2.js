@@ -9,7 +9,7 @@ const nav = document.querySelector('.navbar');
         scrollLogoFonce.style.display = 'none';
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 700) {
+            if (window.scrollY > 800) {
                 nav.classList.add('scroll');
                 scrollLogoFonce.style.display = 'block';
                 scrollLogoClair.style.display = 'none';

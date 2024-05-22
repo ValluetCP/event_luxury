@@ -3604,6 +3604,7 @@ input[type=file]::file-selector-button {
     display: flex;
     align-items: center;
     padding-top: 80px;
+    position: relative;
 }
 
 /* .containerGaucheBillet h1 {
@@ -3677,7 +3678,8 @@ input[type=file]::file-selector-button {
 
 .billet{
     width: 256px;
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     right: 16%;
     top: 16%;
 }
@@ -4251,26 +4253,32 @@ input[type=file]::file-selector-button {
     .containerPanier {
         grid-template-columns: 1fr;
     }
-
+    
     .titrePanier {
         display: none;
     }
-
+    
     .containerPagePanier {
         max-width: 770px;
     }
-
+    
     .validerPanier {
         background-color: var(--vertClair);
     }
-
+    
     .totalPrix p {
         padding-top: 10px;
         padding-left: 10px;
     }
-
+    
     .listeProduit {
         margin-bottom: 85px;
+    }
+
+    /* ------------ PAGE BILLET - (max-width:1200px)------------ */
+    .containerGaucheBillet h1 {
+        font-size: 56px;
+        line-height: 68px;
     }
 }
 
@@ -4569,6 +4577,17 @@ input[type=file]::file-selector-button {
     .profilForm p, .profilHistorique p {
         margin-bottom: 82px;
     }
+
+    /* ------------ PAGE BILLET - (max-width:900px)------------ */
+
+    .containerGaucheBillet h1 {
+        font-size: 44px;
+        line-height: 55px;
+    }
+
+    .billet {
+        right: 35px;
+    }
     
 }
 
@@ -4828,6 +4847,14 @@ input[type=file]::file-selector-button {
         padding: 9px 16px;
     }
 
+    /* ------------ PAGE BILLET - (max-width:700px)------------ */
+    .containerGaucheBillet {
+        display: none;
+    }
+
+    .billet {
+        right: 30%;
+    }
 }
 
 
