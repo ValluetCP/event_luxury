@@ -163,6 +163,8 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     require_once "./inc/securite.php";
 }
 ?>
-</body>
 
-</html>
+<!-- -------------- FOOTER -------------- -->
+<?php
+    include_once "./inc/footer.php";
+?>

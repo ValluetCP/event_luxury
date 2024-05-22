@@ -29,6 +29,8 @@ include_once "./inc/nav_blc_espace_profil.php";
 
     <!-- Espace navigation -->
     <script src="./asset/js/espace_navigation.js"></script>
-</body>
 
-</html>
+<!-- -------------- FOOTER -------------- -->
+<?php
+    include_once "./inc/footer.php";
+?>
