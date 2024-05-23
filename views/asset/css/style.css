@@ -74,6 +74,7 @@ html {
     border: 1px dashed white;
     border-radius: 50%;
     position: absolute;
+    overflow: hidden;
 }
 
 /* couleur à l'intérieur du curseur */
@@ -102,6 +103,7 @@ html {
     /* border: 1px solid var(--vertFonceMoin); */
     z-index: 999;
     /* cursor: none; */
+    overflow: hidden;
 }
 
 .cercle::before{
@@ -116,6 +118,7 @@ html {
     background-color: #ebf2ed7c;
     border-radius: 50%;
     z-index: 999;
+    overflow: hidden;
 }
     
 /* -------------- NAVIGATION (event.php) -------------- */
@@ -3877,6 +3880,72 @@ input[type=file]::file-selector-button {
 }
 
 /* -------------- MODELISATION BILLET (billet.php) - FIN -------------- */
+
+
+/* ------ NOUVEL ACCUEIL (test_home.php/accueil_client.php) - DEBUT ------ */
+/* HEADER */
+.containerAccueil{
+    position: relative;
+    height: 700px;
+}
+
+.containerBgAccueil{
+    /* background-image: url(./img/event_bocal.jpg); */
+    background-color: var(--vertFonce);
+    background-size: cover;
+    background-position: top;
+    /* position: fixed; */
+    height: 830px;
+    width: 100%;
+    overflow: hidden;
+    
+}
+.containerBgAccueil img{
+    opacity: 0.3;
+}
+
+.contenuHeaderAccueil {
+    position: absolute;
+    top: 40%;
+    left: 32%;
+    /* transform: translate(-50%, -50%); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* bottom: 0; */
+}
+
+/* Logo + Image */
+.positionAccueil{
+    position: relative;
+}
+
+/* Logo */
+.logoHeaderAccueil {
+    width: 675px;
+    position: absolute;
+    /* top: 325px; */
+    /* left: 64px; */
+}
+
+/* Image */
+.imgHeaderAccueil {
+    background-color: var(--vertClair);
+    position: absolute;
+    top: 320px;
+    left: 75px;
+}
+
+.imgHeaderAccueil img{
+    width: 520px;
+    opacity: 0.9;
+}
+
+
+/* ------ NOUVEL ACCUEIL (test_home.php/accueil_client.php) - FIN ------ */
+
+
+
 
 
 /* ------- LISTE BOOK (test_list_reservation.php/list_book.php)- DEBUT ------- */

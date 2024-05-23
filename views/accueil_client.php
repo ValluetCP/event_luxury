@@ -82,6 +82,8 @@ include_once "./inc/navigation_blanc.php";
 </main>
 <script src="./asset/js/nav_scroll.js"></script>
 <script src="./asset/js/espace_navigation2.js"></script>
-</body>
 
-</html>
+<!-- -------------- FOOTER -------------- -->
+<?php
+    include_once "./inc/footer.php";
+?>
