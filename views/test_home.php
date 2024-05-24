@@ -14,6 +14,17 @@ include_once "./inc/navigation_blanc.php";
                 <div class="imgHeaderAccueil">
                     <img src="./asset/img/event_flamant.jpg" alt="événement Pink Flamingo">
                 </div>
+                <div class="animationFleur">
+                    <div class="fleur">
+                        <img src="./asset/img/img_logo/fleur_texte.svg" alt="fleur animation">
+                        <!-- <div class="txtRond">
+                            <img src="./asset/img/img_logo/texte_rond.svg" alt="fleur animation">
+                            <div class="numero1">
+                                <img src="./asset/img/img_logo/numero_1.svg" alt="fleur animation">
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
                 <div class="logoHeaderAccueil">
                     <img src="./asset/img/img_logo/logo_big.svg" alt="logo the luxury event">
                 </div>
@@ -21,7 +32,11 @@ include_once "./inc/navigation_blanc.php";
         </div>
     </div>
 </header>
+
 <main>
+    <div class="sectionAccueilVide">
+
+    </div>
     <section class="sectionAccueil1">
         <div class="partieAccueil1">
             <h1>NOTRE <br>CONCEPT</h1>
@@ -40,7 +55,7 @@ include_once "./inc/navigation_blanc.php";
     <!-- SECTION 2 - Liste des événements -->
     <section class="sectionAccueil2">
          <!-- Texte qui défile -->
-        <h3>Découvrez nos prochains événements</h3>
+        <h3>Découvrez nos prochains événements  *  Déco</h3>
         <div class="sectionEventAccueil">
             <p class="disponible">disponible dès à présent</p>
             <div class="gridEventAccueil">
@@ -57,6 +72,9 @@ include_once "./inc/navigation_blanc.php";
                             Loisir
                         </p>
                     </div>
+                    <a class="btnEventAccueil" href="">
+                        <p>Voir l'événement</p>
+                    </a>
                 </div>
                 <!-- Module 2 -->
                 <div class="eventAccueil">
@@ -71,6 +89,9 @@ include_once "./inc/navigation_blanc.php";
                             Découverte
                         </p>
                     </div>
+                    <a class="btnEventAccueil" href="">
+                        <p>Voir l'événement</p>
+                    </a>
                 </div>
                 <!-- Module 3 -->
                 <div class="eventAccueil">
@@ -85,8 +106,15 @@ include_once "./inc/navigation_blanc.php";
                             Loisir
                         </p>
                     </div>
+                    <a class="btnEventAccueil" href="">
+                        <p>Voir l'événement</p>
+                    </a>
                 </div>
             </div>
+            <!-- Flèche 'en voir plus' -->
+            <!-- <div class="fleurFleche">
+                <img src="./asset/img/img_logo/fleur_fleche.svg" alt="en voir plus">
+            </div> -->
         </div>
     </section>
 

@@ -311,6 +311,28 @@ if (isset($_POST['supprimer'])) {
     header("Location: ../panier_css.php");
 }
 
+// if (isset($_POST['supprimer'])) {
+//     foreach ($_SESSION['reservation'] as $k => $v) {
+//         foreach ($v['events'] as $k2 => $v2) {
+//             var_dump($_POST["id_evenement"]);
+//             echo "<pre>";
+//                 var_dump($v['events']);
+//             echo "</pre>";
+//             if (array_search($_POST['id_evenement'], $v['events'])) {
+//                 var_dump($_POST["id_evenement"]);
+//                 var_dump($v['events']);
+//                 die('ok');
+//                 unset($_SESSION['reservation'][$k]);
+//                 $_SESSION['nombre'] -= $v['quantite'];
+//                 break;
+//             }
+//         }
+//         break;
+//     }
+//     die('ok1');
+//     header("Location: ../panier_css.php");
+// }
+
 
 // ------------------ CATEGORIE ------------------//
 
