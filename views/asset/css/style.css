@@ -3886,7 +3886,7 @@ input[type=file]::file-selector-button {
 /* HEADER */
 .containerAccueil{
     position: relative;
-    height: 700px;
+    height: 830px;
 }
 
 .containerBgAccueil{
@@ -3941,6 +3941,133 @@ input[type=file]::file-selector-button {
     opacity: 0.9;
 }
 
+
+/* MAIN */
+/* --- Section 1 --- */
+
+/* Partie 1 'Notre concept'*/
+.sectionAccueil1{
+    max-width: 1028px;
+    margin: auto;
+}
+
+.partieAccueil1 h1{
+    font-family: 'AmericanaRegular';
+    font-size: 72px;
+    color: var(--vertMoyen);
+    margin: 40px 0;
+}
+
+.partieAccueil1 p{
+    font-family: 'Karla', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    color: var(--vertMoyen);
+    line-height: 28px;
+}
+
+/* Partie 2 'Phrase en Exergue */
+.partieAccueil2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0 100px;
+}
+
+.exergue{
+    font-family: 'AmericanaRegular';
+    font-size: 50px;
+    color: var(--vertMoyen);
+    line-height: 62px;
+    letter-spacing: 1px;
+}
+
+.imgSect2{
+    width: 400px;
+}
+
+/* --- Section 2 --- */
+.sectionAccueil2{
+    background-color: var(--vertFonce);
+    padding-bottom: 72px;
+}
+
+/* Texte qui défile */
+.sectionAccueil2 h3{
+    color: var(--vertMoyen);
+    font-family: 'AmericanaRegular';
+    font-size: 72px;
+    padding-top: 30px;
+}
+
+/* Les événements */
+.disponible {
+    color: var(--vertClair);
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-top: 90px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.gridEventAccueil{
+    /* display: grid;
+    grid-template-columns: repeat(1fr); */
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* un événement */
+.sectionEventAccueil{
+    max-width: 1100px;
+    margin: auto;
+}
+/* image événement */
+.eventAccueil {
+    /* margin-right: 60px; */
+    border-bottom: 1px solid white;
+    padding-bottom: 20px;
+}
+
+.imgEventAccueil {
+    width: 300px;
+    border: 10px solid var(--vertClair);
+    background-color: var(--vertFonce);
+}
+
+.imgEventAccueil img{
+    opacity: 0.8;
+}
+
+/* Txt événement */
+.titreEventAccueil{
+    font-family: 'AmericanaRegular';
+    color: var(--vertClair);
+    font-size: 26px;
+    text-transform: capitalize;
+    margin-top: 25px;
+    letter-spacing: 1px;
+}
+
+.catégorieEventAccueil{
+    color: var(--vertClair);
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.prixEventAccueil{
+    font-family: 'AmericanaRegular';
+    color: var(--vertClair);
+    font-size: 15px;
+    text-transform: capitalize;
+    margin-top: 10px;
+}
 
 /* ------ NOUVEL ACCUEIL (test_home.php/accueil_client.php) - FIN ------ */
 
