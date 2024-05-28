@@ -3968,6 +3968,10 @@ input[type=file]::file-selector-button {
 }
 
 /* --- Section 1 --- */
+/* Header */
+.logoAccueil {
+    display: none;
+}
 
 /* Partie 1 'Notre concept'*/
 .sectionAccueil1{
@@ -4023,6 +4027,7 @@ input[type=file]::file-selector-button {
 .sectionAccueil2{
     background-color: var(--vertFonce);
     padding-bottom: 72px;
+    padding-top: 50px;
 }
 
 /* Texte qui défile */
@@ -4058,6 +4063,7 @@ input[type=file]::file-selector-button {
     max-width: 1100px;
     margin: auto;
     position: relative;
+    margin-top: 48px;
 }
 /* image événement */
 .eventAccueil {
@@ -4128,7 +4134,64 @@ input[type=file]::file-selector-button {
     margin-top: 20px;
 }
 
+.btnAfficheEvent{
+    margin: auto;
+    width: 318px;
+    margin-top: 46px;
+}
+
+#btnEventsAccueil p{
+    background-color: var(--vertFonce);
+    color: var(--vertClair);
+    border: 1px solid var(--vertClair);
+    /* width: 318px; */
+}
+
 /* ------ NOUVEL ACCUEIL (test_home.php/accueil_client.php) - FIN ------ */
+
+/* ---------------------------- SECTION BANDE - DEBUT ---------------------------- */
+.container_bande {
+    display: flex;
+    white-space: nowrap;
+}
+  
+.list {
+    display: flex;
+    align-items: top;
+    -webkit-animation: loop 54s infinite linear;
+    animation: loop 54s infinite linear;
+}
+
+.item-txt {
+    font-family: 'AmericanaRegular';
+    font-size: 72px;
+    line-height: 96px;
+    font-weight: 400;
+    /* letter-spacing: 0.1em; */
+    color: var(--vertMoyen);
+    margin-left: 34px;
+}
+  
+.item-d{
+    display: inline;
+}
+  
+.item-dot{
+    font-size: 72px;
+    padding: 0 10px 0;
+    padding-left: 35px;
+    color: var(--vertMoyen);
+    display: inline-block;
+}
+  
+@keyframes loop {
+    100% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+/* ---------------------------- SECTION BANDE - FIN ---------------------------- */
 
 
 
@@ -4405,6 +4468,11 @@ input[type=file]::file-selector-button {
         font-size: 80px;
         line-height: 98px;
     }
+
+    /* -- NOUVEL ACCUEIL (test_home.php/accueil_client.php) (max-width:1400px)-- */
+    .contenuHeaderAccueil {
+        left: 21%;
+    }
 }
 
 
@@ -4584,6 +4652,52 @@ input[type=file]::file-selector-button {
     .containerGaucheBillet h1 {
         font-size: 56px;
         line-height: 68px;
+    }
+
+    
+    /* -------- NOUVEL ACCUEIL CLIENT (max-width:1200px)-------- */
+    .partieAccueil1 {
+        padding: 0 30px;
+    }
+
+    .exergue {
+        font-size: 34px;
+        line-height: 49px;
+    }
+
+    .animationFleur {
+        width: 160px;
+        top: 680px;
+        left: 390px;
+    }
+
+    .imgHeaderAccueil {
+        top: 262px;
+        left: 89px;
+    }
+
+    .imgHeaderAccueil img {
+        width: 366px;
+    }
+
+    .logoHeaderAccueil {
+        width: 550px;
+    }
+
+    .sectionAccueilVide {
+        height: 200px;
+    }
+
+    .partieAccueil2 {
+        margin: 100px 0 100px;
+    }
+
+    .sectionEventAccueil {
+        padding: 0 35px;
+    }
+
+    .imgEventAccueil {
+        width: 262px;
     }
 }
 
@@ -4893,7 +5007,62 @@ input[type=file]::file-selector-button {
     .billet {
         right: 35px;
     }
+
+    /* -------- NOUVEL ACCUEIL CLIENT (max-width:900px)-------- */
+    /* Section 1 */
+    /* Header */
+    .contenuHeaderAccueil{
+        display: none;
+    }
+
+    .logoAccueil {
+        display: block;
+        position: absolute;
+        top: 235px;
+        padding: 68px;
+    }
+
+    /* partie 1 - accueil */
+    .sectionAccueilVide {
+        /* height: 200px; */
+        display: none;
+    }
+
+    .gridEventAccueil {
+        display: block;
+    }
     
+    .imgEventAccueil {
+        width: 100%;
+    }
+
+    .eventAccueil {
+        padding-bottom: 110px;
+    }
+
+    /* partie 2 - accueil */
+    .partieAccueil2 {
+        display: block;
+        width: 100%;
+    }
+
+    .imgSect2 {
+        width: 100%;
+    }
+
+    .exergue {
+        font-size: 42px;
+        line-height: 54px;
+        margin-bottom: 50px;
+    }
+
+    /* Section 2 */
+    .btnAfficheEvent {
+        margin: auto;
+        width: 318px;
+        margin-top: 0;
+    }
+
 }
 
 /* ---------------------- (max-width: 900px) - FIN ---------------------- */
@@ -5159,6 +5328,25 @@ input[type=file]::file-selector-button {
 
     .billet {
         right: 30%;
+    }
+
+
+    /* ------------ PAGE ACCUEIL - (max-width:700px)------------ */
+    /* header */
+    .logoAccueil {
+        top: 172px;
+    }
+
+    .containerBgAccueil {
+        height: 648px;
+    }
+
+    .containerAccueil {
+        height: 705px;
+    }
+
+    .exergue {
+        font-size: 36px;
     }
 }
 

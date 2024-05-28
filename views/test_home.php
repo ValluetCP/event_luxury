@@ -9,6 +9,11 @@ include_once "./inc/navigation_blanc.php";
         <div class="containerBgAccueil">
             <img src="./asset/img/event_flamant.jpg" alt="événement Pink Flamingo">
         </div>
+        <!-- Petit écran -->
+        <div class="logoAccueil">
+            <img src="./asset/img/img_logo/logo_big.svg" alt="logo the luxury event">
+        </div>
+        <!-- Grand écran -->
         <div class="contenuHeaderAccueil">
             <div class="positionAccueil">
                 <div class="imgHeaderAccueil">
@@ -54,10 +59,63 @@ include_once "./inc/navigation_blanc.php";
 
     <!-- SECTION 2 - Liste des événements -->
     <section class="sectionAccueil2">
+
+        <!-- SECTION BANDE -->
+        <section class="container_bande">
+            <div class="list">
+                <div class="item">
+                    <span class="item-txt">Découvrez nos prochains événements</span>
+                    <span class="item-d">
+                        <p class="item-dot dot-t">*</p>
+                    </span>
+                    <span class="item-txt">Découvrez nos prochains événements</span>
+                    <span class="item-d">
+                        <p class="item-dot dot-b">*</p>
+                    </span>
+                    <span class="item-txt">Découvrez nos prochains événements</span>
+                    <span class="item-d">
+                        <p class="item-dot dot-g">*</p>
+                    </span>
+                    <span class="item-txt">Découvrez nos prochains événements</span>
+                    <span class="item-d">
+                        <p class="item-dot dot-y">*</p>
+                    </span>
+                    <span class="item-txt">Découvrez nos prochains événements</span>
+                    <span class="item-d">
+                        <p class="item-dot dot-r">*</p>
+                    </span>
+                </div>
+            </div>
+            <div class="list">
+                <div class="item">
+                    <span class="item-txt">Découvrez nos prochains événements</span>
+                    <span class="item-d">
+                        <p class="item-dot dot-t">*</p>
+                    </span>
+                    <span class="item-txt">Découvrez nos prochains événements</span>
+                    <span class="item-d">
+                        <p class="item-dot dot-b">*</p>
+                    </span>
+                    <span class="item-txt">Découvrez nos prochains événements</span>
+                    <span class="item-d">
+                        <p class="item-dot dot-g">*</p>
+                    </span>
+                    <span class="item-txt">Découvrez nos prochains événements</span>
+                    <span class="item-d">
+                        <p class="item-dot dot-y">*</p>
+                    </span>
+                    <span class="item-txt">saveurs exotiques</span>
+                    <span class="item-d">
+                        <p class="item-dot dot-r">*</p>
+                    </span>
+                </div>
+            </div>
+        </section>
+
          <!-- Texte qui défile -->
-        <h3>Découvrez nos prochains événements  *  Déco</h3>
+        <!-- <h3>Découvrez nos prochains événements  *  Déco</h3> -->
         <div class="sectionEventAccueil">
-            <p class="disponible">disponible dès à présent</p>
+            <!-- <p class="disponible">disponible dès à présent</p> -->
             <div class="gridEventAccueil">
                 <!-- Module Boucle -->
                 <div class="eventAccueil">
@@ -116,6 +174,11 @@ include_once "./inc/navigation_blanc.php";
                 <img src="./asset/img/img_logo/fleur_fleche.svg" alt="en voir plus">
             </div> -->
         </div>
+        <div class="btnAfficheEvent">
+            <a id="btnEventsAccueil" class="btnEventAccueil" href="#modalInscription">
+                <p>Afficher les événements</p>
+            </a>
+        </div>
     </section>
 
 
@@ -123,7 +186,7 @@ include_once "./inc/navigation_blanc.php";
 
 <!-- -------------- BALISE SCRIPT -------------- -->
 <!-- Changement attérir sur l'espace client de la nav -->
-<script src="./asset/js/nav_espace_client_event.js"></script>
+<script src="./asset/js/nav_espace_client_accueil.js"></script>
 
 <!-- Changement d'état au scroll -->
 <script src="./asset/js/nav_scroll2.js"></script>
