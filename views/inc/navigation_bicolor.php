@@ -73,19 +73,18 @@ if(!empty($_SESSION["user_role"])) {
 
 
             <!-- NAVIGATION -->
-            <div class="commande_navigation_header">
+            <div id="commande_navigation_home" class="commande_navigation_header">
 
                 <!-- S'incrire  -->
-                <a href="http://localhost/event_luxury/views/inscription"><p>Inscription</p></a>
+                <a class="inscriptionLink" href="http://localhost/event_luxury/views/inscription"><p>Inscription</p></a>
     
                 <!-- Se connecter  -->
-                <a href="http://localhost/event_luxury/views/connexion"><p>Connexion</p></a>
+                <a class="connexionLink" href="http://localhost/event_luxury/views/connexion"><p>Connexion</p></a>
     
                 <!-- Réservations  -->
                 <a href="#modalInscription" class="btn_reservation"><p>Réservation</p></a>
             </div>
-        </div>
-        
+        </div>  
 
     </nav>
 

@@ -300,12 +300,15 @@ if (!empty($_SESSION)) {
 
 <?php } else { ?>
 
-    <nav class="nav_home_page">
+    <nav class="nav_home_page nav_home_page_noConnect">
 
         <!-- BARRE DE NAVIGATION - début -->
         <div class="nav_logo">
+            <!-- <a href=""><img id="scrollLogoClairAnonyme" class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
+
+            <a href=""><img id="scrollLogoFonceAnonyme" class="logo logo_vert_fonce" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_fonce.svg" alt="logo"></a> -->
+
             <img class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo">
-            <!-- <img class="logo logo_vert_fonce" src="./img/img_logo/logo_vert_fonce.svg" alt=""> -->
         </div>
 
         <div class="navigation hp_navigation">

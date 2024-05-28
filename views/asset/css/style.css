@@ -578,6 +578,10 @@ background-color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
 }
 
+#commande_navigation_home a p{
+    color: var(--vertFonce);
+}
+
 .btn_reservation{
     text-decoration: none;
     text-transform: uppercase;
@@ -587,6 +591,11 @@ background-color: rgba(255, 255, 255, 0.5);
 .commande_navigation_header .btn_reservation p{
     color: var(--vertFonce);
 }
+
+.homeActive{
+    color: var(--vertFonceTransparent);
+}
+
 
 /* -------------- NAVIGATION ANONYME - FIN -------------- */
 

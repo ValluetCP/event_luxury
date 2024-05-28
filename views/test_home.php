@@ -130,7 +130,7 @@ include_once "./inc/navigation_blanc.php";
                             Loisir
                         </p>
                     </div>
-                    <a class="btnEventAccueil" href="">
+                    <a class="btnEventAccueil" href="#modalInscription">
                         <p>Voir l'événement</p>
                     </a>
                 </div>
@@ -147,7 +147,7 @@ include_once "./inc/navigation_blanc.php";
                             Découverte
                         </p>
                     </div>
-                    <a class="btnEventAccueil" href="">
+                    <a class="btnEventAccueil" href="#modalInscription">
                         <p>Voir l'événement</p>
                     </a>
                 </div>
@@ -164,7 +164,7 @@ include_once "./inc/navigation_blanc.php";
                             Loisir
                         </p>
                     </div>
-                    <a class="btnEventAccueil" href="">
+                    <a class="btnEventAccueil" href="#modalInscription">
                         <p>Voir l'événement</p>
                     </a>
                 </div>
@@ -188,11 +188,22 @@ include_once "./inc/navigation_blanc.php";
 <!-- Changement attérir sur l'espace client de la nav -->
 <script src="./asset/js/nav_espace_client_accueil.js"></script>
 
-<!-- Changement d'état au scroll -->
+<!-- CLIENT OU ADMIN -->
+<?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin" || (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")) { ?>
+<!-- Changement d'état au scroll (l'ensemble des pages) -->
 <script src="./asset/js/nav_scroll2.js"></script>
+
+<!-- ANONYME -->
+<?php } else { ?>
+<!-- Changement d'état au scroll (page home)-->
+<script src="./asset/js/nav_scroll.js"></script>
+<?php } ?>
 
 <!-- Espace navigation -->
 <script src="./asset/js/espace_navigation.js"></script>
+
+<!-- Espace navigation -->
+<script src="../asset/js/connexion.js"></script>
 
 <!-- -------------- FOOTER -------------- -->
 <?php
