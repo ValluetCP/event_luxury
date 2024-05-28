@@ -43,8 +43,18 @@ foreach ($listEvent as $event) {
 
 <!-- ------------------------ PAGE LISTE EVENT ------------------------ -->
 <main id="siteListEvent" class="siteList">
+    
+    <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
+    <div id="btnRondHaut">
+        <div class="txtFleche">
+            <img src="./asset/img/img_logo/haut_txt2.png" alt="retour vers le haut" class="rotate">
+            <div class="flecheHaut">
+                <img src="./asset/img/img_logo/haut_fleche.png" alt="fleche retour vers le haut">
+            </div>
+        </div>
+    </div>
 
-    <!-- ------------------------------- HAUT -------------------------------- -->
+    <!-- ----------------------------- HAUT ------------------------------ -->
     <!-- SECTION DU HAUT - IMAGE FIXE -->
     <section class="haut">
         <div id="ImgHauteListEvent" class="ImgHaute" style="background-image: url(./asset/img/event_horizontal_cocktail.jpg);">

@@ -42,7 +42,6 @@ include_once "./inc/navigation_blanc.php";
 </header>
 
 <main>
-    <!-- SECTION 1 -->
     <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
     <div id="btnRondHaut">
         <div class="txtFleche">
@@ -52,6 +51,8 @@ include_once "./inc/navigation_blanc.php";
             </div>
         </div>
     </div>
+    
+    <!-- SECTION 1 -->
     <div class="sectionAccueilVide">
 
     </div>

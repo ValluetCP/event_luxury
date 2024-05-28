@@ -153,7 +153,7 @@ if (!empty($_SESSION)) {
                         <ul class="filtre">
 
                             <!-- CLIENT - Accueil -->
-                            <li><a href="http://localhost/event_luxury/views/accueil_client" class="client_accueil_link sous_menu_client">L'accueil</a></li>
+                            <li><a href="http://localhost/event_luxury/views/home_client" class="client_accueil_link sous_menu_client">L'accueil</a></li>
 
                             <!-- CLIENT - La liste des évènements -->
                             <li><a href="http://localhost/event_luxury/views/event_list" class="client_event_link sous_menu_client">Nos événements</a></li>
@@ -299,7 +299,7 @@ if (!empty($_SESSION)) {
                         <ul class="filtre">
 
                             <!-- CLIENT - Accueil -->
-                            <li><a href="http://localhost/event_luxury/views/accueil_client" class="client_accueil_link sous_menu_client">L'accueil</a></li>
+                            <li><a href="http://localhost/event_luxury/views/home_client" class="client_accueil_link sous_menu_client">L'accueil</a></li>
 
                             <!-- CLIENT - La liste des évènements -->
                             <li><a href="http://localhost/event_luxury/views/event_list" class="client_event_link sous_menu_client">Nos événements</a></li>

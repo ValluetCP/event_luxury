@@ -54,6 +54,11 @@ html {
     background-color: var(--vertScroll2); 
     box-shadow: 0 -100vh 0 100vh var(--vertScroll2);
 }
+
+
+body{
+    overflow-x: hidden;
+}
     
     /* Handle on hover */
     /* ::-webkit-scrollbar-thumb:hover {
@@ -120,6 +125,44 @@ html {
     z-index: 999;
     overflow: hidden;
 }
+
+
+/* ----- BOUTON CIRCULAIRE - 'retour vers le haut'- DEBUT ----- */
+#btnRondHaut{
+    position: fixed;
+    bottom: 15%;
+    right: 6%;
+    cursor: pointer;    
+    z-index: 1;
+}
+
+.txtFleche{
+    position: relative;
+}
+
+.flecheHaut{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+.rotate{
+    animation: rotation infinite 20s linear;
+ }
+ 
+ @keyframes rotation{
+   from{
+     transform:rotate(0deg);
+   }
+   
+   to{
+     transform:rotate(360deg);
+   }
+ }
+/* ----- BOUTON CIRCULAIRE - 'retour vers le haut'- FIN ----- */
+
     
 /* -------------- NAVIGATION (event.php) -------------- */
 .nav_home_page,
@@ -3962,6 +4005,17 @@ input[type=file]::file-selector-button {
     position: relative;
 }
 
+.numero1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#fleurRotate {
+    animation: rotation infinite 50s linear;
+}
+
 .txtRond{
     position: absolute;
     top: 50%;
@@ -4035,7 +4089,7 @@ input[type=file]::file-selector-button {
 /* --- Section 2 --- */
 .sectionAccueil2{
     background-color: var(--vertFonce);
-    padding-bottom: 72px;
+    /* padding-bottom: 72px; */
     padding-top: 50px;
 }
 
@@ -4156,9 +4210,35 @@ input[type=file]::file-selector-button {
     /* width: 318px; */
 }
 
+/* NOUVEL ACCUEIL - FOOTER 1 (admin & client) */
+.footercCopyright{
+    border-top: 1px solid var(--vertFonce);
+}
+.footercCopyright p{
+    padding: 30px 80px;
+    font-family: 'Karla', sans-serif;
+    color: var(--vertFonce);
+    font-weight: 300;
+    font-size: 18px;
+}
+
+/* NOUVEL ACCUEIL - FOOTER 2 */
+.footercCopyright2{
+    border-top: 1px solid var(--vertClair);
+    margin-top: 72px;
+}
+
+.footercCopyright2 p{
+    padding: 30px 80px;
+    font-family: 'Karla', sans-serif;
+    color: var(--vertClair);
+    font-weight: 300;
+    font-size: 18px;
+}
+
 /* ------ NOUVEL ACCUEIL (test_home.php/accueil_client.php) - FIN ------ */
 
-/* ---------------------------- SECTION BANDE - DEBUT ---------------------------- */
+/* ----------------------- SECTION BANDE - DEBUT ----------------------- */
 .container_bande {
     display: flex;
     white-space: nowrap;

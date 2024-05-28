@@ -85,10 +85,11 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
         </div>
     </div>
 
-    <!-- --------------------- Page - évènement (côté CLIENT) ---------------------- -->
+    <!-- ------------------ Page - évènement (côté CLIENT) ------------------- -->
 
     <main class="site siteEvent">
-        <!-- ------------------------------- HAUT -------------------------------- -->
+
+        <!-- --------------------------- HAUT ---------------------------- -->
         <!-- SECTION GAUCHE - IMAGE FIXE -->
         <section class="gauche gaucheEvent">
             <div class="gaucheImg gaucheImgEvent">
@@ -96,7 +97,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
             </div>
         </section>
 
-        <!-- ------------------------------- BAS -------------------------------- -->
+        <!-- ----------------------------- BAS ------------------------------ -->
         <!-- SECTION DROITE - FICHE PRODUIT -->
         <section class="droite">
 
