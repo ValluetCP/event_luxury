@@ -49,7 +49,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                     </div>
 
                     <!-- FILTRE -->
-                    <div class="filtreCategory">
+                    <!-- <div class="filtreCategory">
                         <button type="submit" class="lb_filtre">Filtrer</button>
                         <div class="lb_selectFiltre">
                             <select name="lb_categoryFiltre" id="lb_categoryFiltre">
@@ -60,7 +60,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                                 <option value="5">Evasion</option>
                             </select>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -180,7 +180,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
     <!-- Changement d'état au scroll -->
-    <script src="../asset/js/nav_scroll2.js"></script>
+    <script src="../asset/js/nav_scroll3.js"></script>
 
     <script>
 

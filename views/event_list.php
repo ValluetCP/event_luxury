@@ -50,7 +50,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
             <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
             <?php
-                include_once "./inc/bouton_retour_haut.php";
+                include_once "./inc/bouton_retour_haut/bouton_retour_haut.php";
             ?>
 
             <!-- -------------------------- HAUT --------------------------- -->
@@ -65,7 +65,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                 </div>
                 <!-- FOOTER FIXE -->
                 <?php
-                    include_once "./inc/footer_fixe.php";
+                    include_once "./inc/footer_fixe/footer_fixe.php";
                 ?>
             </section>
 

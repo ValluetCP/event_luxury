@@ -31,6 +31,11 @@ require_once "../../models/categorieModel.php";
 
     <!-- ------------------- PAGE PREVISUALISATION (LISTE EVENT) - ADMIN ------------------- -->
     <main id="siteListEvent" class="siteList">
+        <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
+        <?php
+            include_once "../inc/bouton_retour_haut/bouton_retour_haut_admin.php";
+        ?>
+
 
         <!-- ------------------------------- HAUT -------------------------------- -->
         <!-- SECTION DU HAUT - IMAGE FIXE -->
@@ -41,6 +46,10 @@ require_once "../../models/categorieModel.php";
                 <h1>tous nos événements</h1>
                 <h2>sont à découvrir</h2>
             </div>
+            <!-- FOOTER FIXE -->
+            <?php
+                include_once "../inc/footer_fixe/footer_fixe.php";
+            ?>
         </section>
 
 
@@ -63,7 +72,7 @@ require_once "../../models/categorieModel.php";
 
                     <!-- FILTRE -->
                     <!-- Ajoutez le formulaire de filtre ici -->
-                    <form method="get" action="" class="filtreCategory">
+                    <!-- <form method="get" action="" class="filtreCategory">
                         <button type="submit" class="lb_filtre">Filtrer</button>
                         <div class="lb_selectFiltre">
                             <select name="categorie" id="categorie">
@@ -73,7 +82,7 @@ require_once "../../models/categorieModel.php";
                                 <?php } ?>
                             </select>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
 
                 <!-- CODE : FILTRER PAR CATEGORIE -->
@@ -199,7 +208,7 @@ require_once "../../models/categorieModel.php";
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
     <!-- Changement d'état au scroll -->
-    <script src="../asset/js/nav_scroll2.js"></script>
+    <script src="../asset/js/nav_scroll3.js"></script>
 
     <script>
         
@@ -219,7 +228,7 @@ require_once "../../models/categorieModel.php";
 
                 // d) utiliser la méthode ajax de jquery pour l'affichage de la réponse
                 $.ajax({
-                    url: "../traitement/traitement_ajax5.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
+                    url: "../traitement/traitement_ajax7.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
                     type: "POST", // la méthode utilisée (projet : ne rien mettre, par défaut on sera sur la method GET)
                     // les paramètres à fournir ex : ...id=4&nom=anonyme...(projet : on ne met rien) 
                     dataType: 'json', // le format des données attendues en tableau JSON pour être interprété et éxécuté par AJAX (projet : 'json') 
