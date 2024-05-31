@@ -5,11 +5,7 @@ const nav = document.querySelector('.navbar');
         const hdrTrait1 = document.getElementById('hdr_trait1');
         const hdrTrait2 = document.getElementById('hdr_trait2');
         const btnRondHaut = document.getElementById('btnRondHaut');
-        // Ajouter la transformation à imgBgAccueil
         const imgBgAccueil = document.getElementById('imgBgAccueil');
-        // Footer fixe
-        const footerFixe = document.getElementById('footerFixe');
-        // const footerCopyright = document.querySelector('.footerCopyright');
 
         // Au chargement de la page, masquer scrollLogoFonce
         scrollLogoFonce.style.display = 'none';
@@ -27,8 +23,6 @@ const nav = document.querySelector('.navbar');
 
                 // Ajouter la transformation à imgBgAccueil
                 imgBgAccueil.style.transform = 'translateY(-126px)';
-
-                // Footer fixe
             } else {
                 nav.classList.remove('scroll');
                 btnRondHaut.style.display = 'none';
@@ -37,10 +31,5 @@ const nav = document.querySelector('.navbar');
                 hdrPanierNav.style.color = 'var(--vertClair)';
                 hdrTrait1.style.backgroundColor = 'var(--vertClair)';
                 hdrTrait2.style.backgroundColor = 'var(--vertClair)';
-
-                // Ajouter la transformation à imgBgAccueil
-                imgBgAccueil.style.transform = 'translateY(0)';
-
-                // Footer fixe
             }
         });

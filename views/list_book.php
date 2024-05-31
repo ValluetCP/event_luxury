@@ -78,6 +78,11 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
     <main id="siteListBook" class="siteList">
 
+        <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
+        <?php
+            include_once "./inc/bouton_retour_haut.php";
+        ?>
+
         <!-- ------------------------------- HAUT -------------------------------- -->
         <!-- SECTION DU HAUT - IMAGE FIXE -->
         <section class="haut">
@@ -95,12 +100,16 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
                 <!-- catégorie : divertissement, atelier, gastronomie, représentation, loisir -->
             </div>
+            <!-- FOOTER FIXE -->
+            <?php
+                include_once "./inc/footer_fixe.php";
+            ?>
         </section>
 
 
         <!-- ------------------------------- BAS -------------------------------- -->
         <!-- SECTION DU BAS - LISTE DES EVENTS -->
-        <section class="bas">
+        <section id="bas_listBook" class="bas">
 
 
             <!-- CONTAINER GLOBAL - liste des events -->
@@ -110,25 +119,14 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                 <div class="container_btnFiltre_listEvent">
 
                     <!-- btn Prochainement - btn historique -->
-                    <div class="btnProchainHistorique">
+                    <!-- <div class="btnProchainHistorique">
                         <a href="" id="reinitialiser_resultat" class="prochainement_listEvent">Prochainement</a>
                         <a href="" id="prochain_event" class="historique_listEvent">Historique</a>
-                    </div>
-
-                    <!-- <div class="filtreCategory">
-                    <button type="submit" class="lb_filtre">Filtrer</button>
-                    <div class="lb_selectFiltre">
-                        <select name="lb_categoryFiltre" id="lb_categoryFiltre">
-                            <option value="1">Toutes les catégories</option>
-                            <option value="2">Divertissement</option>
-                            <option value="3">Atelier</option>
-                        </select>
-                    </div>
-                </div> -->
+                    </div> -->
 
                     <!-- FILTRE -->
                     <!-- Ajoutez le formulaire de filtre ici -->
-                    <form method="get" action="" class="filtreCategory">
+                    <!-- <form method="get" action="" class="filtreCategory">
                         <button type="submit" class="lb_filtre">Filtrer</button>
                         <div class="lb_selectFiltre">
                             <select name="categorie" id="categorie">
@@ -138,7 +136,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                                 <?php } ?>
                             </select>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
 
 
@@ -228,7 +226,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     <script src="./asset/js/nav_espace_client_reservation.js"></script>
 
     <!-- Changement d'état au scroll -->
-    <script src="./asset/js/nav_scroll2.js"></script>
+    <script src="./asset/js/nav_scroll3.js"></script>
 
     <!-- Espace navigation -->
     <script src="./asset/js/espace_navigation.js"></script>

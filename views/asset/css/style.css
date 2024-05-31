@@ -1836,6 +1836,10 @@ background-color: rgba(255, 255, 255, 0.5);
 
 /* ------------ PAGE LIST BOOK - DEBUT ------------ */
 
+#bas_listBook{
+    margin-bottom: 80px;
+}
+
 
 /* -- CONTAINER (list_book.php) -- */
 
@@ -2672,7 +2676,10 @@ padding-left: 624px;
     margin-top: 100vh;
     z-index: 0;
     /* height: 100%; */
+
+    /* Attention - ok pour list-book mais pas forcément pour event_list */
     background-color: white;
+    min-height: 200px;
 }
 
 /* ------------ PAGE GABARIT (pour toutes les listes) - FIN ------------ */

@@ -36,6 +36,7 @@ session_start();
     <!-- Base de donnée : nom de la base de donnée -->
 </head>
 <body>
+    <!-- CURSOR - Personnalisation curseur souris -->
     <div class="cercle"></div>
 
     

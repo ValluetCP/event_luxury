@@ -6,9 +6,12 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
 ) {
 
+    // Nav
     include_once "./inc/nav_blc_espace_client.php";
-    include_once "./inc/cursor.php";
     include_once "./inc/functions.php";
+    // Stylisation du curseur
+    // include_once "./inc/cursor.php";
+    // 
     include_once "./inc/lien_haut_page.php";
     require_once "../models/eventModel.php";
     require_once "../models/bookModel.php";
@@ -37,7 +40,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
         <!-- <div class="cursorSouris">
 
-</div> -->
+    </div> -->
 
         <!-- Cercle souris-->
         <!-- <div class="cercle"></div> -->
@@ -46,16 +49,11 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
         <main id="siteListEvent" class="siteList">
 
             <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
-            <div id="btnRondHaut">
-                <div class="txtFleche">
-                    <img src="./asset/img/img_logo/haut_txt2.png" alt="retour vers le haut" class="rotate">
-                    <div class="flecheHaut">
-                        <img src="./asset/img/img_logo/haut_fleche.png" alt="fleche retour vers le haut">
-                    </div>
-                </div>
-            </div>
+            <?php
+                include_once "./inc/bouton_retour_haut.php";
+            ?>
 
-            <!-- ----------------------------- HAUT ------------------------------ -->
+            <!-- -------------------------- HAUT --------------------------- -->
             <!-- SECTION DU HAUT - IMAGE FIXE -->
             <section class="haut">
                 <div id="ImgHauteListEvent" class="ImgHaute" style="background-image: url(./asset/img/event_horizontal_cocktail.jpg);">
@@ -66,18 +64,13 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                     <h2>sont à découvrir</h2>
                 </div>
                 <!-- FOOTER FIXE -->
-                <div id="footerFixe" class="footerCopyright">
-                    <p>&#169; Tous droits réservés à The Luxury Event</p>
-                    <p>Site réalisé par Cynthia PETITOT UI/UX Designer et Développeuse Web</p>
-                </div>
-                <div id="footerFixe" class="footerFixe">
-                    <p>&#169; Tous droits réservés à The Luxury Event.</p>
-                    <p>Site réalisé par Cynthia PETITOT UI/UX Designer et Développeuse Web.</p>
-                </div>
+                <?php
+                    include_once "./inc/footer_fixe.php";
+                ?>
             </section>
 
 
-            <!-- ------------------------------- BAS -------------------------------- -->
+            <!-- --------------------------- BAS ---------------------------- -->
             <!-- SECTION DU BAS - LISTE DES EVENTS -->
             <section class="bas">
 
@@ -97,16 +90,16 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                         <!-- FILTRE -->
                         <!-- Ajoutez le formulaire de filtre ici -->
                         <!-- <form method="get" action="" class="filtreCategory">
-                    <button type="submit" class="lb_filtre">Filtrer</button>
-                    <div class="lb_selectFiltre">
-                        <select name="categorie" id="categorie">
-                            <option value="">Toutes les catégories</option>
-                            <?php foreach ($categories as $key => $categorie) { ?>
-                                <option value="<?= $key; ?>"><?= $categorie ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </form> -->
+                            <button type="submit" class="lb_filtre">Filtrer</button>
+                            <div class="lb_selectFiltre">
+                                <select name="categorie" id="categorie">
+                                    <option value="">Toutes les catégories</option>
+                                    <?php foreach ($categories as $key => $categorie) { ?>
+                                        <option value="<?= $key; ?>"><?= $categorie ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </form> -->
                     </div>
 
                     <!-- CODE : FILTRER PAR CATEGORIE -->
@@ -206,7 +199,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
 
                 </div>
-                </div>
+                <!-- </div> -->
 
 
 
