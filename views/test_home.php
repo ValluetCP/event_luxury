@@ -73,7 +73,7 @@ include_once "./inc/navigation_blanc.php";
     <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin" || (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")) { ?>
         <!-- SECTION 2 - Vide -->
         <!-- FOOTER 1 -->
-        <div class="footercCopyright">
+        <div class="footerCopyright">
             <p>&#169; Tous droits réservés The Luxury Event</p>
         </div>
     <?php } else { ?>
@@ -202,7 +202,7 @@ include_once "./inc/navigation_blanc.php";
             </div>
 
             <!-- FOOTER 2 -->
-            <div class="footercCopyright2">
+            <div class="footerCopyright2">
                 <p>&#169; Tous droits réservés The Luxury Event</p>
             </div>
         </section>

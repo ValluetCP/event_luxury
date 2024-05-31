@@ -51,7 +51,7 @@ include_once "./inc/navigation_blanc.php";
             </div>
         </div>
     </div>
-    
+
     <!-- SECTION 1 -->
     <div class="sectionAccueilVide">
 
@@ -74,8 +74,9 @@ include_once "./inc/navigation_blanc.php";
     <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin" || (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")) { ?>
         <!-- SECTION 2 - Vide -->
         <!-- FOOTER 1 -->
-        <div class="footercCopyright">
-            <p>&#169; Tous droits réservés The Luxury Event</p>
+        <div class="footerCopyright">
+            <p>&#169; Tous droits réservés à The Luxury Event</p>
+            <p>Site réalisé par Cynthia PETITOT UI/UX Designer et Développeuse Web</p>
         </div>
     <?php } else { ?>
 
@@ -203,7 +204,7 @@ include_once "./inc/navigation_blanc.php";
             </div>
 
             <!-- FOOTER 2 -->
-            <div class="footercCopyright2">
+            <div class="footerCopyright2">
                 <p>&#169; Tous droits réservés The Luxury Event</p>
             </div>
         </section>
