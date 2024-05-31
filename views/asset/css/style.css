@@ -127,7 +127,7 @@ body{
 }
 
 
-/* ----- BOUTON CIRCULAIRE - 'retour vers le haut'- DEBUT ----- */
+/* ----- BOUTON CIRCULAIRE 2 - 'retour vers le haut'- DEBUT ----- */
 #btnRondHaut{
     position: fixed;
     bottom: 15%;
@@ -162,7 +162,43 @@ body{
      transform:rotate(360deg);
    }
  }
-/* ----- BOUTON CIRCULAIRE - 'retour vers le haut'- FIN ----- */
+/* ----- BOUTON CIRCULAIRE 2 - 'retour vers le haut'- FIN ----- */
+
+
+/* ----- BOUTON CIRCULAIRE 1 - 'scroll'- DEBUT ----- */
+#btnRondScroll{
+    position: absolute;
+    bottom: 6%;
+    right: 6%;
+    z-index: 1;
+}
+
+.txtScroll{
+    position: relative;
+}
+
+.flecheScroll{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+.rotate{
+    animation: rotation infinite 20s linear;
+ }
+ 
+ @keyframes rotation{
+   from{
+     transform:rotate(0deg);
+   }
+   
+   to{
+     transform:rotate(360deg);
+   }
+ }
+/* ----- BOUTON CIRCULAIRE 1 - 'scroll'- FIN ----- */
 
     
 /* -------------- NAVIGATION (event.php) -------------- */
@@ -4561,13 +4597,13 @@ input[type=file]::file-selector-button {
         left: 211px;
     }
 
-    /* --- HISTORIQUE - (max-width:1400px)--- */
+    /* --- PAGE HISTORIQUE - (max-width:1400px)--- */
     
     #b_containerDroit {
         max-width: 550px;
     }
 
-    /* --- LISTE EVENT - (max-width:1400px)--- */
+    /* --- PAGE LISTE EVENT - (max-width:1400px)--- */
     /* partie haute */
     .titreListEvent h1 {
         font-size: 114px;
@@ -4576,6 +4612,12 @@ input[type=file]::file-selector-button {
     /* partie basse */
     .module_listEvent {
         gap: 20px;
+    }
+
+    /* Affichage de la liste des events */
+
+    .container_list{
+        margin-bottom: 178px;
     }
 
     /* ------------ PAGE ACCUEIL (max-width:1400px) - DEBUT ------------ */

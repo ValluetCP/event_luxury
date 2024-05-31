@@ -48,7 +48,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
         <!-- ------------------------ PAGE LISTE EVENT ------------------------ -->
         <main id="siteListEvent" class="siteList">
 
-            <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
+            <!-- ----- BOUTON CIRCULAIRE 2 - 'retour vers le haut'----- -->
             <?php
                 include_once "./inc/bouton_retour_haut/bouton_retour_haut.php";
             ?>
@@ -63,6 +63,12 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                     <h1>tous nos événements</h1>
                     <h2>sont à découvrir</h2>
                 </div>
+
+                <!-- ----- BOUTON CIRCULAIRE 1 - 'scroll'----- -->
+                <?php
+                    include_once "./inc/bouton_scroll/bouton_scroll.php";
+                ?>
+
                 <!-- FOOTER FIXE -->
                 <?php
                     include_once "./inc/footer_fixe/footer_fixe.php";
