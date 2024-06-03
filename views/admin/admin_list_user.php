@@ -20,7 +20,7 @@ $userList = User::findAllUser();
         <section class="haut">
 
             <!-- image -->
-            <div id="ImgHauteListUser" class="ImgHaute" style="background-image: url(../asset/img/event_horizontal_voiture.jpg);">
+            <div id="ImgHauteListUser" class="ImgHaute" style="background-image: url(../asset/img/event_horizontal_yatch.jpg);">
             </div>
 
             <!-- texte -->
@@ -28,12 +28,12 @@ $userList = User::findAllUser();
                 <h1>liste des utilisateurs</h1>
                 <h2>ajouter, modifier, désactiver, supprimer</h2>
 
-                <!-- <p>
-                Plongez dans un monde d'expériences exclusives et inoubliables où chaque moment est une découverte. Assistez à des concerts privés, privatisez des lieux insolites et d'exception, et vivez des compétitions de haut vol en compagnie de vos athlètes préférés. Transformez-vous en star internationale ou en pilote de Formule 1 le temps d'une journée. Laissez-vous guider par des chefs étoilés qui dévoileront leurs secrets culinaires lors d'ateliers intimes. Savourez des brunchs aux meilleures tables et émerveillez-vous devant des shows culinaires spectaculaires. Offrez-vous des instants uniques où le luxe et l'exclusivité se marient pour créer des souvenirs inoubliables.
-            </p> -->
-
-                <!-- catégorie : divertissement, atelier, gastronomie, représentation, loisir -->
             </div>
+
+            <!-- ----- BOUTON CIRCULAIRE 1 - 'scroll'----- -->
+            <?php
+                include_once "../inc/bouton_scroll/bouton_scroll_admin.php";
+            ?>
         </section>
 
 

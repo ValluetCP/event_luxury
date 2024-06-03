@@ -40,12 +40,17 @@ require_once "../../models/categorieModel.php";
         <!-- ------------------------------- HAUT -------------------------------- -->
         <!-- SECTION DU HAUT - IMAGE FIXE -->
         <section class="haut">
-            <div id="ImgHauteListEvent" class="ImgHaute" style="background-image: url(../asset/img/event_horizontal_bateau.jpg);">
+            <div id="ImgHauteListEvent" class="ImgHaute" style="background-image: url(../asset/img/event_horizontal_voiture.jpg);">
             </div>
             <div class="titreListEvent">
                 <h1>tous nos événements</h1>
                 <h2>sont à découvrir</h2>
             </div>
+            <!-- ----- BOUTON CIRCULAIRE 1 - 'scroll'----- -->
+            <?php
+                include_once "../inc/bouton_scroll/bouton_scroll_admin.php";
+            ?>
+
             <!-- FOOTER FIXE -->
             <?php
                 include_once "../inc/footer_fixe/footer_fixe.php";
@@ -57,19 +62,76 @@ require_once "../../models/categorieModel.php";
         <!-- SECTION DU BAS - LISTE DES EVENTS -->
         <section class="bas">
 
+            <!-- PREVISUALISATION -->
+            <div class="containerPrevisualisation">
+                <div class="txtPrevisualisation">
+                    <!-- <p>Prévisualisation</p> -->
+                    <!-- SECTION BANDE -->
+                    <div class="container_bande">
+                        <div class="list listPreview">
+                            <div class="item">
+                                <span class="item-txt">Prévisualisation</span>
+                                <span class="item-d">
+                                    <p class="item-dot dot-t">*</p>
+                                </span>
+                                <span class="item-txt">Prévisualisation</span>
+                                <span class="item-d">
+                                    <p class="item-dot dot-b">*</p>
+                                </span>
+                                <span class="item-txt">Prévisualisation</span>
+                                <span class="item-d">
+                                    <p class="item-dot dot-g">*</p>
+                                </span>
+                                <span class="item-txt">Prévisualisation</span>
+                                <span class="item-d">
+                                    <p class="item-dot dot-y">*</p>
+                                </span>
+                                <span class="item-txt">Prévisualisation</span>
+                                <span class="item-d">
+                                    <p class="item-dot dot-r">*</p>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="list listPreview">
+                            <div class="item">
+                                <span class="item-txt">Prévisualisation</span>
+                                <span class="item-d">
+                                    <p class="item-dot dot-t">*</p>
+                                </span>
+                                <span class="item-txt">Prévisualisation</span>
+                                <span class="item-d">
+                                    <p class="item-dot dot-b">*</p>
+                                </span>
+                                <span class="item-txt">Prévisualisation</span>
+                                <span class="item-d">
+                                    <p class="item-dot dot-g">*</p>
+                                </span>
+                                <span class="item-txt">Prévisualisation</span>
+                                <span class="item-d">
+                                    <p class="item-dot dot-y">*</p>
+                                </span>
+                                <span class="item-txt">Prévisualisation</span>
+                                <span class="item-d">
+                                    <p class="item-dot dot-r">*</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- CONTAINER GLOBAL - liste des events -->
             <div id="container_listEvent" class="container_list">
-
+                     
                 <!-- ZONE FILTRE -->
                 <div class="container_btnFiltre_listEvent">
-
+                    
                     <!-- btn Prochainement - btn historique -->
                     <div class="btnProchainHistorique">
                         <a href="" id="reinitialiser_resultat" class="prochainement_listEvent">Prochainement</a>
                         <a href="" id="prochain_event" class="historique_listEvent">Historique</a>
                     </div>
-
+                    
                     <!-- FILTRE -->
                     <!-- Ajoutez le formulaire de filtre ici -->
                     <!-- <form method="get" action="" class="filtreCategory">
@@ -203,12 +265,18 @@ require_once "../../models/categorieModel.php";
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="../asset/js/app.js"></script>
     <script src="../asset/js/cercle.js"></script>
+
     <!-- Changement attérir sur l'espace client de la nav -->
     <script src="../asset/js/espace_admin/nav_espace_admin_event.js"></script>
+
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
+
     <!-- Changement d'état au scroll -->
     <script src="../asset/js/nav_scroll3.js"></script>
+    
+    <!-- Bouton 'retour vers le haut' -->
+    <script src="../asset/js/bouton_retour_haut.js"></script>
 
     <script>
         

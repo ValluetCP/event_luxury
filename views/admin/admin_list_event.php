@@ -28,6 +28,10 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                 <h1>liste des événements</h1>
                 <h2>ajouter, modifier, désactiver, supprimer</h2>
             </div>
+            <!-- ----- BOUTON CIRCULAIRE 1 - 'scroll'----- -->
+            <?php
+                include_once "../inc/bouton_scroll/bouton_scroll_admin.php";
+            ?>
 
         </section>
 
