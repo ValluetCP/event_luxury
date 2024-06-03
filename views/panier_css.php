@@ -14,12 +14,26 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 ?>
 
     <div class="containerPagePanier">
+
+        <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
+        <?php
+            include_once "./inc/bouton_retour_haut/bouton_retour_haut.php";
+        ?>
         
         <div class="containerPanier">
 
             <div class="contenuPanier">
                 <div class="sousTitrePanier">
                     <p>PANIER (<span class="quantite_panier"><?= $_SESSION["nombre"] ?? '0'; ?></span>)</p>
+                </div>
+
+                <!-- Lien liste -->
+                <div id="lienPanierVertical" class="lienPanier">
+                    <ul>
+                        <li><a href="./event_list.php">listes événements</a></li>
+                        <li><a href="">|</a></li>
+                        <li class="lienPanierBook"><a href="./list_book.php">mes réservations</a></li>
+                    </ul>
                 </div>
     
                 <!-- AFFICHAGE LISTE PRODUIT -->
@@ -116,8 +130,9 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
             <!-- LIENS -->
             <!-- <div class="lienPanier">
                 <ul>
-                    <li><a href="">listes événements</a></li>
-                    <li><a href="">mes réservations</a></li>
+                    <li><a href="./event_list.php">listes événements</a></li>
+                    <li><a href="">|</a></li>
+                    <li><a href="./list_book.php">mes réservations</a></li>
                 </ul>
             </div> -->
             <!-- VALIDER LA COMMANDE -->
@@ -144,6 +159,10 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
     <!-- Espace navigation -->
     <script src="./asset/js/espace_navigation.js"></script>
+
+    <!-- Bouton 'retour vers le haut' -->
+    <script src="./asset/js/bouton_retour_haut.js"></script>
+    
 
 <!-- -------------- SUITE SECURITE ACCES -------------- -->
 <?php } else {

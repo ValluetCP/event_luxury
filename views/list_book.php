@@ -100,6 +100,13 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
                 <!-- catégorie : divertissement, atelier, gastronomie, représentation, loisir -->
             </div>
+
+            
+            <!-- ----- BOUTON CIRCULAIRE 1 - 'scroll'----- -->
+            <?php
+                include_once "./inc/bouton_scroll/bouton_scroll.php";
+            ?>
+
             <!-- FOOTER FIXE -->
             <?php
                 include_once "./inc/footer_fixe/footer_fixe.php";
@@ -222,6 +229,8 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
     <footer></footer>
 
+    <!-- -------------- BALISE SCRIPT -------------- -->
+
     <!-- Changement attérir sur l'espace client de la nav -->
     <script src="./asset/js/nav_espace_client_reservation.js"></script>
 
@@ -230,6 +239,9 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
     <!-- Espace navigation -->
     <script src="./asset/js/espace_navigation.js"></script>
+    
+    <!-- Bouton 'retour vers le haut' -->
+    <script src="./asset/js/bouton_retour_haut.js"></script>
 
 
     <script>

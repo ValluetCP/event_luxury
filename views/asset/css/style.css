@@ -21,6 +21,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     --vertMoyen: #3A5D4D;
     --vertScroll: #1e5a3f;
     --vertClair: #EBF2ED;
+    --vertGris: #9da8a4;
     
     /* Couleur vert (secondaire) */
     --vertFonceTransparent: #65736D;
@@ -3663,6 +3664,7 @@ input[type=file]::file-selector-button {
     bottom: 30px;
     /* width: 87%; */
     right: 80px;
+    display: flex;
 }
 
 /* LIENS */
@@ -3671,16 +3673,32 @@ input[type=file]::file-selector-button {
 }
 
 .lienPanier ul li{
-    padding-right: 50px;
+    /* padding-right: 50px; */
+    padding-right: 25px;
+    margin-top: 20px;
 }
 
 .lienPanier ul li a{
     text-decoration: none;
-    font-family: 'AmericanaRegular';
-    font-size: 35px;
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
     color: var(--vertMoyen);
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+
+.lienPanier ul li a:hover{
+    color: var(--vertGris);
+}
+
+#lienPanierVertical{
+    position: fixed;
+    top: 100px;
+    right: 80px;
+}
+
+#lienPanierVertical .lienPanierBook{
+    padding: 0;
 }
 
 /* Valider la commande */
@@ -5246,6 +5264,15 @@ input[type=file]::file-selector-button {
         margin-top: 0;
     }
 
+    /* -------- FOOTER (max-width:900px)-------- */
+    /* FOOTER FIXE */
+    .realisation{
+        display: none;
+    }
+
+    #footerFixe {
+        text-align: center;
+    }
 }
 
 /* ---------------------- (max-width: 900px) - FIN ---------------------- */

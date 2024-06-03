@@ -145,7 +145,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                                     <div class="center_txt_listEvent">
                                         <div class="txt_container_listEvent">
                                             <!-- numéro -->
-                                            <div class="num_listEvent">03</div>
+                                            <div class="num_listEvent"><?= $event['id_evenement']; ?></div>
                                             <div class="txt_listEvent">
                                                 <div class="titre_listEvent"><?= $event['titre']; ?></div>
                                                 <!-- date / category -->
@@ -219,6 +219,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
         <!-- -------------- BALISE SCRIPT -------------- -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
         <!-- Souris -->
         <script src="./asset/js/app.js"></script>
         <script src="./asset/js/cercle.js"></script>
@@ -231,6 +232,9 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
         <!-- Espace navigation -->
         <script src="./asset/js/espace_navigation.js"></script>
+
+        <!-- Bouton 'retour vers le haut' -->
+        <script src="./asset/js/bouton_retour_haut.js"></script>
 
 
         <script>

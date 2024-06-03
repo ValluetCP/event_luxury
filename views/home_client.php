@@ -43,14 +43,9 @@ include_once "./inc/navigation_blanc.php";
 
 <main>
     <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
-    <div id="btnRondHaut">
-        <div class="txtFleche">
-            <img src="./asset/img/img_logo/haut_txt2.png" alt="retour vers le haut" class="rotate">
-            <div class="flecheHaut">
-                <img src="./asset/img/img_logo/haut_fleche.png" alt="fleche retour vers le haut">
-            </div>
-        </div>
-    </div>
+    <?php
+        include_once "./inc/bouton_retour_haut/bouton_retour_haut.php";
+    ?>
 
     <!-- SECTION 1 -->
     <div class="sectionAccueilVide">
@@ -69,6 +64,7 @@ include_once "./inc/navigation_blanc.php";
                 </div>
             </div>
         </div>
+
     </section>
 
     <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin" || (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")) { ?>
@@ -232,6 +228,9 @@ include_once "./inc/navigation_blanc.php";
 
 <!-- Espace navigation -->
 <script src="../asset/js/connexion.js"></script>
+
+<!-- Bouton 'retour vers le haut' -->
+<script src="./asset/js/bouton_retour_haut.js"></script>
 
 <!-- -------------- FOOTER -------------- -->
 <?php
