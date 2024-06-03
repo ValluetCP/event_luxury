@@ -52,9 +52,6 @@ require_once "../../models/categorieModel.php";
             ?>
 
             <!-- FOOTER FIXE -->
-            <?php
-                include_once "../inc/footer_fixe/footer_fixe.php";
-            ?>
         </section>
 
 
@@ -273,7 +270,7 @@ require_once "../../models/categorieModel.php";
     <script src="../asset/js/espace_navigation.js"></script>
 
     <!-- Changement d'état au scroll -->
-    <script src="../asset/js/nav_scroll3.js"></script>
+    <script src="../asset/js/nav_scroll4.js"></script>
     
     <!-- Bouton 'retour vers le haut' -->
     <script src="../asset/js/bouton_retour_haut.js"></script>

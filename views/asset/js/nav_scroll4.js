@@ -15,24 +15,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnRondHaut = document.getElementById('btnRondHaut');
 
     // FOOTER
-    const footerFixe = document.querySelector('.footerFixe');
+    // const footerFixe = document.querySelector('.footerFixe');
     
 
     // Masquer scrollLogoFonce, btnRondHaut et footerFixe au chargement de la page
     scrollLogoFonce.style.display = 'none';
     btnRondHaut.style.display = 'none';
-    footerFixe.style.display = 'none';
-    // containerPrevisualisation.style.display = 'none';
+    // footerFixe.style.display = 'none';
+    containerPrevisualisation.style.display = 'none';
     // footerFixe.style.display = 'none';
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 800) {
             nav.classList.add('scroll');
             btnRondHaut.style.display = 'block';
-            // containerPrevisualisation.style.display = 'block';
             btnRondScroll.style.display = 'none';
-            footerFixe.style.display = 'block';
-            footerFixe.style.display = 'flex';
+            containerPrevisualisation.style.display = 'block';
+            // footerFixe.style.display = 'block';
+            // footerFixe.style.display = 'flex';
             scrollLogoFonce.style.display = 'block';
             scrollLogoClair.style.display = 'none';
             hdrPanierNav.style.color = 'var(--vertFonce)';
@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             nav.classList.remove('scroll');
             btnRondHaut.style.display = 'none';
-            // containerPrevisualisation.style.display = 'none';
             btnRondScroll.style.display = 'block';
-            footerFixe.style.display = 'none';
+            containerPrevisualisation.style.display = 'none';
+            // footerFixe.style.display = 'none';
             scrollLogoFonce.style.display = 'none';
             scrollLogoClair.style.display = 'block';
             hdrPanierNav.style.color = 'var(--vertClair)';

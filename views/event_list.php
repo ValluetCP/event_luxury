@@ -56,7 +56,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
             <!-- -------------------------- HAUT --------------------------- -->
             <!-- SECTION DU HAUT - IMAGE FIXE -->
             <section class="haut">
-                <div id="ImgHauteListEvent" class="ImgHaute" style="background-image: url(./asset/img/event_horizontal_voiture.jpg);">
+                <div id="ImgHauteListEvent" class="ImgHaute" style="background-image: url(./asset/img/event_horizontal_cocktail.jpg);">
                 </div>
 
                 <div class="titreListEvent">
