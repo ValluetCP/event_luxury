@@ -97,9 +97,12 @@ if (isset($_POST['register'])) {
             if ($result) {
                 move_uploaded_file($tmpName, $destination);
             }
-
-            // rediriger vers la page list_user.php
-            header("Location: http://localhost/event_luxury/views/connexion.php");
+            if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
+                // rediriger vers la page list_user.php
+                header("Location: http://localhost/event_luxury/views/admin/admin_list_user.php");
+            } else {
+                // rediriger vers la page list_user.php
+                header("Location: http://localhost/event_luxury/views/connexion.php");}
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
