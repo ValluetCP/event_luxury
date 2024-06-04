@@ -28,7 +28,7 @@
                     <div class="txt_container_listEvent">
                     
                         <!-- numéro -->
-                        <div class="num_listEvent">03</div>
+                        <div class="num_listEvent">'. $event['id_evenement'].'</div>
                         <div class="txt_listEvent">
                             <div class="titre_listEvent">'.$event['titre'].'</div>
 
