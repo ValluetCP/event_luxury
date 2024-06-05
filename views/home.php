@@ -2,7 +2,7 @@
 
 if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
     include_once "./inc/header.php";
-    include_once "./inc/nav_home.php";
+    include_once "./inc/navigation_blanc_accueil.php";
 
  } elseif(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client"){
     include_once "./views/inc/header.php";
