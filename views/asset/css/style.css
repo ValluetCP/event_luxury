@@ -138,8 +138,12 @@ body{
     display: none;
 }
 
-.txtFleche{
+.txtFleche {
     position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #ebf2ed83;
 }
 
 .flecheHaut{
@@ -2952,6 +2956,9 @@ padding-left: 624px;
     color: var(--vertMoyen);
 }
 
+#titreAdminEvent{
+    margin-bottom: 20px;
+}
 
 /* ------------ LISTE EVENT PREVISUALISATION - FIN ------------ */
 

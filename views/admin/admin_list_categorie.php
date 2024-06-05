@@ -16,6 +16,10 @@ $listCategorie = Categorie::findAllCategorie();
     <!-- ---------------------- PAGE LISTE CATEGORIE ---------------------- -->
     <main id="siteListEvent" class="siteList">
 
+        <!-- ----- BOUTON CIRCULAIRE 2 - 'retour vers le haut'----- -->
+        <?php
+            include_once "../inc/bouton_retour_haut/bouton_retour_haut_admin.php";
+        ?>
 
         <!-- ------------------------------- HAUT -------------------------------- -->
         <!-- SECTION DU HAUT - IMAGE FIXE -->
@@ -28,10 +32,10 @@ $listCategorie = Categorie::findAllCategorie();
 
             </div>
 
-                <!-- ----- BOUTON CIRCULAIRE 1 - 'scroll'----- -->
-                <?php
-                    include_once "../inc/bouton_scroll/bouton_scroll_admin.php";
-                ?>
+            <!-- ----- BOUTON CIRCULAIRE 1 - 'scroll'----- -->
+            <?php
+                include_once "../inc/bouton_scroll/bouton_scroll_admin.php";
+            ?>
 
         </section>
 
@@ -115,7 +119,9 @@ $listCategorie = Categorie::findAllCategorie();
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
     <!-- Changement d'état au scroll -->
-    <script src="../asset/js/nav_scroll2.js"></script>
+    <script src="../asset/js/nav_scroll5.js"></script>
+    <!-- Bouton 'retour vers le haut' -->
+    <script src="../asset/js/bouton_retour_haut.js"></script>
 
 
 

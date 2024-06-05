@@ -41,7 +41,7 @@ require_once "../../models/userModel.php";
         <!-- SECTION GAUCHE - IMAGE FIXE -->
         <section class="gauche gaucheEvent">
             <div class="gaucheImg gaucheImgEvent">
-                <img src="../asset/img/<?= $ficheEvent['image']; ?>" alt="">
+                <img src="../asset/img/<?= $ficheEvent['image']; ?>" alt="événement <?= $ficheEvent['titre']; ?>">
             </div>
         </section>
 
@@ -124,7 +124,7 @@ require_once "../../models/userModel.php";
                     </div>
                 </div> -->
                 <h1><?= $ficheEvent['titre']; ?></h1>
-                <h2><?= $ficheEvent['categorie_name']; ?></h2>
+                <h2 id="titreAdminEvent"><?= $ficheEvent['categorie_name']; ?></h2>
                 <div class="imgEvent">
                     <a href=""><img src="../asset/img/<?= $ficheEvent['image']; ?>" alt="" title="agrandir l'image"></a>
                 </div>
