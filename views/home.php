@@ -159,7 +159,7 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
                                 The french miami
                             </p>
                             <p class="catégorieEventAccueil">
-                                Loisir
+                            Escapade
                             </p>
                         </div>
                         <a class="btnEventAccueil" href="#modalInscription">
@@ -173,10 +173,10 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
                         </div>
                         <div class="texteEventAccueil">
                             <p class="titreEventAccueil">
-                                The french miami
+                                Pink Flamingo
                             </p>
                             <p class="catégorieEventAccueil">
-                                Découverte
+                                AUTHENTIQUE
                             </p>
                         </div>
                         <a class="btnEventAccueil" href="#modalInscription">
@@ -186,14 +186,14 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
                     <!-- Module 3 -->
                     <div class="eventAccueil">
                         <div class="imgEventAccueil">
-                            <img src="./asset/img_event/event_bateau.jpg" alt="image événement">
+                            <img src="./asset/img_event/event_yatch.jpg" alt="image événement">
                         </div>
                         <div class="texteEventAccueil">
                             <p class="titreEventAccueil">
-                                The french miami
+                                Un Jour, Une Vie
                             </p>
                             <p class="catégorieEventAccueil">
-                                Loisir
+                                Luxe
                             </p>
                         </div>
                         <a class="btnEventAccueil" href="#modalInscription">
