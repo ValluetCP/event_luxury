@@ -4,12 +4,12 @@ include_once "../inc/header.php";
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
-include_once "../inc/nav_blc_espace_admin.php";
-include_once "../inc/functions.php";
-require_once "../../models/eventModel.php";
-require_once "../../models/bookModel.php";
-require_once "../../models/userModel.php";
-require_once "../../models/categorieModel.php";
+    include_once "../inc/nav_blc/nav_blc_espace_admin.php";
+    include_once "../inc/functions.php";
+    require_once "../../models/eventModel.php";
+    require_once "../../models/bookModel.php";
+    require_once "../../models/userModel.php";
+    require_once "../../models/categorieModel.php";
 
     // -------------- CODE -------------- //
     $listEvent = Event::findAllEvent();
@@ -33,7 +33,7 @@ require_once "../../models/categorieModel.php";
     <main id="siteListEvent" class="siteList">
         <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
         <?php
-            include_once "../inc/bouton_retour_haut/bouton_retour_haut_admin.php";
+        include_once "../inc/bouton_retour_haut/bouton_retour_haut_admin.php";
         ?>
 
 
@@ -48,7 +48,7 @@ require_once "../../models/categorieModel.php";
             </div>
             <!-- ----- BOUTON CIRCULAIRE 1 - 'scroll'----- -->
             <?php
-                include_once "../inc/bouton_scroll/bouton_scroll_admin.php";
+            include_once "../inc/bouton_scroll/bouton_scroll_admin.php";
             ?>
 
             <!-- FOOTER FIXE -->
@@ -119,16 +119,16 @@ require_once "../../models/categorieModel.php";
 
             <!-- CONTAINER GLOBAL - liste des events -->
             <div id="container_listEvent" class="container_list">
-                     
+
                 <!-- ZONE FILTRE -->
                 <div class="container_btnFiltre_listEvent">
-                    
+
                     <!-- btn Prochainement - btn historique -->
                     <div class="btnProchainHistorique">
                         <a href="" id="reinitialiser_resultat" class="prochainement_listEvent">Prochainement</a>
-                        <a href="" id="prochain_event" class="historique_listEvent">Historique</a>
+                        <a href="" id="historique_event" class="historique_listEvent">Historique</a>
                     </div>
-                    
+
                     <!-- FILTRE -->
                     <!-- Ajoutez le formulaire de filtre ici -->
                     <!-- <form method="get" action="" class="filtreCategory">
@@ -175,7 +175,7 @@ require_once "../../models/categorieModel.php";
                             <div class="module_listEvent">
 
                                 <!-- MODULE - partie gauche - image -->
-                                <div class="img_listEvent"><img src="../asset/img/<?= $event['image']; ?>" alt=""></div>
+                                <div class="img_listEvent"><img src="../asset/img/<?= $event['image']; ?>" alt="image <?= $event['titre']; ?>"></div>
 
                                 <!-- MODULE - partie centrale - texte -->
                                 <div class="center_txt_listEvent">
@@ -270,13 +270,12 @@ require_once "../../models/categorieModel.php";
     <script src="../asset/js/espace_navigation.js"></script>
 
     <!-- Changement d'état au scroll -->
-    <script src="../asset/js/nav_scroll4.js"></script>
-    
+    <script src="../asset/js/animation_scroll/scroll_previsualisation.js"></script>
+
     <!-- Bouton 'retour vers le haut' -->
     <script src="../asset/js/bouton_retour_haut.js"></script>
 
     <script>
-        
         // CODE JS : BTN AJAX (PROCHAINEMENT & HISTORIQUE)
 
         // Stocker le contenu initial de la div resultat
@@ -286,14 +285,14 @@ require_once "../../models/categorieModel.php";
         $(document).ready(function() {
 
             // a) utiliser la fonction on('change') de jquery afin de sélectionner un nom dans la liste déroulante : $('#personne').on('change', function()
-            $('#prochain_event').on('click', function(event) {
+            $('#historique_event').on('click', function(event) {
                 event.preventDefault()
 
                 // c) Sérialiser le contenu des champs du formulaire (dans cet exemple il y a un seul champ), à l'aide de la fonction serialize() de jQuery
 
                 // d) utiliser la méthode ajax de jquery pour l'affichage de la réponse
                 $.ajax({
-                    url: "../traitement/traitement_ajax7.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
+                    url: "../traitement/historique_previsualisation_list_event.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
                     type: "POST", // la méthode utilisée (projet : ne rien mettre, par défaut on sera sur la method GET)
                     // les paramètres à fournir ex : ...id=4&nom=anonyme...(projet : on ne met rien) 
                     dataType: 'json', // le format des données attendues en tableau JSON pour être interprété et éxécuté par AJAX (projet : 'json') 

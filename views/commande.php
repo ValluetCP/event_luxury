@@ -1,15 +1,13 @@
 <?php
 
 include_once "./inc/header.php";
-// include_once "./inc/navigation.php";
-// include_once "../inc/nav_admin_bicolor.php";
 
 // -------------- SECURITE ACCES CLIENT & ADMIN -------------- //
 if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
-(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
+    (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
 ) {
 
-    include_once "./inc/navigation_bicolor.php";
+    include_once "./inc/nav_bicolor_espace_client.php";
     require_once "../models/bookModel.php";
 
     // -------------- CODE -------------- //
@@ -47,7 +45,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     </main>
     <footer></footer>
     <script src="./js/nav_scroll2.js"></script>
-    
+
     <!-- -------------- BALISE SCRIPT -------------- -->
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
@@ -63,5 +61,5 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
 <?php
 // -------------- FOOTER --------------  
-include_once "../inc/footer.php";
+include_once "./inc/footer.php";
 ?>

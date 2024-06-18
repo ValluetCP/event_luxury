@@ -1,22 +1,15 @@
 <?php
+session_start();
 
-if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
-    include_once "./inc/header.php";
-    include_once "./inc/navigation_blanc_accueil.php";
-
- } elseif(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client"){
-    include_once "./views/inc/header.php";
-    include_once "./views/inc/nav_home.php";
-
-} else { 
-
+if (isset($_SESSION['user_role']) && ($_SESSION['user_role'] == "admin" || $_SESSION['user_role'] == "client")) {
+    // Redirection vers la page home_client
+    header("Location: http://localhost/event_luxury/views/home_client");
+    exit();
+} else {
     include_once "./inc/header2.php";
-    include_once "./inc/nav_home.php";
+    include_once "./inc/nav_blc/nav_blc_home.php";
 }
-
-
 ?>
-
 <header>
     <div class="containerAccueil">
         <div class="containerBgAccueil">
@@ -38,12 +31,6 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
                         <div class="numero1">
                             <img src="./asset/img/img_logo/numero_1.svg" alt="fleur animation">
                         </div>
-                        <!-- <div class="txtRond">
-                            <img src="./asset/img/img_logo/texte_rond.svg" alt="fleur animation">
-                            <div class="numero1">
-                                <img src="./asset/img/img_logo/numero_1.svg" alt="fleur animation">
-                            </div>
-                        </div> -->
                     </div>
                 </div>
                 <div class="logoHeaderAccueil">
@@ -57,12 +44,11 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
 <main>
     <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
     <?php
-        include_once "./inc/bouton_retour_haut/bouton_retour_haut.php";
+    include_once "./inc/bouton_retour_haut/bouton_retour_haut.php";
     ?>
 
     <!-- SECTION 1 -->
     <div class="sectionAccueilVide">
-
     </div>
     <section class="sectionAccueil1">
         <div class="partieAccueil1">
@@ -77,10 +63,9 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
                 </div>
             </div>
         </div>
-
     </section>
 
-    <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin" || (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")) { ?>
+    <?php if (isset($_SESSION['user_role']) && ($_SESSION['user_role'] == "admin" || $_SESSION['user_role'] == "client")) { ?>
         <!-- SECTION 2 - Vide -->
         <!-- FOOTER 1 -->
         <div class="footerCopyright">
@@ -88,10 +73,8 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
             <p>Site réalisé par Cynthia PETITOT UI/UX Designer et Développeuse Web</p>
         </div>
     <?php } else { ?>
-
         <!-- SECTION 2 - Liste des événements -->
         <section class="sectionAccueil2">
-
             <!-- SECTION BANDE -->
             <section class="container_bande">
                 <div class="list">
@@ -159,7 +142,7 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
                                 The french miami
                             </p>
                             <p class="catégorieEventAccueil">
-                            Escapade
+                                Escapade
                             </p>
                         </div>
                         <a class="btnEventAccueil" href="#modalInscription">
@@ -203,8 +186,8 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
                 </div>
                 <!-- Flèche 'en voir plus' -->
                 <!-- <div class="fleurFleche">
-                    <img src="./asset/img/img_logo/fleur_fleche.svg" alt="en voir plus">
-                </div> -->
+                        <img src="./asset/img/img_logo/fleur_fleche.svg" alt="en voir plus">
+                    </div> -->
             </div>
             <div class="btnAfficheEvent">
                 <a id="btnEventsAccueil" class="btnEventAccueil" href="#modalInscription">
@@ -218,29 +201,23 @@ if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
             </div>
         </section>
     <?php } ?>
-
 </main>
 
 <!-- -------------- BALISE SCRIPT -------------- -->
 <!-- Changement attérir sur l'espace client de la nav -->
-<script src="./asset/js/nav_espace_client_accueil.js"></script>
+<script src="./asset/js/espace_client/nav_espace_client_accueil.js"></script>
 
 <!-- CLIENT OU ADMIN -->
-<?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin" || (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")) { ?>
+<?php if (isset($_SESSION['user_role']) && ($_SESSION['user_role'] == "admin" || $_SESSION['user_role'] == "client")) { ?>
     <!-- Changement d'état au scroll (l'ensemble des pages) -->
     <script src="./asset/js/nav_scroll2.js"></script>
-
-    <!-- ANONYME -->
 <?php } else { ?>
     <!-- Changement d'état au scroll (page home)-->
-    <script src="./asset/js/nav_scroll.js"></script>
+    <script src="./asset/js/animation_scroll/scroll_home.js"></script>
 <?php } ?>
 
 <!-- Espace navigation -->
 <script src="./asset/js/espace_navigation.js"></script>
-
-<!-- Espace navigation -->
-<script src="../asset/js/connexion.js"></script>
 
 <!-- Bouton 'retour vers le haut' -->
 <script src="./asset/js/bouton_retour_haut.js"></script>

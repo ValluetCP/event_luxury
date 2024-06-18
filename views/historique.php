@@ -2,8 +2,7 @@
 // Page - Affiche un évènement (côté CLIENT)
 // session_start();
 include_once "./inc/header.php";
-// include_once "./inc/navigation.php";
-include_once "./inc/navigation_bicolor.php";
+include_once "./inc/nav_bicolor_espace_client.php";
 include_once "./inc/functions.php";
 require_once "../models/eventModel.php";
 require_once "../models/bookModel.php";
@@ -147,7 +146,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     <footer></footer>
 
     <!-- Changement attérir sur l'espace client de la nav -->
-    <script src="./asset/js/nav_espace_client_reservation.js"></script>
+    <script src="./asset/js/espace_client/nav_espace_client_reservation.js"></script>
 
     <!-- Changement d'état au scroll -->
     <script src="./asset/js/nav_scroll2.js"></script>
@@ -166,5 +165,5 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
 <!-- -------------- FOOTER -------------- -->
 <?php
-    include_once "./inc/footer.php";
+include_once "./inc/footer.php";
 ?>

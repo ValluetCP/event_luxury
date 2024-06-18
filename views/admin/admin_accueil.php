@@ -5,7 +5,7 @@ include_once "../inc/header.php";
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
-    include_once "../inc/navigation_header.php";
+    include_once "../inc/nav_blc/nav_blc_espace_admin.php";
 
 ?>
 
@@ -65,7 +65,7 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
     <script src="../asset/js/app.js"></script>
     <script src="../asset/js/cercle.js"></script>
     <!-- Changement attérir sur l'espace client de la nav -->
-    <script src="../asset/js/nav_espace_admin_accueil.js"></script>
+    <script src="../asset/js/espace_admin/nav_espace_admin_accueil.js"></script>
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
     <!-- Changement d'état au scroll -->

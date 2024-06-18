@@ -114,7 +114,7 @@ class User
                     // rediriger vers la page home.php
                     header("Location: http://localhost/event_luxury/views/admin/admin_accueil.php");
                 } elseif (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client") {
-                    header("Location: http://localhost/event_luxury/views/accueil_client.php");
+                    header("Location: http://localhost/event_luxury/views/home_client.php");
                 } else {
                     header("Location: http://localhost/event_luxury/views/home.php");
                 }

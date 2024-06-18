@@ -63,27 +63,27 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
                     <!-- titre -->
                     <div class="gabarit_form">
-                        <input type="text" name="titre" placeholder="titre" value="<?= !empty($event) ? $event["titre"] : "" ?>">
+                        <input type="text" name="titre" placeholder="titre" title="titre" value="<?= !empty($event) ? $event["titre"] : "" ?>">
                     </div>
 
                     <!-- tarif -->
                     <div class="gabarit_form">
-                        <input type="number" name="prix" placeholder="tarif" value="<?= !empty($event) ? $event["prix"] : "" ?>">
+                        <input type="number" name="prix" placeholder="tarif" title="tarif" value="<?= !empty($event) ? $event["prix"] : "" ?>">
                     </div>
 
                     <!-- résumé -->
                     <div class="gabarit_form">
-                        <input type="text" name="resume" placeholder="résumé" value="<?= !empty($event) ? $event["resume"] : "" ?>">
+                        <input type="text" name="resume" placeholder="résumé" title="résumé" value="<?= !empty($event) ? $event["resume"] : "" ?>">
                     </div>
 
                     <!-- date -->
                     <div class="gabarit_form">
-                        <input type="date" name="date_event" placeholder="date" value="<?= !empty($event) ? $event["date_event"] : "" ?>">
+                        <input type="date" name="date_event" placeholder="date" title="date" value="<?= !empty($event) ? $event["date_event"] : "" ?>">
                     </div>
 
                     <!-- nombre de place -->
                     <div class="gabarit_form">
-                        <input type="number" name="nbr_place" placeholder="nombre de place" value="<?= !empty($event) ? $event["nbr_place"] : "" ?>">
+                        <input type="number" name="nbr_place" placeholder="nombre de place" title="nombre de place" value="<?= !empty($event) ? $event["nbr_place"] : "" ?>">
                     </div>
 
                     <!-- catégorie choix -->

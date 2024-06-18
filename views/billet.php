@@ -2,7 +2,7 @@
 // Page - Affiche un évènement (côté CLIENT)
 // session_start();
 include_once "./inc/header.php";
-include_once "./inc/nav_blc_espace_client.php";
+include_once "./inc/nav_blc/nav_blc_espace_client.php";
 include_once "./inc/functions.php";
 require_once "../models/eventModel.php";
 require_once "../models/bookModel.php";
@@ -28,7 +28,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
     <!-- ------------------- PAGE BILLETERIE - début ------------------- -->
     <main class="siteBillet">
-        
+
         <!-- SECTION GAUCHE - TELECHARGEMENT -->
         <section class="gaucheBillet">
             <div class="containerGaucheBillet">
@@ -50,11 +50,9 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
             <!-- MODAL BILLET (modélisation)-->
             <div class="billet">
-                <!-- <img src="./img/test_billet.png" alt=""> -->
                 <div class="billet_partie_haute">
                     <div class="imgEventBillet">
                         <div class="bgEventBillet" style="background-image: url(./asset/img/<?= $ficheEvent['image']; ?>);"></div>
-                        <!-- <img src="./img/coco2.JPG" alt=""> -->
                     </div>
                     <div class="divDate">
                         <div class="dateBillet"><?= date('d-m-y', strtotime($ficheEvent['date_event'])); ?></div>
@@ -65,14 +63,14 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                         <div class="txtPlaceBillet">
                             <p>Nombre de <br> places réservées</p>
                         </div>
-                        <div class="nbPlaceBillet"><?=$totalPlacesReservees; ?></div>
+                        <div class="nbPlaceBillet"><?= $totalPlacesReservees; ?></div>
                     </div>
                     <div class="txtBillet">
                         Merci de vous présenter à l'événement 30 minutes avant le commencement et de vous munir de votre billet de réservation.
                     </div>
                 </div>
                 <div class="billet_partie_basse">
-                    <img class="imgCodeBarre" src="./asset/img/code_barre.png" alt="">
+                    <img class="imgCodeBarre" src="./asset/img/code_barre.png" alt="code barre">
                 </div>
             </div>
             <!-- <div class="droitImg droitImgBillet" style="background-image: url(./asset/img/event_flamant.jpg);"></div> -->
@@ -80,26 +78,9 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
     </main>
 
-    <!-- <div class="container">
-
-        <h2><?= ucfirst($ficheEvent['titre']); ?></h2>
-
-        
-
-        <div><img src="./asset/img_event/<?= $ficheEvent['image']; ?>" alt=""></div>
-
-        <p>Catégorie : <?= $ficheEvent['categorie_name']; ?></p>
-
-        <p>Titre : <?= $ficheEvent['titre']; ?></p>
-
-        <p>Date : <?= date('d-m-Y', strtotime($ficheEvent['date_event'])); ?></p>
-        <p>Nombre de places réservées : <?= $totalPlacesReservees; ?></p>
-
-    </div> -->
-
     <!-- -------------- BALISE SCRIPT -------------- -->
     <!-- Changement attérir sur l'espace client de la nav -->
-    <script src="./asset/js/nav_espace_client_reservation.js"></script>
+    <script src="./asset/js/espace_client/nav_espace_client_reservation.js"></script>
 
     <!-- Changement d'état au scroll -->
     <script src="./asset/js/nav_scroll2.js"></script>

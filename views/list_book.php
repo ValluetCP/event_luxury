@@ -6,7 +6,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
 ) {
 
-    include_once "./inc/nav_blc_espace_client.php";
+    include_once "./inc/nav_blc/nav_blc_espace_client.php";
     include_once "./inc/functions.php";
     require_once "../models/eventModel.php";
     require_once "../models/bookModel.php";
@@ -42,16 +42,14 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
         <div class="modalContentBillet">
             <div class="modalBilletBg" style="background-image: url(./asset/img/event_flamant.jpg);"></div>
         </div>
-        <a class="modalCloseBillet" href="#"><img class="img_croix_popup2" src="./asset/img/croix_close.svg" alt=""></a>
+        <a class="modalCloseBillet" href="#"><img class="img_croix_popup2" src="./asset/img/croix_close.svg" alt="fermer"></a>
         <a href="" id="lb_btnBillet" class="btn_billet_panier">Télécharger le billet</a>
 
         <!-- MODAL BILLET (modélisation)-->
         <div class="billet">
-            <!-- <img src="./img/test_billet.png" alt=""> -->
             <div class="billet_partie_haute">
                 <div class="imgEventBillet">
                     <div class="bgEventBillet" style="background-image: url(./asset/img/event_flamant.jpg);"></div>
-                    <!-- <img src="./img/coco2.JPG" alt=""> -->
                 </div>
                 <div class="divDate">
                     <div class="dateBillet"><?= date('d-m-y', strtotime($event['date_event'])); ?></div>
@@ -69,7 +67,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                 </div>
             </div>
             <div class="billet_partie_basse">
-                <img class="imgCodeBarre" src="./asset/img/code_barre.png" alt="">
+                <img class="imgCodeBarre" src="./asset/img/code_barre.png" alt="code barre">
             </div>
 
         </div>
@@ -80,7 +78,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
         <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
         <?php
-            include_once "./inc/bouton_retour_haut/bouton_retour_haut.php";
+        include_once "./inc/bouton_retour_haut/bouton_retour_haut.php";
         ?>
 
         <!-- ------------------------------- HAUT -------------------------------- -->
@@ -101,15 +99,15 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                 <!-- catégorie : divertissement, atelier, gastronomie, représentation, loisir -->
             </div>
 
-            
+
             <!-- ----- BOUTON CIRCULAIRE 1 - 'scroll'----- -->
             <?php
-                include_once "./inc/bouton_scroll/bouton_scroll.php";
+            include_once "./inc/bouton_scroll/bouton_scroll.php";
             ?>
 
             <!-- FOOTER FIXE -->
             <?php
-                include_once "./inc/footer_fixe/footer_fixe.php";
+            include_once "./inc/footer_fixe/footer_fixe.php";
             ?>
         </section>
 
@@ -128,7 +126,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                     <!-- btn Prochainement - btn historique -->
                     <!-- <div class="btnProchainHistorique">
                         <a href="" id="reinitialiser_resultat" class="prochainement_listEvent">Prochainement</a>
-                        <a href="" id="prochain_event" class="historique_listEvent">Historique</a>
+                        <a href="" id="historique_event" class="historique_listEvent">Historique</a>
                     </div> -->
 
                     <!-- FILTRE -->
@@ -182,7 +180,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
                                         <!-- image en backgound -->
                                         <div class="lb_imageEvent">
-                                            <img src="./asset/img/<?= $event['image']; ?>" alt="">
+                                            <img src="./asset/img/<?= $event['image']; ?>" alt="image <?= $event['titre']; ?>">
                                         </div>
 
                                         <!-- texte -->
@@ -232,61 +230,17 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     <!-- -------------- BALISE SCRIPT -------------- -->
 
     <!-- Changement attérir sur l'espace client de la nav -->
-    <script src="./asset/js/nav_espace_client_reservation.js"></script>
+    <script src="./asset/js/espace_client/nav_espace_client_reservation.js"></script>
 
     <!-- Changement d'état au scroll -->
-    <script src="./asset/js/nav_scroll3.js"></script>
+    <script src="./asset/js/animation_scroll/scroll_client_list.js"></script>
 
     <!-- Espace navigation -->
     <script src="./asset/js/espace_navigation.js"></script>
-    
+
     <!-- Bouton 'retour vers le haut' -->
     <script src="./asset/js/bouton_retour_haut.js"></script>
 
-
-    <script>
-        // CODE JS : BTN AJAX (PROCHAINEMENT & HISTORIQUE)
-
-        // Stocker le contenu initial de la div resultat
-        var contenuInitial = $('#resultat').html();
-
-        // Dès que la page sera complètement chargée, que le DOM (Document Objet Modèle) sera entièrement généré
-        $(document).ready(function() {
-
-            // a) utiliser la fonction on('change') de jquery afin de sélectionner un nom dans la liste déroulante : $('#personne').on('change', function()
-            $('#prochain_event').on('click', function(event) {
-                event.preventDefault()
-
-                // c) Sérialiser le contenu des champs du formulaire (dans cet exemple il y a un seul champ), à l'aide de la fonction serialize() de jQuery
-
-                // d) utiliser la méthode ajax de jquery pour l'affichage de la réponse
-                $.ajax({
-                    // traitement/traitement_ajax2.php
-                    url: "traitement/traitement_ajax8.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
-                    type: "POST", // la méthode utilisée (projet : ne rien mettre, par défaut on sera sur la method GET)
-                    // les paramètres à fournir ex : ...id=4&nom=anonyme...(projet : on ne met rien) 
-                    dataType: 'json', // le format des données attendues en tableau JSON pour être interprété et éxécuté par AJAX (projet : 'json') 
-                    success: function(response) {
-                        // la fonction qui doit s'exécuter lors de la réussite de la communication ajax 
-                        console.log(response);
-                        $('#resultat').html(response.contenu);
-                    },
-                    error: function(xhr, ajaxOptions, thrownError) {
-                        console.log(xhr.status);
-                        console.log(thrownError);
-                    }
-                });
-            });
-
-            // Réinitialiser la div resultat à son contenu initial
-            $('#reinitialiser_resultat').on('click', function(event) {
-                event.preventDefault();
-                $('#resultat').html(contenuInitial);
-            });
-
-
-        });
-    </script>
 
     <!-- -------------- SUITE SECURITE ACCES -------------- -->
 <?php } else {
@@ -296,5 +250,5 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
 <!-- -------------- FOOTER -------------- -->
 <?php
-    include_once "./inc/footer.php";
+include_once "./inc/footer.php";
 ?>

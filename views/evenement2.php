@@ -8,8 +8,8 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")
 ) {
 
-    // include_once "./inc/navigation.php";
-    include_once "./inc/navigation_bicolor.php";
+    // include_once "./inc/nav_bicolor/nav_bicolor_espace_client.php";
+    include_once "./inc/nav_bicolor_espace_client.php";
     include_once "./inc/functions.php";
     require_once "../models/eventModel.php";
     require_once "../models/bookModel.php";
@@ -48,7 +48,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                 <div class="modalPanierContainerItems">
                     <div class="modalPanierimg">
                         <!-- image en bg -->
-                        <img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="">
+                        <img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="image <?= $ficheEvent['titre']; ?>">
                     </div>
                     <div class="modalPaniertxt">
                         <h1 class="modalPaniertitre"><?= $ficheEvent['titre']; ?></h1>
@@ -59,7 +59,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                 <!-- FIN ITEM -->
             </div>
         </div>
-        <a class="modalClosePanier" href="#"><img class="img_croix_popup2" src="./asset/img/coix_verte.svg" alt=""></a>
+        <a class="modalClosePanier" href="#"><img class="img_croix_popup2" src="./asset/img/coix_verte.svg" alt="fermer"></a>
         <div class="modalPanierDegrade">
             <a href="http://localhost/event_luxury/views/panier_css.php" id="lb_btnPanier" class="btn_billet_panier">Voir panier</a>
         </div>
@@ -69,7 +69,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     <!-- MODAL EVENT (Confirmation "Ajouter une réservation")-->
     <div id="modalEvent">
         <div class="modal_content">
-            <a class="modal_close" href="#"><img class="img_croix_popup" src="../asset/img/croix_close.svg" alt=""></a>
+            <a class="modal_close" href="#"><img class="img_croix_popup" src="../asset/img/croix_close.svg" alt="fermer"></a>
             <div class="modalTexte">
                 <h2 class="modalTitre">Votre événement</h2>
                 <hr class="modalTrait">
@@ -178,7 +178,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                 <h1><?= $ficheEvent['titre']; ?></h1>
                 <h2 id="event_ss_titre"><?= $ficheEvent['categorie_name']; ?></h2>
                 <div class="imgEvent">
-                    <a href=""><img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="" title="agrandir l'image"></a>
+                    <a href=""><img src="./asset/img/<?= $ficheEvent['image']; ?>" alt="agrandir l'image" title="agrandir l'image"></a>
                 </div>
                 <h4>Date</h4>
                 <p class="dateEvent"><?= date('d-m-Y', strtotime($ficheEvent['date_event'])); ?></p>
@@ -217,7 +217,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                                         <!-- bouton SELECT -->
                                         <div class="placeSelect">
                                             <div class='ui-dropdown'>
-                                                <select name="place_reserve">
+                                                <select id="place_reserve" name="place_reserve">
                                                     <?php $maxPlaces = min($placesDisponibles, 4);
                                                     for ($i = 1; $i <= $maxPlaces; $i++) { ?>
                                                         <option value="<?= $i; ?>"><?= $i; ?></option>
@@ -299,50 +299,6 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                     <?php } ?>
 
                 </div>
-
-                <!-- <h3>Vous pourriez aimer . . .</h3>
-                <div class="trioCategory">
-                    <article class="categoryUn">
-                        <figure class="fig_1">
-                            <a href="./evenement2.php?id_event=<?= $ficheEvent['id_evenement']; ?>">
-                                <div class="imgCategory"><img src="./asset/img/event_poisson.jpg" alt=""></div>
-                            </a>
-                        </figure>
-                        <div class="titreCategory">
-                            Asseyez-vous à la grande table
-                        </div>
-                        <div class="sousTitreCategory">
-                            DIVERTISSEMENT
-                        </div>
-                    </article>
-                    <article class="categoryDeux">
-                        <figure class="fig_1">
-                            <a href="">
-                                <div class="imgCategory"><img src="./asset/img/event_bocal.jpg" alt=""></div>
-                            </a>
-                        </figure>
-                        <div class="titreCategory">
-                            Calamar gourmand
-                        </div>
-                        <div class="sousTitreCategory">
-                            DIVERTISSEMENT
-                        </div>
-                    </article>
-                    <article class="categoryTrois">
-                        <figure class="fig_1">
-                            <a href="">
-                                <div class="imgCategory"><img src="./asset/img/event_salon_automobile.jpg" alt=""></div>
-                            </a>
-                        </figure>
-                        <div class="titreCategory">
-                            Salon de l'automobile
-                        </div>
-                        <div class="sousTitreCategory">
-                            DIVERTISSEMENT
-                        </div>
-                    </article>
-
-                </div> -->
             </div>
 
         </section>
@@ -350,7 +306,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     <footer></footer>
 
     <!-- Changement attérir sur l'espace client de la nav -->
-    <script src="./asset/js/nav_espace_client_event.js"></script>
+    <script src="./asset/js/espace_client/nav_espace_client_event.js"></script>
 
     <!-- Changement d'état au scroll -->
     <script src="./asset/js/nav_scroll2.js"></script>
@@ -361,7 +317,6 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
     <script>
         $(document).ready(function() {
 
-
             $("button[id='add_reservation']").on("click", (evtSubmit) => {
                 // Annule le comportement par défaut de l'événement clique
                 evtSubmit.preventDefault();
@@ -369,13 +324,18 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                 // récupère les données du formulaire avec l'ID form_event sous forme de chaîne de requête
                 var event_fields = $("#form_event").serialize() + "&add_panier=reserver";
 
+                // Récupère la valeur sélectionnée dans le dropdown
+                var selectedQuantity = $("#place_reserve").val();
+
+                // Met à jour le texte du modal avec la valeur sélectionnée
+                $(".quantite_panier").text(selectedQuantity);
+
                 $.ajax({
                     url: url_action,
                     data: event_fields,
                     type: 'post',
                     dataType: "json", //Le type de donnée attendu
                     success: (data) => {
-                        $(".quantite_panier").html(data);
                         console.log("nb produits dans mon deuxième cart = " + data);
                     },
                     error: (jqXHR, status, error) => {
@@ -385,17 +345,16 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
             });
 
         });
+
     </script>
 
     <!-- -------------- SUITE SECURITE ACCES -------------- -->
 <?php } else {
-
-    include_once "./inc/navigation.php";
     require_once "./inc/securite.php";
 }
 ?>
 
 <!-- -------------- FOOTER -------------- -->
 <?php
-    include_once "./inc/footer.php";
+include_once "./inc/footer.php";
 ?>

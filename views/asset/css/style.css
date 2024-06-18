@@ -21,6 +21,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     --vertMoyen: #3A5D4D;
     --vertScroll: #1e5a3f;
     --vertClair: #EBF2ED;
+    --vertClairHover: #c2ccc5;
     --vertGris: #9da8a4;
     
     /* Couleur vert (secondaire) */
@@ -144,6 +145,11 @@ body{
     height: 120px;
     border-radius: 50%;
     background-color: #ebf2ed83;
+}
+
+.txtFleche:hover {
+    background-color: #d1d8d383;
+    transition: all 0.25s ease-in-out;
 }
 
 .flecheHaut{
@@ -667,10 +673,25 @@ background-color: rgba(255, 255, 255, 0.5);
     color: var(--vertFonce);
 }
 
+#commande_navigation_home a p:hover{
+    color: var(--vertClairHover);
+    transition: all 0.25s ease-in-out;
+}
+
+#commande_navigation_home .btn_reservation p:hover{
+    background-color: var(--vertFonce);
+    transition: all 0.25s ease-in-out;
+}
+
 .btn_reservation{
     text-decoration: none;
     text-transform: uppercase;
     background-color: var(--vertClair);
+}
+
+.btn_reservation:hover{
+    background-color: var(--vertClairHover);
+    transition: all 0.25s ease-in-out;
 }
 
 .commande_navigation_header .btn_reservation p{
@@ -680,6 +701,15 @@ background-color: rgba(255, 255, 255, 0.5);
 .homeActive{
     color: var(--vertFonceTransparent);
 }
+
+.btnHome:hover{
+    color: var(--vertClairHover);
+    transition: all 0.25s ease-in-out;
+}
+
+/* #commande_navigation_home .connexionLink .activeHome{
+    color: red;
+} */
 
 
 /* -------------- NAVIGATION ANONYME - FIN -------------- */
@@ -928,12 +958,22 @@ background-color: rgba(255, 255, 255, 0.5);
     color: var(--vertClair);
 }
 
+.btn_modal_1_trait:hover {
+    background-color: var(--vertMoyen);
+    transition: all 0.25s ease-in-out;
+}
+
 .btn_modal_2_fond {
     background-color: var(--vertClair);
     border: solid 1px var(--vertClair);
     color: var(--vertFonceMoin);
 }
+    
 
+.btn_modal_2_fond:hover {
+    background-color: var(--vertClairHover);
+    transition: all 0.25s ease-in-out;
+}
 /* -------- MODAL MESSAGE (info_user.php, home.php, event.php)- FIN -------- */
 
 
@@ -1327,8 +1367,12 @@ background-color: rgba(255, 255, 255, 0.5);
 #lb_btnPanier {
     background-color: var(--vertMoyen);
     color: var(--vertClair);
-    
-    /* margin-bottom: 30px; */
+}
+
+#lb_btnPanier:hover {
+    background-color: var(--vertClairHover);
+    color: var(--vertFonce);
+    transition: all 0.25s ease-in-out;
 }
 
 #lb_btnBillet{
@@ -1428,6 +1472,12 @@ background-color: rgba(255, 255, 255, 0.5);
 .retourListe a{
     text-decoration: none;
     color: var(--vertFonce);
+}
+
+.retourListe a:hover{
+    color: var(--vertClairHover);
+    /* letter-spacing: 1px; */
+    transition: all 0.25s ease-in-out;
 }
 
 /* Encadré - Etat de l'event */
@@ -2125,10 +2175,21 @@ background-color: rgba(255, 255, 255, 0.5);
     color: var(--vertFonce);
 }
 
+.lb_billet:hover{
+    background-color: var(--vertClair);
+    transition: all 0.25s ease-in-out;
+}
+
 
 .lb_consulter{
     color: var(--vertClair);
     background-color: var(--vertFonce);
+}
+
+.lb_consulter:hover{
+    color: var(--vertFonce);
+    background-color: var(--vertClair);
+    transition: all 0.25s ease-in-out;
 }
 
 /* ------------ PAGE LIST BOOK - FIN ------------ */
@@ -2833,6 +2894,12 @@ padding-left: 624px;
     cursor: pointer;
 }
 
+.module_listEvent:hover{
+    background-color: #ebf2ed7c;
+    letter-spacing: 1px;
+    transition: all 0.25s ease-in-out;
+}
+
 /* MODULE - partie gauche - image */
 
 .img_listEvent{
@@ -2981,6 +3048,11 @@ padding-left: 624px;
     border-radius: 5px;
 }
 
+.btn_ajouter:hover{
+    background-color: var(--vertMoyen);
+    transition: all 0.25s ease-in-out;
+}
+
 .btn_ajouter p{
     font-family: 'Karla', sans-serif;
     font-size: 18px;
@@ -3021,8 +3093,19 @@ padding-left: 624px;
     border-radius: 5px;
 }
 
+.btn_previsualiser:hover{
+    background-color: var(--vertMoyen);
+    color: var(--vertClair);
+    transition: all 0.25s ease-in-out;
+}
+
 #quitter_previsualisation{
     background-color: var(--vertClair);
+}
+
+#quitter_previsualisation:hover{
+    background-color: var(--vertClairHover);
+    transition: all 0.25s ease-in-out;
 }
 
 #quitter_previsualisation p{
@@ -3116,7 +3199,8 @@ padding-left: 624px;
 }
 
 .tbody_adminList tr td a:hover{
-    color: var(--vertNavMenu);
+    color: var(--vertFonce);
+    transition: all 0.25s ease-in-out;
 }
 
 .table_titre{
@@ -3150,6 +3234,12 @@ padding-left: 624px;
     background-color: var(--vertFonce);
     text-align: center;
     padding: 8px 0;
+}
+
+.table_btn:hover{
+    background-color: var(--vertFonceTransparent);
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
 }
 
 #table_btnTxt,
@@ -3770,12 +3860,17 @@ input[type=file]::file-selector-button {
     justify-content: center;
 }
 
+#btnValider:hover{
+    background-color: var(--vertFonceTransparent);
+    transition: all 0.25s ease-in-out;
+}
+
 .validerBtn{
     font-family: 'Karla', sans-serif;
     color: var(--vertClair);
     font-size: 18px;
     font-weight: 300;
-    background-color: var(--vertFonce);
+    background-color: transparent;
     cursor: pointer;
     border: none;  
 }
@@ -3850,6 +3945,11 @@ input[type=file]::file-selector-button {
 
 }
 
+.containerGaucheBillet .retourListe a:hover{
+    color: var(--vertClairHover);
+    transition: all 0.25s ease-in-out;
+}
+
 .telechargementBillet{
     text-transform: uppercase;
     cursor: pointer;
@@ -3862,6 +3962,12 @@ input[type=file]::file-selector-button {
     font-family: 'Karla', sans-serif;
     font-weight: 300;
     letter-spacing: 1px;
+}
+
+.telechargementBillet:hover {
+    background-color: var(--vertClair);
+    color: var(--vertFonce);
+    transition: all 0.25s ease-in-out;
 }
 
 /* --- DROITE --- */
@@ -4033,7 +4139,7 @@ input[type=file]::file-selector-button {
 /* -------------- MODELISATION BILLET (billet.php) - FIN -------------- */
 
 
-/* ------ NOUVEL ACCUEIL (test_home.php/accueil_client.php) - DEBUT ------ */
+/* ------ NOUVEL ACCUEIL (test_home.php/home_client.php) - DEBUT ------ */
 /* HEADER */
 .containerAccueil{
     position: relative;
@@ -4296,6 +4402,11 @@ input[type=file]::file-selector-button {
     margin-top: 20px;
 }
 
+.btnEventAccueil p:hover{
+    background-color: var(--vertClairHover);
+    transition: all 0.25s ease-in-out;
+}
+
 .btnAfficheEvent{
     margin: auto;
     width: 318px;
@@ -4307,6 +4418,11 @@ input[type=file]::file-selector-button {
     color: var(--vertClair);
     border: 1px solid var(--vertClair);
     /* width: 318px; */
+}
+
+#btnEventsAccueil p:hover{
+    background-color: var(--vertMoyen);
+    transition: all 0.25s ease-in-out;
 }
 
 /* NOUVEL ACCUEIL - FOOTER 1 (admin & client) */
@@ -4341,7 +4457,7 @@ input[type=file]::file-selector-button {
     font-size: 18px;
 }
 
-/* ------ NOUVEL ACCUEIL (test_home.php/accueil_client.php) - FIN ------ */
+/* ------ NOUVEL ACCUEIL (test_home.php/home_client.php) - FIN ------ */
 
 /* ----------------------- SECTION BANDE - DEBUT ----------------------- */
 .container_bande {
@@ -4706,7 +4822,7 @@ input[type=file]::file-selector-button {
         line-height: 98px;
     }
 
-    /* -- NOUVEL ACCUEIL (test_home.php/accueil_client.php) (max-width:1400px)-- */
+    /* -- NOUVEL ACCUEIL (test_home.php/home_client.php) (max-width:1400px)-- */
     .contenuHeaderAccueil {
         left: 21%;
     }

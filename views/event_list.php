@@ -7,12 +7,8 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 ) {
 
     // Nav
-    include_once "./inc/nav_blc_espace_client.php";
+    include_once "./inc/nav_blc/nav_blc_espace_client.php";
     include_once "./inc/functions.php";
-    // Stylisation du curseur
-    // include_once "./inc/cursor.php";
-    // 
-    include_once "./inc/lien_haut_page.php";
     require_once "../models/eventModel.php";
     require_once "../models/bookModel.php";
     require_once "../models/userModel.php";
@@ -50,7 +46,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
             <!-- ----- BOUTON CIRCULAIRE 2 - 'retour vers le haut'----- -->
             <?php
-                include_once "./inc/bouton_retour_haut/bouton_retour_haut.php";
+            include_once "./inc/bouton_retour_haut/bouton_retour_haut.php";
             ?>
 
             <!-- -------------------------- HAUT --------------------------- -->
@@ -66,12 +62,12 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
                 <!-- ----- BOUTON CIRCULAIRE 1 - 'scroll'----- -->
                 <?php
-                    include_once "./inc/bouton_scroll/bouton_scroll.php";
+                include_once "./inc/bouton_scroll/bouton_scroll.php";
                 ?>
 
                 <!-- FOOTER FIXE -->
                 <?php
-                    include_once "./inc/footer_fixe/footer_fixe.php";
+                include_once "./inc/footer_fixe/footer_fixe.php";
                 ?>
             </section>
 
@@ -90,7 +86,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                         <!-- btn Prochainement - btn historique -->
                         <div class="btnProchainHistorique">
                             <a href="" id="reinitialiser_resultat" class="prochainement_listEvent">Prochainement</a>
-                            <a href="" id="prochain_event" class="historique_listEvent">Historique</a>
+                            <a href="" id="historique_event" class="historique_listEvent">Historique</a>
                         </div>
 
                         <!-- FILTRE -->
@@ -134,15 +130,14 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                                 $totalPlacesReservees = Book::calculReservation($event['id_evenement']);
                         ?>
 
-
-                                <!-- MODULE BOUCLE -->
+                                <!-- MODULE pour la boucle -->
                                 <div class="module_listEvent" button onclick="window.location.href='./evenement2.php?id_event=<?= $event['id_evenement']; ?>'">
 
                                     <!-- MODULE - partie gauche - image -->
                                     <div class="img_listEvent"><img src="./asset/img/<?= $event['image']; ?>" alt="Image de l'évenement <?= $event['image']; ?>"></div>
 
                                     <!-- MODULE - partie centrale - texte -->
-                                    <div class="center_txt_listEvent">
+                                    <div class="center_txt_listEvent grand_ecran_listEvent">
                                         <div class="txt_container_listEvent">
                                             <!-- numéro -->
                                             <div class="num_listEvent"><?= $event['id_evenement']; ?></div>
@@ -158,9 +153,8 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                                     </div>
 
                                     <!-- MODULE - partie droite - tarif & état -->
-                                    <div class="tarif_etat_listEvent">
+                                    <div class="tarif_etat_listEvent grand_ecran_listEvent">
                                         <div class="tarif_listEvent">Tarif: <?= $event['prix']; ?>€</div>
-
                                         <!-- Etat -->
                                         <!-- <div class="etat_listEvent">Réservé</div> -->
 
@@ -188,6 +182,60 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
                                             <?php } ?>
                                         <?php } ?>
                                     </div>
+
+
+                                    <!-- MODULE RESPONSIVE - PETIT ECRAN (partie centrale & droite) -->
+                                    <div class="petit_ecran_listEvent">
+
+                                        <!-- MODULE - partie droite - tarif & état -->
+                                        <div class="tarif_etat_listEvent">
+                                            <div class="tarif_listEvent">Tarif: <?= $event['prix']; ?>€</div>
+
+                                            <!-- Etat -->
+                                            <!-- <div class="etat_listEvent">Réservé</div> -->
+
+                                            <?php if (!empty($_SESSION['id_user'])) { ?>
+
+                                                <!-- Réservé & Complet -->
+                                                <?php if (in_array($event['id_evenement'], $userReservationIds) && $event['events_actif'] == 1 && ($totalPlacesReservees >= $event['nbr_place'])) { ?>
+                                                    <div class="etat_listEvent">Réservé & Complet</div>
+
+                                                    <!-- Réservé -->
+                                                <?php } elseif (in_array($event['id_evenement'], $userReservationIds) && $event['events_actif'] == 1 && $event['reservation_actif'] == 1) { ?>
+                                                    <div class="etat_listEvent">Réservé</div>
+
+                                                    <!-- Complet -->
+                                                <?php } elseif ($totalPlacesReservees >= $event['nbr_place']) { ?>
+                                                    <div class="etat_listEvent">Complet</div>
+
+                                                    <!-- Annulation -->
+                                                <?php } elseif ($event['events_actif'] == 0) { ?>
+                                                    <div class="etat_listEvent">Annulation</div>
+
+                                                    <!-- Rien -->
+                                                <?php } else { ?>
+
+                                                <?php } ?>
+                                            <?php } ?>
+                                        </div>
+
+                                        <!-- MODULE - partie centrale - texte -->
+                                        <div class="center_txt_listEvent">
+                                            <div class="txt_container_listEvent">
+                                                <!-- numéro -->
+                                                <div class="num_listEvent"><?= $event['id_evenement']; ?></div>
+                                                <div class="txt_listEvent">
+                                                    <div class="titre_listEvent"><?= $event['titre']; ?></div>
+                                                    <!-- date / category -->
+                                                    <div class="ss_titre_listEvent">
+                                                        <div class="category"><?= $event['categorie_name']; ?></div>
+                                                        <div class="date"><?= date('d-m-Y', strtotime($event['date_event'])); ?></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
 
@@ -214,7 +262,7 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
 
         <!-- FOOTER 1 -->
         <?php
-        include_once "./inc/contenu_footer1.php";
+        include_once "./inc/footer_fixe/contenu_footer1.php";
         ?>
 
         <!-- -------------- BALISE SCRIPT -------------- -->
@@ -225,10 +273,10 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
         <script src="./asset/js/cercle.js"></script>
 
         <!-- Changement attérir sur l'espace client de la nav -->
-        <script src="./asset/js/nav_espace_client_event.js"></script>
+        <script src="./asset/js/espace_client/nav_espace_client_event.js"></script>
 
         <!-- Changement d'état au scroll -->
-        <script src="./asset/js/nav_scroll3.js"></script>
+        <script src="./asset/js/animation_scroll/scroll_client_list.js"></script>
 
         <!-- Espace navigation -->
         <script src="./asset/js/espace_navigation.js"></script>
@@ -247,15 +295,15 @@ if ((isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") ||
             $(document).ready(function() {
 
                 // Exemple : utiliser la fonction on('change') de jquery afin de sélectionner un nom dans la liste déroulante : $('#personne').on('change', function()
-                // a) Au clique sur le lien contenant l'id prochain_event
-                $('#prochain_event').on('click', function(event) {
+                // a) Au clique sur le lien contenant l'id historique_event
+                $('#historique_event').on('click', function(event) {
                     event.preventDefault()
 
                     // c) Sérialiser le contenu des champs du formulaire (dans cet exemple il y a un seul champ), à l'aide de la fonction serialize() de jQuery
 
                     // d) utiliser la méthode ajax de jquery pour l'affichage de la réponse
                     $.ajax({
-                        url: "traitement/traitement_ajax5.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
+                        url: "traitement/historique_client_list_event.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
                         type: "POST", // la méthode utilisée (projet : ne rien mettre, par défaut on sera sur la method GET)
                         // les paramètres à fournir ex : ...id=4&nom=anonyme...(projet : on ne met rien) 
                         dataType: 'json', // le format des données attendues en tableau JSON pour être interprété et éxécuté par AJAX (projet : 'json') 

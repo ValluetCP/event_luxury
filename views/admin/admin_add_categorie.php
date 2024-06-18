@@ -6,7 +6,6 @@ include_once "../inc/header.php";
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
     include_once "../inc/nav_bicolor_espace_admin.php";
-    // include_once "../inc/nav_admin_bicolor.php";
     require_once "../../models/categorieModel.php";
 
 

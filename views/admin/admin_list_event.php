@@ -5,11 +5,11 @@ include_once "../inc/header.php";
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
-include_once "../inc/nav_blc_espace_admin.php";
-require_once "../../models/eventModel.php";
+    include_once "../inc/nav_blc/nav_blc_espace_admin.php";
+    require_once "../../models/eventModel.php";
 
-$listEvent = Event::findAllEvent();
-$currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD HH:MM:SS)
+    $listEvent = Event::findAllEvent();
+    $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD HH:MM:SS)
 
 
 ?>
@@ -21,7 +21,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
 
         <!-- ----- BOUTON CIRCULAIRE 2 - 'retour vers le haut'----- -->
         <?php
-            include_once "../inc/bouton_retour_haut/bouton_retour_haut_admin.php";
+        include_once "../inc/bouton_retour_haut/bouton_retour_haut_admin.php";
         ?>
 
         <!-- ------------------------------- HAUT -------------------------------- -->
@@ -35,7 +35,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
             </div>
             <!-- ----- BOUTON CIRCULAIRE 1 - 'scroll'----- -->
             <?php
-                include_once "../inc/bouton_scroll/bouton_scroll_admin.php";
+            include_once "../inc/bouton_scroll/bouton_scroll_admin.php";
             ?>
 
         </section>
@@ -54,22 +54,8 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
                     <!-- BOUTON (btn Prochainement - btn historique) -->
                     <div id="btn_adminListEvent" class="btnProchainHistorique">
                         <a href="" id="reinitialiser_resultat" class="prochainement_listEvent">Prochainement</a>
-                        <a href="" id="prochain_event" class="historique_listEvent">Historique</a>
+                        <a href="" id="historique_event" class="historique_listEvent">Historique</a>
                     </div>
-
-                    <!-- FILTRE -->
-                    <!-- <div class="filtreCategory">
-                        <button type="submit" class="lb_filtre">Filtrer</button>
-                        <div class="lb_selectFiltre">
-                            <select name="lb_categoryFiltre" id="lb_categoryFiltre">
-                                <option value="1">Toutes les catégories</option>
-                                <option value="2">Divertissement</option>
-                                <option value="3">Atelier</option>
-                                <option value="4">Gastronomie</option>
-                                <option value="5">Evasion</option>
-                            </select>
-                        </div>
-                    </div> -->
 
                 </div>
 
@@ -178,7 +164,7 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    
+
     <!-- -------------- BALISE SCRIPT -------------- -->
     <!-- Souris -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
@@ -189,14 +175,12 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
     <!-- Espace navigation -->
     <script src="../asset/js/espace_navigation.js"></script>
     <!-- Changement d'état au scroll -->
-    <script src="../asset/js/nav_scroll5.js"></script>
+    <script src="../asset/js/animation_scroll/scroll_admin_list.js"></script>
     <!-- Bouton 'retour vers le haut' -->
     <script src="../asset/js/bouton_retour_haut.js"></script>
-    
+
 
     <script>
-
-
         // CODE JS : BTN AJAX (PROCHAINEMENT & HISTORIQUE)
 
         // Stocker le contenu initial de la div resultat
@@ -206,14 +190,14 @@ $currentDate = date('Y-m-d H:i:s'); // Date actuelle au format SQL (YYYY-MM-DD H
         $(document).ready(function() {
 
             // a) utiliser la fonction on('change') de jquery afin de sélectionner un nom dans la liste déroulante : $('#personne').on('change', function()
-            $('#prochain_event').on('click', function(event) {
+            $('#historique_event').on('click', function(event) {
                 event.preventDefault()
 
                 // c) Sérialiser le contenu des champs du formulaire (dans cet exemple il y a un seul champ), à l'aide de la fonction serialize() de jQuery
 
                 // d) utiliser la méthode ajax de jquery pour l'affichage de la réponse
                 $.ajax({
-                    url: "../traitement/traitement_ajax3.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
+                    url: "../traitement/historique_admin_list_event.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
                     type: "POST", // la méthode utilisée (projet : ne rien mettre, par défaut on sera sur la method GET)
                     // les paramètres à fournir ex : ...id=4&nom=anonyme...(projet : on ne met rien) 
                     dataType: 'json', // le format des données attendues en tableau JSON pour être interprété et éxécuté par AJAX (projet : 'json') 

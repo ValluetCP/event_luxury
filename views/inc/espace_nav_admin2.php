@@ -2,7 +2,7 @@
 
     <!-- BARRE DE NAVIGATION - début -->
     <div class="nav_logo">
-        <a href=""><img id="scrollLogoClair" class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
+        <a href="http://localhost/event_luxury/views/home_client"><img id="scrollLogoClair" class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
     </div>
 
     <div class="navigation">
@@ -33,14 +33,14 @@
 
                 <!-- LOGO - MENU DE NAVIGATION -->
                 <div class="logo_menu">
-                    <a href=""><img class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
+                    <a href="http://localhost/event_luxury/views/home_client"><img class="logo logo_vert_clair" src="http://localhost/event_luxury/views/asset/img/img_logo/logo_vert_clair.svg" alt="logo"></a>
                 </div>
 
                 <!-- PROFIL CONNEXION  - (prénom & image profil rond) -->
                 <div class="profil_nav">
 
                     <!-- Nouvel Affichage photo -->
-                    <div class="img_profil_nav">
+                    <div class="img_profil_nav" onclick="window.location.href='http://localhost/event_luxury/views/profil.php?id=<?= $_SESSION['id_user']; ?>'">
 
                         <img class="img_profil" src="http://localhost/event_luxury/views/asset/img_event/<?= $_SESSION['user_img_profil']; ?>" alt="votre photo de profil" title="votre photo de profil">
 
@@ -49,7 +49,7 @@
                     <!-- Affichage prénom -->
                     <?php if (!empty($_SESSION) && $_SESSION['user_role'] == 'admin') { ?>
 
-                        <p>Bonjour <?= ucfirst($_SESSION['user_pseudo']); ?> </p>
+                        <p>Bonjour <?= ucfirst($_SESSION['user_firstName']); ?> </p>
 
                     <?php } else { ?>
                         <p>Bonjour</p>
@@ -75,6 +75,9 @@
 
                         <!-- ESPACE PERSONNEL -->
                         <li><a href="http://localhost/event_luxury/views/profil.php?id=<?= $_SESSION["id_user"]; ?>" class="profil_info_link sous_menu_profil">Mes informations</a></li>
+
+                        <!-- PANIER -->
+                        <li><a href="http://localhost/event_luxury/views/panier_css.php" class="profil_panier_link sous_menu_profil">Mon panier</a></li>
 
                         <!-- FACTURE -->
                         <li><a href="http://localhost/event_luxury/views/facture.php" class="profil_facture_link sous_menu_profil">Factures</a></li>
@@ -105,7 +108,7 @@
                     <ul class="filtre">
 
                         <!-- CLIENT - Accueil -->
-                        <li><a href="http://localhost/event_luxury/views/accueil_client" class="client_accueil_link sous_menu_client">L'accueil</a></li>
+                        <li><a href="http://localhost/event_luxury/views/home_client" class="client_accueil_link sous_menu_client">L'accueil</a></li>
 
                         <!-- CLIENT - La liste des évènements -->
                         <li><a href="http://localhost/event_luxury/views/event_list" class="client_event_link sous_menu_client">Nos événements</a></li>

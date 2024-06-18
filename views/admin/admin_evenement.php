@@ -4,7 +4,6 @@ include_once "../inc/header.php";
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
 
-// include_once "../inc/navigation.php";
 include_once "../inc/nav_bicolor_espace_admin.php";
 include_once "../inc/functions.php";
 require_once "../../models/eventModel.php";
@@ -126,7 +125,7 @@ require_once "../../models/userModel.php";
                 <h1><?= $ficheEvent['titre']; ?></h1>
                 <h2 id="titreAdminEvent"><?= $ficheEvent['categorie_name']; ?></h2>
                 <div class="imgEvent">
-                    <a href=""><img src="../asset/img/<?= $ficheEvent['image']; ?>" alt="" title="agrandir l'image"></a>
+                    <a href=""><img src="../asset/img/<?= $ficheEvent['image']; ?>" alt="<?= $ficheEvent['titre']; ?>" title="agrandir l'image"></a>
                 </div>
                 <h4>Date</h4>
                 <p class="dateEvent"><?= date('d-m-Y', strtotime($ficheEvent['date_event'])); ?></p>
@@ -185,7 +184,7 @@ require_once "../../models/userModel.php";
                             <article class="categoryUn">
                                 <figure class="fig_1">
                                     <a href="./admin_evenement.php?event=<?= $event['id_evenement']; ?>">
-                                        <div class="imgCategory"><img src="../asset/img/<?= $event['image']; ?>" alt=""></div>
+                                        <div class="imgCategory"><img src="../asset/img/<?= $event['image']; ?>" alt="<?= $event['titre']; ?>"></div>
                                     </a>
                                 </figure>
                                 <div class="titreCategory">

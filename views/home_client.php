@@ -1,7 +1,6 @@
 <?php
 include_once "./inc/header.php";
-include_once "./inc/navigation_blanc.php";
-// include_once "./inc/navigation_header.php";
+include_once "./inc/nav_blc/nav_blc_home_client.php";
 ?>
 
 <header>
@@ -44,7 +43,7 @@ include_once "./inc/navigation_blanc.php";
 <main>
     <!-- ----- BOUTON CIRCULAIRE - 'retour vers le haut'----- -->
     <?php
-        include_once "./inc/bouton_retour_haut/bouton_retour_haut.php";
+    include_once "./inc/bouton_retour_haut/bouton_retour_haut.php";
     ?>
 
     <!-- SECTION 1 -->
@@ -210,7 +209,7 @@ include_once "./inc/navigation_blanc.php";
 
 <!-- -------------- BALISE SCRIPT -------------- -->
 <!-- Changement attérir sur l'espace client de la nav -->
-<script src="./asset/js/nav_espace_client_accueil.js"></script>
+<script src="./asset/js/espace_client/nav_espace_client_accueil.js"></script>
 
 <!-- CLIENT OU ADMIN -->
 <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin" || (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client")) { ?>
@@ -220,14 +219,11 @@ include_once "./inc/navigation_blanc.php";
     <!-- ANONYME -->
 <?php } else { ?>
     <!-- Changement d'état au scroll (page home)-->
-    <script src="./asset/js/nav_scroll.js"></script>
+    <script src="./asset/js/animation_scroll/scroll_home.js"></script>
 <?php } ?>
 
 <!-- Espace navigation -->
 <script src="./asset/js/espace_navigation.js"></script>
-
-<!-- Espace navigation -->
-<script src="../asset/js/connexion.js"></script>
 
 <!-- Bouton 'retour vers le haut' -->
 <script src="./asset/js/bouton_retour_haut.js"></script>

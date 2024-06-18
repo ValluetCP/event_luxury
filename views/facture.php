@@ -1,6 +1,6 @@
 <?php
 include_once "./inc/header.php";
-include_once "./inc/nav_blc_espace_profil.php";
+include_once "./inc/nav_blc/nav_blc_espace_profil.php";
 ?>
 <main>
     <section class="container_404">

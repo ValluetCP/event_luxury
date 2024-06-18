@@ -3,10 +3,10 @@ include_once "../inc/header.php";
 
 // -------------- SECURITE ACCES ADMIN -------------- //
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
-    
-include_once "../inc/nav_blc_espace_admin.php";
-require_once "../../models/userModel.php";
-$userList = User::findAllUser();
+
+    include_once "../inc/nav_blc/nav_blc_espace_admin.php";
+    require_once "../../models/userModel.php";
+    $userList = User::findAllUser();
 ?>
 
 
@@ -17,7 +17,7 @@ $userList = User::findAllUser();
 
         <!-- ----- BOUTON CIRCULAIRE 2 - 'retour vers le haut'----- -->
         <?php
-            include_once "../inc/bouton_retour_haut/bouton_retour_haut_admin.php";
+        include_once "../inc/bouton_retour_haut/bouton_retour_haut_admin.php";
         ?>
 
         <!-- ------------------------------- HAUT -------------------------------- -->
@@ -37,7 +37,7 @@ $userList = User::findAllUser();
 
             <!-- ----- BOUTON CIRCULAIRE 1 - 'scroll'----- -->
             <?php
-                include_once "../inc/bouton_scroll/bouton_scroll_admin.php";
+            include_once "../inc/bouton_scroll/bouton_scroll_admin.php";
             ?>
         </section>
 
@@ -55,7 +55,7 @@ $userList = User::findAllUser();
                     <!-- btn Prochainement - btn historique -->
                     <!-- <div class="btnProchainHistorique">
                     <a href="" id="reinitialiser_resultat" class="prochainement_listEvent">client</a>
-                    <a href="" id="prochain_event" class="historique_listEvent">admin</a>
+                    <a href="" id="historique_event" class="historique_listEvent">admin</a>
                 </div> -->
 
                     <!-- FILTRE -->
@@ -95,7 +95,7 @@ $userList = User::findAllUser();
                                     <!-- image -->
                                     <td>
                                         <div class="table_img">
-                                            <img src="http://localhost/event_luxury/views/asset/img_event/<?= $user['img_profil']; ?>" alt="">
+                                            <img src="http://localhost/event_luxury/views/asset/img_event/<?= $user['img_profil']; ?>" alt="profil <?= $user['prenom']; ?>">
                                         </div>
                                     </td>
 
@@ -160,55 +160,10 @@ $userList = User::findAllUser();
     <script src="../asset/js/espace_navigation.js"></script>
 
     <!-- Changement d'état au scroll -->
-    <script src="../asset/js/nav_scroll5.js"></script>
-    
+    <script src="../asset/js/animation_scroll/scroll_admin_list.js"></script>
+
     <!-- Bouton 'retour vers le haut' -->
     <script src="../asset/js/bouton_retour_haut.js"></script>
-    
-
-    <script>
-
-        // CODE JS : BTN AJAX (PROCHAINEMENT & HISTORIQUE)
-
-        // Stocker le contenu initial de la div resultat
-        var contenuInitial = $('#resultat').html();
-
-        // Dès que la page sera complètement chargée, que le DOM (Document Objet Modèle) sera entièrement généré
-        $(document).ready(function() {
-
-            // a) utiliser la fonction on('change') de jquery afin de sélectionner un nom dans la liste déroulante : $('#personne').on('change', function()
-            $('#prochain_event').on('click', function(event) {
-                event.preventDefault()
-
-                // c) Sérialiser le contenu des champs du formulaire (dans cet exemple il y a un seul champ), à l'aide de la fonction serialize() de jQuery
-
-                // d) utiliser la méthode ajax de jquery pour l'affichage de la réponse
-                $.ajax({
-                    url: "../traitement/traitement_ajax4.php", // le fichier cible, celui qui fera le traitement (projet : mettre le chemin que l'on aurait mis dans la balise <a>)
-                    type: "POST", // la méthode utilisée (projet : ne rien mettre, par défaut on sera sur la method GET)
-                    // les paramètres à fournir ex : ...id=4&nom=anonyme...(projet : on ne met rien) 
-                    dataType: 'json', // le format des données attendues en tableau JSON pour être interprété et éxécuté par AJAX (projet : 'json') 
-                    success: function(response) {
-                        // la fonction qui doit s'exécuter lors de la réussite de la communication ajax 
-                        console.log(response);
-                        $('#resultat').html(response.contenu);
-                    },
-                    error: function(xhr, ajaxOptions, thrownError) {
-                        console.log(xhr.status);
-                        console.log(thrownError);
-                    }
-                });
-            });
-
-            // Réinitialiser la div resultat à son contenu initial
-            $('#reinitialiser_resultat').on('click', function(event) {
-                event.preventDefault();
-                $('#resultat').html(contenuInitial);
-            });
-
-
-        });
-    </script>
 
 
     <!-- -------------- SUITE SECURITE ACCES -------------- -->

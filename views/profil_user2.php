@@ -1,6 +1,7 @@
 <?php
 include_once "./inc/header.php";
-include_once "./inc/nav_vert_espace_admin.php";
+include_once "./inc/nav_vert/nav_vert_espace_admin.php";
+// include_once "./inc/nav_vert_espace_admin.php";
 require_once "../models/userModel.php";
 
 if (isset($_GET['id_user_update'])) {
